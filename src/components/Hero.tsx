@@ -35,30 +35,10 @@ const Hero = () => {
                 Donate Now
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              
-              <Button variant="outline" size="lg" className="border-white/20 text-black hover:bg-white/10 backdrop-blur-sm">
-                <Play className="w-5 h-5 mr-2" />
-                Watch Our Story
-              </Button>
+            
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">50K+</div>
-                <div className="text-white/80 text-sm md:text-base">Lives Impacted</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">127</div>
-                <div className="text-white/80 text-sm md:text-base">Communities Served</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">15+</div>
-                <div className="text-white/80 text-sm md:text-base">Years of Impact</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">98%</div>
-                <div className="text-white/80 text-sm md:text-base">Success Rate</div>
-              </div>
             </div>
           </div>
         </div>

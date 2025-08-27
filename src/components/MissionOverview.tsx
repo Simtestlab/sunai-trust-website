@@ -6,19 +6,16 @@ const programs = [
     icon: GraduationCap,
     title: 'Education',
     description: 'Providing quality education and learning opportunities to underserved communities, ensuring every child has access to knowledge and skills for a brighter future.',
-    stats: '12,000+ Students Supported'
   },
   {
     icon: Heart,
     title: 'Health',
     description: 'Delivering essential healthcare services, medical training, and health awareness programs to improve the well-being of entire communities.',
-    stats: '25,000+ Patients Treated'
   },
   {
     icon: Users,
     title: 'Empowerment',
     description: 'Building sustainable livelihoods through skill development, microfinance, and community-led initiatives that foster long-term independence.',
-    stats: '8,500+ Lives Transformed'
   }
 ];
 
@@ -49,6 +46,7 @@ const MissionOverview = () => {
               </CardContent>
             </Card>
           ))}
+          {/* Removed Events box as requested */}
         </div>
 
         <div className="text-center scroll-reveal">
@@ -60,24 +58,7 @@ const MissionOverview = () => {
               Every program we implement is designed with the community's input and focuses on 
               creating sustainable solutions that continue to benefit people for generations.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">100%</div>
-                <div className="text-sm text-muted-foreground">Community-Led</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">5+ Years</div>
-                <div className="text-sm text-muted-foreground">Avg. Impact Duration</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">95%</div>
-                <div className="text-sm text-muted-foreground">Sustainability Rate</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary mb-1">Local</div>
-                <div className="text-sm text-muted-foreground">Team Leadership</div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

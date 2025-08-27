@@ -8,8 +8,7 @@ import {
   Youtube, 
   Mail,
   Phone,
-  MapPin,
-  Heart
+  MapPin
 } from 'lucide-react';
 
 const Footer = () => {
@@ -17,7 +16,7 @@ const Footer = () => {
     <footer className="bg-foreground text-white">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo & Mission */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
@@ -53,18 +52,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><a href="#about" className="text-white/80 hover:text-white transition-smooth">About Us</a></li>
-              <li><a href="#programs" className="text-white/80 hover:text-white transition-smooth">Our Programs</a></li>
-              <li><a href="#impact" className="text-white/80 hover:text-white transition-smooth">Impact Stories</a></li>
-              <li><a href="#events" className="text-white/80 hover:text-white transition-smooth">Events</a></li>
-              <li><a href="#blog" className="text-white/80 hover:text-white transition-smooth">Blog</a></li>
-              <li><a href="#volunteer" className="text-white/80 hover:text-white transition-smooth">Volunteer</a></li>
-              <li><a href="#donate" className="text-white/80 hover:text-white transition-smooth">Donate</a></li>
-            </ul>
-          </div>
+
 
           {/* Programs */}
           <div>
@@ -104,21 +92,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Newsletter Signup */}
-            <div className="bg-white/10 rounded-lg p-4">
-              <h5 className="font-semibold mb-3">Newsletter</h5>
-              <p className="text-white/80 text-sm mb-4">Get updates on our latest programs and impact stories.</p>
-              <div className="flex space-x-2">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                />
-                <Button variant="hero" size="sm">
-                  <Heart className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
+            {/* Newsletter removed per request */}
           </div>
         </div>
 

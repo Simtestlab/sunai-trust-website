@@ -23,7 +23,7 @@ const CTABar = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+  <div className="flex flex-col md:flex-row justify-center items-stretch gap-8">
           {/* Donate CTA */}
           <div className="text-center group hover-lift">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-smooth">
@@ -57,24 +57,6 @@ const CTABar = () => {
               className="border-white/30 text-black hover:bg-white/20 backdrop-blur-sm w-full"
             >
               Join Us
-            </Button>
-          </div>
-
-          {/* Events CTA */}
-          <div className="text-center group hover-lift">
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-smooth">
-              <Calendar className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">Events</h3>
-            <p className="text-white/80 mb-6 leading-relaxed">
-              Attend our fundraising events, awareness campaigns, and community gatherings to stay connected.
-            </p>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-white/30 text-black hover:bg-white/20 backdrop-blur-sm w-full"
-            >
-              View Events
             </Button>
           </div>
         </div>

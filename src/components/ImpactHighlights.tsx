@@ -1,35 +1,40 @@
 import { useEffect, useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { TrendingUp, Users, MapPin, Award } from 'lucide-react';
+import iconImg from '@/assets/programs-icons.jpg';
 
 const stats = [
   {
-    icon: Users,
-    number: 50234,
-    suffix: '+',
-    label: 'Lives Transformed',
-    description: 'Individuals directly impacted by our programs'
+  image: iconImg,
+  // when `name` is present we'll render the name instead of the animated number
+  name: 'person',
+  suffix: '',
+  role: 'Program Director',
+  label: 'Lives Transformed',
+  description: 'Leads program strategy, partnerships, and overall implementation across regions.'
   },
   {
-    icon: MapPin,
-    number: 127,
-    suffix: '',
-    label: 'Communities Reached', 
-    description: 'Villages and urban areas we serve'
+  image: iconImg,
+  name: 'person',
+  suffix: '',
+  role: 'Field Coordinator',
+  label: 'Communities Reached', 
+  description: 'Coordinates community engagement and field operations to ensure program reach.'
   },
   {
-    icon: TrendingUp,
-    number: 89,
-    suffix: '%',
-    label: 'Success Rate',
-    description: 'Programs achieving sustainable outcomes'
+  image: iconImg,
+  name: 'person',
+  suffix: '',
+  role: 'Monitoring & Evaluation Lead',
+  label: 'Success Rate',
+  description: 'Oversees monitoring, evaluation and reporting to measure program impact.'
   },
   {
-    icon: Award,
-    number: 15,
-    suffix: '+',
-    label: 'Years of Excellence',
-    description: 'Dedicated service to communities'
+  image: iconImg,
+  name: 'person',
+  suffix: '',
+  role: 'Senior Advisor',
+  label: 'Years of Excellence',
+  description: 'Provides strategic guidance and builds relationships with stakeholders.'
   }
 ];
 
@@ -96,11 +101,12 @@ const ImpactHighlights = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 scroll-reveal">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Impact That Matters
+            Our Team – The Hearts Behind Our Mission
           </h2>
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Numbers tell our story of transformation. Behind every statistic is a life changed, 
-            a community empowered, and a future made brighter.
+"Change is not built alone, it’s built together.
+Our team blends vision, skill, and compassion to serve communities.
+‘We turn purpose into action, and action into impact.’"
           </p>
         </div>
 
@@ -108,19 +114,25 @@ const ImpactHighlights = () => {
           {stats.map((stat, index) => (
             <Card key={stat.label} className="bg-white/10 border-white/20 backdrop-blur-sm hover-lift scroll-reveal">
               <CardContent className="p-8 text-center text-white">
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <stat.icon className="w-8 h-8 text-accent" />
+                <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+                  <img src={stat.image} alt={stat.label} className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
                 </div>
                 
                 <div className="mb-2">
-                  <CounterNumber 
-                    target={stat.number} 
-                    suffix={stat.suffix} 
-                    isVisible={isVisible} 
-                  />
+                  {stat.name ? (
+                    <span className="text-2xl md:text-3xl font-bold text-accent">{stat.name}</span>
+                  ) : (
+                    typeof (stat as any).number === 'number' ? (
+                      <CounterNumber 
+                        target={(stat as any).number} 
+                        suffix={stat.suffix} 
+                        isVisible={isVisible} 
+                      />
+                    ) : null
+                  )}
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3">{stat.label}</h3>
+                <h3 className="text-xl font-semibold mb-3">{stat.role ?? stat.label}</h3>
                 <p className="text-white/80 text-sm leading-relaxed">{stat.description}</p>
               </CardContent>
             </Card>
@@ -135,17 +147,17 @@ const ImpactHighlights = () => {
             </p>
             <div className="flex justify-center items-center space-x-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">+23%</div>
+                {/*<div className="text-2xl font-bold text-accent">+23%</div>*/}
                 <div className="text-white/80 text-sm">Growth This Year</div>
               </div>
               <div className="h-8 w-px bg-white/20"></div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">New</div>
+                {/*<div className="text-2xl font-bold text-accent">New</div>*/} 
                 <div className="text-white/80 text-sm">Programs Launching</div>
               </div>
               <div className="h-8 w-px bg-white/20"></div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-accent">24/7</div>
+                {/*<div className="text-2xl font-bold text-accent">24/7</div>*/}
                 <div className="text-white/80 text-sm">Community Support</div>
               </div>
             </div>
