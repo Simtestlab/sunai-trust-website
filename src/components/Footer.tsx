@@ -56,7 +56,7 @@ const Footer = () => {
 
           {/* Programs */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Our Programs</h4>
+            <h4 className="text-lg font-semibold mb-6">Our Future Programs</h4>
             <ul className="space-y-3">
               <li><a href="#education" className="text-white/80 hover:text-white transition-smooth">Education Initiative</a></li>
               <li><a href="#health" className="text-white/80 hover:text-white transition-smooth">Healthcare Access</a></li>
@@ -74,7 +74,6 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-white/80">info@sunai.org</p>
                   <p className="text-white/80">support@sunai.org</p>
                 </div>
               </div>
