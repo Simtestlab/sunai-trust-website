@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import MissionOverview from '@/components/MissionOverview';
 import ImpactHighlights from '@/components/ImpactHighlights';
 import FeaturedStory from '@/components/FeaturedStory';
+import PartnerLogos from '@/components/PartnerLogos';
 import CTABar from '@/components/CTABar';
 import NewsPreview from '@/components/NewsPreview';
 import Footer from '@/components/Footer';
@@ -17,7 +18,8 @@ const Index = () => {
       <main>
         <Hero />
         <MissionOverview />
-        <ImpactHighlights />
+    <ImpactHighlights />
+  <PartnerLogos />
         <FeaturedStory />
         <CTABar />
         <NewsPreview />

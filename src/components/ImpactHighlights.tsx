@@ -1,40 +1,43 @@
 import { useEffect, useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import iconImg from '@/assets/programs-icons.jpg';
+import person1 from '@/assets/person1.jpg';
+import person2 from '@/assets/person2.jpg';
+import person3 from '@/assets/person3.jpg';
+import person4 from '@/assets/person4.jpg';
 
 const stats = [
   {
-  image: iconImg,
-  // when `name` is present we'll render the name instead of the animated number
-  name: 'person',
-  suffix: '',
-  role: 'Program Director',
-  label: 'Lives Transformed',
-  description: 'Leads program strategy, partnerships, and overall implementation across regions.'
+    // when `name` is present we'll render the name instead of the animated number
+    image: person1,
+    name: 'Person',
+    suffix: '',
+    role: 'Program Director',
+    label: 'Lives Transformed',
+    description: 'Leads program strategy, partnerships, and overall implementation across regions.'
   },
   {
-  image: iconImg,
-  name: 'person',
-  suffix: '',
-  role: 'Field Coordinator',
-  label: 'Communities Reached', 
-  description: 'Coordinates community engagement and field operations to ensure program reach.'
+    image: person2,
+    name: 'Person',
+    suffix: '',
+    role: 'Field Coordinator',
+    label: 'Communities Reached',
+    description: 'Coordinates community engagement and field operations to ensure program reach.'
   },
   {
-  image: iconImg,
-  name: 'person',
-  suffix: '',
-  role: 'Monitoring & Evaluation Lead',
-  label: 'Success Rate',
-  description: 'Oversees monitoring, evaluation and reporting to measure program impact.'
+    image: person3,
+    name: 'Person',
+    suffix: '',
+    role: 'Monitoring & Evaluation Lead',
+    label: 'Success Rate',
+    description: 'Oversees monitoring, evaluation and reporting to measure program impact.'
   },
   {
-  image: iconImg,
-  name: 'person',
-  suffix: '',
-  role: 'Senior Advisor',
-  label: 'Years of Excellence',
-  description: 'Provides strategic guidance and builds relationships with stakeholders.'
+    image: person4,
+    name: 'Person',
+    suffix: '',
+    role: 'Senior Advisor',
+    label: 'Years of Excellence',
+    description: 'Provides strategic guidance and builds relationships with stakeholders.'
   }
 ];
 
@@ -115,12 +118,12 @@ Our team blends vision, skill, and compassion to serve communities.
             <Card key={stat.label} className="bg-white/10 border-white/20 backdrop-blur-sm hover-lift scroll-reveal">
               <CardContent className="p-8 text-center text-white">
                 <div className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
-                  <img src={stat.image} alt={stat.label} className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+                  <img src={stat.image} alt={stat.role} className="w-full h-full object-cover" />
                 </div>
                 
                 <div className="mb-2">
                   {stat.name ? (
-                    <span className="text-2xl md:text-3xl font-bold text-accent">{stat.name}</span>
+                    <span className="text-xl md:text-2xl font-bold text-white/80">{stat.name}</span>
                   ) : (
                     typeof (stat as any).number === 'number' ? (
                       <CounterNumber 

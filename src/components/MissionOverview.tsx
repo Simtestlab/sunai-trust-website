@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, Heart, Users } from 'lucide-react';
+import { GraduationCap, Heart, Users, Trees, MapPin, Gift } from 'lucide-react';
 
 const programs = [
   {
@@ -16,6 +16,22 @@ const programs = [
     icon: Users,
     title: 'Empowerment',
     description: 'Building sustainable livelihoods through skill development, microfinance, and community-led initiatives that foster long-term independence.',
+  }
+  ,
+  {
+    icon: Trees,
+    title: 'Tree Plantation',
+    description: 'Organizing community-led tree plantation drives to restore local ecosystems, improve air quality, and create green spaces for future generations.',
+  },
+  {
+    icon: MapPin,
+    title: 'Rural Development Programs',
+    description: 'Supporting rural communities with infrastructure, training, and resources to boost agriculture, market access, and overall resilience.',
+  },
+  {
+    icon: Gift,
+    title: 'Charity',
+    description: 'Providing direct aid and relief to families in need, including food distribution, emergency support, and targeted charitable initiatives.',
   }
 ];
 
@@ -42,7 +58,6 @@ const MissionOverview = () => {
                 </div>
                 <h3 className="text-2xl font-semibold text-foreground mb-4">{program.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{program.description}</p>
-                <div className="text-primary font-semibold text-sm">{program.stats}</div>
               </CardContent>
             </Card>
           ))}
@@ -50,18 +65,11 @@ const MissionOverview = () => {
         </div>
 
         <div className="text-center scroll-reveal">
-          <div className="bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border/50">
-            <h3 className="text-3xl font-bold text-foreground mb-4">
-              Together, We Build Lasting Change
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Every program we implement is designed with the community's input and focuses on 
-              creating sustainable solutions that continue to benefit people for generations.
-            </p>
+          
             
           </div>
         </div>
-      </div>
+      
     </section>
   );
 };

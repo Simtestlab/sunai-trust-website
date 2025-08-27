@@ -162,6 +162,16 @@ All colors MUST be HSL.
     animation: counter-up 2s ease-out;
   }
 
+  /* Utility to hide native scrollbars while keeping scroll functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
   .hover-lift {
     transition: var(--transition-smooth);
   }
