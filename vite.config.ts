@@ -8,6 +8,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    // allow tunnel host for remote previews
+    allowedHosts: [
+      'muskox-right-kangaroo.ngrok-free.app'
+    ],
   },
   plugins: [
     react(),
