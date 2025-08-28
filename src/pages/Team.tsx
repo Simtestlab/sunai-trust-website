@@ -8,7 +8,7 @@ import person4 from '@/assets/person4.jpg';
 const TeamCard = ({ img, name, title, desc }: { img: string; name: string; title: string; desc: string }) => (
   <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.12)] rounded-lg p-8 text-center backdrop-blur-sm">
     <div className="w-28 h-28 mx-auto rounded-full overflow-hidden ring-4 ring-[rgba(255,255,255,0.06)] mb-4">
-      <img src={img} alt={name} className="w-full h-full object-cover" />
+      <img src={img} alt={name} loading="lazy" className="w-full h-full object-cover" />
     </div>
     <h3 className="text-xl font-semibold text-white">{name}</h3>
     <p className="text-sm font-medium text-white/90 mt-1">{title}</p>

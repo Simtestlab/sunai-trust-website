@@ -72,7 +72,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => (
   <article className="bg-white rounded-lg overflow-hidden shadow-sm">
     <div className="h-44 bg-slate-50 flex items-center justify-center">
       {/* top visual area */}
-      <img src={blog.image} alt={blog.title} className="h-full w-full object-cover opacity-40" />
+      <img src={blog.image} alt={blog.title} loading="lazy" className="h-full w-full object-cover opacity-40" />
       <div className="absolute">
         <div className="h-10 w-10 bg-white/80 rounded-full flex items-center justify-center">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -25,7 +25,6 @@ const Header = () => {
             <Link to="/projects" className="text-sm font-medium text-foreground hover:underline">Projects</Link>
             <Link to="/achievements" className="text-sm font-medium text-foreground hover:underline">Achievements</Link>
             <Link to="/volunteer" className="text-sm font-medium text-foreground hover:underline">Volunteer</Link>
-            <Link to="/contact" className="text-sm font-medium text-foreground hover:underline">Contact</Link>
           </nav>
 
           {/* Desktop CTA */}

@@ -25,7 +25,7 @@ const PartnerLogos: React.FC = () => {
               {logos.map((src, i) => (
                 <div key={i} className="inline-flex items-center justify-center">
                   <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white p-2 md:p-3 flex items-center justify-center overflow-hidden shadow-sm">
-                    <img src={src} alt={labels[i] ?? `partner-${i}`} className="max-w-full max-h-full object-contain" />
+                    <img src={src} alt={labels[i] ?? `partner-${i}`} loading="lazy" className="max-w-full max-h-full object-contain" />
                   </div>
                 </div>
               ))}
