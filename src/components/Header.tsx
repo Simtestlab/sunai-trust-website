@@ -1,8 +1,7 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-  
-
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-smooth">
       <div className="container mx-auto px-4">
@@ -18,7 +17,16 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Navigation removed - keeping logo and CTA */}
+          {/* Navigation - desktop */}
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link to="/" className="text-sm font-medium text-foreground hover:underline">Home</Link>
+            <Link to="/blogs" className="text-sm font-medium text-foreground hover:underline">Blogs</Link>
+            <Link to="/team" className="text-sm font-medium text-foreground hover:underline">Team</Link>
+            <Link to="/projects" className="text-sm font-medium text-foreground hover:underline">Projects</Link>
+            <Link to="/achievements" className="text-sm font-medium text-foreground hover:underline">Achievements</Link>
+            <Link to="/volunteer" className="text-sm font-medium text-foreground hover:underline">Volunteer</Link>
+            <Link to="/contact" className="text-sm font-medium text-foreground hover:underline">Contact</Link>
+          </nav>
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
@@ -27,10 +35,12 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile menu removed */}
+          {/* Mobile menu placeholder */}
+          <div className="md:hidden">
+            <Link to="/" className="text-sm font-medium">Menu</Link>
+          </div>
         </div>
 
-  {/* Mobile navigation removed */}
       </div>
     </header>
   );
