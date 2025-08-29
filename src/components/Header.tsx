@@ -1,4 +1,11 @@
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -22,6 +29,65 @@ const Header = () => {
             <Link to="/" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Home</Link>
             <Link to="/blogs" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Blogs</Link>
             <Link to="/team" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Team</Link>
+            
+            {/* Programs Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors flex items-center">
+                Programs
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link to="/programs/education" className="w-full">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Education</span>
+                      <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/programs/health" className="w-full">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Health</span>
+                      <span className="text-sm text-muted-foreground">Essential healthcare services</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/programs/empowerment" className="w-full">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Empowerment</span>
+                      <span className="text-sm text-muted-foreground">Sustainable livelihoods</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/programs/tree-plantation" className="w-full">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Tree Plantation</span>
+                      <span className="text-sm text-muted-foreground">Environmental restoration</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/programs/rural-development" className="w-full">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Rural Development</span>
+                      <span className="text-sm text-muted-foreground">Infrastructure & agriculture</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/programs/charity" className="w-full">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Charity</span>
+                      <span className="text-sm text-muted-foreground">Direct aid & relief</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             <Link to="/projects" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Projects</Link>
             <Link to="/achievements" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Achievements</Link>
             <Link to="/volunteer" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Volunteer</Link>

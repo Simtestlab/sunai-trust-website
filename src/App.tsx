@@ -12,6 +12,13 @@ import Achievements from "./pages/Achievements";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+// Program pages
+import Education from "./pages/programs/Education";
+import Health from "./pages/programs/Health";
+import Empowerment from "./pages/programs/Empowerment";
+import TreePlantation from "./pages/programs/TreePlantation";
+import RuralDevelopment from "./pages/programs/RuralDevelopment";
+import Charity from "./pages/programs/Charity";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +30,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Program Routes */}
+          <Route path="/programs/education" element={<Education />} />
+          <Route path="/programs/health" element={<Health />} />
+          <Route path="/programs/empowerment" element={<Empowerment />} />
+          <Route path="/programs/tree-plantation" element={<TreePlantation />} />
+          <Route path="/programs/rural-development" element={<RuralDevelopment />} />
+          <Route path="/programs/charity" element={<Charity />} />
+          {/* Other Routes */}
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/volunteer" element={<Volunteer />} />
