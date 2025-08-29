@@ -423,26 +423,7 @@ const Projects = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="bg-gradient-to-r from-teal-700 to-teal-600 rounded-xl p-12 text-white text-center shadow-xl">
-          <h3 className="text-3xl font-bold mb-6">Partner with Us</h3>
-          <p className="text-white/90 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            Join our mission to create sustainable change and transform communities across India. Whether through funding, volunteering, 
-            or strategic partnerships, your support empowers us to reach more villages, educate more children, and create lasting impact.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link to="/volunteer">
-              <Button size="lg" className="bg-white text-teal-700 hover:bg-white/90 font-semibold px-8 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
-                Become a Volunteer
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-teal-700 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">
-                Start Partnership
-              </Button>
-            </Link>
-          </div>
-        </section>
+
       </main>
 
       <Footer />
