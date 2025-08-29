@@ -6,7 +6,18 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+
+const ProgramsDropdownTrigger = () => {
+  const { pathname } = useLocation();
+  const active = pathname.startsWith('/programs');
+  return (
+    <DropdownMenuTrigger className={`text-base lg:text-lg font-medium ${active ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors flex items-center`}>
+      Programs
+      <ChevronDown className="ml-1 h-4 w-4" />
+    </DropdownMenuTrigger>
+  );
+};
 
 const Header = () => {
   return (
@@ -26,9 +37,15 @@ const Header = () => {
 
           {/* Navigation - desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Home</Link>
-            <Link to="/blogs" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Blogs</Link>
-            <Link to="/team" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Team</Link>
+            <NavLink to="/" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+              Home
+            </NavLink>
+            <NavLink to="/blogs" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+              Blogs
+            </NavLink>
+            <NavLink to="/team" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+              Team
+            </NavLink>
             
             {/* Programs Dropdown */}
             <DropdownMenu>
@@ -38,59 +55,65 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuItem asChild>
-                  <Link to="/programs/education" className="w-full">
+                  <NavLink to="/programs/education" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Education</span>
                       <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/programs/health" className="w-full">
+                  <NavLink to="/programs/health" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Health</span>
                       <span className="text-sm text-muted-foreground">Essential healthcare services</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/programs/empowerment" className="w-full">
+                  <NavLink to="/programs/empowerment" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Empowerment</span>
                       <span className="text-sm text-muted-foreground">Sustainable livelihoods</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/programs/tree-plantation" className="w-full">
+                  <NavLink to="/programs/tree-plantation" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Tree Plantation</span>
                       <span className="text-sm text-muted-foreground">Environmental restoration</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/programs/rural-development" className="w-full">
+                  <NavLink to="/programs/rural-development" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Rural Development</span>
                       <span className="text-sm text-muted-foreground">Infrastructure & agriculture</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/programs/charity" className="w-full">
+                  <NavLink to="/programs/charity" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Charity</span>
                       <span className="text-sm text-muted-foreground">Direct aid & relief</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Link to="/projects" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Projects</Link>
-            <Link to="/achievements" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Achievements</Link>
-            <Link to="/volunteer" className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors">Volunteer</Link>
+            <NavLink to="/projects" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+              Projects
+            </NavLink>
+            <NavLink to="/achievements" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+              Achievements
+            </NavLink>
+            <NavLink to="/volunteer" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+              Volunteer
+            </NavLink>
           </nav>
 
           {/* Desktop CTA */}
@@ -102,7 +125,7 @@ const Header = () => {
 
           {/* Mobile menu placeholder */}
           <div className="md:hidden">
-            <Link to="/" className="text-base font-medium">Menu</Link>
+            <NavLink to="/" className="text-base font-medium">Menu</NavLink>
           </div>
         </div>
 
