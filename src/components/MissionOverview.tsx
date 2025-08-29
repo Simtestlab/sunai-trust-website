@@ -91,27 +91,8 @@ const MissionOverview = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-teal-700 to-teal-600 rounded-xl p-12 text-white text-center shadow-xl scroll-reveal">
-          <h3 className="text-3xl font-bold mb-6">
-            Ready to Make a Difference?
-          </h3>
-          <p className="text-white/90 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            Join us in creating lasting change and transforming communities across India. Whether through volunteering, donations, or strategic partnerships, 
-            every contribution helps build stronger, more resilient communities for future generations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link to="/volunteer">
-              <Button size="lg" className="bg-white text-teal-700 hover:bg-white/90 font-semibold px-8 py-3 rounded-lg shadow-lg transition-all duration-300 hover:scale-105">
-                Volunteer Now
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-teal-700 font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">
-                Partner With Us
-              </Button>
-            </Link>
-          </div>
-        </div>
+
+       
       </div>
     </section>
   );
