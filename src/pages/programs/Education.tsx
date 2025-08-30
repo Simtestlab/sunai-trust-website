@@ -14,7 +14,8 @@ import {
   TrendingUp
 } from 'lucide-react';
 import educationHero from '@/assets/education.jpg';
-import educationProgram from '@/assets/education-program.jpg';
+// education-program.jpg is a placeholder file (not a real image). Use the real education image instead.
+import educationProgram from '@/assets/education.jpg';
 
 const Education = () => {
   return (
