@@ -1,0 +1,71 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+.build/
+build/
+.out/
+
+# Vite cache
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Env files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Misc
+coverage/
+.cache/
+*.tgz
+
+# Bun lock (optional to ignore local lockfile; remove if you want it committed)
+# bun.lockb
+
+# TypeScript
+*.tsbuildinfo
+
+# Storybook
+.out
+
+# Temporary
+tmp/
+temp/
+
+# Mac-specific
+*.swp
+
+# Dist for deployment
+/.vercel
+/.netlify
+
+# Ignore build artifacts
+dist/
+
+# Ignore local env files
+.env.local
+
+# Ignore lockfiles created by package managers if you prefer not to commit (comment out to keep them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

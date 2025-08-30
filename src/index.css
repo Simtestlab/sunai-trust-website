@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 12% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 12% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 12% 16%;
+
+    /* Professional blue-green primary */
+    --primary: 195 85% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft neutral secondary */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 12% 16%;
+
+    /* Warm accent for highlights */
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Muted backgrounds */
+    --muted: 210 15% 97%;
+    --muted-foreground: 210 10% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 195 85% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(195 85% 35%), hsl(200 75% 45%));
+    --soft-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 15% 98%));
+    --impact-gradient: linear-gradient(135deg, hsl(25 95% 55%), hsl(35 85% 60%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(195 85% 35% / 0.1);
+    --shadow-card: 0 8px 32px -8px hsl(210 12% 16% / 0.08);
+    --shadow-hero: 0 20px 60px -20px hsl(195 85% 35% / 0.2);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 25% 8%;
+    --foreground: 210 15% 95%;
+
+    --card: 210 20% 10%;
+    --card-foreground: 210 15% 95%;
+
+    --popover: 210 20% 10%;
+    --popover-foreground: 210 15% 95%;
+
+    --primary: 195 85% 45%;
+    --primary-foreground: 210 25% 8%;
+
+    --secondary: 210 25% 12%;
+    --secondary-foreground: 210 15% 95%;
+
+    --accent: 25 95% 60%;
+    --accent-foreground: 210 25% 8%;
+
+    --muted: 210 25% 12%;
+    --muted-foreground: 210 10% 65%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 15% 95%;
+
+    --border: 210 20% 18%;
+    --input: 210 20% 18%;
+    --ring: 195 85% 45%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(195 85% 25%), hsl(200 75% 35%));
+    --soft-gradient: linear-gradient(180deg, hsl(210 25% 8%), hsl(210 20% 10%));
+    --impact-gradient: linear-gradient(135deg, hsl(25 95% 45%), hsl(35 85% 50%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .soft-gradient {
+    background: var(--soft-gradient);
+  }
+  
+  .impact-gradient {
+    background: var(--impact-gradient);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-hero {
+    box-shadow: var(--shadow-hero);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out;
+  }
+
+  .animate-counter {
+    animation: counter-up 2s ease-out;
+  }
+
+  /* Utility to hide native scrollbars while keeping scroll functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes counter-up {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
