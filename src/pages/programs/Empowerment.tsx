@@ -225,6 +225,7 @@ const Empowerment = () => {
               When communities are empowered, change becomes sustainable. Join us in building 
               capacity and creating opportunities that last for generations.
             </p>
+            {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Fund Empowerment
@@ -236,6 +237,7 @@ const Empowerment = () => {
                 Corporate Skills Partnership
               </Button>
             </div>
+            */}
           </div>
         </section>
       </main>

@@ -30,14 +30,16 @@ const TreePlantation = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center text-white max-w-4xl px-6">
+            <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Tree Plantation</h1>
             <p className="text-xl md:text-2xl mb-6">
               Organizing community-led tree plantation drives to restore local ecosystems and improve air quality
             </p>
+            {/* Hero CTA commented out per request
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
               Plant with Us <TreePine className="ml-2 w-5 h-5" />
             </Button>
+            */}
           </div>
         </div>
       </section>
@@ -266,6 +268,7 @@ const TreePlantation = () => {
               Every tree planted is a step towards a greener, healthier planet. Join our mission 
               to restore forests and fight climate change through community action.
             </p>
+            {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Fund Tree Plantation
@@ -277,6 +280,7 @@ const TreePlantation = () => {
                 Corporate Green Partnership
               </Button>
             </div>
+            */}
           </div>
         </section>
       </main>

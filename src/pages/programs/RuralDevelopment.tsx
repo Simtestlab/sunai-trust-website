@@ -267,6 +267,7 @@ const RuralDevelopment = () => {
               Rural development creates a foundation for national prosperity. Join us in empowering 
               farming communities and building sustainable rural economies across India.
             </p>
+            {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-amber-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Support Rural Development
@@ -278,6 +279,7 @@ const RuralDevelopment = () => {
                 Infrastructure Partnership
               </Button>
             </div>
+            */}
           </div>
         </section>
       </main>

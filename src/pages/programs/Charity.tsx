@@ -267,6 +267,7 @@ const Charity = () => {
               Your support provides immediate relief to families in crisis. Join us in creating 
               a safety net of compassion and care for those who need it most.
             </p>
+            {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Make a Donation
@@ -278,6 +279,7 @@ const Charity = () => {
                 Corporate Giving Program
               </Button>
             </div>
+            */}
           </div>
         </section>
       </main>

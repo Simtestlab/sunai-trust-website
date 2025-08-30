@@ -123,9 +123,11 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
+            {/* Desktop Donate CTA removed per request
             <Button variant="hero" size="lg" className="text-base lg:text-lg px-6 py-3">
               Donate Now
             </Button>
+            */}
           </div>
 
           {/* Mobile menu placeholder */}

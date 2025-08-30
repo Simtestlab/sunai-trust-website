@@ -32,10 +32,12 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              {/* Hero Donate CTA commented out per request
               <Button variant="hero" size="lg" className="group">
                 Donate Now
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
+              */}
             
             </div>
 

@@ -28,17 +28,19 @@ const Health = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Health</h1>
-            <p className="text-xl md:text-2xl mb-6">
-              Delivering essential healthcare services, medical training, and health awareness programs
-            </p>
-            {/* Hero CTA commented out per request
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg">
-              Support Healthcare <Heart className="ml-2 w-5 h-5" />
-            </Button>
-            */}
-          </div>
+              {/* Bottom CTA buttons removed per request
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 font-semibold">
+                  Donate for Health
+                </Button>
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
+                  Become a Health Volunteer
+                </Button>
+                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
+                  Corporate Partnership
+                </Button>
+              </div>
+              */}
         </div>
       </section>
 
@@ -225,6 +227,7 @@ const Health = () => {
               Every donation brings life-saving healthcare closer to those who need it most. 
               Join us in building healthier communities across India.
             </p>
+            {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Donate for Health
@@ -236,6 +239,7 @@ const Health = () => {
                 Corporate Partnership
               </Button>
             </div>
+            */}
           </div>
         </section>
       </main>

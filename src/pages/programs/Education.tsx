@@ -63,6 +63,7 @@ const Education = () => {
                   addresses not just academic learning but also nutritional support, infrastructure development, 
                   and teacher training.
                 </p>
+                {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-teal-600 hover:bg-teal-700">
                     Our Approach <ArrowRight className="ml-2 w-4 h-4" />
@@ -71,6 +72,7 @@ const Education = () => {
                     Download Brochure
                   </Button>
                 </div>
+                */}
               </div>
               <div className="relative">
                 <img 
@@ -225,6 +227,7 @@ const Education = () => {
               Every child deserves quality education. Your support can help us reach more communities 
               and create lasting change through the power of learning.
             </p>
+            {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Donate Now
@@ -236,6 +239,7 @@ const Education = () => {
                 Partner With Us
               </Button>
             </div>
+            */}
           </div>
         </section>
       </main>
