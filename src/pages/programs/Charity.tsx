@@ -34,9 +34,11 @@ const Charity = () => {
             <p className="text-xl md:text-2xl mb-6">
               Providing direct aid and relief to families in need, including food distribution and emergency support
             </p>
+            {/* Hero CTA commented out per request
             <Button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 text-lg">
               Give Support <Heart className="ml-2 w-5 h-5" />
             </Button>
+            */}
           </div>
         </div>
       </section>
@@ -60,6 +62,7 @@ const Charity = () => {
                   comprehensive charity initiatives serve as a safety net for the most vulnerable members 
                   of society, providing hope and dignity when it's needed most.
                 </p>
+                {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-pink-600 hover:bg-pink-700">
                     Our Impact <ArrowRight className="ml-2 w-4 h-4" />
@@ -68,6 +71,7 @@ const Charity = () => {
                     Donate Now
                   </Button>
                 </div>
+                */}
               </div>
               <div className="relative">
                 <img 

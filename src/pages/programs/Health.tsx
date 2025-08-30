@@ -33,9 +33,11 @@ const Health = () => {
             <p className="text-xl md:text-2xl mb-6">
               Delivering essential healthcare services, medical training, and health awareness programs
             </p>
+            {/* Hero CTA commented out per request
             <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg">
               Support Healthcare <Heart className="ml-2 w-5 h-5" />
             </Button>
+            */}
           </div>
         </div>
       </section>
@@ -59,6 +61,7 @@ const Health = () => {
                   programs, we ensure that distance and poverty never become barriers to good health. Our 
                   focus extends beyond treatment to prevention, education, and building sustainable healthcare systems.
                 </p>
+                {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-red-600 hover:bg-red-700">
                     Our Approach <ArrowRight className="ml-2 w-4 h-4" />
@@ -67,6 +70,7 @@ const Health = () => {
                     Download Report
                   </Button>
                 </div>
+                */}
               </div>
               <div className="relative">
                 <img 

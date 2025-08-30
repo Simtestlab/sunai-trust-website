@@ -61,6 +61,7 @@ const TreePlantation = () => {
                   community engagement, species selection based on local ecology, long-term maintenance, 
                   and education about environmental conservation for sustainable green cover.
                 </p>
+                {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-green-600 hover:bg-green-700">
                     Our Impact <ArrowRight className="ml-2 w-4 h-4" />
@@ -69,6 +70,7 @@ const TreePlantation = () => {
                     Join Plantation Drive
                   </Button>
                 </div>
+                */}
               </div>
               <div className="relative">
                 <img 

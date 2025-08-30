@@ -34,9 +34,11 @@ const Education = () => {
             <p className="text-xl md:text-2xl mb-6">
               Providing quality education and learning opportunities to underserved communities
             </p>
+            {/* Hero CTA commented out per request
             <Button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg">
               Support Education <Heart className="ml-2 w-5 h-5" />
             </Button>
+            */}
           </div>
         </div>
       </section>

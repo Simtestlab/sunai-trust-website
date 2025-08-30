@@ -34,9 +34,11 @@ const RuralDevelopment = () => {
             <p className="text-xl md:text-2xl mb-6">
               Supporting rural communities with infrastructure, training, and resources to boost agriculture and overall resilience
             </p>
+            {/* Hero CTA commented out per request
             <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg">
               Support Rural Growth <Tractor className="ml-2 w-5 h-5" />
             </Button>
+            */}
           </div>
         </div>
       </section>
@@ -60,6 +62,7 @@ const RuralDevelopment = () => {
                   agricultural productivity, build infrastructure, strengthen market linkages, and create 
                   sustainable livelihoods that keep rural communities thriving.
                 </p>
+                {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-amber-600 hover:bg-amber-700">
                     Our Programs <ArrowRight className="ml-2 w-4 h-4" />
@@ -68,6 +71,7 @@ const RuralDevelopment = () => {
                     Impact Stories
                   </Button>
                 </div>
+                */}
               </div>
               <div className="relative">
                 <img 

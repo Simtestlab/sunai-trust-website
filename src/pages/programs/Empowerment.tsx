@@ -33,9 +33,11 @@ const Empowerment = () => {
             <p className="text-xl md:text-2xl mb-6">
               Building sustainable livelihoods through skill development, microfinance, and community-led initiatives
             </p>
+            {/* Hero CTA commented out per request
             <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
               Support Empowerment <TrendingUp className="ml-2 w-5 h-5" />
             </Button>
+            */}
           </div>
         </div>
       </section>
@@ -59,6 +61,7 @@ const Empowerment = () => {
                   we foster independence that creates lasting positive change. Our approach emphasizes 
                   community participation, local leadership, and sustainable economic opportunities.
                 </p>
+                {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-purple-600 hover:bg-purple-700">
                     Our Programs <ArrowRight className="ml-2 w-4 h-4" />
@@ -67,6 +70,7 @@ const Empowerment = () => {
                     Success Stories
                   </Button>
                 </div>
+                */}
               </div>
               <div className="relative">
                 <img 

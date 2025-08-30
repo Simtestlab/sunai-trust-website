@@ -12,7 +12,7 @@ const ProgramsDropdownTrigger = () => {
   const { pathname } = useLocation();
   const active = pathname.startsWith('/programs');
   return (
-    <DropdownMenuTrigger className={`text-base lg:text-lg font-medium ${active ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors flex items-center`}>
+    <DropdownMenuTrigger className={`text-base lg:text-lg font-medium ${active ? 'text-emerald-600' : 'text-foreground'} transition-colors flex items-center`}>
       Programs
       <ChevronDown className="ml-1 h-4 w-4" />
     </DropdownMenuTrigger>
@@ -37,19 +37,19 @@ const Header = () => {
 
           {/* Navigation - desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink to="/" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+            <NavLink to="/" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
               Home
             </NavLink>
-            <NavLink to="/blogs" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+            <NavLink to="/blogs" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
               Blogs
             </NavLink>
-            <NavLink to="/team" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+            <NavLink to="/team" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
               Team
             </NavLink>
             
             {/* Programs Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-base lg:text-lg font-medium text-foreground hover:underline transition-colors flex items-center">
+              <DropdownMenuTrigger className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center">
                 Programs
                 <ChevronDown className="ml-1 h-4 w-4" />
               </DropdownMenuTrigger>
@@ -105,14 +105,19 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <NavLink to="/projects" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
+            <NavLink to="/projects" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
               Projects
             </NavLink>
+            {/* Commented out per request: Achievements & Volunteer
             <NavLink to="/achievements" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
               Achievements
             </NavLink>
             <NavLink to="/volunteer" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
               Volunteer
+            </NavLink>
+            */}
+            <NavLink to="/contact" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
+              Contact Us
             </NavLink>
           </nav>
 

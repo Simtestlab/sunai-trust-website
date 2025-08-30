@@ -44,18 +44,10 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-slate-800">Head Office</h4>
+                  <h4 className="font-semibold text-slate-800">Office</h4>
                   <p className="text-sm text-slate-600">
-                    123 Development Avenue<br />
-                    New Delhi - 110001<br />
-                    India
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-800">Regional Office</h4>
-                  <p className="text-sm text-slate-600">
-                    456 Community Street<br />
-                    Mumbai - 400001<br />
+                    Gandhipuram<br />
+                    Coimbatore, Tamilnadu<br />
                     India
                   </p>
                 </div>
@@ -72,11 +64,11 @@ const Contact = () => {
               <CardContent className="space-y-3">
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-2 text-slate-400" />
-                  <span className="text-sm">+91 11 2345 6789</span>
+                  <span className="text-sm">+91 98765 43210</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-2 text-slate-400" />
-                  <span className="text-sm">info@trustorganization.org</span>
+                  <span className="text-sm">support@sunai.org</span>
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-2 text-slate-400" />
@@ -85,28 +77,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-teal-600">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Quick Actions
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button variant="outline" className="w-full justify-start">
-                  <Users className="w-4 h-4 mr-2" />
-                  Join as Volunteer
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Heart className="w-4 h-4 mr-2" />
-                  Make a Donation
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Media Inquiries
-                </Button>
-              </CardContent>
-            </Card>
+            {/* Quick Actions removed per request */}
           </div>
 
           {/* Contact Form */}
@@ -166,29 +137,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      I am interested in:
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <label className="flex items-center space-x-2">
-                        <input type="checkbox" className="rounded border-slate-300" />
-                        <span className="text-sm">Volunteering</span>
-                      </label>
-                      <label className="flex items-center space-x-2">
-                        <input type="checkbox" className="rounded border-slate-300" />
-                        <span className="text-sm">Donations</span>
-                      </label>
-                      <label className="flex items-center space-x-2">
-                        <input type="checkbox" className="rounded border-slate-300" />
-                        <span className="text-sm">Partnerships</span>
-                      </label>
-                      <label className="flex items-center space-x-2">
-                        <input type="checkbox" className="rounded border-slate-300" />
-                        <span className="text-sm">Media Inquiries</span>
-                      </label>
-                    </div>
-                  </div>
+                  {/* Removed interest checkboxes per request */}
 
                   <Button className="w-full bg-teal-600 hover:bg-teal-700">
                     <Send className="w-4 h-4 mr-2" />
@@ -200,20 +149,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Map Section */}
-        <section className="mt-12">
-          <Card>
-            <CardHeader>
-              <CardTitle>Find Us</CardTitle>
-              <p className="text-slate-600">Visit our head office in New Delhi</p>
-            </CardHeader>
-            <CardContent>
-              <div className="h-64 bg-slate-200 rounded-lg flex items-center justify-center">
-                <p className="text-slate-500">Interactive Map Coming Soon</p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+  {/* Map section removed per request */}
       </main>
 
       <Footer />
