@@ -18,7 +18,6 @@ const Index = () => {
   <MissionOverview />
   <PartnerLogos />
   <FeaturedStory />
-  <CTABar />
       </main>
       <Footer />
     </div>
