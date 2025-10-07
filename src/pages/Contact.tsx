@@ -1,25 +1,25 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  MapPin,
+  Phone,
+  Mail,
   Clock,
   Send,
   MessageCircle,
   Users,
-  Heart
-} from 'lucide-react';
+  Heart,
+} from "lucide-react";
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
-      
+
       <main className="flex-1 container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="text-center mb-12">
@@ -27,8 +27,8 @@ const Contact = () => {
             Get in Touch
           </h1>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            Ready to make a difference? Whether you want to volunteer, partner with us, 
-            or learn more about our work, we'd love to hear from you.
+            Ready to make a difference? Whether you want to volunteer, partner
+            with us, or learn more about our work, we'd love to hear from you.
           </p>
         </div>
 
@@ -46,8 +46,10 @@ const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-slate-800">Office</h4>
                   <p className="text-sm text-slate-600">
-                    Gandhipuram<br />
-                    Coimbatore, Tamilnadu<br />
+                    Gandhipuram
+                    <br />
+                    Coimbatore, Tamilnadu
+                    <br />
                     India
                   </p>
                 </div>
@@ -84,9 +86,12 @@ const Contact = () => {
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl text-slate-800">Send us a Message</CardTitle>
+                <CardTitle className="text-xl text-slate-800">
+                  Send us a Message
+                </CardTitle>
                 <p className="text-slate-600">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we'll get back to you within 24
+                  hours.
                 </p>
               </CardHeader>
               <CardContent>
@@ -131,7 +136,7 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Message *
                     </label>
-                    <Textarea 
+                    <Textarea
                       placeholder="Tell us more about your inquiry..."
                       rows={6}
                     />
@@ -149,7 +154,7 @@ const Contact = () => {
           </div>
         </div>
 
-  {/* Map section removed per request */}
+        {/* Map section removed per request */}
       </main>
 
       <Footer />

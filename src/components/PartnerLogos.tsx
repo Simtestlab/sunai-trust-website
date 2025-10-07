@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import l1 from '@/assets/logo1.jpg';
-import l2 from '@/assets/logo2.png';
-import l3 from '@/assets/logo3.png';
-import l4 from '@/assets/logo4.jpg';
-import l5 from '@/assets/logo5.png';
-import l6 from '@/assets/logo6.png';
-import l7 from '@/assets/logo7.png';
+import React, { useState, useEffect } from "react";
+import l1 from "@/assets/logo1.jpg";
+import l2 from "@/assets/logo2.png";
+import l3 from "@/assets/logo3.png";
+import l4 from "@/assets/logo4.jpg";
+import l5 from "@/assets/logo5.png";
+import l6 from "@/assets/logo6.png";
+import l7 from "@/assets/logo7.png";
 
 const logos = [l1, l2, l3, l4, l5, l6, l7];
-const labels = ['Partner 1','Partner 2','Partner 3','Partner 4','Partner 5','Partner 6','Partner 7'];
+const labels = [
+  "Partner 1",
+  "Partner 2",
+  "Partner 3",
+  "Partner 4",
+  "Partner 5",
+  "Partner 6",
+  "Partner 7",
+];
 
 const PartnerLogos: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,10 +49,15 @@ const PartnerLogos: React.FC = () => {
         </div>
 
         <div className="relative w-full max-w-5xl mx-auto overflow-hidden">
-          <div className="flex gap-6 transition-transform duration-700 ease-in-out"
-               style={{ transform: `translateX(-${currentIndex * (100 / 5)}%)` }}>
+          <div
+            className="flex gap-6 transition-transform duration-700 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * (100 / 5)}%)` }}
+          >
             {logos.map((src, i) => (
-              <div key={i} className="flex-1 min-w-[20%] flex items-center justify-center">
+              <div
+                key={i}
+                className="flex-1 min-w-[20%] flex items-center justify-center"
+              >
                 <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white p-2 md:p-3 flex items-center justify-center overflow-hidden shadow-sm">
                   <img
                     src={src}
@@ -65,8 +78,8 @@ const PartnerLogos: React.FC = () => {
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-red-500 scale-125 shadow-lg'
-                  : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                  ? "bg-red-500 scale-125 shadow-lg"
+                  : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
               }`}
             />
           ))}

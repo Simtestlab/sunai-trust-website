@@ -1,12 +1,15 @@
-import heroImage from '@/assets/hero-image.jpg';
+import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
+        <img
+          src={heroImage}
           alt="Community empowerment and positive change"
           fetchPriority="high"
           className="w-full h-full object-cover"
@@ -24,16 +27,15 @@ const Hero = () => {
               <span className="block">Building</span>
               <span className="block text-accent">Futures</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 max-w-2xl font-light leading-relaxed">
-              Empowering communities through education, healthcare, and sustainable development programs that create lasting change.
+              Empowering communities through education, healthcare, and
+              sustainable development programs that create lasting change.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            </div>
+            <div className="flex flex-col sm:flex-row gap-4 mb-12"></div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/20">
-            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/20"></div>
           </div>
         </div>
       </div>

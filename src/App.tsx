@@ -32,21 +32,26 @@ const ScrollToTop = () => {
   return null;
 };
 
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-      <ScrollToTop /> 
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/programs/education" element={<Education />} />
           <Route path="/programs/health" element={<Health />} />
           <Route path="/programs/empowerment" element={<Empowerment />} />
-          <Route path="/programs/tree-plantation" element={<TreePlantation />} />
-          <Route path="/programs/rural-development" element={<RuralDevelopment />} />
+          <Route
+            path="/programs/tree-plantation"
+            element={<TreePlantation />}
+          />
+          <Route
+            path="/programs/rural-development"
+            element={<RuralDevelopment />}
+          />
           <Route path="/programs/charity" element={<Charity />} />
           {/* Other Routes */}
           <Route path="/blogs" element={<Blogs />} />

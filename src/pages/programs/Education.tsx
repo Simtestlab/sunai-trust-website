@@ -1,39 +1,40 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { 
-  BookOpen, 
-  Users, 
-  Target, 
-  Award, 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  BookOpen,
+  Users,
+  Target,
+  Award,
   Heart,
   ArrowRight,
   MapPin,
   Calendar,
-  TrendingUp
-} from 'lucide-react';
-import educationHero from '@/assets/education.jpg';
+  TrendingUp,
+} from "lucide-react";
+import educationHero from "@/assets/education.jpg";
 // education-program.jpg is a placeholder file (not a real image). Use the real education image instead.
-import educationProgram from '@/assets/education.jpg';
+import educationProgram from "@/assets/education.jpg";
 
 const Education = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
-        <img 
-          src={educationHero} 
-          alt="Education Program" 
+        <img
+          src={educationHero}
+          alt="Education Program"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Education</h1>
             <p className="text-xl md:text-2xl mb-6">
-              Providing quality education and learning opportunities to underserved communities
+              Providing quality education and learning opportunities to
+              underserved communities
             </p>
             {/* Hero CTA commented out per request
             <Button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg">
@@ -54,15 +55,17 @@ const Education = () => {
                   Transforming Lives Through Education
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Education is the foundation of sustainable development and social change. Our comprehensive 
-                  education programs focus on ensuring every child has access to quality learning opportunities, 
-                  regardless of their socio-economic background.
+                  Education is the foundation of sustainable development and
+                  social change. Our comprehensive education programs focus on
+                  ensuring every child has access to quality learning
+                  opportunities, regardless of their socio-economic background.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  We work with communities, schools, and local partners to create learning environments that 
-                  foster critical thinking, creativity, and life skills development. Our holistic approach 
-                  addresses not just academic learning but also nutritional support, infrastructure development, 
-                  and teacher training.
+                  We work with communities, schools, and local partners to
+                  create learning environments that foster critical thinking,
+                  creativity, and life skills development. Our holistic approach
+                  addresses not just academic learning but also nutritional
+                  support, infrastructure development, and teacher training.
                 </p>
                 {/* Buttons removed per request
                 <div className="flex flex-wrap gap-4">
@@ -76,9 +79,9 @@ const Education = () => {
                 */}
               </div>
               <div className="relative">
-                <img 
-                  src={educationProgram} 
-                  alt="Education Program Activities" 
+                <img
+                  src={educationProgram}
+                  alt="Education Program Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
@@ -95,21 +98,50 @@ const Education = () => {
         {/* Impact Statistics */}
         <section className="py-16 bg-teal-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Impact</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              Our Impact
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { icon: Users, number: "50,000+", label: "Students Enrolled", desc: "Across all programs" },
-                { icon: BookOpen, number: "500+", label: "Schools Supported", desc: "Rural and urban areas" },
-                { icon: Award, number: "98%", label: "Pass Rate", desc: "Above national average" },
-                { icon: TrendingUp, number: "85%", label: "Dropout Reduction", desc: "In target communities" }
+                {
+                  icon: Users,
+                  number: "50,000+",
+                  label: "Students Enrolled",
+                  desc: "Across all programs",
+                },
+                {
+                  icon: BookOpen,
+                  number: "500+",
+                  label: "Schools Supported",
+                  desc: "Rural and urban areas",
+                },
+                {
+                  icon: Award,
+                  number: "98%",
+                  label: "Pass Rate",
+                  desc: "Above national average",
+                },
+                {
+                  icon: TrendingUp,
+                  number: "85%",
+                  label: "Dropout Reduction",
+                  desc: "In target communities",
+                },
               ].map((stat, idx) => (
-                <Card key={idx} className="text-center p-6 bg-white hover:shadow-lg transition-shadow">
+                <Card
+                  key={idx}
+                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-0">
                     <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
                       <stat.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 mb-2">{stat.number}</div>
-                    <div className="text-lg font-semibold text-teal-600 mb-1">{stat.label}</div>
+                    <div className="text-3xl font-bold text-gray-800 mb-2">
+                      {stat.number}
+                    </div>
+                    <div className="text-lg font-semibold text-teal-600 mb-1">
+                      {stat.label}
+                    </div>
                     <div className="text-sm text-gray-600">{stat.desc}</div>
                   </CardContent>
                 </Card>
@@ -121,47 +153,95 @@ const Education = () => {
         {/* Programs Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Education Programs</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              Our Education Programs
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   title: "Primary Education Support",
-                  description: "Supporting children aged 6-11 with foundational learning, nutrition, and infrastructure development in government schools.",
-                  features: ["Basic literacy and numeracy", "Mid-day meal programs", "Learning material distribution", "Parent engagement"]
+                  description:
+                    "Supporting children aged 6-11 with foundational learning, nutrition, and infrastructure development in government schools.",
+                  features: [
+                    "Basic literacy and numeracy",
+                    "Mid-day meal programs",
+                    "Learning material distribution",
+                    "Parent engagement",
+                  ],
                 },
                 {
                   title: "Secondary Education Enhancement",
-                  description: "Comprehensive support for adolescents including academic support, life skills training, and career guidance.",
-                  features: ["Subject-wise tutoring", "Science lab equipment", "Career counseling", "Scholarship programs"]
+                  description:
+                    "Comprehensive support for adolescents including academic support, life skills training, and career guidance.",
+                  features: [
+                    "Subject-wise tutoring",
+                    "Science lab equipment",
+                    "Career counseling",
+                    "Scholarship programs",
+                  ],
                 },
                 {
                   title: "Adult Literacy Programs",
-                  description: "Empowering adults, especially women, with basic literacy and numeracy skills for better livelihood opportunities.",
-                  features: ["Functional literacy", "Digital literacy", "Financial literacy", "Skill development"]
+                  description:
+                    "Empowering adults, especially women, with basic literacy and numeracy skills for better livelihood opportunities.",
+                  features: [
+                    "Functional literacy",
+                    "Digital literacy",
+                    "Financial literacy",
+                    "Skill development",
+                  ],
                 },
                 {
                   title: "Teacher Training",
-                  description: "Capacity building programs for teachers to improve teaching methodologies and student engagement.",
-                  features: ["Pedagogy training", "Technology integration", "Classroom management", "Assessment techniques"]
+                  description:
+                    "Capacity building programs for teachers to improve teaching methodologies and student engagement.",
+                  features: [
+                    "Pedagogy training",
+                    "Technology integration",
+                    "Classroom management",
+                    "Assessment techniques",
+                  ],
                 },
                 {
                   title: "Digital Learning",
-                  description: "Leveraging technology to provide quality education content and bridge the digital divide.",
-                  features: ["E-learning platforms", "Digital classrooms", "Educational apps", "Online assessments"]
+                  description:
+                    "Leveraging technology to provide quality education content and bridge the digital divide.",
+                  features: [
+                    "E-learning platforms",
+                    "Digital classrooms",
+                    "Educational apps",
+                    "Online assessments",
+                  ],
                 },
                 {
                   title: "Special Needs Education",
-                  description: "Inclusive education programs for children with disabilities and learning difficulties.",
-                  features: ["Specialized curriculum", "Trained educators", "Assistive technology", "Parent counseling"]
-                }
+                  description:
+                    "Inclusive education programs for children with disabilities and learning difficulties.",
+                  features: [
+                    "Specialized curriculum",
+                    "Trained educators",
+                    "Assistive technology",
+                    "Parent counseling",
+                  ],
+                },
               ].map((program, idx) => (
-                <Card key={idx} className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600">
+                <Card
+                  key={idx}
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600"
+                >
                   <CardContent className="p-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">{program.title}</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{program.description}</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      {program.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {program.description}
+                    </p>
                     <div className="space-y-2">
                       {program.features.map((feature, featureIdx) => (
-                        <div key={featureIdx} className="flex items-center text-sm">
+                        <div
+                          key={featureIdx}
+                          className="flex items-center text-sm"
+                        >
                           <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
                           <span className="text-gray-700">{feature}</span>
                         </div>
@@ -177,48 +257,60 @@ const Education = () => {
         {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Success Stories</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              Success Stories
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {[
-          {
-            location: "Rajasthan",
-            color: "teal",
-            title: "Village School Transformation",
-            description: `"In Khempur village, we transformed a struggling school with just 40 students into a thriving 
+                {
+                  location: "Rajasthan",
+                  color: "teal",
+                  title: "Village School Transformation",
+                  description: `"In Khempur village, we transformed a struggling school with just 40 students into a thriving 
               educational center with 200+ students. Through infrastructure development, teacher training, 
               and community engagement, the school now boasts a 100% attendance rate."`,
-            duration: "2020-2023"
-          },
-          {
-            location: "West Bengal",
-            color: "green",
-            title: "Digital Literacy Initiative",
-            description: `"Our digital learning centers in rural West Bengal have enabled 1,500+ students to access 
+                  duration: "2020-2023",
+                },
+                {
+                  location: "West Bengal",
+                  color: "green",
+                  title: "Digital Literacy Initiative",
+                  description: `"Our digital learning centers in rural West Bengal have enabled 1,500+ students to access 
               quality educational content. Many students have gone on to pursue higher education and 
               secure good employment opportunities."`,
-            duration: "2021-Ongoing"
-          }
+                  duration: "2021-Ongoing",
+                },
               ].map((story, idx) => (
-          <Card
-            key={idx}
-            className={`flex flex-col justify-between h-full p-8 bg-${story.color}-50 border-${story.color}-200`}
-            style={{ minHeight: 340 }}
-          >
-            <CardContent className="flex flex-col h-full p-0">
-              <div>
-                <div className="flex items-center mb-4">
-            <MapPin className={`w-5 h-5 text-${story.color}-600 mr-2`} />
-            <span className={`text-${story.color}-600 font-semibold`}>{story.location}</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{story.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{story.description}</p>
-              </div>
-              <div className="mt-auto text-sm text-gray-500 flex items-center">
-                <Calendar className="w-4 h-4 inline mr-1" />
-                Project Duration: {story.duration}
-              </div>
-            </CardContent>
-          </Card>
+                <Card
+                  key={idx}
+                  className={`flex flex-col justify-between h-full p-8 bg-${story.color}-50 border-${story.color}-200`}
+                  style={{ minHeight: 340 }}
+                >
+                  <CardContent className="flex flex-col h-full p-0">
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <MapPin
+                          className={`w-5 h-5 text-${story.color}-600 mr-2`}
+                        />
+                        <span
+                          className={`text-${story.color}-600 font-semibold`}
+                        >
+                          {story.location}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">
+                        {story.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed">
+                        {story.description}
+                      </p>
+                    </div>
+                    <div className="mt-auto text-sm text-gray-500 flex items-center">
+                      <Calendar className="w-4 h-4 inline mr-1" />
+                      Project Duration: {story.duration}
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -227,10 +319,13 @@ const Education = () => {
         {/* Call to Action */}
         <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
-            <h2 className="text-3xl font-bold mb-4">Join Our Mission to Transform Education</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              Join Our Mission to Transform Education
+            </h2>
             <p className="text-xl mb-8 opacity-90">
-              Every child deserves quality education. Your support can help us reach more communities 
-              and create lasting change through the power of learning.
+              Every child deserves quality education. Your support can help us
+              reach more communities and create lasting change through the power
+              of learning.
             </p>
             {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">

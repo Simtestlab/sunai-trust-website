@@ -1,18 +1,20 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
-import { NavLink, useLocation } from 'react-router-dom';
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
+import { NavLink, useLocation } from "react-router-dom";
 
 const ProgramsDropdownTrigger = () => {
   const { pathname } = useLocation();
-  const active = pathname.startsWith('/programs');
+  const active = pathname.startsWith("/programs");
   return (
-    <DropdownMenuTrigger className={`text-base lg:text-lg font-medium ${active ? 'text-emerald-600' : 'text-foreground'} transition-colors flex items-center`}>
+    <DropdownMenuTrigger
+      className={`text-base lg:text-lg font-medium ${active ? "text-emerald-600" : "text-foreground"} transition-colors flex items-center`}
+    >
       Programs
       <ChevronDown className="ml-1 h-4 w-4" />
     </DropdownMenuTrigger>
@@ -27,26 +29,47 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 lg:w-14 lg:h-14 bg-impact-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-2xl lg:text-3xl">S</span>
+              <span className="text-white font-bold text-2xl lg:text-3xl">
+                S
+              </span>
             </div>
             <div>
-              <h1 className="text-2xl lg:text-3xl font-bold text-foreground">Sunai</h1>
-              <p className="text-sm lg:text-base text-muted-foreground hidden sm:block">Building Futures</p>
+              <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
+                Sunai
+              </h1>
+              <p className="text-sm lg:text-base text-muted-foreground hidden sm:block">
+                Building Futures
+              </p>
             </div>
           </div>
 
           {/* Navigation - desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink to="/" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
               Home
             </NavLink>
-            <NavLink to="/blogs" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
               Blogs
             </NavLink>
-            <NavLink to="/team" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
+            <NavLink
+              to="/team"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
               Team
             </NavLink>
-            
+
             {/* Programs Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center">
@@ -58,7 +81,9 @@ const Header = () => {
                   <NavLink to="/programs/education" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Education</span>
-                      <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
+                      <span className="text-sm text-muted-foreground">
+                        Quality learning opportunities
+                      </span>
                     </div>
                   </NavLink>
                 </DropdownMenuItem>
@@ -66,7 +91,9 @@ const Header = () => {
                   <NavLink to="/programs/health" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Health</span>
-                      <span className="text-sm text-muted-foreground">Essential healthcare services</span>
+                      <span className="text-sm text-muted-foreground">
+                        Essential healthcare services
+                      </span>
                     </div>
                   </NavLink>
                 </DropdownMenuItem>
@@ -74,7 +101,9 @@ const Header = () => {
                   <NavLink to="/programs/empowerment" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Empowerment</span>
-                      <span className="text-sm text-muted-foreground">Sustainable livelihoods</span>
+                      <span className="text-sm text-muted-foreground">
+                        Sustainable livelihoods
+                      </span>
                     </div>
                   </NavLink>
                 </DropdownMenuItem>
@@ -82,7 +111,9 @@ const Header = () => {
                   <NavLink to="/programs/tree-plantation" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Tree Plantation</span>
-                      <span className="text-sm text-muted-foreground">Environmental restoration</span>
+                      <span className="text-sm text-muted-foreground">
+                        Environmental restoration
+                      </span>
                     </div>
                   </NavLink>
                 </DropdownMenuItem>
@@ -90,7 +121,9 @@ const Header = () => {
                   <NavLink to="/programs/rural-development" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Rural Development</span>
-                      <span className="text-sm text-muted-foreground">Infrastructure & agriculture</span>
+                      <span className="text-sm text-muted-foreground">
+                        Infrastructure & agriculture
+                      </span>
                     </div>
                   </NavLink>
                 </DropdownMenuItem>
@@ -98,14 +131,21 @@ const Header = () => {
                   <NavLink to="/programs/charity" className="w-full">
                     <div className="flex flex-col">
                       <span className="font-medium">Charity</span>
-                      <span className="text-sm text-muted-foreground">Direct aid & relief</span>
+                      <span className="text-sm text-muted-foreground">
+                        Direct aid & relief
+                      </span>
                     </div>
                   </NavLink>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            
-            <NavLink to="/projects" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
+
+            <NavLink
+              to="/projects"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
               Projects
             </NavLink>
             {/* Commented out per request: Achievements & Volunteer
@@ -116,7 +156,12 @@ const Header = () => {
               Volunteer
             </NavLink>
             */}
-            <NavLink to="/contact" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600' : 'text-foreground'} transition-colors`}>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
               Contact Us
             </NavLink>
           </nav>
@@ -132,10 +177,11 @@ const Header = () => {
 
           {/* Mobile menu placeholder */}
           <div className="md:hidden">
-            <NavLink to="/" className="text-base font-medium">Menu</NavLink>
+            <NavLink to="/" className="text-base font-medium">
+              Menu
+            </NavLink>
           </div>
         </div>
-
       </div>
     </header>
   );
