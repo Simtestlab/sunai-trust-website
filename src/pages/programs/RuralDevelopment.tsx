@@ -177,43 +177,52 @@ const RuralDevelopment = () => {
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Rural Transformation Stories</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <Card className="p-8 bg-amber-50 border-amber-200">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-amber-600 mr-2" />
-                    <span className="text-amber-600 font-semibold">Madhya Pradesh</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Drought-Proofing Initiative</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "In Bundelkhand region, our water management program has made 50 villages drought-resilient. 
-                    Through watershed development, rainwater harvesting, and efficient irrigation, farmers now 
-                    have year-round water access and crop yields have doubled."
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    Project Duration: 2018-2023
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="p-8 bg-green-50 border-green-200">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-green-600 mr-2" />
-                    <span className="text-green-600 font-semibold">Tamil Nadu</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Farmer Producer Organization Success</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "Our FPO in Thanjavur district has aggregated 2,000 small farmers, eliminating middlemen 
-                    and increasing farmer income by 60%. The collective now has ₹2 crore annual turnover and 
-                    direct market access to major buyers."
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    Project Duration: 2019-Ongoing
-                  </div>
-                </CardContent>
-              </Card>
+              {[
+          {
+            location: "Madhya Pradesh",
+            locationColor: "amber",
+            cardBg: "bg-amber-50",
+            cardBorder: "border-amber-200",
+            iconColor: "text-amber-600",
+            title: "Drought-Proofing Initiative",
+            description: `"In Bundelkhand region, our water management program has made 50 villages drought-resilient. 
+              Through watershed development, rainwater harvesting, and efficient irrigation, farmers now 
+              have year-round water access and crop yields have doubled."`,
+            duration: "2018-2023"
+          },
+          {
+            location: "Tamil Nadu",
+            locationColor: "green",
+            cardBg: "bg-green-50",
+            cardBorder: "border-green-200",
+            iconColor: "text-green-600",
+            title: "Farmer Producer Organization Success",
+            description: `"Our FPO in Thanjavur district has aggregated 2,000 small farmers, eliminating middlemen 
+              and increasing farmer income by 60%. The collective now has ₹2 crore annual turnover and 
+              direct market access to major buyers."`,
+            duration: "2019-Ongoing"
+          }
+              ].map((story, idx) => (
+          <Card
+            key={idx}
+            className={`flex flex-col justify-between h-full p-8 ${story.cardBg} ${story.cardBorder}`}
+          >
+            <CardContent className="flex flex-col flex-1 p-0">
+              <div>
+                <div className="flex items-center mb-4">
+            <MapPin className={`w-5 h-5 mr-2 ${story.iconColor}`} />
+            <span className={`${story.iconColor} font-semibold`}>{story.location}</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">{story.title}</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">{story.description}</p>
+              </div>
+              <div className="mt-auto text-sm text-gray-500 flex items-center">
+                <Calendar className="w-4 h-4 inline mr-1" />
+                Project Duration: {story.duration}
+              </div>
+            </CardContent>
+          </Card>
+              ))}
             </div>
           </div>
         </section>

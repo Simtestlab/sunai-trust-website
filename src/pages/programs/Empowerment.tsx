@@ -176,43 +176,44 @@ const Empowerment = () => {
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Empowerment Success Stories</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <Card className="p-8 bg-purple-50 border-purple-200">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-purple-600 mr-2" />
-                    <span className="text-purple-600 font-semibold">Gujarat</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Women's Cooperative Success</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "In Kutch district, our women's self-help group program has empowered 2,500 women to start 
+              {[
+                {
+                  location: "Gujarat",
+                  color: "purple",
+                  title: "Women's Cooperative Success",
+                  description: `"In Kutch district, our women's self-help group program has empowered 2,500 women to start 
                     their own businesses. The collective has generated ₹50 lakhs in annual revenue, with 
-                    average income increasing by 300% for participating women."
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    Project Duration: 2018-Ongoing
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="p-8 bg-orange-50 border-orange-200">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-orange-600 mr-2" />
-                    <span className="text-orange-600 font-semibold">Karnataka</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Youth Employment Program</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "Our skill development center in Bangalore has trained 1,200+ youth in IT and hospitality 
+                    average income increasing by 300% for participating women."`,
+                  duration: "2018-Ongoing"
+                },
+                {
+                  location: "Karnataka",
+                  color: "orange",
+                  title: "Youth Employment Program",
+                  description: `"Our skill development center in Bangalore has trained 1,200+ youth in IT and hospitality 
                     sectors. 85% of graduates secured employment with leading companies, with starting salaries 
-                    250% higher than local averages."
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    Project Duration: 2020-Ongoing
-                  </div>
-                </CardContent>
-              </Card>
+                    250% higher than local averages."`,
+                  duration: "2020-Ongoing"
+                }
+              ].map((story, idx) => (
+                <Card
+                  key={idx}
+                  className={`flex flex-col justify-between h-full p-8 bg-${story.color}-50 border-${story.color}-200`}
+                >
+                  <CardContent className="flex flex-col flex-1 p-0">
+                    <div className="flex items-center mb-4">
+                      <MapPin className={`w-5 h-5 text-${story.color}-600 mr-2`} />
+                      <span className={`text-${story.color}-600 font-semibold`}>{story.location}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">{story.title}</h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed flex-1">{story.description}</p>
+                    <div className="text-sm text-gray-500 mt-auto">
+                      <Calendar className="w-4 h-4 inline mr-1" />
+                      Project Duration: {story.duration}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>

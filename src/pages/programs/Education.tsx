@@ -179,43 +179,47 @@ const Education = () => {
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Success Stories</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <Card className="p-8 bg-teal-50 border-teal-200">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
-                    <span className="text-teal-600 font-semibold">Rajasthan</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Village School Transformation</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "In Khempur village, we transformed a struggling school with just 40 students into a thriving 
-                    educational center with 200+ students. Through infrastructure development, teacher training, 
-                    and community engagement, the school now boasts a 100% attendance rate."
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    Project Duration: 2020-2023
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="p-8 bg-green-50 border-green-200">
-                <CardContent className="p-0">
-                  <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-green-600 mr-2" />
-                    <span className="text-green-600 font-semibold">West Bengal</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">Digital Literacy Initiative</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "Our digital learning centers in rural West Bengal have enabled 1,500+ students to access 
-                    quality educational content. Many students have gone on to pursue higher education and 
-                    secure good employment opportunities."
-                  </p>
-                  <div className="text-sm text-gray-500">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    Project Duration: 2021-Ongoing
-                  </div>
-                </CardContent>
-              </Card>
+              {[
+          {
+            location: "Rajasthan",
+            color: "teal",
+            title: "Village School Transformation",
+            description: `"In Khempur village, we transformed a struggling school with just 40 students into a thriving 
+              educational center with 200+ students. Through infrastructure development, teacher training, 
+              and community engagement, the school now boasts a 100% attendance rate."`,
+            duration: "2020-2023"
+          },
+          {
+            location: "West Bengal",
+            color: "green",
+            title: "Digital Literacy Initiative",
+            description: `"Our digital learning centers in rural West Bengal have enabled 1,500+ students to access 
+              quality educational content. Many students have gone on to pursue higher education and 
+              secure good employment opportunities."`,
+            duration: "2021-Ongoing"
+          }
+              ].map((story, idx) => (
+          <Card
+            key={idx}
+            className={`flex flex-col justify-between h-full p-8 bg-${story.color}-50 border-${story.color}-200`}
+            style={{ minHeight: 340 }}
+          >
+            <CardContent className="flex flex-col h-full p-0">
+              <div>
+                <div className="flex items-center mb-4">
+            <MapPin className={`w-5 h-5 text-${story.color}-600 mr-2`} />
+            <span className={`text-${story.color}-600 font-semibold`}>{story.location}</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">{story.title}</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">{story.description}</p>
+              </div>
+              <div className="mt-auto text-sm text-gray-500 flex items-center">
+                <Calendar className="w-4 h-4 inline mr-1" />
+                Project Duration: {story.duration}
+              </div>
+            </CardContent>
+          </Card>
+              ))}
             </div>
           </div>
         </section>
