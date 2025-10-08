@@ -77,7 +77,7 @@ const MissionOverview = () => {
             >
               <CardContent className="p-0 h-full flex flex-col">
                 <Link to={program.link}>
-                    <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden">
                     <img
                       src={program.image}
                       alt={program.title}
@@ -87,7 +87,7 @@ const MissionOverview = () => {
                     <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">
                       {program.title}
                     </h3>
-                    </div>
+                  </div>
                 </Link>
                 <div className="p-6 flex-1 flex flex-col">
                   <p className="text-muted-foreground leading-relaxed mb-4 flex-1">
