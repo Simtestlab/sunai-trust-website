@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export const useScrollReveal = () => {
   useEffect(() => {
@@ -6,17 +6,17 @@ export const useScrollReveal = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add("revealed");
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      }
+        rootMargin: "0px 0px -50px 0px",
+      },
     );
 
-    const elements = document.querySelectorAll('.scroll-reveal');
+    const elements = document.querySelectorAll(".scroll-reveal");
     elements.forEach((element) => {
       observer.observe(element);
     });

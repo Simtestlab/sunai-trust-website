@@ -43,10 +43,18 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(195 85% 35%), hsl(200 75% 45%));
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(195 85% 35%),
+      hsl(200 75% 45%)
+    );
     --soft-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 15% 98%));
-    --impact-gradient: linear-gradient(135deg, hsl(25 95% 55%), hsl(35 85% 60%));
-    
+    --impact-gradient: linear-gradient(
+      135deg,
+      hsl(25 95% 55%),
+      hsl(35 85% 60%)
+    );
+
     --shadow-soft: 0 4px 20px -4px hsl(195 85% 35% / 0.1);
     --shadow-card: 0 8px 32px -8px hsl(210 12% 16% / 0.08);
     --shadow-hero: 0 20px 60px -20px hsl(195 85% 35% / 0.2);
@@ -100,9 +108,17 @@ All colors MUST be HSL.
     --input: 210 20% 18%;
     --ring: 195 85% 45%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(195 85% 25%), hsl(200 75% 35%));
+    --hero-gradient: linear-gradient(
+      135deg,
+      hsl(195 85% 25%),
+      hsl(200 75% 35%)
+    );
     --soft-gradient: linear-gradient(180deg, hsl(210 25% 8%), hsl(210 20% 10%));
-    --impact-gradient: linear-gradient(135deg, hsl(25 95% 45%), hsl(35 85% 50%));
+    --impact-gradient: linear-gradient(
+      135deg,
+      hsl(25 95% 45%),
+      hsl(35 85% 50%)
+    );
   }
 }
 
@@ -113,7 +129,9 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 
   html {
@@ -125,11 +143,11 @@ All colors MUST be HSL.
   .hero-gradient {
     background: var(--hero-gradient);
   }
-  
+
   .soft-gradient {
     background: var(--soft-gradient);
   }
-  
+
   .impact-gradient {
     background: var(--impact-gradient);
   }
@@ -137,11 +155,11 @@ All colors MUST be HSL.
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
-  
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
-  
+
   .shadow-hero {
     box-shadow: var(--shadow-hero);
   }
@@ -149,7 +167,7 @@ All colors MUST be HSL.
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
+
   .transition-bounce {
     transition: var(--transition-bounce);
   }
@@ -175,7 +193,7 @@ All colors MUST be HSL.
   .hover-lift {
     transition: var(--transition-smooth);
   }
-  
+
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card);

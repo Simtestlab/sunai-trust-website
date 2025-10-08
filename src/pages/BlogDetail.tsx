@@ -1,15 +1,22 @@
-import { useParams, Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Calendar, Clock, Share2, Heart, MessageCircle } from 'lucide-react';
-import skillTraining from '@/assets/skill trainning.jpeg';
-import skillDevelopment from '@/assets/skill development.jpeg';
-import treePlantation from '@/assets/tree plantation.jpeg';
-import waterImage from '@/assets/water.jpeg';
-import mealImage from '@/assets/meal.jpeg';
-import reliefImage from '@/assets/relief.jpeg';
+import { useParams, Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  Share2,
+  Heart,
+  MessageCircle,
+} from "lucide-react";
+import skillTraining from "@/assets/skill trainning.jpeg";
+import skillDevelopment from "@/assets/skill development.jpeg";
+import treePlantation from "@/assets/tree plantation.jpeg";
+import waterImage from "@/assets/water.jpeg";
+import mealImage from "@/assets/meal.jpeg";
+import reliefImage from "@/assets/relief.jpeg";
 
 type BlogPost = {
   id: string;
@@ -31,11 +38,12 @@ type BlogPost = {
 };
 
 const blogPosts: Record<string, BlogPost> = {
-  'skill-training-women-tamil-nadu': {
-    id: 'skill-training-women-tamil-nadu',
-    tag: 'Women Empowerment',
-    title: 'Skill Training Program for Women Launched in Tamil Nadu',
-    excerpt: 'A new initiative offering tailoring, digital literacy, and financial awareness workshops for rural women to become self-reliant.',
+  "skill-training-women-tamil-nadu": {
+    id: "skill-training-women-tamil-nadu",
+    tag: "Women Empowerment",
+    title: "Skill Training Program for Women Launched in Tamil Nadu",
+    excerpt:
+      "A new initiative offering tailoring, digital literacy, and financial awareness workshops for rural women to become self-reliant.",
     content: `
       <h2>Empowering Rural Women Through Skills Development</h2>
       <p>Our comprehensive skill training program has reached over 300 women across 15 villages in Tamil Nadu, providing them with essential skills for economic independence.</p>
@@ -59,23 +67,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Future Plans</h3>
       <p>We plan to expand this program to 50 more villages by the end of 2025, targeting 1,000 women. We're also introducing advanced courses in organic farming and food processing.</p>
     `,
-    date: 'April 20, 2025',
-    readTime: '6 min read',
+    date: "April 20, 2025",
+    readTime: "6 min read",
     image: skillTraining,
-    author: 'Priya Sharma',
-    location: 'Tamil Nadu, India',
+    author: "Priya Sharma",
+    location: "Tamil Nadu, India",
     impact: {
-      beneficiaries: '300+ Women',
-      villages: '15 Villages',
-      duration: '6 Months'
+      beneficiaries: "300+ Women",
+      villages: "15 Villages",
+      duration: "6 Months",
     },
-    gallery: [skillTraining, skillDevelopment]
+    gallery: [skillTraining, skillDevelopment],
   },
-  'tree-plantation-drive-50000-saplings': {
-    id: 'tree-plantation-drive-50000-saplings',
-    tag: 'Environment',
-    title: 'Tree Plantation Drive Plants 50,000 Saplings',
-    excerpt: 'Our community volunteers and school students came together to restore greenery and improve air quality in local villages.',
+  "tree-plantation-drive-50000-saplings": {
+    id: "tree-plantation-drive-50000-saplings",
+    tag: "Environment",
+    title: "Tree Plantation Drive Plants 50,000 Saplings",
+    excerpt:
+      "Our community volunteers and school students came together to restore greenery and improve air quality in local villages.",
     content: `
       <h2>Green Initiative for Climate Action</h2>
       <p>In collaboration with local schools and community groups, we successfully planted 50,000 saplings across 25 villages, contributing to environmental conservation and climate change mitigation.</p>
@@ -100,23 +109,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Educational Component</h3>
       <p>The program included environmental education sessions for students and community members, raising awareness about climate change, deforestation, and the importance of forest conservation.</p>
     `,
-    date: 'March 28, 2025',
-    readTime: '5 min read',
+    date: "March 28, 2025",
+    readTime: "5 min read",
     image: treePlantation,
-    author: 'Dr. Rajesh Kumar',
-    location: 'Rajasthan, India',
+    author: "Dr. Rajesh Kumar",
+    location: "Rajasthan, India",
     impact: {
-      beneficiaries: '10,000+ People',
-      villages: '25 Villages',
-      duration: '3 Months'
+      beneficiaries: "10,000+ People",
+      villages: "25 Villages",
+      duration: "3 Months",
     },
-    gallery: [treePlantation]
+    gallery: [treePlantation],
   },
-  'youth-skill-development-500-jobs': {
-    id: 'youth-skill-development-500-jobs',
-    tag: 'Livelihood',
-    title: 'Youth Skill Development Workshop Helps 500 Find Jobs',
-    excerpt: 'Job-oriented training in IT, carpentry, and electrical work has successfully placed 500 young people in local industries.',
+  "youth-skill-development-500-jobs": {
+    id: "youth-skill-development-500-jobs",
+    tag: "Livelihood",
+    title: "Youth Skill Development Workshop Helps 500 Find Jobs",
+    excerpt:
+      "Job-oriented training in IT, carpentry, and electrical work has successfully placed 500 young people in local industries.",
     content: `
       <h2>Bridging the Skills Gap for Rural Youth</h2>
       <p>Our comprehensive skill development program has successfully trained and placed 500 young people in sustainable employment, addressing unemployment challenges in rural areas.</p>
@@ -141,23 +151,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Women's Participation</h3>
       <p>35% of participants were women, breaking traditional gender barriers in technical fields. Special provisions were made for women's safety and convenience during training.</p>
     `,
-    date: 'May 2, 2025',
-    readTime: '7 min read',
+    date: "May 2, 2025",
+    readTime: "7 min read",
     image: skillDevelopment,
-    author: 'Anita Desai',
-    location: 'Karnataka, India',
+    author: "Anita Desai",
+    location: "Karnataka, India",
     impact: {
-      beneficiaries: '500 Youth',
-      villages: '30 Villages',
-      duration: '8 Months'
+      beneficiaries: "500 Youth",
+      villages: "30 Villages",
+      duration: "8 Months",
     },
-    gallery: [skillDevelopment]
+    gallery: [skillDevelopment],
   },
-  'clean-water-project-20-villages': {
-    id: 'clean-water-project-20-villages',
-    tag: 'Water & Sanitation',
-    title: 'Clean Water Project Brings Safe Drinking Water to 20 Villages',
-    excerpt: 'New borewells and water purification systems ensure access to safe and clean drinking water for more than 3,000 families.',
+  "clean-water-project-20-villages": {
+    id: "clean-water-project-20-villages",
+    tag: "Water & Sanitation",
+    title: "Clean Water Project Brings Safe Drinking Water to 20 Villages",
+    excerpt:
+      "New borewells and water purification systems ensure access to safe and clean drinking water for more than 3,000 families.",
     content: `
       <h2>Ensuring Water Security for Rural Communities</h2>
       <p>Our comprehensive water project has transformed the lives of over 15,000 people across 20 villages by providing access to clean, safe drinking water through sustainable infrastructure development.</p>
@@ -185,23 +196,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Environmental Benefits</h3>
       <p>Solar-powered pumps reduce carbon footprint and operational costs. Rainwater harvesting systems were also installed to recharge groundwater and ensure sustainability.</p>
     `,
-    date: 'April 10, 2025',
-    readTime: '6 min read',
+    date: "April 10, 2025",
+    readTime: "6 min read",
     image: waterImage,
-    author: 'Vikram Patel',
-    location: 'Gujarat, India',
+    author: "Vikram Patel",
+    location: "Gujarat, India",
     impact: {
-      beneficiaries: '15,000 People',
-      villages: '20 Villages',
-      duration: '12 Months'
+      beneficiaries: "15,000 People",
+      villages: "20 Villages",
+      duration: "12 Months",
     },
-    gallery: [waterImage]
+    gallery: [waterImage],
   },
-  'midday-meal-program-2000-children': {
-    id: 'midday-meal-program-2000-children',
-    tag: 'Nutrition',
-    title: 'Midday Meal Program Reaches 2,000 Children',
-    excerpt: 'Our nutrition initiative provides healthy meals to school children daily, helping improve attendance and overall health.',
+  "midday-meal-program-2000-children": {
+    id: "midday-meal-program-2000-children",
+    tag: "Nutrition",
+    title: "Midday Meal Program Reaches 2,000 Children",
+    excerpt:
+      "Our nutrition initiative provides healthy meals to school children daily, helping improve attendance and overall health.",
     content: `
       <h2>Nourishing Young Minds for Better Learning</h2>
       <p>Our midday meal program serves nutritious, hot meals to 2,000 children across 40 schools, addressing malnutrition and improving educational outcomes in rural areas.</p>
@@ -229,23 +241,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Sustainability</h3>
       <p>The program is designed for long-term sustainability through community ownership, government partnerships, and local resource utilization. We're working toward making schools self-sufficient in vegetable production.</p>
     `,
-    date: 'March 25, 2025',
-    readTime: '5 min read',
+    date: "March 25, 2025",
+    readTime: "5 min read",
     image: mealImage,
-    author: 'Dr. Sunita Rao',
-    location: 'Odisha, India',
+    author: "Dr. Sunita Rao",
+    location: "Odisha, India",
     impact: {
-      beneficiaries: '2,000 Children',
-      villages: '40 Schools',
-      duration: '18 Months'
+      beneficiaries: "2,000 Children",
+      villages: "40 Schools",
+      duration: "18 Months",
     },
-    gallery: [mealImage]
+    gallery: [mealImage],
   },
-  'emergency-relief-flood-affected-families': {
-    id: 'emergency-relief-flood-affected-families',
-    tag: 'Disaster Relief',
-    title: 'Emergency Relief Provided to Flood-Affected Families',
-    excerpt: 'Our volunteers distributed food, clothing, and medical kits to families impacted by the recent floods in Bihar.',
+  "emergency-relief-flood-affected-families": {
+    id: "emergency-relief-flood-affected-families",
+    tag: "Disaster Relief",
+    title: "Emergency Relief Provided to Flood-Affected Families",
+    excerpt:
+      "Our volunteers distributed food, clothing, and medical kits to families impacted by the recent floods in Bihar.",
     content: `
       <h2>Rapid Response to Natural Disaster</h2>
       <p>When devastating floods hit 15 districts in Bihar, our emergency response team mobilized within 24 hours to provide immediate relief to 5,000 affected families.</p>
@@ -273,23 +286,25 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Preparedness for Future</h3>
       <p>We're working with communities to develop disaster preparedness plans, train local volunteers, and pre-position emergency supplies for quick response to future disasters.</p>
     `,
-    date: 'May 15, 2025',
-    readTime: '6 min read',
+    date: "May 15, 2025",
+    readTime: "6 min read",
     image: reliefImage,
-    author: 'Rajesh Singh',
-    location: 'Bihar, India',
+    author: "Rajesh Singh",
+    location: "Bihar, India",
     impact: {
-      beneficiaries: '5,000 Families',
-      villages: '50 Villages',
-      duration: '2 Months'
+      beneficiaries: "5,000 Families",
+      villages: "50 Villages",
+      duration: "2 Months",
     },
-    gallery: [reliefImage]
+    gallery: [reliefImage],
   },
-  'digital-literacy-elderly-program': {
-    id: 'digital-literacy-elderly-program',
-    tag: 'Digital Inclusion',
-    title: 'Digital Literacy Program for Senior Citizens Shows Remarkable Results',
-    excerpt: 'Over 200 elderly participants learned smartphone usage, online banking, and digital communication in our pioneering program.',
+  "digital-literacy-elderly-program": {
+    id: "digital-literacy-elderly-program",
+    tag: "Digital Inclusion",
+    title:
+      "Digital Literacy Program for Senior Citizens Shows Remarkable Results",
+    excerpt:
+      "Over 200 elderly participants learned smartphone usage, online banking, and digital communication in our pioneering program.",
     content: `
       <h2>Bridging the Digital Divide for Senior Citizens</h2>
       <p>Our innovative digital literacy program has successfully trained over 200 senior citizens across rural and urban areas, helping them navigate the digital world with confidence.</p>
@@ -317,23 +332,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Expansion Plans</h3>
       <p>Due to overwhelming success, we're expanding to 50 more locations and adding modules on online healthcare consultations and digital entertainment platforms.</p>
     `,
-    date: 'June 5, 2025',
-    readTime: '4 min read',
+    date: "June 5, 2025",
+    readTime: "4 min read",
     image: skillDevelopment,
-    author: 'Dr. Meera Sharma',
-    location: 'Delhi & NCR, India',
+    author: "Dr. Meera Sharma",
+    location: "Delhi & NCR, India",
     impact: {
-      beneficiaries: '200+ Senior Citizens',
-      villages: '25 Centers',
-      duration: '4 Months'
+      beneficiaries: "200+ Senior Citizens",
+      villages: "25 Centers",
+      duration: "4 Months",
     },
-    gallery: [skillDevelopment]
+    gallery: [skillDevelopment],
   },
-  'solar-energy-rural-electrification': {
-    id: 'solar-energy-rural-electrification',
-    tag: 'Renewable Energy',
-    title: 'Solar Power Initiative Brings Electricity to Remote Villages',
-    excerpt: 'Solar panel installations in 12 remote villages provide clean energy to 800 households, enabling evening education and small businesses.',
+  "solar-energy-rural-electrification": {
+    id: "solar-energy-rural-electrification",
+    tag: "Renewable Energy",
+    title: "Solar Power Initiative Brings Electricity to Remote Villages",
+    excerpt:
+      "Solar panel installations in 12 remote villages provide clean energy to 800 households, enabling evening education and small businesses.",
     content: `
       <h2>Lighting Up Lives with Clean Energy</h2>
       <p>Our solar electrification project has transformed 12 remote villages in Rajasthan and Madhya Pradesh, bringing clean, reliable electricity to 800 households for the first time.</p>
@@ -361,23 +377,24 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Community Ownership</h3>
       <p>Village Energy Committees manage the systems, ensuring sustainability. Each household contributes a small monthly fee for maintenance, creating a self-sustaining model.</p>
     `,
-    date: 'May 20, 2025',
-    readTime: '5 min read',
+    date: "May 20, 2025",
+    readTime: "5 min read",
     image: treePlantation,
-    author: 'Eng. Suresh Kumar',
-    location: 'Rajasthan & MP, India',
+    author: "Eng. Suresh Kumar",
+    location: "Rajasthan & MP, India",
     impact: {
-      beneficiaries: '800 Households',
-      villages: '12 Villages',
-      duration: '8 Months'
+      beneficiaries: "800 Households",
+      villages: "12 Villages",
+      duration: "8 Months",
     },
-    gallery: [treePlantation]
+    gallery: [treePlantation],
   },
-  'community-health-workers-training': {
-    id: 'community-health-workers-training',
-    tag: 'Healthcare',
-    title: 'Community Health Workers Program Improves Rural Healthcare Access',
-    excerpt: 'Training 150 local women as community health workers has improved healthcare delivery in remote areas with limited medical facilities.',
+  "community-health-workers-training": {
+    id: "community-health-workers-training",
+    tag: "Healthcare",
+    title: "Community Health Workers Program Improves Rural Healthcare Access",
+    excerpt:
+      "Training 150 local women as community health workers has improved healthcare delivery in remote areas with limited medical facilities.",
     content: `
       <h2>Building Healthcare Capacity at the Grassroots</h2>
       <p>Our Community Health Workers (CHW) program has trained 150 local women to provide basic healthcare services, reaching 25,000 people in remote areas with limited access to medical facilities.</p>
@@ -405,18 +422,18 @@ const blogPosts: Record<string, BlogPost> = {
       <h3>Sustainability Model</h3>
       <p>The program is integrated with government health systems. CHWs are linked to Primary Health Centers and receive ongoing support from qualified medical professionals.</p>
     `,
-    date: 'April 15, 2025',
-    readTime: '5 min read',
+    date: "April 15, 2025",
+    readTime: "5 min read",
     image: reliefImage,
-    author: 'Dr. Anjali Verma',
-    location: 'Odisha & Jharkhand, India',
+    author: "Dr. Anjali Verma",
+    location: "Odisha & Jharkhand, India",
     impact: {
-      beneficiaries: '25,000 People',
-      villages: '75 Villages',
-      duration: '12 Months'
+      beneficiaries: "25,000 People",
+      villages: "75 Villages",
+      duration: "12 Months",
     },
-    gallery: [reliefImage]
-  }
+    gallery: [reliefImage],
+  },
 };
 
 const BlogDetail = () => {
@@ -444,12 +461,15 @@ const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      
+
       <main className="flex-1 container mx-auto px-4 py-8">
         {/* Back Navigation */}
         <div className="mb-6">
           <Link to="/blogs">
-            <Button variant="ghost" className="text-teal-600 hover:text-teal-700">
+            <Button
+              variant="ghost"
+              className="text-teal-600 hover:text-teal-700"
+            >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Blogs
             </Button>
@@ -459,12 +479,16 @@ const BlogDetail = () => {
         {/* Hero Section */}
         <article className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <Badge variant="secondary" className="mb-6 text-sm">{blog.tag}</Badge>
+            <Badge variant="secondary" className="mb-6 text-sm">
+              {blog.tag}
+            </Badge>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6 leading-tight">
               {blog.title}
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed">{blog.excerpt}</p>
-            
+            <p className="text-xl md:text-2xl text-slate-600 mb-8 leading-relaxed">
+              {blog.excerpt}
+            </p>
+
             {/* Meta Information */}
             <div className="flex flex-wrap items-center gap-8 text-base text-slate-500 mb-8">
               <div className="flex items-center gap-2">
@@ -502,8 +526,8 @@ const BlogDetail = () => {
 
           {/* Featured Image */}
           <div className="mb-8">
-            <img 
-              src={blog.image} 
+            <img
+              src={blog.image}
               alt={blog.title}
               className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
             />
@@ -511,34 +535,45 @@ const BlogDetail = () => {
 
           {/* Impact Highlights */}
           <div className="bg-teal-50 rounded-lg p-6 mb-8">
-            <h3 className="text-lg font-semibold text-teal-800 mb-4">Project Impact</h3>
+            <h3 className="text-lg font-semibold text-teal-800 mb-4">
+              Project Impact
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">{blog.impact.beneficiaries}</div>
+                <div className="text-2xl font-bold text-teal-600">
+                  {blog.impact.beneficiaries}
+                </div>
                 <div className="text-sm text-teal-700">Beneficiaries</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">{blog.impact.villages}</div>
+                <div className="text-2xl font-bold text-teal-600">
+                  {blog.impact.villages}
+                </div>
                 <div className="text-sm text-teal-700">Coverage</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">{blog.impact.duration}</div>
+                <div className="text-2xl font-bold text-teal-600">
+                  {blog.impact.duration}
+                </div>
                 <div className="text-sm text-teal-700">Duration</div>
               </div>
             </div>
           </div>
 
           {/* Content */}
-          <div 
+          <div
             className="prose prose-lg max-w-none mb-8"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
           {/* Call to Action */}
           <div className="bg-slate-50 rounded-lg p-6 text-center">
-            <h3 className="text-xl font-semibold mb-3">Want to make a difference?</h3>
+            <h3 className="text-xl font-semibold mb-3">
+              Want to make a difference?
+            </h3>
             <p className="text-slate-600 mb-4">
-              Join us in our mission to create positive change in communities across India.
+              Join us in our mission to create positive change in communities
+              across India.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/volunteer">
@@ -547,9 +582,7 @@ const BlogDetail = () => {
                 </Button>
               </Link>
               <Link to="/projects">
-                <Button variant="outline">
-                  View All Projects
-                </Button>
+                <Button variant="outline">View All Projects</Button>
               </Link>
             </div>
           </div>

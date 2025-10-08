@@ -1,22 +1,22 @@
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { 
-  Facebook, 
-  Instagram, 
-  Twitter, 
-  Linkedin, 
-  Youtube, 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Youtube,
   Mail,
   Phone,
-  MapPin
-} from 'lucide-react';
+  MapPin,
+} from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-foreground text-white">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-  <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo & Mission */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
@@ -29,10 +29,11 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/80 leading-relaxed mb-6">
-              Listening to needs, building futures. We empower communities through education, 
-              healthcare, and sustainable development programs that create lasting change.
+              Listening to needs, building futures. We empower communities
+              through education, healthcare, and sustainable development
+              programs that create lasting change.
             </p>
-           {/* <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-smooth">
                 <Facebook className="w-5 h-5" />
               </a>
@@ -53,17 +54,58 @@ const Footer = () => {
 
           {/* Quick Links */}
 
-
           {/* Programs */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Our Future Programs</h4>
             <ul className="space-y-3">
-              <li><a href="#education" className="text-white/80 hover:text-white transition-smooth">Education Initiative</a></li>
-              <li><a href="#health" className="text-white/80 hover:text-white transition-smooth">Healthcare Access</a></li>
-              <li><a href="#empowerment" className="text-white/80 hover:text-white transition-smooth">Community Empowerment</a></li>
-              <li><a href="#scholarship" className="text-white/80 hover:text-white transition-smooth">Scholarship Program</a></li>
-              <li><a href="#skills" className="text-white/80 hover:text-white transition-smooth">Skills Development</a></li>
-              <li><a href="#women" className="text-white/80 hover:text-white transition-smooth">Women's Empowerment</a></li>
+              <li>
+                <a
+                  href="#education"
+                  className="text-white/80 hover:text-white transition-smooth"
+                >
+                  Education Initiative
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#health"
+                  className="text-white/80 hover:text-white transition-smooth"
+                >
+                  Healthcare Access
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#empowerment"
+                  className="text-white/80 hover:text-white transition-smooth"
+                >
+                  Community Empowerment
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#scholarship"
+                  className="text-white/80 hover:text-white transition-smooth"
+                >
+                  Scholarship Program
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  className="text-white/80 hover:text-white transition-smooth"
+                >
+                  Skills Development
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#women"
+                  className="text-white/80 hover:text-white transition-smooth"
+                >
+                  Women's Empowerment
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -84,8 +126,10 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                 <p className="text-white/80">
-                  Gandhipuram<br />
-                  Coimbatore Tamilnadu<br />
+                  Gandhipuram
+                  <br />
+                  Coimbatore Tamilnadu
+                  <br />
                   India
                 </p>
               </div>
@@ -99,10 +143,27 @@ const Footer = () => {
         <div className="py-6 border-t border-white/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-white/80 text-sm text-center md:text-left">
-              © 2025 Sunai NGO. All rights reserved. | 
-              <a href="#privacy" className="hover:text-white transition-smooth ml-1">Privacy Policy</a> | 
-              <a href="#terms" className="hover:text-white transition-smooth ml-1">Terms of Service</a> | 
-              <a href="#refund" className="hover:text-white transition-smooth ml-1">Refund Policy</a>
+              © 2025 Sunai NGO. All rights reserved. |
+              <a
+                href="#privacy"
+                className="hover:text-white transition-smooth ml-1"
+              >
+                Privacy Policy
+              </a>{" "}
+              |
+              <a
+                href="#terms"
+                className="hover:text-white transition-smooth ml-1"
+              >
+                Terms of Service
+              </a>{" "}
+              |
+              <a
+                href="#refund"
+                className="hover:text-white transition-smooth ml-1"
+              >
+                Refund Policy
+              </a>
             </div>
           </div>
         </div>

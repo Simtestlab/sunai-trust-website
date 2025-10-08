@@ -9,15 +9,11 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     // allow tunnel host for remote previews
-    allowedHosts: [
-      'muskox-right-kangaroo.ngrok-free.app'
-    ],
+    allowedHosts: ["muskox-right-kangaroo.ngrok-free.app"],
   },
-  plugins: [
-    react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+  plugins: [react(), mode === "development" && componentTagger()].filter(
+    Boolean,
+  ),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
