@@ -1,11 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
+import logo from "@/assets/icon.png";
 import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Youtube,
   Mail,
   Phone,
   MapPin,
@@ -20,9 +15,11 @@ const Footer = () => {
           {/* Logo & Mission */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">S</span>
-              </div>
+              <img
+                src={logo}
+                alt="Sunai Logo"
+                className="w-10 h-10 rounded-lg object-contain"
+              />
               <div>
                 <h3 className="text-xl font-bold">Sunai</h3>
                 <p className="text-white/80 text-sm">Building Futures</p>
@@ -33,83 +30,61 @@ const Footer = () => {
               through education, healthcare, and sustainable development
               programs that create lasting change.
             </p>
-            {/* <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-smooth">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-smooth">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-smooth">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-smooth">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-smooth">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>*/}
           </div>
 
-          {/* Quick Links */}
-
-          {/* Programs */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Our Future Programs</h4>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#education"
+                  href="/programs/education"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Education Initiative
+                  Education
                 </a>
               </li>
               <li>
                 <a
-                  href="#health"
+                  href="/programs/health"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Healthcare Access
+                  Health
                 </a>
               </li>
               <li>
                 <a
-                  href="#empowerment"
+                  href="/programs/empowerment"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Community Empowerment
+                  Empowerment
                 </a>
               </li>
               <li>
                 <a
-                  href="#scholarship"
+                  href="/programs/tree-plantation"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Scholarship Program
+                  Tree Plantation
                 </a>
               </li>
               <li>
                 <a
-                  href="#skills"
+                  href="/programs/rural-development"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Skills Development
+                  Rural Development
                 </a>
               </li>
               <li>
                 <a
-                  href="#women"
+                  href="/programs/charity"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Women's Empowerment
+                  Charity
                 </a>
               </li>
             </ul>
           </div>
-
-          {/* Contact & Newsletter */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Stay Connected</h4>
             <div className="space-y-4 mb-6">
@@ -134,36 +109,13 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-
-            {/* Newsletter removed per request */}
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="py-6 border-t border-white/20">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-white/80 text-sm text-center md:text-left">
-              © 2025 Sunai NGO. All rights reserved. |
-              <a
-                href="#privacy"
-                className="hover:text-white transition-smooth ml-1"
-              >
-                Privacy Policy
-              </a>{" "}
-              |
-              <a
-                href="#terms"
-                className="hover:text-white transition-smooth ml-1"
-              >
-                Terms of Service
-              </a>{" "}
-              |
-              <a
-                href="#refund"
-                className="hover:text-white transition-smooth ml-1"
-              >
-                Refund Policy
-              </a>
+          <div className="flex justify-center items-center">
+            <div className="text-white/80 text-sm text-center">
+              © 2025 Sunai NGO. All rights reserved.
             </div>
           </div>
         </div>

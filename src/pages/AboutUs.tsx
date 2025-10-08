@@ -42,7 +42,7 @@ const TeamCard = ({
   );
 };
 
-const Team = () => {
+const AboutUs = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
@@ -105,4 +105,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default AboutUs;

@@ -10,9 +10,6 @@ import {
   Mail,
   Clock,
   Send,
-  MessageCircle,
-  Users,
-  Heart,
 } from "lucide-react";
 
 const Contact = () => {
@@ -101,13 +98,13 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-slate-700 mb-2">
                         First Name *
                       </label>
-                      <Input placeholder="Your first name" />
+                      <Input />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">
                         Last Name *
                       </label>
-                      <Input placeholder="Your last name" />
+                      <Input  />
                     </div>
                   </div>
 
@@ -115,21 +112,21 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Email Address *
                     </label>
-                    <Input type="email" placeholder="your.email@example.com" />
+                    <Input type="email"  />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Phone Number
                     </label>
-                    <Input type="tel" placeholder="+91 12345 67890" />
+                    <Input type="tel"  />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Subject *
                     </label>
-                    <Input placeholder="What is this regarding?" />
+                    <Input />
                   </div>
 
                   <div>
@@ -137,7 +134,6 @@ const Contact = () => {
                       Message *
                     </label>
                     <Textarea
-                      placeholder="Tell us more about your inquiry..."
                       rows={6}
                     />
                   </div>
