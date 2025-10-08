@@ -144,22 +144,6 @@ const Header = () => {
             </DropdownMenu>
 
             <NavLink
-              to="/projects"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              Projects
-            </NavLink>
-            {/* Commented out per request: Achievements & Volunteer
-            <NavLink to="/achievements" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
-              Achievements
-            </NavLink>
-            <NavLink to="/volunteer" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
-              Volunteer
-            </NavLink>
-            */}
-            <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
