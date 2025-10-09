@@ -1,4 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
+import missionImage from "../assets/mission.jpeg";
+import visionImage from "../assets/vision.jpeg";
 
 const MissionVision = () => {
   return (
@@ -8,20 +10,19 @@ const MissionVision = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Our Purpose & Direction
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-ilecek foreground max-w-2xl mx-auto">
             Guided by a clear vision and driven by a meaningful mission
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Vision Card */}
           <Card className="hover-lift border-0 shadow-card bg-card overflow-hidden group scroll-reveal">
             <CardContent className="p-8 md:p-10">
               <div className="flex items-center gap-4 mb-6">
                 <div
                   className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors bg-cover bg-center"
                   style={{
-                    backgroundImage: `url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=64&h=64&fit=crop)`,
+                    backgroundImage: `url(${visionImage})`,
                   }}
                 ></div>
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -44,7 +45,7 @@ const MissionVision = () => {
                 <div
                   className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors bg-cover bg-center"
                   style={{
-                    backgroundImage: `url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=64&h=64&fit=crop)`,
+                    backgroundImage: `url(${missionImage})`,
                   }}
                 ></div>
                 <h3 className="text-3xl md:text-4xl font-bold text-foreground">
