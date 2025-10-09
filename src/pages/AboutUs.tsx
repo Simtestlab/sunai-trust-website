@@ -27,8 +27,12 @@ const MemberCard = ({ img, name, title, desc }: MemberProfile) => {
       </div>
       <div className="space-y-2">
         <h3 className="text-xl font-bold text-foreground">{name}</h3>
-        <p className="text-sm font-semibold text-primary uppercase tracking-wide">{title}</p>
-        <p className="text-sm text-muted-foreground leading-relaxed pt-2">{desc}</p>
+        <p className="text-sm font-semibold text-primary uppercase tracking-wide">
+          {title}
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed pt-2">
+          {desc}
+        </p>
       </div>
     </div>
   );
@@ -49,8 +53,12 @@ const FounderCard = ({ img, name, title, desc }: MemberProfile) => {
       </div>
       <div className="space-y-3">
         <h3 className="text-2xl font-bold text-foreground">{name}</h3>
-        <p className="text-base font-semibold text-primary uppercase tracking-wide">{title}</p>
-        <p className="text-base text-muted-foreground leading-relaxed pt-2 max-w-xl">{desc}</p>
+        <p className="text-base font-semibold text-primary uppercase tracking-wide">
+          {title}
+        </p>
+        <p className="text-base text-muted-foreground leading-relaxed pt-2 max-w-xl">
+          {desc}
+        </p>
       </div>
     </div>
   );
@@ -147,8 +155,8 @@ const AboutUs = () => {
               <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full"></div>
             </div>
             <p className="text-base text-muted-foreground mb-12 leading-relaxed text-center max-w-3xl mx-auto">
-              Our advisory board provides strategic guidance and expertise to ensure
-              our programs achieve maximum impact and sustainability.
+              Our advisory board provides strategic guidance and expertise to
+              ensure our programs achieve maximum impact and sustainability.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {advisoryMembers.map((member, index) => (
