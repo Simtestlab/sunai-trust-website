@@ -4,16 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-  MessageCircle,
-  Users,
-  Heart,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -101,13 +92,13 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-slate-700 mb-2">
                         First Name *
                       </label>
-                      <Input placeholder="Your first name" />
+                      <Input />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">
                         Last Name *
                       </label>
-                      <Input placeholder="Your last name" />
+                      <Input />
                     </div>
                   </div>
 
@@ -115,31 +106,28 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Email Address *
                     </label>
-                    <Input type="email" placeholder="your.email@example.com" />
+                    <Input type="email" />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Phone Number
                     </label>
-                    <Input type="tel" placeholder="+91 12345 67890" />
+                    <Input type="tel" />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Subject *
                     </label>
-                    <Input placeholder="What is this regarding?" />
+                    <Input />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
                       Message *
                     </label>
-                    <Textarea
-                      placeholder="Tell us more about your inquiry..."
-                      rows={6}
-                    />
+                    <Textarea rows={6} />
                   </div>
 
                   {/* Removed interest checkboxes per request */}

@@ -317,7 +317,7 @@ const Education = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
+        <section className="py-16 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Join Our Mission to Transform Education

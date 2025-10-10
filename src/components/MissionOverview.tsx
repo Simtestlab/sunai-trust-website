@@ -81,7 +81,7 @@ const MissionOverview = () => {
                     <img
                       src={program.image}
                       alt={program.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter blur-sm brightness-75"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">

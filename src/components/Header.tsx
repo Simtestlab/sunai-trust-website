@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,6 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
+import logo from "@/assets/icon.png";
 
 const ProgramsDropdownTrigger = () => {
   const { pathname } = useLocation();
@@ -28,10 +28,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 lg:w-14 lg:h-14 bg-impact-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-2xl lg:text-3xl">
-                S
-              </span>
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg flex items-center justify-center">
+              <img
+                src={logo}
+                alt="Sunai Logo"
+                className="w-10 h-10 rounded-lg object-contain"
+              />
             </div>
             <div>
               <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
@@ -62,12 +64,12 @@ const Header = () => {
               Blogs
             </NavLink>
             <NavLink
-              to="/team"
+              to="/about-us"
               className={({ isActive }) =>
                 `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
               }
             >
-              Team
+              About Us
             </NavLink>
 
             {/* Programs Dropdown */}
@@ -141,22 +143,6 @@ const Header = () => {
             </DropdownMenu>
 
             <NavLink
-              to="/projects"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              Projects
-            </NavLink>
-            {/* Commented out per request: Achievements & Volunteer
-            <NavLink to="/achievements" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
-              Achievements
-            </NavLink>
-            <NavLink to="/volunteer" className={({ isActive }) => `text-base lg:text-lg font-medium ${isActive ? 'text-emerald-600 underline' : 'text-foreground hover:underline'} transition-colors`}>
-              Volunteer
-            </NavLink>
-            */}
-            <NavLink
               to="/contact"
               className={({ isActive }) =>
                 `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
@@ -165,17 +151,6 @@ const Header = () => {
               Contact Us
             </NavLink>
           </nav>
-
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            {/* Desktop Donate CTA removed per request
-            <Button variant="hero" size="lg" className="text-base lg:text-lg px-6 py-3">
-              Donate Now
-            </Button>
-            */}
-          </div>
-
-          {/* Mobile menu placeholder */}
           <div className="md:hidden">
             <NavLink to="/" className="text-base font-medium">
               Menu
