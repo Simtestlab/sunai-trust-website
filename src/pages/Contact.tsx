@@ -1,10 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -25,7 +22,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="max-w-4xl mx-auto space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center text-teal-600">
@@ -67,76 +64,6 @@ const Contact = () => {
                   <Clock className="w-4 h-4 mr-2 text-slate-400" />
                   <span className="text-sm">Mon - Fri: 9:00 AM - 6:00 PM</span>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Quick Actions removed per request */}
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl text-slate-800">
-                  Send us a Message
-                </CardTitle>
-                <p className="text-slate-600">
-                  Fill out the form below and we'll get back to you within 24
-                  hours.
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        First Name *
-                      </label>
-                      <Input />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Last Name *
-                      </label>
-                      <Input />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Email Address *
-                    </label>
-                    <Input type="email" />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Phone Number
-                    </label>
-                    <Input type="tel" />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Subject *
-                    </label>
-                    <Input />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Message *
-                    </label>
-                    <Textarea rows={6} />
-                  </div>
-
-                  {/* Removed interest checkboxes per request */}
-
-                  <Button className="w-full bg-teal-600 hover:bg-teal-700">
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
-                  </Button>
-                </form>
               </CardContent>
             </Card>
           </div>
