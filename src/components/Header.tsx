@@ -55,14 +55,7 @@ const Header = () => {
             >
               Home
             </NavLink>
-            <NavLink
-              to="/blogs"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              Blogs
-            </NavLink>
+
             <NavLink
               to="/about-us"
               className={({ isActive }) =>
@@ -141,7 +134,14 @@ const Header = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
+              Blogs
+            </NavLink>
             <NavLink
               to="/contact"
               className={({ isActive }) =>
