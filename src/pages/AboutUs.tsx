@@ -166,6 +166,62 @@ const AboutUs = () => {
           </section>
         </div>
       </main>
+
+      {/* Legal Status & Account Details Section */}
+      <section className="mt-24 mb-20">
+        <div className="max-w-6xl mx-auto bg-white border border-border shadow-lg rounded-3xl p-10 md:p-14">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            {/* Legal Status */}
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-6">Legal Status</h2>
+              <div className="space-y-3 text-sm md:text-base leading-relaxed text-muted-foreground">
+                <p><span className="font-semibold text-foreground">SUNAI - SUPPORT UPLIFT NOURISH AID ILLUMINATE</span></p>
+                <p><span className="font-semibold text-foreground">Trust Registration No:</span> Book-4/205/2023</p>
+                <p><span className="font-semibold text-foreground">12A Registration Number:</span> ABHTS4028A24CH01</p>
+                <p><span className="font-semibold text-foreground">80G Registration Number:</span> ABHTS4028A24CH02</p>
+                <p><span className="font-semibold text-foreground">PAN:</span> ABHTS4028A</p>
+              </div>
+            </div>
+
+            {/* Account Details */}
+            <div>
+              <h2 className="text-3xl font-bold text-foreground mb-6">Account Details</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                {/* Indian Donors */}
+                <div className="bg-secondary/10 rounded-2xl p-6 border border-border shadow-sm">
+                  <h3 className="text-lg font-semibold text-primary mb-4">Indian Donors</h3>
+                  <div className="space-y-2 text-sm md:text-base leading-relaxed text-muted-foreground">
+                    <p><span className="font-semibold text-foreground">Account Name:</span></p>
+                    <p><span className="font-semibold text-foreground">Account Number:</span></p>
+                    <p><span className="font-semibold text-foreground">Bank:</span></p>
+                    <p><span className="font-semibold text-foreground">IFSC Code:</span></p>
+                    <p><span className="font-semibold text-foreground">MICR Code:</span></p>
+                  </div>
+                </div>
+
+                {/* Foreign Donors */}
+                <div className="bg-secondary/10 rounded-2xl p-6 border border-border shadow-sm">
+                  <h3 className="text-lg font-semibold text-primary mb-4">Foreign Donors</h3>
+                  <div className="space-y-2 text-sm md:text-base leading-relaxed text-muted-foreground">
+                    <p><span className="font-semibold text-foreground">Account Name:</span></p>
+                    <p><span className="font-semibold text-foreground">Account Number:</span></p>
+                    <p><span className="font-semibold text-foreground">Account Type:</span></p>
+                    <p><span className="font-semibold text-foreground">Bank:</span></p>
+                    <p><span className="font-semibold text-foreground">IFSC Code:</span></p>
+                    <p><span className="font-semibold text-foreground">MICR Code:</span></p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
