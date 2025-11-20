@@ -61,7 +61,7 @@ const Navigation = () => {
 
           {/* Contact Button */}
           <div className="hidden md:block">
-            <Button variant="cta" asChild>
+            <Button variant="hero" asChild>
               <a
                 href="tel:+919941066695"
                 className="flex items-center space-x-2"
@@ -108,7 +108,7 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="pt-2">
-              <Button variant="cta" asChild className="w-full">
+              <Button variant="hero" asChild className="w-full">
                 <a
                   href="tel:+919941066695"
                   className="flex items-center justify-center space-x-2"

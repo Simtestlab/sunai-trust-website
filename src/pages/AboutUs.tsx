@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import person1 from "@/assets/person1.jpg";
 import person2 from "@/assets/person2.jpg";
 import person3 from "@/assets/person3.jpg";
+import MissionVision from "@/components/MissionVision";
 import person4 from "@/assets/person4.jpg";
 
 interface MemberProfile {
@@ -101,7 +102,7 @@ const AboutUs = () => {
       <Header />
       <main className="flex-1 px-4 py-16 md:px-8 md:py-20">
         <div className="max-w-6xl mx-auto">
-          {/* Header Section */}
+          {/* Header */}
           <div className="mb-16 text-center animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-6">
               About Us
@@ -113,26 +114,26 @@ const AboutUs = () => {
             </p>
           </div>
 
-          {/* Founder Section */}
+          {/* Founder */}
           <section className="mb-20">
             <div className="inline-block mb-10 mx-auto w-full text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 inline-block">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Our Founder
               </h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full"></div>
+              <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full" />
             </div>
             <div className="flex justify-center">
               <FounderCard {...founder} />
             </div>
           </section>
 
-          {/* Board Members Section */}
+          {/* Board Members */}
           <section className="mb-20">
             <div className="inline-block mb-10 mx-auto w-full text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 inline-block">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Board Members
               </h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full"></div>
+              <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full" />
             </div>
             <p className="text-base text-muted-foreground mb-12 leading-relaxed text-center max-w-3xl mx-auto">
               Working together towards humanity - our dedicated leadership team
@@ -140,29 +141,32 @@ const AboutUs = () => {
               engagement, and strategic planning.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {boardMembers.map((member, index) => (
-                <MemberCard key={index} {...member} />
+              {boardMembers.map((m, i) => (
+                <MemberCard key={i} {...m} />
               ))}
             </div>
           </section>
 
-          {/* Advisory Members Section */}
-          <section>
+          {/* Advisory Members */}
+          <section className="mb-20">
             <div className="inline-block mb-10 mx-auto w-full text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 inline-block">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Advisory Members
               </h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full"></div>
+              <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full" />
             </div>
             <p className="text-base text-muted-foreground mb-12 leading-relaxed text-center max-w-3xl mx-auto">
               Our advisory board provides strategic guidance and expertise to
               ensure our programs achieve maximum impact and sustainability.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {advisoryMembers.map((member, index) => (
-                <MemberCard key={index} {...member} />
+              {advisoryMembers.map((m, i) => (
+                <MemberCard key={i} {...m} />
               ))}
             </div>
+          </section>
+          <section className="mb-20">
+            <MissionVision />
           </section>
         </div>
       </main>
