@@ -69,19 +69,20 @@ const MissionOverview = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-7xl mx-auto">
-          {programs.map((program, index) => (
+        {/* Improved Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {programs.map((program) => (
             <Card
               key={program.title}
-              className="hover-lift scroll-reveal border-0 shadow-card bg-card overflow-hidden group h-full"
+              className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 scroll-reveal rounded-xl overflow-hidden border border-gray-200"
             >
               <CardContent className="p-0 h-full flex flex-col">
                 <Link to={program.link}>
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-52 overflow-hidden">
                     <img
                       src={program.image}
                       alt={program.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter blur-sm brightness-75"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter brightness-75"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">
