@@ -16,7 +16,6 @@ const Index = () => {
       <main className="flex-1">
         <Hero />
         <MissionOverview />
-        <MissionVision />
         <PartnerLogos />
         <FeaturedStory />
       </main>

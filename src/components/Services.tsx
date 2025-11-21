@@ -1,6 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Wind, Sun, Settings, Database, Laptop, Users, ArrowRight } from "lucide-react";
+import {
+  Wind,
+  Sun,
+  Settings,
+  Database,
+  Laptop,
+  Users,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services = () => {
@@ -8,39 +16,75 @@ const Services = () => {
     {
       icon: Wind,
       title: "Wind Energy Projects",
-      description: "Complete wind farm development, installation, and maintenance services with multi-brand O&M capabilities.",
-      features: ["400MW+ Wind Farms Maintained", "Multi-brand O&M Services", "AMC & COAMSC Provider", "Turbine Installation"]
+      description:
+        "Complete wind farm development, installation, and maintenance services with multi-brand O&M capabilities.",
+      features: [
+        "400MW+ Wind Farms Maintained",
+        "Multi-brand O&M Services",
+        "AMC & COAMSC Provider",
+        "Turbine Installation",
+      ],
     },
     {
       icon: Sun,
       title: "Solar Power Projects",
-      description: "End-to-end solar solutions from design to commissioning with EPC and turnkey project capabilities.",
-      features: ["100MW+ Completed Projects", "EPC Contractor Services", "Turnkey Solar Solutions", "Grid-tied & Off-grid Systems"]
+      description:
+        "End-to-end solar solutions from design to commissioning with EPC and turnkey project capabilities.",
+      features: [
+        "100MW+ Completed Projects",
+        "EPC Contractor Services",
+        "Turnkey Solar Solutions",
+        "Grid-tied & Off-grid Systems",
+      ],
     },
     {
       icon: Settings,
       title: "Operation & Maintenance",
-      description: "Comprehensive O&M services ensuring optimal performance and maximum uptime for renewable energy assets.",
-      features: ["24/7 Monitoring", "Preventive Maintenance", "Emergency Repairs", "Performance Optimization"]
+      description:
+        "Comprehensive O&M services ensuring optimal performance and maximum uptime for renewable energy assets.",
+      features: [
+        "24/7 Monitoring",
+        "Preventive Maintenance",
+        "Emergency Repairs",
+        "Performance Optimization",
+      ],
     },
     {
       icon: Laptop,
       title: "IT Solutions",
-      description: "Advanced technology solutions for energy management, monitoring, and data analytics.",
-      features: ["SCADA Systems", "Remote Monitoring", "Energy Management Software", "Cloud Solutions"]
+      description:
+        "Advanced technology solutions for energy management, monitoring, and data analytics.",
+      features: [
+        "SCADA Systems",
+        "Remote Monitoring",
+        "Energy Management Software",
+        "Cloud Solutions",
+      ],
     },
     {
       icon: Database,
       title: "Data Analysis",
-      description: "Comprehensive data analytics for energy optimization, performance monitoring, and predictive maintenance.",
-      features: ["Performance Analytics", "Predictive Maintenance", "Energy Yield Assessment", "Custom Reporting"]
+      description:
+        "Comprehensive data analytics for energy optimization, performance monitoring, and predictive maintenance.",
+      features: [
+        "Performance Analytics",
+        "Predictive Maintenance",
+        "Energy Yield Assessment",
+        "Custom Reporting",
+      ],
     },
     {
       icon: Users,
       title: "Social Responsibility",
-      description: "Community development initiatives and sustainable practices that benefit local communities.",
-      features: ["Community Development", "Environmental Conservation", "Local Employment", "Educational Programs"]
-    }
+      description:
+        "Community development initiatives and sustainable practices that benefit local communities.",
+      features: [
+        "Community Development",
+        "Environmental Conservation",
+        "Local Employment",
+        "Educational Programs",
+      ],
+    },
   ];
 
   return (
@@ -52,15 +96,18 @@ const Services = () => {
             Our Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive renewable energy solutions tailored to meet your specific needs, 
-            backed by decades of expertise and innovation.
+            Comprehensive renewable energy solutions tailored to meet your
+            specific needs, backed by decades of expertise and innovation.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="bg-gradient-card shadow-card border-0 hover:shadow-glow transition-spring group">
+            <Card
+              key={index}
+              className="bg-gradient-card shadow-card border-0 hover:shadow-glow transition-spring group"
+            >
               <CardHeader>
                 <div className="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <service.icon className="w-8 h-8 text-primary" />
@@ -75,7 +122,10 @@ const Services = () => {
                 </p>
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-muted-foreground">
+                    <li
+                      key={idx}
+                      className="flex items-center text-sm text-muted-foreground"
+                    >
                       <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       {feature}
                     </li>
@@ -100,8 +150,9 @@ const Services = () => {
                 Ready to Transform Your Energy Future?
               </h3>
               <p className="text-white/90 mb-8 max-w-2xl mx-auto">
-                Let our team of experts help you design and implement the perfect 
-                renewable energy solution for your specific requirements.
+                Let our team of experts help you design and implement the
+                perfect renewable energy solution for your specific
+                requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="lg" asChild>
@@ -110,10 +161,13 @@ const Services = () => {
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                  <Link to="/projects">
-                    View Our Projects
-                  </Link>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  asChild
+                  className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+                >
+                  <Link to="/projects">View Our Projects</Link>
                 </Button>
               </div>
             </CardContent>

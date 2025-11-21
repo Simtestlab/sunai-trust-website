@@ -30,8 +30,12 @@ const Navigation = () => {
                 <span className="text-white font-bold text-xl">JMK</span>
               </div>
               <div className="hidden sm:block">
-                <div className="text-lg font-bold text-foreground">JMK GROUPS</div>
-                <div className="text-xs text-muted-foreground">Energy Solutions</div>
+                <div className="text-lg font-bold text-foreground">
+                  JMK GROUPS
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  Energy Solutions
+                </div>
               </div>
             </Link>
           </div>
@@ -57,8 +61,11 @@ const Navigation = () => {
 
           {/* Contact Button */}
           <div className="hidden md:block">
-            <Button variant="cta" asChild>
-              <a href="tel:+919941066695" className="flex items-center space-x-2">
+            <Button variant="hero" asChild>
+              <a
+                href="tel:+919941066695"
+                className="flex items-center space-x-2"
+              >
                 <Phone className="w-4 h-4" />
                 <span>+91 99410 66695</span>
               </a>
@@ -72,7 +79,11 @@ const Navigation = () => {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -97,8 +108,11 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="pt-2">
-              <Button variant="cta" asChild className="w-full">
-                <a href="tel:+919941066695" className="flex items-center justify-center space-x-2">
+              <Button variant="hero" asChild className="w-full">
+                <a
+                  href="tel:+919941066695"
+                  className="flex items-center justify-center space-x-2"
+                >
                   <Phone className="w-4 h-4" />
                   <span>+91 99410 66695</span>
                 </a>
