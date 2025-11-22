@@ -17,7 +17,7 @@ const Footer = () => {
               />
               <div>
                 <h3 className="text-xl font-bold">Sunai</h3>
-                <p className="text-white/80 text-sm">Building Futures</p>
+                <p className="text-white/80 text-sm">Support Uplift Nourish Aid Illuminate</p>
               </div>
             </div>
             <p className="text-white/80 leading-relaxed mb-6">

@@ -40,7 +40,7 @@ const Header = () => {
                 Sunai
               </h1>
               <p className="text-sm lg:text-base text-muted-foreground hidden sm:block">
-                Building Futures
+                Support Uplift Nourish Aid Illuminate
               </p>
             </div>
           </div>
@@ -142,6 +142,21 @@ const Header = () => {
             >
               Blogs
             </NavLink>
+            {/* Register Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center">
+                Register
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-40">
+                <DropdownMenuItem asChild>
+                  <NavLink to="/volunteer" className="w-full">Volunteer</NavLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <NavLink to="/register/ngo" className="w-full">NGO</NavLink>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <NavLink
               to="/contact"
               className={({ isActive }) =>
