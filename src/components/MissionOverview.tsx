@@ -1,5 +1,5 @@
+import React, { useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import educationImg from "@/assets/education.jpg";
@@ -55,6 +55,23 @@ const programs = [
 ];
 
 const MissionOverview = () => {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const scrollTo = (index: number) => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLDivElement>(".mission-card");
+    if (!card) return;
+    const gap = parseInt(getComputedStyle(el).gap || "24") || 24;
+    const cardWidth = Math.round(card.getBoundingClientRect().width) + gap;
+    el.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+    setCurrentIndex(index);
+  };
+
+  const prev = () => scrollTo(Math.max(0, currentIndex - 1));
+  const next = () => scrollTo(Math.min(programs.length - 2, currentIndex + 1));
+
   return (
     <section className="py-20 bg-soft-gradient">
       <div className="container mx-auto px-4">
@@ -69,41 +86,62 @@ const MissionOverview = () => {
           </p>
         </div>
 
-        {/* Improved Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {programs.map((program) => (
-            <Card
-              key={program.title}
-              className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 scroll-reveal rounded-xl overflow-hidden border border-gray-200"
-            >
-              <CardContent className="p-0 h-full flex flex-col">
-                <Link to={program.link}>
-                  <div className="relative h-52 overflow-hidden">
-                    <img
-                      src={program.image}
-                      alt={program.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter brightness-75"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <h3 className="absolute bottom-4 left-4 text-2xl font-semibold text-white">
-                      {program.title}
-                    </h3>
-                  </div>
-                </Link>
-                <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-muted-foreground leading-relaxed mb-4 flex-1">
-                    {program.description}
-                  </p>
-                  <Link to={program.link}>
-                    <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white group">
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Carousel: single row, two cards visible */}
+        <div className="relative max-w-6xl mx-auto">
+          <button
+            aria-label="Previous"
+            onClick={prev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-2 shadow-md hidden md:inline-flex"
+          >
+            ‹
+          </button>
+
+          <div
+            ref={carouselRef}
+            className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6 py-4 px-2"
+            style={{ scrollSnapType: "x mandatory" }}
+          >
+            {programs.map((program) => (
+              <div key={program.title} className="mission-card snap-start flex-shrink-0 w-[46%] lg:w-1/2" style={{ minWidth: "46%", minHeight: "520px" }}>
+                <Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full">
+                  <CardContent className="p-0 h-full flex flex-col">
+                    <Link to={program.link}>
+                      <div className="relative h-64 overflow-hidden">
+                        <img
+                          src={program.image}
+                          alt={program.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter brightness-80"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <h3 className="absolute bottom-6 left-6 text-3xl md:text-4xl font-bold text-white">
+                          {program.title}
+                        </h3>
+                      </div>
+                    </Link>
+                    <div className="p-8 flex-1 flex flex-col">
+                      <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 flex-1">
+                        {program.description}
+                      </p>
+                      <div>
+                        <Link to={program.link} className="text-blue-600 hover:underline font-semibold inline-flex items-center">
+                          Learn More
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          <button
+            aria-label="Next"
+            onClick={next}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-2 shadow-md hidden md:inline-flex"
+          >
+            ›
+          </button>
         </div>
       </div>
     </section>
