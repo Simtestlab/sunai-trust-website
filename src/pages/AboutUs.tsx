@@ -5,7 +5,7 @@ import person2 from "@/assets/person2.jpg";
 import person3 from "@/assets/person3.jpg";
 import MissionVision from "@/components/MissionVision";
 import person4 from "@/assets/person4.jpg";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface MemberProfile {
   img: string;
@@ -116,13 +116,33 @@ const AboutUs = () => {
     },
   ];
 
+  const advisoryCarouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = advisoryCarouselRef.current;
+    if (!el) return;
+    let timer: NodeJS.Timeout | null = null;
+    const scrollNext = () => {
+      if (!el) return;
+      // If at end, scroll to start
+      if (el.scrollLeft + el.offsetWidth >= el.scrollWidth - 10) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: el.offsetWidth, behavior: "smooth" });
+      }
+    };
+    timer = setInterval(scrollNext, 3500);
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 text-slate-900 flex flex-col">
       <Header />
       <main className="flex-1 container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="mb-16 text-center animate-fade-in">
+          <div className="mb-8 text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
               About Us
             </h1>
@@ -133,8 +153,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          {/* Founder */}
-          <section className="mb-20">
+          <section className="mb-10">
             <div className="inline-block mb-10 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
                 Our Founder
@@ -146,8 +165,7 @@ const AboutUs = () => {
             </div>
           </section>
 
-          {/* Board Members */}
-          <section className="mb-20">
+          <section className="mb-10">
             <div className="inline-block mb-10 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
                 Board Members
@@ -166,8 +184,7 @@ const AboutUs = () => {
             </div>
           </section>
 
-          {/* Advisory Members */}
-          <section className="mb-20">
+          <section className="mb-8">
             <div className="inline-block mb-10 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
                 Advisory Members
@@ -178,32 +195,66 @@ const AboutUs = () => {
               Our advisory board provides strategic guidance and expertise to
               ensure our programs achieve maximum impact and sustainability.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {advisoryMembers.map((m, i) => (
-                <MemberCard key={i} {...m} />
-              ))}
+            <div className="relative">
+              <button
+                aria-label="Previous"
+                onClick={() => {
+                  const el = advisoryCarouselRef.current;
+                  if (!el) return;
+                  el.scrollBy({ left: -el.offsetWidth, behavior: 'smooth' });
+                }}
+                className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-3 shadow-md hidden md:inline-flex"
+                style={{ transform: 'translateY(-50%) translateX(-100%)' }}
+              >
+                ‹
+              </button>
+              <div
+                ref={advisoryCarouselRef}
+                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6 pt-4 pb-5 px-2"
+                style={{ scrollSnapType: 'x mandatory', scrollbarGutter: 'stable' }}
+              >
+                {advisoryMembers.map((m, i) => (
+                  <div
+                    key={i}
+                    className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+                    style={{ minHeight: '520px' }}
+                  >
+                    <MemberCard {...m} />
+                  </div>
+                ))}
+              </div>
+              <button
+                aria-label="Next"
+                onClick={() => {
+                  const el = advisoryCarouselRef.current;
+                  if (!el) return;
+                  el.scrollBy({ left: el.offsetWidth, behavior: 'smooth' });
+                }}
+                className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-3 shadow-md hidden md:inline-flex"
+                style={{ transform: 'translateY(-50%) translateX(100%)' }}
+              >
+                ›
+              </button>
             </div>
           </section>
-          <section className="mb-20">
+          <section className="mb-5">
             <MissionVision />
           </section>
         </div>
       </main>
 
-      {/* Legal & Account Details Title */}
-      <div className="inline-block mb-10 mx-auto w-full text-center">
+      <div className="inline-block mb-6 mx-auto w-full text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 inline-block">
           Legal Status and Account Details
         </h2>
         <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
       </div>
 
-      <section className="mb-16">
+      <section className="mb-8">
         <div className="max-w-6xl mx-auto bg-white border border-border rounded-3xl shadow-elegant p-10 md:p-14">
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-            {/* Legal Status */}
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-primary text-center mb-6">
                 Legal Status

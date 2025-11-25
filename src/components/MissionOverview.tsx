@@ -119,8 +119,8 @@ const MissionOverview = () => {
 						{programs.map((program) => (
 							<div
 								key={program.title}
-								className="mission-card snap-start flex-shrink-0 w-[46%] lg:w-1/2"
-								style={{ minWidth: "46%", minHeight: "520px" }}
+								className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+								style={{ minHeight: '520px' }}
 							>
 								<Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full">
 									<CardContent className="p-0 h-full flex flex-col">
