@@ -5,21 +5,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "@/assets/icon.png";
-
-const ProgramsDropdownTrigger = () => {
-  const { pathname } = useLocation();
-  const active = pathname.startsWith("/programs");
-  return (
-    <DropdownMenuTrigger
-      className={`text-base lg:text-lg font-medium ${active ? "text-emerald-600" : "text-foreground"} transition-colors flex items-center`}
-    >
-      Programs
-      <ChevronDown className="ml-1 h-4 w-4" />
-    </DropdownMenuTrigger>
-  );
-};
 
 const Header = () => {
   return (

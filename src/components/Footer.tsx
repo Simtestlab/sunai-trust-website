@@ -96,9 +96,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                 <p className="text-white/80">
-                  Gandhipuram
+                  Gandhipuram,
                   <br />
-                  Coimbatore Tamilnadu
+                  Coimbatore, Tamilnadu,
                   <br />
                   India
                 </p>

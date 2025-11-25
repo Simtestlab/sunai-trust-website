@@ -131,7 +131,7 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="energy" size="sm" asChild>
+                <Button variant="hero" size="sm" asChild>
                   <Link to="/services" className="flex items-center">
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4" />

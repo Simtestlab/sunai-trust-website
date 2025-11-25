@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Heart,
@@ -17,7 +16,7 @@ import healthHero from "@/assets/health.jpg";
 
 const Health = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
       {/* Hero Section */}
@@ -25,9 +24,20 @@ const Health = () => {
         <img
           src={healthHero}
           alt="Health Program"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover filter brightness-120 contrast-125 saturate-130"
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl px-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Health Care</h1>
+            <p className="text-xl md:text-2xl mb-6 text-black-100">Enabling community-driven health initiatives to strengthen well-being and build a healthier future for all.</p>
+            {/* Hero CTA commented out per request
+            <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
+              Plant with Us <TreePine className="ml-2 w-5 h-5" />
+            </Button>
+            */}
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
           {/* Bottom CTA buttons removed per request
               <div className="flex flex-wrap justify-center gap-4">
                 <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 font-semibold">
@@ -82,9 +92,9 @@ const Health = () => {
                 <img
                   src={healthHero}
                   alt="Health Program Activities"
-                  className="rounded-lg shadow-lg w-full"
+                  className="rounded-lg shadow-lg w-full filter brightness-110 contrast-115 saturate-120"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">1M+</div>
                     <div className="text-sm">Lives Impacted</div>
@@ -96,9 +106,9 @@ const Health = () => {
         </section>
 
         {/* Impact Statistics */}
-        <section className="py-16 bg-red-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Our Health Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -130,19 +140,19 @@ const Health = () => {
               ].map((stat, idx) => (
                 <Card
                   key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
+                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-red-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                      <stat.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 mb-2">
+                    <div className="text-3xl font-bold text-slate-800 mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-lg font-semibold text-red-600 mb-1">
+                    <div className="text-lg font-semibold text-teal-600 mb-1">
                       {stat.label}
                     </div>
-                    <div className="text-sm text-gray-600">{stat.desc}</div>
+                    <div className="text-sm text-slate-600">{stat.desc}</div>
                   </CardContent>
                 </Card>
               ))}
@@ -227,13 +237,13 @@ const Health = () => {
               ].map((program, idx) => (
                 <Card
                   key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-red-600"
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">
                       {program.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-slate-600 mb-4 leading-relaxed">
                       {program.description}
                     </p>
                     <div className="space-y-2">
@@ -242,8 +252,8 @@ const Health = () => {
                           key={featureIdx}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-red-600 rounded-full mr-3"></div>
-                          <span className="text-gray-700">{feature}</span>
+                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -257,51 +267,42 @@ const Health = () => {
         {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Health Success Stories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <Card className="p-8 bg-red-50 border-red-200">
+              <Card className="p-8 bg-teal-50 border-teal-200">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-red-600 mr-2" />
-                    <span className="text-red-600 font-semibold">Odisha</span>
+                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
+                    <span className="text-teal-600 font-semibold">Odisha</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
                     Maternal Mortality Reduction
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "In Kalahandi district, our maternal health program reduced
-                    maternal mortality by 60% over three years. Through skilled
-                    birth attendants, prenatal care, and emergency referral
-                    systems, we've saved countless lives and improved birth
-                    outcomes."
+                  <p className="text-slate-600 mb-4 leading-relaxed">
+                    "In Kalahandi district, our maternal health program reduced maternal mortality by 60% over three years. Through skilled birth attendants, prenatal care, and emergency referral systems, we've saved countless lives and improved birth outcomes."
                   </p>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-slate-500">
                     <Calendar className="w-4 h-4 inline mr-1" />
                     Project Duration: 2019-2023
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="p-8 bg-blue-50 border-blue-200">
+              <Card className="p-8 bg-teal-50 border-teal-200">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-blue-600 mr-2" />
-                    <span className="text-blue-600 font-semibold">
-                      Jharkhand
-                    </span>
+                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
+                    <span className="text-teal-600 font-semibold">Jharkhand</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
                     TB Elimination Success
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    "Our comprehensive TB program in mining communities achieved
-                    a 90% treatment success rate. Through early detection, DOTS
-                    therapy, and community support, we've helped over 2,000
-                    patients complete their treatment successfully."
+                  <p className="text-slate-600 mb-4 leading-relaxed">
+                    "Our comprehensive TB program in mining communities achieved a 90% treatment success rate. Through early detection, DOTS therapy, and community support, we've helped over 2,000 patients complete their treatment successfully."
                   </p>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-slate-500">
                     <Calendar className="w-4 h-4 inline mr-1" />
                     Project Duration: 2020-Ongoing
                   </div>
@@ -312,15 +313,13 @@ const Health = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
+        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Health Cannot Wait - Support Our Mission
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Every donation brings life-saving healthcare closer to those who
-              need it most. Join us in building healthier communities across
-              India.
+              Every donation brings life-saving healthcare closer to those who need it most. Join us in building healthier communities across India.
             </p>
             {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">

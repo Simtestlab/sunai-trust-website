@@ -1,14 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Heart,
   Users,
   Target,
-  Award,
   Gift,
-  ArrowRight,
   MapPin,
   Calendar,
   Package,
@@ -18,7 +14,7 @@ import charityHero from "@/assets/charity.jpg";
 
 const Charity = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
       {/* Hero Section */}
@@ -28,12 +24,11 @@ const Charity = () => {
           alt="Charity Program"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Charity</h1>
-            <p className="text-xl md:text-2xl mb-6">
-              Providing direct aid and relief to families in need, including
-              food distribution and emergency support
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Charity</h1>
+            <p className="text-xl md:text-2xl mb-6 text-black-100">
+              Providing direct aid and relief to families in need, including food distribution and emergency support
             </p>
             {/* Hero CTA commented out per request
             <Button className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 text-lg">
@@ -83,7 +78,7 @@ const Charity = () => {
                   alt="Charity Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-pink-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">1M+</div>
                     <div className="text-sm">Lives Supported</div>
@@ -95,9 +90,9 @@ const Charity = () => {
         </section>
 
         {/* Impact Statistics */}
-        <section className="py-16 bg-pink-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Charity Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -127,23 +122,23 @@ const Charity = () => {
                   desc: "Resources to beneficiaries",
                 },
               ].map((stat, idx) => (
-                <Card
-                  key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
-                >
-                  <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-pink-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-pink-600" />
-                    </div>
-                    <div className="text-3xl font-bold text-gray-800 mb-2">
-                      {stat.number}
-                    </div>
-                    <div className="text-lg font-semibold text-pink-600 mb-1">
-                      {stat.label}
-                    </div>
-                    <div className="text-sm text-gray-600">{stat.desc}</div>
-                  </CardContent>
-                </Card>
+                  <Card
+                    key={idx}
+                    className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
+                  >
+                    <CardContent className="p-0">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                        <stat.icon className="w-8 h-8 text-teal-600" />
+                      </div>
+                      <div className="text-3xl font-bold text-slate-800 mb-2">
+                        {stat.number}
+                      </div>
+                      <div className="text-lg font-semibold text-teal-600 mb-1">
+                        {stat.label}
+                      </div>
+                      <div className="text-sm text-slate-600">{stat.desc}</div>
+                    </CardContent>
+                  </Card>
               ))}
             </div>
           </div>
@@ -226,13 +221,13 @@ const Charity = () => {
               ].map((program, idx) => (
                 <Card
                   key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-pink-600"
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">
                       {program.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-slate-600 mb-4 leading-relaxed">
                       {program.description}
                     </p>
                     <div className="space-y-2">
@@ -241,8 +236,8 @@ const Charity = () => {
                           key={featureIdx}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-pink-600 rounded-full mr-3"></div>
-                          <span className="text-gray-700">{feature}</span>
+                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -256,51 +251,49 @@ const Charity = () => {
         {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Stories of Hope
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <Card className="p-8 bg-pink-50 border-pink-200">
+              <Card className="p-8 bg-teal-50 border-teal-200">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-pink-600 mr-2" />
-                    <span className="text-pink-600 font-semibold">Mumbai</span>
+                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
+                    <span className="text-teal-600 font-semibold">Mumbai</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
                     COVID-19 Relief Operations
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-slate-600 mb-4 leading-relaxed">
                     "During the pandemic, our emergency relief program supported
                     50,000 families in Mumbai slums with food, medicine, and
                     essential supplies. We distributed 2 lakh food packets and
                     provided medical assistance to 10,000+ patients during the
                     crisis."
                   </p>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-slate-500">
                     <Calendar className="w-4 h-4 inline mr-1" />
                     Project Duration: March 2020 - December 2022
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="p-8 bg-orange-50 border-orange-200">
+              <Card className="p-8 bg-teal-50 border-teal-200">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-orange-600 mr-2" />
-                    <span className="text-orange-600 font-semibold">
-                      Kerala
-                    </span>
+                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
+                    <span className="text-teal-600 font-semibold">Kerala</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">
                     Flood Relief and Rehabilitation
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-slate-600 mb-4 leading-relaxed">
                     "After the devastating floods in Kerala, our charity team
                     provided immediate relief to 15,000 affected families. We
                     distributed emergency supplies, set up temporary shelters,
                     and supported long-term rehabilitation of 500 families."
                   </p>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-slate-500">
                     <Calendar className="w-4 h-4 inline mr-1" />
                     Project Duration: August 2018 - March 2019
                   </div>
@@ -311,9 +304,9 @@ const Charity = () => {
         </section>
 
         {/* How We Help */}
-        <section className="py-16 bg-pink-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               How We Help
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -343,29 +336,29 @@ const Charity = () => {
                     "Focused assistance for the most vulnerable including children, elderly, and disabled individuals.",
                 },
               ].map((method, idx) => (
-                <Card
-                  key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
-                >
-                  <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-pink-100 rounded-full flex items-center justify-center">
-                      <method.icon className="w-8 h-8 text-pink-600" />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
-                      {method.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {method.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                  <Card
+                    key={idx}
+                    className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
+                  >
+                    <CardContent className="p-0">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                        <method.icon className="w-8 h-8 text-teal-600" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-800 mb-2">
+                        {method.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 leading-relaxed">
+                        {method.description}
+                      </p>
+                    </CardContent>
+                  </Card>
               ))}
             </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
+        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Every Act of Charity Matters

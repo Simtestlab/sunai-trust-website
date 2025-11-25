@@ -7,13 +7,13 @@ const MissionVision = () => {
     <section className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
             Our Purpose & Direction
-          </h2>
+          </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Guided by a clear vision and driven by a meaningful mission
           </p>
-          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent mx-auto mt-3 rounded-full" />
+              <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">

@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Users,
@@ -17,7 +16,7 @@ import empowermentHero from "@/assets/empowerment.jpg";
 
 const Empowerment = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
       {/* Hero Section */}
@@ -27,12 +26,11 @@ const Empowerment = () => {
           alt="Empowerment Program"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Empowerment</h1>
-            <p className="text-xl md:text-2xl mb-6">
-              Building sustainable livelihoods through skill development,
-              microfinance, and community-led initiatives
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Empowerment</h1>
+            <p className="text-xl md:text-2xl mb-6 text-black-100">
+              Building sustainable livelihoods through skill development, microfinance, and community-led initiatives
             </p>
             {/* Hero CTA commented out per request
             <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
@@ -82,7 +80,7 @@ const Empowerment = () => {
                   alt="Empowerment Program Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-purple-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">75,000+</div>
                     <div className="text-sm">Lives Empowered</div>
@@ -94,9 +92,9 @@ const Empowerment = () => {
         </section>
 
         {/* Impact Statistics */}
-        <section className="py-16 bg-purple-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Empowerment Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -128,19 +126,19 @@ const Empowerment = () => {
               ].map((stat, idx) => (
                 <Card
                   key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
+                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-purple-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                      <stat.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 mb-2">
+                    <div className="text-3xl font-bold text-slate-800 mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-lg font-semibold text-purple-600 mb-1">
+                    <div className="text-lg font-semibold text-teal-600 mb-1">
                       {stat.label}
                     </div>
-                    <div className="text-sm text-gray-600">{stat.desc}</div>
+                    <div className="text-sm text-slate-600">{stat.desc}</div>
                   </CardContent>
                 </Card>
               ))}
@@ -225,13 +223,13 @@ const Empowerment = () => {
               ].map((program, idx) => (
                 <Card
                   key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-purple-600"
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">
                       {program.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-slate-600 mb-4 leading-relaxed">
                       {program.description}
                     </p>
                     <div className="space-y-2">
@@ -240,8 +238,8 @@ const Empowerment = () => {
                           key={featureIdx}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
-                          <span className="text-gray-700">{feature}</span>
+                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -255,50 +253,42 @@ const Empowerment = () => {
         {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Empowerment Success Stories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {[
+              {[ 
                 {
                   location: "Gujarat",
-                  color: "purple",
                   title: "Women's Cooperative Success",
-                  description: `"In Kutch district, our women's self-help group program has empowered 2,500 women to start 
-                    their own businesses. The collective has generated ₹50 lakhs in annual revenue, with 
-                    average income increasing by 300% for participating women."`,
+                  description: `"In Kutch district, our women's self-help group program has empowered 2,500 women to start their own businesses. The collective has generated ₹50 lakhs in annual revenue, with average income increasing by 300% for participating women."`,
                   duration: "2018-Ongoing",
                 },
                 {
                   location: "Karnataka",
-                  color: "orange",
                   title: "Youth Employment Program",
-                  description: `"Our skill development center in Bangalore has trained 1,200+ youth in IT and hospitality 
-                    sectors. 85% of graduates secured employment with leading companies, with starting salaries 
-                    250% higher than local averages."`,
+                  description: `"Our skill development center in Bangalore has trained 1,200+ youth in IT and hospitality sectors. 85% of graduates secured employment with leading companies, with starting salaries 250% higher than local averages."`,
                   duration: "2020-Ongoing",
                 },
               ].map((story, idx) => (
                 <Card
                   key={idx}
-                  className={`flex flex-col justify-between h-full p-8 bg-${story.color}-50 border-${story.color}-200`}
+                  className="flex flex-col justify-between h-full p-8 bg-teal-50 border-teal-200"
                 >
                   <CardContent className="flex flex-col flex-1 p-0">
                     <div className="flex items-center mb-4">
-                      <MapPin
-                        className={`w-5 h-5 text-${story.color}-600 mr-2`}
-                      />
-                      <span className={`text-${story.color}-600 font-semibold`}>
+                      <MapPin className="w-5 h-5 text-teal-600 mr-2" />
+                      <span className="text-teal-600 font-semibold">
                         {story.location}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">
                       {story.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed flex-1">
+                    <p className="text-slate-600 mb-4 leading-relaxed flex-1">
                       {story.description}
                     </p>
-                    <div className="text-sm text-gray-500 mt-auto">
+                    <div className="text-sm text-slate-500 mt-auto">
                       <Calendar className="w-4 h-4 inline mr-1" />
                       Project Duration: {story.duration}
                     </div>
@@ -310,15 +300,13 @@ const Empowerment = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
+        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Empower Communities, Transform Lives
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              When communities are empowered, change becomes sustainable. Join
-              us in building capacity and creating opportunities that last for
-              generations.
+              When communities are empowered, change becomes sustainable. Join us in building capacity and creating opportunities that last for generations.
             </p>
             {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">

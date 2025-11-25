@@ -2,9 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight, FileText } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 import skillTraining from "@/assets/skill trainning.jpeg";
 import skillDevelopment from "@/assets/skill development.jpeg";
 import treePlantation from "@/assets/tree plantation.jpeg";
@@ -229,8 +227,8 @@ const Blogs = () => {
             ))}
           </div>
         </section>
-
         {/* Newsletter Signup */}
+        {/*
         <section className="mt-20 bg-gradient-to-r from-teal-600 to-green-600 rounded-xl p-10 lg:p-12 text-white text-center">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated</h3>
           <p className="text-lg md:text-xl text-teal-100 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -251,7 +249,8 @@ const Blogs = () => {
             </Button>
           </div>
         </section>
-      </main>
+        */}
+      </main> 
 
       <Footer />
     </div>

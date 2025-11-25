@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Home,
@@ -18,7 +17,7 @@ import ruralHero from "@/assets/rural.jpg";
 
 const RuralDevelopment = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
       {/* Hero Section */}
@@ -28,9 +27,9 @@ const RuralDevelopment = () => {
           alt="Rural Development Program"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
               Rural Development
             </h1>
             <p className="text-xl md:text-2xl mb-6">
@@ -85,7 +84,7 @@ const RuralDevelopment = () => {
                   alt="Rural Development Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-amber-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">2,000+</div>
                     <div className="text-sm">Villages Reached</div>
@@ -97,9 +96,9 @@ const RuralDevelopment = () => {
         </section>
 
         {/* Impact Statistics */}
-        <section className="py-16 bg-amber-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Rural Development Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -131,19 +130,19 @@ const RuralDevelopment = () => {
               ].map((stat, idx) => (
                 <Card
                   key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
+                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-amber-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                      <stat.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 mb-2">
+                    <div className="text-3xl font-bold text-slate-800 mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-lg font-semibold text-amber-600 mb-1">
+                    <div className="text-lg font-semibold text-teal-600 mb-1">
                       {stat.label}
                     </div>
-                    <div className="text-sm text-gray-600">{stat.desc}</div>
+                    <div className="text-sm text-slate-600">{stat.desc}</div>
                   </CardContent>
                 </Card>
               ))}
@@ -228,13 +227,13 @@ const RuralDevelopment = () => {
               ].map((program, idx) => (
                 <Card
                   key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-amber-600"
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">
                       {program.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-slate-600 mb-4 leading-relaxed">
                       {program.description}
                     </p>
                     <div className="space-y-2">
@@ -243,8 +242,8 @@ const RuralDevelopment = () => {
                           key={featureIdx}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-amber-600 rounded-full mr-3"></div>
-                          <span className="text-gray-700">{feature}</span>
+                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -258,56 +257,44 @@ const RuralDevelopment = () => {
         {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Rural Transformation Stories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {[
+              {[ 
                 {
                   location: "Madhya Pradesh",
-                  locationColor: "amber",
-                  cardBg: "bg-amber-50",
-                  cardBorder: "border-amber-200",
-                  iconColor: "text-amber-600",
                   title: "Drought-Proofing Initiative",
-                  description: `"In Bundelkhand region, our water management program has made 50 villages drought-resilient. 
-              Through watershed development, rainwater harvesting, and efficient irrigation, farmers now 
-              have year-round water access and crop yields have doubled."`,
+                  description: `"In Bundelkhand region, our water management program has made 50 villages drought-resilient. Through watershed development, rainwater harvesting, and efficient irrigation, farmers now have year-round water access and crop yields have doubled."`,
                   duration: "2018-2023",
                 },
                 {
                   location: "Tamil Nadu",
-                  locationColor: "green",
-                  cardBg: "bg-green-50",
-                  cardBorder: "border-green-200",
-                  iconColor: "text-green-600",
                   title: "Farmer Producer Organization Success",
-                  description: `"Our FPO in Thanjavur district has aggregated 2,000 small farmers, eliminating middlemen 
-              and increasing farmer income by 60%. The collective now has ₹2 crore annual turnover and 
-              direct market access to major buyers."`,
+                  description: `"Our FPO in Thanjavur district has aggregated 2,000 small farmers, eliminating middlemen and increasing farmer income by 60%. The collective now has ₹2 crore annual turnover and direct market access to major buyers."`,
                   duration: "2019-Ongoing",
                 },
               ].map((story, idx) => (
                 <Card
                   key={idx}
-                  className={`flex flex-col justify-between h-full p-8 ${story.cardBg} ${story.cardBorder}`}
+                  className="flex flex-col justify-between h-full p-8 bg-teal-50 border-teal-200"
                 >
                   <CardContent className="flex flex-col flex-1 p-0">
                     <div>
                       <div className="flex items-center mb-4">
-                        <MapPin className={`w-5 h-5 mr-2 ${story.iconColor}`} />
-                        <span className={`${story.iconColor} font-semibold`}>
+                        <MapPin className="w-5 h-5 text-teal-600 mr-2" />
+                        <span className="text-teal-600 font-semibold">
                           {story.location}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      <h3 className="text-xl font-bold text-slate-800 mb-3">
                         {story.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
+                      <p className="text-slate-600 mb-4 leading-relaxed">
                         {story.description}
                       </p>
                     </div>
-                    <div className="mt-auto text-sm text-gray-500 flex items-center">
+                    <div className="mt-auto text-sm text-slate-500 flex items-center">
                       <Calendar className="w-4 h-4 inline mr-1" />
                       Project Duration: {story.duration}
                     </div>
@@ -319,9 +306,9 @@ const RuralDevelopment = () => {
         </section>
 
         {/* Key Focus Areas */}
-        <section className="py-16 bg-amber-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
               Focus Areas
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -353,16 +340,16 @@ const RuralDevelopment = () => {
               ].map((area, idx) => (
                 <Card
                   key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
+                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
-                      <area.icon className="w-8 h-8 text-amber-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                      <area.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
+                    <h3 className="text-lg font-bold text-slate-800 mb-2">
                       {area.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {area.description}
                     </p>
                   </CardContent>
@@ -373,15 +360,13 @@ const RuralDevelopment = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
+        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Build Thriving Rural Communities
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Rural development creates a foundation for national prosperity.
-              Join us in empowering farming communities and building sustainable
-              rural economies across India.
+              Rural development creates a foundation for national prosperity. Join us in empowering farming communities and building sustainable rural economies across India.
             </p>
             {/* Bottom CTA buttons removed per request
             <div className="flex flex-wrap justify-center gap-4">
