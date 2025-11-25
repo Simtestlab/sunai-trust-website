@@ -108,9 +108,10 @@ const MissionOverview = () => {
 					>
 						‹
 					</button>
+					<div className="relative -mx-6 md:-mx-12 px-6 md:px-12">
 					<div
 						ref={carouselRef}
-						className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6 pt-4 pb-5 px-2"
+						className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-8 pt-4 pb-5"
 						style={{
 							scrollSnapType: "x mandatory",
 							scrollbarGutter: "stable",
@@ -119,7 +120,7 @@ const MissionOverview = () => {
 						{programs.map((program) => (
 							<div
 								key={program.title}
-								className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+								className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-[31%]"
 								style={{ minHeight: '520px' }}
 							>
 								<Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full">
@@ -156,6 +157,8 @@ const MissionOverview = () => {
 							</div>
 						))}
 					</div>
+					</div>
+				
 					<button
 						aria-label="Next"
 						onClick={next}

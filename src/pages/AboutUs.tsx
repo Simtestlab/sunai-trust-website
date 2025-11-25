@@ -16,7 +16,7 @@ interface MemberProfile {
 
 const MemberCard = ({ img, name, title, desc }: MemberProfile) => {
   return (
-    <div className="flex flex-col items-center text-center mb-8 max-w-sm mx-auto bg-white rounded-2xl border border-border shadow-lg p-8 hover:shadow-elegant hover:scale-105 transition-all duration-300 animate-fade-in group">
+    <div className="flex flex-col items-center text-center mb-8 w-full h-full bg-white rounded-2xl border border-border shadow-lg p-8 hover:shadow-elegant hover:scale-105 transition-all duration-300 animate-fade-in group">
       <div className="mb-6">
         <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-primary/10 shadow-md group-hover:border-primary/30 transition-colors ring-2 ring-primary/5">
           <img
@@ -27,11 +27,13 @@ const MemberCard = ({ img, name, title, desc }: MemberProfile) => {
           />
         </div>
       </div>
-      <div className="space-y-2">
-        <h3 className="text-xl font-bold text-foreground">{name}</h3>
-        <p className="text-sm font-semibold text-primary uppercase tracking-wide">
-          {title}
-        </p>
+      <div className="flex-1 flex flex-col justify-between w-full space-y-2">
+        <div>
+          <h3 className="text-xl font-bold text-foreground">{name}</h3>
+          <p className="text-sm font-semibold text-primary uppercase tracking-wide mt-1">
+            {title}
+          </p>
+        </div>
         <p className="text-sm text-muted-foreground leading-relaxed pt-2">
           {desc}
         </p>
@@ -195,7 +197,7 @@ const AboutUs = () => {
               Our advisory board provides strategic guidance and expertise to
               ensure our programs achieve maximum impact and sustainability.
             </p>
-            <div className="relative">
+            <div className="relative -mx-6 md:-mx-12 px-6 md:px-12">
               <button
                 aria-label="Previous"
                 onClick={() => {
@@ -210,13 +212,13 @@ const AboutUs = () => {
               </button>
               <div
                 ref={advisoryCarouselRef}
-                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-6 pt-4 pb-5 px-2"
+                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-8 pt-4 pb-5"
                 style={{ scrollSnapType: 'x mandatory', scrollbarGutter: 'stable' }}
               >
                 {advisoryMembers.map((m, i) => (
                   <div
                     key={i}
-                    className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+                    className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-[31%]"
                     style={{ minHeight: '520px' }}
                   >
                     <MemberCard {...m} />
