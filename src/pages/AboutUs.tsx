@@ -142,7 +142,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gray-50 text-slate-900 flex flex-col">
       <Header />
-      <main className="flex-1 container mx-auto px-4 py-12">
+      <main className="flex-1 container mx-auto px-4 pt-8 md:pt-12 pb-4 md:pb-12">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8 text-center animate-fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
@@ -155,7 +155,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <section className="mb-10">
+          <section className="mb-6 md:mb-12">
             <div className="inline-block mb-10 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
                 Our Founder
@@ -167,14 +167,14 @@ const AboutUs = () => {
             </div>
           </section>
 
-          <section className="mb-10">
-            <div className="inline-block mb-10 mx-auto w-full text-center">
+          <section className="mb-4 md:mb-8">
+            <div className="inline-block mb-4 md:mb-6 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
                 Board Members
               </h2>
               <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
             </div>
-            <p className="text-base text-slate-600 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
+            <p className="text-base text-slate-600 mb-8 md:mb-12 leading-relaxed text-center max-w-3xl mx-auto">
               Working together towards humanity - our dedicated leadership team
               brings decades of experience in social development, community
               engagement, and strategic planning.
@@ -186,14 +186,14 @@ const AboutUs = () => {
             </div>
           </section>
 
-          <section className="mb-8">
-            <div className="inline-block mb-10 mx-auto w-full text-center">
+          <section className="mt-8 md:mt-16 mb-0 md:mb-6">
+            <div className="inline-block mb-4 md:mb-6 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
                 Advisory Members
               </h2>
               <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
             </div>
-            <p className="text-base text-slate-600 mb-12 leading-relaxed text-center max-w-3xl mx-auto">
+            <p className="text-base text-slate-600 mb-4 md:mb-8 leading-relaxed text-center max-w-3xl mx-auto">
               Our advisory board provides strategic guidance and expertise to
               ensure our programs achieve maximum impact and sustainability.
             </p>
@@ -212,7 +212,7 @@ const AboutUs = () => {
               </button>
               <div
                 ref={advisoryCarouselRef}
-                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-8 pt-4 pb-5"
+                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-4 pt-1 pb-1"
                 style={{ scrollSnapType: 'x mandatory', scrollbarGutter: 'stable' }}
               >
                 {advisoryMembers.map((m, i) => (
@@ -239,17 +239,17 @@ const AboutUs = () => {
               </button>
             </div>
           </section>
-          <section className="mb-5">
+          <section className="mb-0 md:mb-1 -mt-2 md:mt-0">
             <MissionVision />
           </section>
         </div>
       </main>
 
-      <div className="inline-block mb-6 mx-auto w-full text-center">
+      <div className="inline-block mb-1 md:mb-5 mx-auto w-full text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2 inline-block">
           Legal Status and Account Details
         </h2>
-        <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
+        <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-1 md:mt-3 rounded-full" />
       </div>
 
       <section className="mb-8">
