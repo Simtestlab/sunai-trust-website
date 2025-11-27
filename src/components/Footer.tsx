@@ -5,9 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-foreground text-white">
       <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Logo & Mission */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
               <img
@@ -91,7 +89,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                <p className="text-white/80">+91 98765 43210</p>
+                <p className="text-white/80">+91 96669 84000</p>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
@@ -106,7 +104,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         <div className="py-6 border-t border-white/20">
           <div className="flex justify-center items-center">
             <div className="text-white/80 text-sm text-center">

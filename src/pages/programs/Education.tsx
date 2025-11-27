@@ -13,7 +13,6 @@ import {
   TrendingUp,
 } from "lucide-react";
 import educationHero from "@/assets/education.jpg";
-// education-program.jpg is a placeholder file (not a real image). Use the real education image instead.
 import educationProgram from "@/assets/education.jpg";
 
 const Education = () => {
@@ -21,7 +20,6 @@ const Education = () => {
     <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
-      {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img
           src={educationHero}
@@ -34,7 +32,7 @@ const Education = () => {
             <p className="text-xl md:text-2xl mb-6 text-black-100">
               Providing quality education and learning opportunities to underserved communities
             </p>
-            {/* Hero CTA commented out per request
+            {/* 
             <Button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg">
               Support Education <Heart className="ml-2 w-5 h-5" />
             </Button>
@@ -44,7 +42,6 @@ const Education = () => {
       </section>
 
       <main className="flex-1">
-        {/* Overview Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -65,7 +62,7 @@ const Education = () => {
                   addresses not just academic learning but also nutritional
                   support, infrastructure development, and teacher training.
                 </p>
-                {/* Buttons removed per request
+                {/* 
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-teal-600 hover:bg-teal-700">
                     Our Approach <ArrowRight className="ml-2 w-4 h-4" />
@@ -93,7 +90,6 @@ const Education = () => {
           </div>
         </section>
 
-        {/* Impact Statistics */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
@@ -148,7 +144,6 @@ const Education = () => {
           </div>
         </section>
 
-        {/* Programs Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
@@ -252,7 +247,6 @@ const Education = () => {
           </div>
         </section>
 
-        {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
@@ -304,7 +298,6 @@ const Education = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
         <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
@@ -313,7 +306,7 @@ const Education = () => {
             <p className="text-xl mb-8 opacity-90">
               Every child deserves quality education. Your support can help us reach more communities and create lasting change through the power of learning.
             </p>
-            {/* Bottom CTA buttons removed per request
+            {/* 
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Donate Now

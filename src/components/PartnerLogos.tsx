@@ -30,7 +30,6 @@ const PartnerLogos: React.FC = () => {
     return 5;
   });
 
-  // Intersection Observer to detect visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -80,7 +79,6 @@ const PartnerLogos: React.FC = () => {
           <div className="w-16 h-1 bg-red-500 mx-auto mt-2"></div>
         </div>
 
-        {/* Scrolling Slider */}
         <div className="relative h-40 flex justify-center items-center">
           <div className="relative w-full max-w-5xl h-32 overflow-hidden flex justify-center gap-6">
             {(() => {
@@ -100,7 +98,6 @@ const PartnerLogos: React.FC = () => {
           </div>
         </div>
 
-        {/* Indicators */}
         <div className="flex justify-center mt-6 gap-3">
           {logos.map((_, index) => (
             <button

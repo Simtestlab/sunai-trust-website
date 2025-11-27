@@ -212,7 +212,7 @@ const AboutUs = () => {
               </button>
               <div
                 ref={advisoryCarouselRef}
-                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-4 pt-1 pb-1"
+                className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-8 pt-2 pb-2"
                 style={{ scrollSnapType: 'x mandatory', scrollbarGutter: 'stable' }}
               >
                 {advisoryMembers.map((m, i) => (

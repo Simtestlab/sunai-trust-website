@@ -19,7 +19,6 @@ const Empowerment = () => {
     <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
-      {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img
           src={empowermentHero}
@@ -32,7 +31,7 @@ const Empowerment = () => {
             <p className="text-xl md:text-2xl mb-6 text-black-100">
               Building sustainable livelihoods through skill development, microfinance, and community-led initiatives
             </p>
-            {/* Hero CTA commented out per request
+            {/* 
             <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
               Support Empowerment <TrendingUp className="ml-2 w-5 h-5" />
             </Button>
@@ -42,7 +41,6 @@ const Empowerment = () => {
       </section>
 
       <main className="flex-1">
-        {/* Overview Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -63,7 +61,7 @@ const Empowerment = () => {
                   community participation, local leadership, and sustainable
                   economic opportunities.
                 </p>
-                {/* Buttons removed per request
+                {/* 
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-purple-600 hover:bg-purple-700">
                     Our Programs <ArrowRight className="ml-2 w-4 h-4" />
@@ -90,8 +88,6 @@ const Empowerment = () => {
             </div>
           </div>
         </section>
-
-        {/* Impact Statistics */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
@@ -145,8 +141,6 @@ const Empowerment = () => {
             </div>
           </div>
         </section>
-
-        {/* Programs Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
@@ -249,8 +243,6 @@ const Empowerment = () => {
             </div>
           </div>
         </section>
-
-        {/* Success Stories */}
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
@@ -298,8 +290,6 @@ const Empowerment = () => {
             </div>
           </div>
         </section>
-
-        {/* Call to Action */}
         <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
@@ -308,7 +298,7 @@ const Empowerment = () => {
             <p className="text-xl mb-8 opacity-90">
               When communities are empowered, change becomes sustainable. Join us in building capacity and creating opportunities that last for generations.
             </p>
-            {/* Bottom CTA buttons removed per request
+            {/* 
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Fund Empowerment

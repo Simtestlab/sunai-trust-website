@@ -84,7 +84,6 @@ const blogs: Blog[] = [
     readTime: "4 min read",
     image: reliefImage,
   },
-  // Additional blog posts for more content
   {
     id: "digital-literacy-elderly-program",
     tag: "Digital Inclusion",
@@ -182,7 +181,6 @@ const Blogs = () => {
       <Header />
 
       <main className="flex-1 container mx-auto px-4 py-12">
-        {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
             Latest News & Stories
@@ -194,7 +192,6 @@ const Blogs = () => {
           </p>
         </div>
 
-        {/* Featured Stories */}
         {featuredBlogs.length > 0 && (
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-800 text-center">

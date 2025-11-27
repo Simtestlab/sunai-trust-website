@@ -21,7 +21,6 @@ const TreePlantation = () => {
     <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
-      {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img
           src={treePlantationHero}
@@ -32,7 +31,7 @@ const TreePlantation = () => {
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Tree Plantation</h1>
             <p className="text-xl md:text-2xl mb-6 text-black-100">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
-            {/* Hero CTA commented out per request
+            {/* 
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
               Plant with Us <TreePine className="ml-2 w-5 h-5" />
             </Button>
@@ -42,7 +41,6 @@ const TreePlantation = () => {
       </section>
 
       <main className="flex-1">
-        {/* Overview Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -64,7 +62,7 @@ const TreePlantation = () => {
                   education about environmental conservation for sustainable
                   green cover.
                 </p>
-                {/* Buttons removed per request
+                {/* 
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-green-600 hover:bg-green-700">
                     Our Impact <ArrowRight className="ml-2 w-4 h-4" />
@@ -92,7 +90,6 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Impact Statistics */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Environmental Impact</h2>
@@ -138,7 +135,6 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Programs Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
@@ -275,7 +271,6 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Environmental Benefits */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Environmental Benefits</h2>
@@ -320,12 +315,11 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
         <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">Plant Today, Breathe Tomorrow</h2>
             <p className="text-xl mb-8 opacity-90">Every tree planted is a step towards a greener, healthier planet. Join our mission to restore forests and fight climate change through community action.</p>
-            {/* Bottom CTA buttons removed per request
+            {/* 
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Fund Tree Plantation
