@@ -2,9 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight, FileText } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 import skillTraining from "@/assets/skill trainning.jpeg";
 import skillDevelopment from "@/assets/skill development.jpeg";
 import treePlantation from "@/assets/tree plantation.jpeg";
@@ -86,7 +84,6 @@ const blogs: Blog[] = [
     readTime: "4 min read",
     image: reliefImage,
   },
-  // Additional blog posts for more content
   {
     id: "digital-literacy-elderly-program",
     tag: "Digital Inclusion",
@@ -184,7 +181,6 @@ const Blogs = () => {
       <Header />
 
       <main className="flex-1 container mx-auto px-4 py-12">
-        {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
             Latest News & Stories
@@ -196,7 +192,6 @@ const Blogs = () => {
           </p>
         </div>
 
-        {/* Featured Stories */}
         {featuredBlogs.length > 0 && (
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-800 text-center">
@@ -229,8 +224,8 @@ const Blogs = () => {
             ))}
           </div>
         </section>
-
         {/* Newsletter Signup */}
+        {/*
         <section className="mt-20 bg-gradient-to-r from-teal-600 to-green-600 rounded-xl p-10 lg:p-12 text-white text-center">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated</h3>
           <p className="text-lg md:text-xl text-teal-100 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -251,7 +246,8 @@ const Blogs = () => {
             </Button>
           </div>
         </section>
-      </main>
+        */}
+      </main> 
 
       <Footer />
     </div>

@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   TreePine,
@@ -19,26 +18,20 @@ import treePlantationProgram from "@/assets/tree plantation.jpeg";
 
 const TreePlantation = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-slate-900">
       <Header />
 
-      {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img
           src={treePlantationHero}
           alt="Tree Plantation Program"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">
-              Tree Plantation
-            </h1>
-            <p className="text-xl md:text-2xl mb-6">
-              Organizing community-led tree plantation drives to restore local
-              ecosystems and improve air quality
-            </p>
-            {/* Hero CTA commented out per request
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Tree Plantation</h1>
+            <p className="text-xl md:text-2xl mb-6 text-black-100">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
+            {/* 
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
               Plant with Us <TreePine className="ml-2 w-5 h-5" />
             </Button>
@@ -48,7 +41,6 @@ const TreePlantation = () => {
       </section>
 
       <main className="flex-1">
-        {/* Overview Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -70,7 +62,7 @@ const TreePlantation = () => {
                   education about environmental conservation for sustainable
                   green cover.
                 </p>
-                {/* Buttons removed per request
+                {/* 
                 <div className="flex flex-wrap gap-4">
                   <Button className="bg-green-600 hover:bg-green-700">
                     Our Impact <ArrowRight className="ml-2 w-4 h-4" />
@@ -87,7 +79,7 @@ const TreePlantation = () => {
                   alt="Tree Plantation Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-green-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">500K+</div>
                     <div className="text-sm">Trees Planted</div>
@@ -98,12 +90,9 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Impact Statistics */}
-        <section className="py-16 bg-green-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Environmental Impact
-            </h2>
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Environmental Impact</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
@@ -131,21 +120,14 @@ const TreePlantation = () => {
                   desc: "Community participation",
                 },
               ].map((stat, idx) => (
-                <Card
-                  key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
-                >
+                <Card key={idx} className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100">
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                      <stat.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <div className="text-3xl font-bold text-gray-800 mb-2">
-                      {stat.number}
-                    </div>
-                    <div className="text-lg font-semibold text-green-600 mb-1">
-                      {stat.label}
-                    </div>
-                    <div className="text-sm text-gray-600">{stat.desc}</div>
+                    <div className="text-3xl font-bold text-slate-800 mb-2">{stat.number}</div>
+                    <div className="text-lg font-semibold text-teal-600 mb-1">{stat.label}</div>
+                    <div className="text-sm text-slate-600">{stat.desc}</div>
                   </CardContent>
                 </Card>
               ))}
@@ -153,7 +135,6 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Programs Section */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
@@ -228,25 +209,15 @@ const TreePlantation = () => {
                   ],
                 },
               ].map((program, idx) => (
-                <Card
-                  key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-green-600"
-                >
+                <Card key={idx} className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100">
                   <CardContent className="p-0">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
-                      {program.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {program.description}
-                    </p>
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">{program.title}</h3>
+                    <p className="text-slate-600 mb-4 leading-relaxed">{program.description}</p>
                     <div className="space-y-2">
                       {program.features.map((feature, featureIdx) => (
-                        <div
-                          key={featureIdx}
-                          className="flex items-center text-sm"
-                        >
-                          <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
-                          <span className="text-gray-700">{feature}</span>
+                        <div key={featureIdx} className="flex items-center text-sm">
+                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -259,9 +230,7 @@ const TreePlantation = () => {
 
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Green Success Stories
-            </h2>
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Green Success Stories</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
               {[
                 {
@@ -281,29 +250,18 @@ const TreePlantation = () => {
                   duration: "2020-Ongoing",
                 },
               ].map((story, idx) => (
-                <Card
-                  key={idx}
-                  className={`flex h-full flex-col border rounded-lg ${story.cardBg}`}
-                >
+                <Card key={idx} className="flex h-full flex-col border rounded-lg bg-teal-50 border-teal-200">
                   <div className="p-6">
                     <div className="flex items-center">
-                      <MapPin
-                        className={`w-5 h-5 mr-2 ${story.locationColor}`}
-                      />
-                      <span className={`font-semibold ${story.locationColor}`}>
-                        {story.location}
-                      </span>
+                      <MapPin className="w-5 h-5 mr-2 text-teal-600" />
+                      <span className="font-semibold text-teal-600">{story.location}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mt-3">
-                      {story.title}
-                    </h3>
+                    <h3 className="text-xl font-bold text-slate-800 mt-3">{story.title}</h3>
                   </div>
                   <CardContent className="px-6 pb-2 flex-1">
-                    <p className="text-gray-600 leading-relaxed">
-                      {story.description}
-                    </p>
+                    <p className="text-slate-600 leading-relaxed">{story.description}</p>
                   </CardContent>
-                  <div className="px-6 pb-6 mt-4 text-sm text-gray-500 flex items-center">
+                  <div className="px-6 pb-6 mt-4 text-sm text-slate-500 flex items-center">
                     <Calendar className="w-4 h-4 inline mr-1" />
                     <span>Project Duration: {story.duration}</span>
                   </div>
@@ -313,12 +271,9 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Environmental Benefits */}
-        <section className="py-16 bg-green-50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Environmental Benefits
-            </h2>
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Environmental Benefits</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
@@ -346,20 +301,13 @@ const TreePlantation = () => {
                     "Forests provide habitat for wildlife and support diverse ecosystems and food chains.",
                 },
               ].map((benefit, idx) => (
-                <Card
-                  key={idx}
-                  className="text-center p-6 bg-white hover:shadow-lg transition-shadow"
-                >
+                <Card key={idx} className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100">
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                      <benefit.icon className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
+                      <benefit.icon className="w-8 h-8 text-teal-600" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {benefit.description}
-                    </p>
+                    <h3 className="text-lg font-bold text-slate-800 mb-2">{benefit.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{benefit.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -367,18 +315,11 @@ const TreePlantation = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-[hsl(var(--gradient-start))] to-[hsl(var(--gradient-end))]">
+        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
-            <h2 className="text-3xl font-bold mb-4">
-              Plant Today, Breathe Tomorrow
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Every tree planted is a step towards a greener, healthier planet.
-              Join our mission to restore forests and fight climate change
-              through community action.
-            </p>
-            {/* Bottom CTA buttons removed per request
+            <h2 className="text-3xl font-bold mb-4">Plant Today, Breathe Tomorrow</h2>
+            <p className="text-xl mb-8 opacity-90">Every tree planted is a step towards a greener, healthier planet. Join our mission to restore forests and fight climate change through community action.</p>
+            {/* 
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Fund Tree Plantation

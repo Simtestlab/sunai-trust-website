@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import MissionOverview from "@/components/MissionOverview";
-import MissionVision from "@/components/MissionVision";
 import FeaturedStory from "@/components/FeaturedStory";
 import PartnerLogos from "@/components/PartnerLogos";
 import Footer from "@/components/Footer";

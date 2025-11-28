@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Link } from "react-router-dom";
 import {
   MapPin,
   Users,
@@ -23,7 +22,6 @@ import skillTraining from "@/assets/skill trainning.jpeg";
 import skillDevelopment from "@/assets/skill development.jpeg";
 import treePlantation from "@/assets/tree plantation.jpeg";
 import waterImage from "@/assets/water.jpeg";
-import mealImage from "@/assets/meal.jpeg";
 import reliefImage from "@/assets/relief.jpeg";
 
 type Project = {

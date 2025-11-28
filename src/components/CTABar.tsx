@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Heart, Users, Calendar } from "lucide-react";
-
 const CTABar = () => {
   return (
     <section className="py-16 bg-impact-gradient text-white relative overflow-hidden">

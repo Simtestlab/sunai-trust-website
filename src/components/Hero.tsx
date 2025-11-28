@@ -1,6 +1,8 @@
+import { useState } from "react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
+  const [loaded, setLoaded] = useState(false);
   return (
     <section
       id="home"
@@ -12,7 +14,11 @@ const Hero = () => {
           src={heroImage}
           alt="Community empowerment and positive change"
           fetchPriority="high"
-          className="w-full h-full object-cover"
+          loading="eager"
+          onLoad={() => setLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-700 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
       </div>
