@@ -301,21 +301,12 @@ const Volunteer = () => {
                   </div>
                   <div className="space-y-2">
                     <Label>Languages known</Label>
-                    <div className="flex flex-wrap gap-3">
-                      {languageOptions.map((lang) => (
-                        <label key={lang} className="flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            name="languagesKnown"
-                            value={lang}
-                            checked={form.languagesKnown.includes(lang)}
-                            onChange={handleChange}
-                            className="w-4 h-4"
-                          />
-                          <span className="text-sm">{lang}</span>
-                        </label>
-                      ))}
-                    </div>
+                    <Textarea
+                      id="languages"
+                      name="languages"
+                      rows={2}
+                      placeholder="Type languages separated by commas"
+                    />
                   </div>
                 </div>
 
