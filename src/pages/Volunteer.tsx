@@ -214,17 +214,10 @@ const Volunteer = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 relative overflow-auto">
-        <div 
-          className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat opacity-100"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000')`,
-          }}
-        />
-        {/* gradient overlay removed so background image shows across full width */}
-
-        <div className="relative container mx-auto px-4 py-12 flex justify-center">
+        {/* Background applied to the form section only (not full page) */}
+        <div className="relative container mx-auto px-4 py-12 flex justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000')` }}>
           <div className="max-w-3xl w-full">
-            <form onSubmit={handleSubmit} className="bg-white/85 backdrop-blur-md p-8 rounded-lg shadow-lg space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-md p-8 rounded-lg shadow-lg space-y-6">
               <div className="mb-8 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
                   Volunteer Registration

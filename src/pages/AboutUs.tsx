@@ -179,7 +179,7 @@ const AboutUs = () => {
               brings decades of experience in social development, community
               engagement, and strategic planning.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
               {boardMembers.map((m, i) => (
                 <MemberCard key={i} {...m} />
               ))}
@@ -259,17 +259,50 @@ const AboutUs = () => {
 
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-primary text-center mb-6">
-                Legal Status
+                Legal Details
               </h3>
-              <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                <p><span className="font-semibold text-foreground">Trust Name:</span> SUNAI - SUPPORT UPLIFT NOURISH AID ILLUMINATE</p>
-                <p><span className="font-semibold text-foreground">Trust Reg No:</span> Book-4/205/2023</p>
-                <p><span className="font-semibold text-foreground">Registration Date:</span> 15/04/2023</p>
-                <p><span className="font-semibold text-foreground">PAN:</span> ABHTS4028A</p>
-                <p><span className="font-semibold text-foreground">12A (URN):</span> ABHTS4028A24CH01</p>
-                <p><span className="font-semibold text-foreground">80G (URN):</span> ABHTS4028A24CH02</p>
-                <p><span className="font-semibold text-foreground">CSR Reg:</span> CSR0001234</p>
-              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+              {(() => {
+                const [copied, setCopied] = useState(false);
+                const text = `Trust Name: SUNAI - SUPPORT UPLIFT NOURISH AID ILLUMINATE\nTrust Reg No: Book-4/205/2023\nRegistration Date: 15/04/2023\nPAN: ABHTS4028A\n12A (URN): ABHTS4028A24CH01\n80G (URN): ABHTS4028A24CH02\nCSR Reg: CSR0001234`;
+                return (
+                    <div className="bg-secondary/10 rounded-xl p-5 border border-border shadow-md space-y-2 relative flex-col">
+                    <button
+                        className="absolute top-3 right-3 p-2 rounded hover:bg-gray-200 focus:outline-none"
+                      title="Copy Legal Status"
+                      onClick={() => {
+                        navigator.clipboard.writeText(text);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 1500);
+                      }}
+                    >
+                      {copied ? (
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="9" y="9" width="14" height="14" rx="2" fill="#444"/>
+                          <rect x="5" y="5" width="14" height="14" rx="2" fill="#444"/>
+                          <path d="M13 16.5L15.5 19L19 13" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      ) : (
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="9" y="9" width="14" height="14" rx="2" stroke="#444" strokeWidth="2" fill="#fff"/>
+                          <rect x="5" y="5" width="14" height="14" rx="2" stroke="#444" strokeWidth="2" fill="#fff"/>
+                        </svg>
+                      )}
+                    </button>
+                    <h4 className="text-base md:text-lg font-semibold text-primary text-center mb-2">Legal Status</h4>
+                    <div className="space-y-2 text-sm md:text-base text-muted-foreground leading-relaxed">
+                      <p><span className="font-semibold text-foreground">Trust Name:</span> SUNAI - SUPPORT UPLIFT NOURISH AID ILLUMINATE</p>
+                      <p><span className="font-semibold text-foreground">Trust Reg No:</span> Book-4/205/2023</p>
+                      <p><span className="font-semibold text-foreground">Registration Date:</span> 15/04/2023</p>
+                      <p><span className="font-semibold text-foreground">PAN:</span> ABHTS4028A</p>
+                      <p><span className="font-semibold text-foreground">12A (URN):</span> ABHTS4028A24CH01</p>
+                      <p><span className="font-semibold text-foreground">80G (URN):</span> ABHTS4028A24CH02</p>
+                      <p><span className="font-semibold text-foreground">CSR Reg:</span> CSR0001234</p>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Account Details */}
@@ -284,7 +317,7 @@ const AboutUs = () => {
                 {(() => {
                   const [copied, setCopied] = useState(false);
                   return (
-                    <div className="bg-secondary/10 rounded-xl p-5 border border-border shadow-md space-y-2 relative">
+                    <div className="bg-secondary/10 rounded-xl p-5 border border-border shadow-md space-y-2 relative h-full flex flex-col">
                       <button
                         className="absolute top-3 right-3 p-2 rounded hover:bg-gray-200 focus:outline-none"
                         title="Copy Indian Donors Details"
@@ -322,7 +355,7 @@ const AboutUs = () => {
                 {(() => {
                   const [copied, setCopied] = useState(false);
                   return (
-                    <div className="bg-secondary/10 rounded-xl p-5 border border-border shadow-md space-y-2 relative">
+                    <div className="bg-secondary/10 rounded-xl p-5 border border-border shadow-md space-y-2 relative h-full flex flex-col">
                       <button
                         className="absolute top-3 right-3 p-2 rounded hover:bg-gray-200 focus:outline-none"
                         title="Copy Foreign Donors Details"

@@ -11,7 +11,7 @@ const Header = () => {
   const [registerOpen, setRegisterOpen] = useState(false);
 
   return (
-    <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-smooth">
+    <header className="bg-background/100 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-smooth">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo (clickable) */}
