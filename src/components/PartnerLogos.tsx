@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import l1 from "@/assets/logo1.jpg";
+//import l1 from "@/assets/logo1.jpg";
 import l2 from "@/assets/logo2.png";
 import l3 from "@/assets/logo3.png";
-import l4 from "@/assets/logo4.jpg";
+import l4 from "@/assets/logo4.png";
 import l5 from "@/assets/logo5.png";
 import l6 from "@/assets/logo6.png";
 import l7 from "@/assets/logo7.png";
 
-const logos = [l1, l2, l3, l4, l5, l6, l7];
+const logos = [ l2, l3, l4, l5, l6, l7];
 const labels = [
   "Partner 1",
   "Partner 2",

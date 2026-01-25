@@ -581,7 +581,7 @@ const BlogDetail = () => {
                   Become a Volunteer
                 </Button>
               </Link>
-              <Link to="/projects">
+              <Link to="/blogs">
                 <Button variant="outline">View All Projects</Button>
               </Link>
             </div>
