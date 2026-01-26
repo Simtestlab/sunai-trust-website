@@ -506,22 +506,6 @@ const BlogDetail = () => {
                 <span>📍 {blog.location}</span>
               </div>
             </div>
-
-            {/* Social Actions */}
-            <div className="flex items-center gap-4 mb-8">
-              <Button variant="outline" size="sm">
-                <Share2 className="w-4 h-4 mr-2" />
-                Share
-              </Button>
-              <Button variant="outline" size="sm">
-                <Heart className="w-4 h-4 mr-2" />
-                Like
-              </Button>
-              <Button variant="outline" size="sm">
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Comment
-              </Button>
-            </div>
           </div>
 
           {/* Featured Image */}
