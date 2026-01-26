@@ -283,20 +283,20 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
     <CardHeader>
       <div className="flex items-start justify-between mb-2">
-        <Badge variant="outline" className="text-xs">
+        <Badge variant="outline" className="text-xs md:text-sm">
           {project.category}
         </Badge>
-        <span className="text-sm font-semibold text-teal-600">
+        <span className="text-sm md:text-base font-semibold text-teal-600">
           {project.budget}
         </span>
       </div>
-      <CardTitle className="text-lg group-hover:text-teal-600 transition-colors duration-300">
+      <CardTitle className="text-xl md:text-2xl group-hover:text-teal-600 transition-colors duration-300 leading-tight">
         {project.title}
       </CardTitle>
     </CardHeader>
 
     <CardContent>
-      <p className="text-sm text-slate-600 mb-4 line-clamp-3">
+      <p className="text-base text-slate-700 mb-4 line-clamp-4">
         {project.description}
       </p>
 
@@ -382,33 +382,37 @@ const Projects = () => {
         </div>
 
         {/* Impact Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-          <Card className="text-center">
-            <CardContent className="pt-6">
+        <div className="mb-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-slate-800">Impact Overview</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+          <Card className="text-center h-full">
+            <CardContent className="pt-6 pb-6">
               <div className="text-3xl font-bold text-teal-600 mb-2">
                 {projects.length}
               </div>
               <div className="text-sm text-slate-600">Total Projects</div>
             </CardContent>
           </Card>
-          <Card className="text-center">
-            <CardContent className="pt-6">
+          <Card className="text-center h-full">
+            <CardContent className="pt-6 pb-6">
               <div className="text-3xl font-bold text-green-600 mb-2">
                 {totalBeneficiaries.toLocaleString()}
               </div>
               <div className="text-sm text-slate-600">Lives Impacted</div>
             </CardContent>
           </Card>
-          <Card className="text-center">
-            <CardContent className="pt-6">
+          <Card className="text-center h-full">
+            <CardContent className="pt-6 pb-6">
               <div className="text-3xl font-bold text-blue-600 mb-2">
                 ₹{totalBudget}Cr
               </div>
               <div className="text-sm text-slate-600">Total Investment</div>
             </CardContent>
           </Card>
-          <Card className="text-center">
-            <CardContent className="pt-6">
+          <Card className="text-center h-full">
+            <CardContent className="pt-6 pb-6">
               <div className="text-3xl font-bold text-purple-600 mb-2">15+</div>
               <div className="text-sm text-slate-600">States Covered</div>
             </CardContent>
@@ -416,12 +420,12 @@ const Projects = () => {
         </div>
 
         {/* Active Projects */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-slate-800 flex items-center">
+        <section className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-slate-800 flex items-center">
             <div className="w-1 h-6 bg-green-500 mr-3 rounded"></div>
             Active Projects ({activeProjects.length})
           </h2>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {activeProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -429,12 +433,12 @@ const Projects = () => {
         </section>
 
         {/* Completed Projects */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-slate-800 flex items-center">
+        <section className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-slate-800 flex items-center">
             <div className="w-1 h-6 bg-blue-500 mr-3 rounded"></div>
             Completed Projects ({completedProjects.length})
           </h2>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {completedProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -442,12 +446,12 @@ const Projects = () => {
         </section>
 
         {/* Planned Projects */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-slate-800 flex items-center">
+        <section className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-slate-800 flex items-center">
             <div className="w-1 h-6 bg-orange-500 mr-3 rounded"></div>
             Upcoming Projects ({plannedProjects.length})
           </h2>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {plannedProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}

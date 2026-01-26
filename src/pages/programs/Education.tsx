@@ -24,12 +24,15 @@ const Education = () => {
         <img
           src={educationHero}
           alt="Education Program"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Education</h1>
-            <p className="text-xl md:text-2xl mb-6 text-black-100">
+            <p className="text-xl md:text-2xl mb-6 text-white/90">
               Providing quality education and learning opportunities to underserved communities
             </p>
             {/* 

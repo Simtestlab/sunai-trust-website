@@ -25,12 +25,15 @@ const TreePlantation = () => {
         <img
           src={treePlantationHero}
           alt="Tree Plantation Program"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Tree Plantation</h1>
-            <p className="text-xl md:text-2xl mb-6 text-black-100">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
+            <p className="text-xl md:text-2xl mb-6 text-white/90">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
             {/* 
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
               Plant with Us <TreePine className="ml-2 w-5 h-5" />

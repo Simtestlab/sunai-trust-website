@@ -219,7 +219,10 @@ const Volunteer = () => {
           <div className="max-w-3xl w-full">
             <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-md p-8 rounded-lg shadow-lg space-y-6">
               <div className="mb-8 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
+                <h1
+                  className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-normal overflow-visible"
+                  style={{ WebkitTextFillColor: 'transparent', lineHeight: 1.15 }}
+                >
                   Volunteer Registration
                 </h1>
                 <p className="text-lg max-w-2xl mx-auto text-slate-600 drop-shadow-sm">

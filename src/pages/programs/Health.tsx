@@ -24,33 +24,21 @@ const Health = () => {
         <img
           src={healthHero}
           alt="Health Program"
-          className="w-full h-full object-cover filter brightness-120 contrast-125 saturate-130"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Health Care</h1>
-            <p className="text-xl md:text-2xl mb-6 text-black-100">Enabling community-driven health initiatives to strengthen well-being and build a healthier future for all.</p>
+            <p className="text-xl md:text-2xl mb-6 text-white/90">Enabling community-driven health initiatives to strengthen well-being and build a healthier future for all.</p>
             {/* Hero CTA commented out per request
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
               Plant with Us <TreePine className="ml-2 w-5 h-5" />
             </Button>
             */}
           </div>
-        </div>
-        <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
-          {/* Bottom CTA buttons removed per request
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 font-semibold">
-                  Donate for Health
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                  Become a Health Volunteer
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                  Corporate Partnership
-                </Button>
-              </div>
-              */}
         </div>
       </section>
 

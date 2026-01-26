@@ -167,7 +167,7 @@ const Services = () => {
                   asChild
                   className="bg-white/10 border-white/30 text-white hover:bg-white/20"
                 >
-                  <Link to="/projects">View Our Projects</Link>
+                  <Link to="/blogs">View Our Projects</Link>
                 </Button>
               </div>
             </CardContent>
