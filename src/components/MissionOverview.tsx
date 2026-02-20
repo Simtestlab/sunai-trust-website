@@ -24,34 +24,34 @@ const programs = [
 			"Delivering essential healthcare services, medical training, and health awareness programs to improve the well-being of entire communities.",
 		link: "/programs/health",
 	},
-	{
+	/* {
 		image: empowermentImg,
 		title: "Empowerment",
 		description:
 			"Building sustainable livelihoods through skill development, microfinance, and community-led initiatives that foster long-term independence.",
 		link: "/programs/empowerment",
-	},
+	}, */
 	{
 		image: treeImg,
-		title: "Tree Plantation",
+		title: "Environmental Balance",
 		description:
 			"Organizing community-led tree plantation drives to restore local ecosystems, improve air quality, and create green spaces for future generations.",
 		link: "/programs/tree-plantation",
 	},
-	{
+	/* {
 		image: ruralImg,
 		title: "Rural Development Programs",
 		description:
 			"Supporting rural communities with infrastructure, training, and resources to boost agriculture, market access, and overall resilience.",
 		link: "/programs/rural-development",
-	},
-	{
+	}, */
+	/* {
 		image: charityImg,
 		title: "Charity",
 		description:
 			"Providing direct aid and relief to families in need, including food distribution, emergency support, and targeted charitable initiatives.",
 		link: "/programs/charity",
-	},
+	}, */
 ];
 
 const MissionOverview = () => {

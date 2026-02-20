@@ -44,38 +44,38 @@ const Footer = () => {
                   Health
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/programs/empowerment"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
                   Empowerment
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/programs/tree-plantation"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Tree Plantation
+                  Environmental Balance
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/programs/rural-development"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
                   Rural Development
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href="/programs/charity"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
                   Charity
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>

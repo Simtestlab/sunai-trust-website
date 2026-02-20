@@ -24,7 +24,7 @@ const TreePlantation = () => {
       <section className="relative h-96 overflow-hidden">
         <img
           src={treePlantationHero}
-          alt="Tree Plantation Program"
+          alt="Environmental Balance"
           className="w-full h-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
@@ -32,7 +32,7 @@ const TreePlantation = () => {
         />
         <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Tree Plantation</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Environmental Balance</h1>
             <p className="text-xl md:text-2xl mb-6 text-white/90">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
             {/* 
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
@@ -53,7 +53,7 @@ const TreePlantation = () => {
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Climate change and deforestation threaten our planet's future.
-                  Our tree plantation programs mobilize communities to restore
+                  Our Environmental Balance programs mobilize communities to restore
                   degraded lands, create green spaces, and build climate
                   resilience through systematic afforestation and reforestation
                   efforts.
@@ -79,7 +79,7 @@ const TreePlantation = () => {
               <div className="relative">
                 <img
                   src={treePlantationProgram}
-                  alt="Tree Plantation Activities"
+                  alt="Environmental Balance Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
@@ -325,7 +325,7 @@ const TreePlantation = () => {
             {/* 
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 font-semibold">
-                Fund Tree Plantation
+                Fund Environmental Balance
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
                 Join Plantation Drive
