@@ -1,21 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-//import l1 from "@/assets/logo1.jpg";
 import l2 from "@/assets/logo2.png";
 import l3 from "@/assets/logo3.png";
 import l4 from "@/assets/logo4.png";
 import l5 from "@/assets/logo5.png";
-import l6 from "@/assets/logo6.png";
 import l7 from "@/assets/logo7.png";
 
-const logos = [ l2, l3, l4, l5, l6, l7];
-const labels = [
-  "Partner 1",
-  "Partner 2",
-  "Partner 3",
-  "Partner 4",
-  "Partner 5",
-  "Partner 6",
-  "Partner 7",
+// Ordered partners to display at end of homepage as requested
+const partners = [
+  { src: l7, label: "Partner 6" },
+  { src: l2, label: "Partner 1" },
+  { src: l3, label: "Partner 2" },
+  { src: l4, label: "Partner 3" },
+  { src: l5, label: "Partner 4" },
 ];
 
 const PartnerLogos: React.FC = () => {
@@ -50,7 +46,7 @@ const PartnerLogos: React.FC = () => {
     if (!isVisible) return;
     let intervalId: ReturnType<typeof setInterval> | null = null;
     intervalId = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % logos.length);
+      setCurrentIndex((prev) => (prev + 1) % partners.length);
     }, 2500);
     return () => {
       if (intervalId) clearInterval(intervalId as ReturnType<typeof setInterval>);
@@ -84,8 +80,8 @@ const PartnerLogos: React.FC = () => {
             {(() => {
               const visible = [] as { src: string; alt: string }[];
               for (let i = 0; i < visibleCount; i++) {
-                const idx = (currentIndex + i) % logos.length;
-                visible.push({ src: logos[idx], alt: labels[idx] });
+                const idx = (currentIndex + i) % partners.length;
+                visible.push({ src: partners[idx].src, alt: partners[idx].label });
               }
               return visible.map((logo, idx) => (
                 <div key={idx} className="flex-1 bg-white rounded-xl shadow-sm p-6 flex items-center justify-center">
@@ -99,7 +95,7 @@ const PartnerLogos: React.FC = () => {
         </div>
 
         <div className="flex justify-center mt-6 gap-3">
-          {logos.map((_, index) => (
+          {partners.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}

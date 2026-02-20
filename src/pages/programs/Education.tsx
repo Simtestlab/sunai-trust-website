@@ -23,7 +23,7 @@ const Education = () => {
       <section className="relative h-96 overflow-hidden">
         <img
           src={educationHero}
-          alt="Education Program"
+          alt="Mentorship Programme"
           className="w-full h-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
@@ -31,9 +31,9 @@ const Education = () => {
         />
         <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Education</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Mentorship Programme</h1>
             <p className="text-xl md:text-2xl mb-6 text-white/90">
-              Providing quality education and learning opportunities to underserved communities
+              Providing quality learning and mentorship opportunities to underserved communities
             </p>
             {/* 
             <Button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg">
@@ -50,13 +50,13 @@ const Education = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                  Transforming Lives Through Education
+                  Transforming Lives Through Mentorship Programme
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Education is the foundation of sustainable development and
-                  social change. Our comprehensive education programs focus on
+                  Mentorship Programme is the foundation of sustainable development and
+                  social change. Our comprehensive mentorship programs focus on
                   ensuring every child has access to quality learning
-                  opportunities, regardless of their socio-economic background.
+                  and mentorship opportunities, regardless of their socio-economic background.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   We work with communities, schools, and local partners to
@@ -79,7 +79,7 @@ const Education = () => {
               <div className="relative">
                 <img
                   src={educationProgram}
-                  alt="Education Program Activities"
+                  alt="Mentorship Programme Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
@@ -150,12 +150,12 @@ const Education = () => {
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Our Education Programs
+              Our Mentorship Programme
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Primary Education Support",
+                  title: "Primary Mentorship Programme Support",
                   description:
                     "Supporting children aged 6-11 with foundational learning, nutrition, and infrastructure development in government schools.",
                   features: [
@@ -166,7 +166,7 @@ const Education = () => {
                   ],
                 },
                 {
-                  title: "Secondary Education Enhancement",
+                  title: "Secondary Mentorship Programme Enhancement",
                   description:
                     "Comprehensive support for adolescents including academic support, life skills training, and career guidance.",
                   features: [
@@ -201,18 +201,18 @@ const Education = () => {
                 {
                   title: "Digital Learning",
                   description:
-                    "Leveraging technology to provide quality education content and bridge the digital divide.",
+                    "Leveraging technology to provide quality mentorship content and bridge the digital divide.",
                   features: [
                     "E-learning platforms",
                     "Digital classrooms",
-                    "Educational apps",
+                    "Mentorship apps",
                     "Online assessments",
                   ],
                 },
                 {
-                  title: "Special Needs Education",
+                  title: "Special Needs Mentorship",
                   description:
-                    "Inclusive education programs for children with disabilities and learning difficulties.",
+                    "Inclusive mentorship programs for children with disabilities and learning difficulties.",
                   features: [
                     "Specialized curriculum",
                     "Trained educators",
@@ -304,10 +304,10 @@ const Education = () => {
         <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Join Our Mission to Transform Education
+              Join Our Mission to Transform Lives Through Mentorship
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Every child deserves quality education. Your support can help us reach more communities and create lasting change through the power of learning.
+              Every child deserves quality mentorship and learning. Your support can help us reach more communities and create lasting change through mentoring and education.
             </p>
             {/* 
             <div className="flex flex-wrap justify-center gap-4">

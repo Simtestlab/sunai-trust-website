@@ -12,45 +12,35 @@ import charityImg from "@/assets/charity.jpg";
 const programs = [
 	{
 		image: educationImg,
-		title: "Education",
+		title: "Sunai Uplift",
+		subtitle: "Mentorship Programme",
 		description:
-			"Providing quality education and learning opportunities to underserved communities, ensuring every child has access to knowledge and skills for a brighter future.",
+			"A transformative mentorship initiative designed to guide, educate, and empower students and young individuals. Through leadership training, career guidance, and personal development programs, Sunai Uplift aims to unlock potential and build confident future leaders.",
 		link: "/programs/education",
 	},
 	{
-		image: healthImg,
-		title: "Health",
-		description:
-			"Delivering essential healthcare services, medical training, and health awareness programs to improve the well-being of entire communities.",
-		link: "/programs/health",
-	},
-	{
-		image: empowermentImg,
-		title: "Empowerment",
-		description:
-			"Building sustainable livelihoods through skill development, microfinance, and community-led initiatives that foster long-term independence.",
-		link: "/programs/empowerment",
-	},
-	{
 		image: treeImg,
-		title: "Tree Plantation",
+		title: "Sunai Vanam",
+		subtitle: "Environmental Balance",
 		description:
-			"Organizing community-led tree plantation drives to restore local ecosystems, improve air quality, and create green spaces for future generations.",
+			"Dedicated to restoring ecological harmony, Sunai Vanam promotes tree plantation drives, environmental awareness campaigns, and sustainable living practices. Our goal is to contribute towards a greener, healthier planet for generations to come.",
 		link: "/programs/tree-plantation",
 	},
 	{
-		image: ruralImg,
-		title: "Rural Development Programs",
+		image: charityImg,
+		title: "Sunai Life",
+		subtitle: "Blood Bank Initiative",
 		description:
-			"Supporting rural communities with infrastructure, training, and resources to boost agriculture, market access, and overall resilience.",
-		link: "/programs/rural-development",
+			"Sunai Life focuses on saving lives by strengthening blood donation awareness and supporting blood bank networks. Through organized donation drives and partnerships, we strive to ensure timely access to safe blood for those in need.",
+		link: "/programs/blood-bank",
 	},
 	{
-		image: charityImg,
-		title: "Charity",
+		image: healthImg,
+		title: "Sunai Health",
+		subtitle: "Diagnostic & Healthcare Centres",
 		description:
-			"Providing direct aid and relief to families in need, including food distribution, emergency support, and targeted charitable initiatives.",
-		link: "/programs/charity",
+			"Committed to accessible and affordable healthcare, Sunai Health works towards establishing diagnostic and healthcare centres that provide quality medical support to underserved communities.",
+		link: "/programs/health",
 	},
 ];
 
@@ -70,7 +60,7 @@ const MissionOverview = () => {
 	};
 
 	const prev = () => scrollTo(Math.max(0, currentIndex - 1));
-	const next = () => scrollTo(Math.min(programs.length - 2, currentIndex + 1));
+	const next = () => scrollTo(Math.min(programs.length - 1, currentIndex + 1));
 
 	React.useEffect(() => {
 		const interval = setInterval(() => {
@@ -87,16 +77,14 @@ const MissionOverview = () => {
 		<section className="py-20 bg-soft-gradient">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 scroll-reveal">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
-						Our Mission in Action
-					</h1>
-					<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-						We believe in sustainable change through education, health, and
-						empowerment. Our integrated approach ensures communities thrive long
-						after our programs conclude.
-					</p>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
+						Our Key Initiatives
+					</h2>
+						<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+							Four focused pillars of impact — mentoring young leaders, restoring
+							environmental balance, saving lives through blood donation, and making
+							healthcare accessible for all.					</p>
 				</div>
-
 				<div className="relative max-w-6xl mx-auto">
 					<button
 						aria-label="Previous"
@@ -125,17 +113,18 @@ const MissionOverview = () => {
 							>
 								<Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full">
 									<CardContent className="p-0 h-full flex flex-col">
-										<Link to={program.link}>
+										<Link to={program.link} className="group">
 											<div className="relative h-64 overflow-hidden">
 												<img
 													src={program.image}
 													alt={program.title}
 													className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter brightness-80 opacity-70"
 												/>
-												<div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-												<h3 className="absolute bottom-6 left-6 text-3xl md:text-4xl font-bold text-white">
-													{program.title}
-												</h3>
+											<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+											<div className="absolute bottom-4 left-6">
+												<h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">{program.title}</h3>
+												<p className="text-sm text-white/80 font-medium mt-0.5">{program.subtitle}</p>
+											</div>
 											</div>
 										</Link>
 										<div className="p-8 flex-1 flex flex-col">

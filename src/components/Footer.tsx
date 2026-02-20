@@ -19,9 +19,11 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/80 leading-relaxed mb-6">
-              Listening to needs, building futures. We empower communities
-              through education, healthcare, and sustainable development
-              programs that create lasting change.
+              Where young dreams are guided,
+              where nature is restored,
+              and where lives are protected —
+              SUNAI grows as a movement of care and courage.
+              A small step today. A stronger tomorrow.
             </p>
           </div>
 
@@ -33,7 +35,7 @@ const Footer = () => {
                   href="/programs/education"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Education
+                  Mentorship Programme
                 </a>
               </li>
               <li>
@@ -41,41 +43,41 @@ const Footer = () => {
                   href="/programs/health"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Health
+                  Diagnostic & Healthcare Centres
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/programs/empowerment"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
                   Empowerment
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="/programs/tree-plantation"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Tree Plantation
+                  Environmental Balance
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="/programs/rural-development"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
                   Rural Development
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a
                   href="/programs/charity"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
                   Charity
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
