@@ -43,8 +43,10 @@ const Hero = () => {
         <div className="max-w-4xl">
           <div className="animate-fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 md:mb-5 drop-shadow-lg">
-              <span className="block">SUNAI is a</span>
-              <span className="block text-accent">Movement of Hope.</span>
+              <span className="block">Listeing to</span>
+              <span className="block text-accent">Needs,</span>
+              <span className="block">Building</span>
+              <span className="block text-accent">Features..!</span>
             </h1>
 
             <p className="text-base md:text-lg lg:text-xl text-white/95 mb-4 md:mb-5 max-w-2xl font-light leading-relaxed drop-shadow">
