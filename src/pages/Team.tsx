@@ -6,6 +6,42 @@ import person2 from "@/assets/person2.jpg";
 import person3 from "@/assets/person3.jpg";
 import person4 from "@/assets/person4.jpg";
 
+const FounderCard = ({
+  img,
+  name,
+  title,
+  desc,
+}: {
+  img: string;
+  name: string;
+  title: string;
+  desc: string;
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <div className="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+      <div className="w-36 h-36 mx-auto rounded-full overflow-hidden mb-4 relative ring-4 ring-teal-100">
+        {!imageLoaded && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-full"></div>
+        )}
+        <img
+          src={img}
+          alt={name}
+          loading="lazy"
+          onLoad={() => setImageLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
+      <h3 className="text-xl font-bold text-gray-800 mb-1">{name}</h3>
+      <p className="text-base font-semibold text-teal-600 mb-3 uppercase tracking-wide">{title}</p>
+      <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+    </div>
+  );
+};
+
 const TeamCard = ({
   img,
   name,
@@ -58,6 +94,31 @@ const Team = () => {
               vision, skill, and compassion to serve communities. We turn
               purpose into action, and action into impact."
             </p>
+          </div>
+
+          {/* Founder Section */}
+          {/* Founder & Co-Founder Section */}
+          <div className="mb-12">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
+                Our Founders
+              </h2>
+              <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <FounderCard
+                img={person1}
+                name="[Founder Name]"
+                title="Founder"
+                desc="At SUNAI, we believe that true progress is not measured by growth alone, but by the positive impact we leave on society. SUNAI was founded with a simple yet powerful vision — to build an ecosystem where education empowers, nature thrives, and healthcare becomes accessible to every individual. Through initiatives like Sunai Uplift, Sunai Vanam, Sunai Life, and Sunai Health, we are striving to nurture future leaders, restore environmental balance, support life-saving efforts, and strengthen community healthcare systems."
+              />
+              <FounderCard
+                img={person2}
+                name="[Co-Founder Name]"
+                title="Co-Founder"
+                desc="SUNAI was born from a collective belief that meaningful change begins when intention transforms into action. As Co-Founder, I have witnessed how structured initiatives, when driven with transparency and purpose, can create long-term impact. Whether it is mentoring young minds, restoring ecological balance, organizing life-saving blood donation networks, or expanding healthcare access — every SUNAI initiative is designed to create measurable and lasting change."
+              />
+            </div>
           </div>
 
           {/* Management Team Section */}

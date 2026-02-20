@@ -42,31 +42,6 @@ const MemberCard = ({ img, name, title, desc }: MemberProfile) => {
   );
 };
 
-const FounderCard = ({ img, name, title, desc }: MemberProfile) => {
-  return (
-    <div className="flex flex-col items-center text-center mb-8 sm:mb-12 max-w-2xl mx-auto bg-gradient-to-br from-white to-secondary/20 rounded-2xl sm:rounded-3xl border-2 border-primary/20 shadow-lg p-6 sm:p-8 md:p-10 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 animate-scale-in">
-      <div className="mb-4 sm:mb-6">
-        <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg ring-4 ring-primary/10">
-          <img
-            src={img}
-            alt={name}
-            loading="lazy"
-            className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-          />
-        </div>
-      </div>
-      <div className="space-y-2 sm:space-y-3">
-        <h3 className="text-xl sm:text-2xl font-bold text-foreground">{name}</h3>
-        <p className="text-sm sm:text-base font-semibold text-primary uppercase tracking-wide">
-          {title}
-        </p>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed pt-2 max-w-xl">
-          {desc}
-        </p>
-      </div>
-    </div>
-  );
-};
 
 const AboutUs = () => {
   const founder: MemberProfile = {
@@ -200,29 +175,17 @@ const AboutUs = () => {
             </div>
           </section>
 
-          {/* Founder Section */}
+          {/* Founder & Co-Founder Section */}
           <section className="mb-6 sm:mb-8 md:mb-12">
             <div className="text-center mb-6 sm:mb-8 md:mb-10">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">
-                Our Founder
+                Our Founders
               </h2>
               <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
             </div>
-            <div className="flex justify-center">
-              <FounderCard {...founder} />
-            </div>
-          </section>
-
-          {/* Co-Founder Section */}
-          <section className="mb-6 sm:mb-8 md:mb-12">
-            <div className="text-center mb-6 sm:mb-8 md:mb-10">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">
-                Co-Founder
-              </h2>
-              <div className="h-1 w-24 bg-gradient-to-r from-teal-600 to-green-600 mx-auto mt-3 rounded-full" />
-            </div>
-            <div className="flex justify-center">
-              <FounderCard {...coFounder} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-stretch max-w-5xl mx-auto">
+              <MemberCard {...founder} />
+              <MemberCard {...coFounder} />
             </div>
           </section>
 

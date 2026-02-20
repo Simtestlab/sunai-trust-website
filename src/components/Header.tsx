@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronDown, X, Menu } from "lucide-react";
+// Inline submenu used instead of popup dropdown
+// (removed Radix popup; rendering inline submenu panels)
+import { ChevronDown } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import logo from "@/assets/icon.png";
 
@@ -9,18 +11,6 @@ const Header = () => {
   const [registerOpen, setRegisterOpen] = useState(false);
   const programsRef = useRef<HTMLDivElement>(null);
   const registerRef = useRef<HTMLDivElement>(null);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
@@ -33,237 +23,219 @@ const Header = () => {
     };
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, []);
-
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-sm lg:text-base font-medium ${isActive ? "text-teal-600" : "text-foreground hover:text-teal-600"
-    } transition-colors`;
+  }, [])
 
   return (
-    <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50 transition-all duration-300">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
-          {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg flex items-center justify-center">
+    <header className="bg-background/100 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-smooth">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Logo (clickable) */}
+          <NavLink to="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg flex items-center justify-center">
               <img
                 src={logo}
                 alt="Sunai Logo"
-                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-lg object-contain"
+                className="w-16 h-16 rounded-lg object-contain"
               />
             </div>
-            <div className="min-w-0">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground leading-none">
+            <div>
+              <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
                 Sunai
               </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block leading-tight mt-0.5 truncate">
+              <p className="text-sm lg:text-base text-muted-foreground hidden sm:block">
                 Support Uplift Nourish Aid Illuminate
               </p>
             </div>
           </NavLink>
 
           {/* Navigation - desktop */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            <NavLink to="/" className={linkClass}>
-              <span className="px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors block">Home</span>
+          <nav className="hidden md:flex items-center space-x-8">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
+              Home
             </NavLink>
 
-            <NavLink to="/about-us" className={linkClass}>
-              <span className="px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors block">About Us</span>
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
+              About Us
             </NavLink>
 
-            {/* Programs dropdown */}
+            {/* Programs - inline submenu (desktop) */}
             <div className="relative" ref={programsRef}>
               <button
                 onClick={() => setProgramsOpen((s) => !s)}
-                className="text-sm lg:text-base font-medium text-foreground hover:text-teal-600 transition-colors flex items-center px-3 py-2 rounded-lg hover:bg-slate-50"
+                className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center"
                 aria-expanded={programsOpen}
               >
                 Programs
-                <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${programsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {programsOpen && (
-                <div className="absolute left-0 mt-1 w-64 rounded-xl border border-slate-200 bg-white p-2 shadow-xl z-40 animate-fade-up">
-                  <NavLink
-                    to="/programs/education"
-                    className="block p-3 rounded-lg hover:bg-teal-50 transition-colors"
-                    onClick={() => setProgramsOpen(false)}
-                  >
-                    <span className="font-medium text-slate-800 text-sm">Sunai Uplift — Mentorship</span>
-                    <span className="text-xs text-muted-foreground block mt-0.5">Quality learning opportunities</span>
+                <div className="absolute left-0 mt-2 w-56 rounded-md border bg-white p-2 shadow-md z-40 hidden md:block">
+                  <NavLink to="/programs/education" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Mentorship Programme</span>
+                      <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
+                    </div>
                   </NavLink>
-                  <NavLink
-                    to="/programs/tree-plantation"
-                    className="block p-3 rounded-lg hover:bg-teal-50 transition-colors"
-                    onClick={() => setProgramsOpen(false)}
-                  >
-                    <span className="font-medium text-slate-800 text-sm">Sunai Vanam — Environment</span>
-                    <span className="text-xs text-muted-foreground block mt-0.5">Environmental restoration</span>
+                  <NavLink to="/programs/health" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Diagnostic & Healthcare Centres</span>
+                      <span className="text-sm text-muted-foreground">Essential healthcare services</span>
+                    </div>
                   </NavLink>
-                  <NavLink
-                    to="/programs/blood-bank"
-                    className="block p-3 rounded-lg hover:bg-teal-50 transition-colors"
-                    onClick={() => setProgramsOpen(false)}
-                  >
-                    <span className="font-medium text-slate-800 text-sm">Sunai Life — Blood Bank</span>
-                    <span className="text-xs text-muted-foreground block mt-0.5">Life-saving donation network</span>
+                  {/* <NavLink to="/programs/empowerment" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Empowerment</span>
+                      <span className="text-sm text-muted-foreground">Sustainable livelihoods</span>
+                    </div>
+                  </NavLink> */}
+                  <NavLink to="/programs/blood-bank" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Blood Bank Initiative</span>
+                      <span className="text-sm text-muted-foreground">Life-saving donation network</span>
+                    </div>
                   </NavLink>
-                  <NavLink
-                    to="/programs/health"
-                    className="block p-3 rounded-lg hover:bg-teal-50 transition-colors"
-                    onClick={() => setProgramsOpen(false)}
-                  >
-                    <span className="font-medium text-slate-800 text-sm">Sunai Health — Healthcare</span>
-                    <span className="text-xs text-muted-foreground block mt-0.5">Accessible healthcare</span>
+                  <NavLink to="/programs/tree-plantation" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Environmental Balance</span>
+                      <span className="text-sm text-muted-foreground">Environmental restoration</span>
+                    </div>
                   </NavLink>
+                  {/* <NavLink to="/programs/rural-development" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Rural Development</span>
+                      <span className="text-sm text-muted-foreground">Infrastructure & agriculture</span>
+                    </div>
+                  </NavLink> */}
+                  {/* <NavLink to="/programs/charity" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Charity</span>
+                      <span className="text-sm text-muted-foreground">Direct aid & relief</span>
+                    </div>
+                  </NavLink> */}
                 </div>
               )}
             </div>
-
-            <NavLink to="/join-us" className={linkClass}>
-              <span className="px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors block">Join Us</span>
-            </NavLink>
-
-            <NavLink to="/blogs" className={linkClass}>
-              <span className="px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors block">Blogs</span>
-            </NavLink>
-
-            <NavLink to="/contact" className={linkClass}>
-              <span className="px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors block">Contact</span>
-            </NavLink>
-
-            {/* Register CTA */}
             <NavLink
-              to="/register"
-              className="ml-2 inline-flex items-center justify-center px-5 py-2 rounded-full bg-gradient-to-r from-teal-600 to-green-600 text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-md hover:shadow-lg"
+              to="/blogs"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
             >
-              Register
+              Blogs
+            </NavLink>
+            {/* Register - inline submenu (desktop) */}
+            <div className="relative" ref={registerRef}>
+              <button
+                onClick={() => setRegisterOpen((s) => !s)}
+                className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center"
+                aria-expanded={registerOpen}
+              >
+                Register
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {registerOpen && (
+                <div className="absolute left-0 mt-2 w-40 rounded-md border bg-white p-2 space-y-2 shadow-md z-40 hidden md:block">
+                  <NavLink to="/volunteer" className="block p-2 rounded hover:bg-slate-50" onClick={() => setRegisterOpen(false)}>Volunteer</NavLink>
+                  <NavLink to="/register/ngo" className="block p-2 rounded hover:bg-slate-50" onClick={() => setRegisterOpen(false)}>NGO</NavLink>
+                </div>
+              )}
+            </div>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
+              }
+            >
+              Contact Us
             </NavLink>
           </nav>
+          <div className="md:hidden">
+            <button
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              onClick={() => setOpen((s) => !s)}
+              className="text-foreground p-2 rounded-md focus:outline-none"
+            >
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+          {open && (
+            <div className="fixed inset-x-4 top-20 bg-white rounded-lg shadow-lg p-4 z-50 md:hidden">
+              <nav className="flex flex-col space-y-3">
+                <NavLink to="/" onClick={() => setOpen(false)} className="font-medium text-foreground">Home</NavLink>
+                <NavLink to="/about-us" onClick={() => setOpen(false)} className="font-medium text-foreground">About Us</NavLink>
 
-          {/* Mobile menu button */}
-          <button
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            onClick={() => setOpen((s) => !s)}
-            className="lg:hidden text-foreground p-2 rounded-lg hover:bg-slate-100 transition-colors"
-          >
-            {open ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile navigation */}
-        {open && (
-          <>
-            {/* Backdrop */}
-            <div
-              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
-              onClick={() => setOpen(false)}
-            />
-            {/* Panel */}
-            <div className="fixed inset-x-0 top-16 sm:top-[72px] bottom-0 bg-white z-50 lg:hidden overflow-y-auto">
-              <nav className="flex flex-col p-4 sm:p-6 space-y-1">
-                <NavLink
-                  to="/"
-                  onClick={() => setOpen(false)}
-                  className="font-medium text-foreground px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors text-base"
-                >
-                  Home
-                </NavLink>
-                <NavLink
-                  to="/about-us"
-                  onClick={() => setOpen(false)}
-                  className="font-medium text-foreground px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors text-base"
-                >
-                  About Us
-                </NavLink>
-
-                {/* Programs accordion */}
                 <div>
                   <button
                     onClick={() => setProgramsOpen((s) => !s)}
-                    className="flex items-center justify-between w-full px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors"
+                    className="flex items-center justify-between w-full"
                     aria-expanded={programsOpen}
                   >
-                    <span className="font-medium text-foreground text-base">Programs</span>
-                    <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform duration-200 ${programsOpen ? "rotate-180" : ""}`} />
+                    <span className="font-medium text-foreground text-left">Programs</span>
+                    <svg
+                      className={`w-4 h-4 text-slate-600 transform ${programsOpen ? "rotate-90" : "rotate-0"}`}
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 5L14 10L6 15V5Z" fill="currentColor" />
+                    </svg>
                   </button>
                   {programsOpen && (
-                    <div className="ml-4 pl-4 border-l-2 border-teal-200 space-y-1 mt-1 mb-2">
-                      <NavLink
-                        to="/programs/education"
-                        onClick={() => { setOpen(false); setProgramsOpen(false); }}
-                        className="block px-4 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-                      >
-                        Sunai Uplift — Mentorship
-                      </NavLink>
-                      <NavLink
-                        to="/programs/tree-plantation"
-                        onClick={() => { setOpen(false); setProgramsOpen(false); }}
-                        className="block px-4 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-                      >
-                        Sunai Vanam — Environment
-                      </NavLink>
-                      <NavLink
-                        to="/programs/blood-bank"
-                        onClick={() => { setOpen(false); setProgramsOpen(false); }}
-                        className="block px-4 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-                      >
-                        Sunai Life — Blood Bank
-                      </NavLink>
-                      <NavLink
-                        to="/programs/health"
-                        onClick={() => { setOpen(false); setProgramsOpen(false); }}
-                        className="block px-4 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition-colors"
-                      >
-                        Sunai Health — Healthcare
-                      </NavLink>
+                    <div className="grid grid-cols-1 gap-2 pl-2 mt-2">
+                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Mentorship Programme</NavLink>
+                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Diagnostic & Healthcare Centres</NavLink>
+                      <NavLink to="/programs/blood-bank" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Blood Bank Initiative</NavLink>
+                      <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Environmental Balance</NavLink>
                     </div>
                   )}
                 </div>
 
-                <NavLink
-                  to="/join-us"
-                  onClick={() => setOpen(false)}
-                  className="font-medium text-foreground px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors text-base"
-                >
-                  Join Us
-                </NavLink>
+                <NavLink to="/blogs" onClick={() => setOpen(false)} className="font-medium text-foreground">Blogs</NavLink>
 
-                <NavLink
-                  to="/blogs"
-                  onClick={() => setOpen(false)}
-                  className="font-medium text-foreground px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors text-base"
-                >
-                  Blogs
-                </NavLink>
-
-                <NavLink
-                  to="/contact"
-                  onClick={() => setOpen(false)}
-                  className="font-medium text-foreground px-4 py-3 rounded-xl hover:bg-slate-50 transition-colors text-base"
-                >
-                  Contact
-                </NavLink>
-
-                {/* Register CTA in mobile */}
-                <div className="pt-4 mt-2 border-t border-slate-200">
-                  <NavLink
-                    to="/register"
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-green-600 text-white font-bold px-6 py-3.5 rounded-full text-base shadow-md"
+                <div>
+                  <button
+                    onClick={() => setRegisterOpen((s) => !s)}
+                    className="flex items-center justify-between w-full"
+                    aria-expanded={registerOpen}
                   >
-                    Register Now
-                  </NavLink>
+                    <span className="font-medium text-foreground text-left">Register</span>
+                    <svg
+                      className={`w-4 h-4 text-slate-600 transform ${registerOpen ? "rotate-90" : "rotate-0"}`}
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 5L14 10L6 15V5Z" fill="currentColor" />
+                    </svg>
+                  </button>
+                  {registerOpen && (
+                    <div className="flex flex-col pl-2 mt-2 space-y-2">
+                      <NavLink to="/volunteer" onClick={() => { setOpen(false); setRegisterOpen(false); }} className="text-sm text-slate-700">Volunteer</NavLink>
+                      <NavLink to="/register/ngo" onClick={() => { setOpen(false); setRegisterOpen(false); }} className="text-sm text-slate-700">NGO</NavLink>
+                    </div>
+                  )}
                 </div>
+
+                <NavLink to="/contact" onClick={() => setOpen(false)} className="font-medium text-foreground">Contact Us</NavLink>
               </nav>
             </div>
-          </>
-        )}
+          )}
+        </div>
       </div>
     </header>
   );
