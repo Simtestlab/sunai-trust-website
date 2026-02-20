@@ -19,9 +19,11 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/80 leading-relaxed mb-6">
-              Listening to needs, building futures. We empower communities
-              through education, healthcare, and sustainable development
-              programs that create lasting change.
+              Where young dreams are guided,
+              where nature is restored,
+              and where lives are protected —
+              SUNAI grows as a movement of care and courage.
+              A small step today. A stronger tomorrow.
             </p>
           </div>
 

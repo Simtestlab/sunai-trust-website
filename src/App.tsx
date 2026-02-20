@@ -20,6 +20,7 @@ import Empowerment from "./pages/programs/Empowerment";
 import TreePlantation from "./pages/programs/TreePlantation";
 import RuralDevelopment from "./pages/programs/RuralDevelopment";
 import Charity from "./pages/programs/Charity";
+import BloodBank from "./pages/programs/BloodBank";
 
 const queryClient = new QueryClient();
 const ScrollToTop = () => {
@@ -53,6 +54,7 @@ const App = () => (
             element={<RuralDevelopment />}
           />
           <Route path="/programs/charity" element={<Charity />} />
+          <Route path="/programs/blood-bank" element={<BloodBank />} />
           {/* Other Routes */}
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetail />} />

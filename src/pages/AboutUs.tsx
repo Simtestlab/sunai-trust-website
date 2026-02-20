@@ -155,6 +155,45 @@ const AboutUs = () => {
             </p>
           </div>
 
+          {/* About SUNAI Description */}
+          <section className="mb-12 md:mb-16 animate-fade-in">
+            <div className="bg-gradient-to-br from-teal-50 to-green-50 border border-teal-100 rounded-3xl p-8 md:p-12">
+              <div className="max-w-4xl mx-auto text-center">
+                <span className="inline-block text-sm font-semibold tracking-widest uppercase text-teal-600 mb-4">
+                  Who We Are
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 leading-tight">
+                  SUNAI — A Movement of Hope
+                </h2>
+                <p className="text-lg text-slate-600 leading-relaxed mb-4">
+                  SUNAI is a purpose-driven non-governmental organization (NGO) committed to building
+                  a sustainable and empowered future for the next generation. With a strong foundation
+                  in social responsibility and a recognized CSR certification, SUNAI works towards
+                  creating a balanced ecosystem where people, environment, and community grow together.
+                </p>
+                <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                  We believe that meaningful change begins with collective action. Through structured
+                  programs and long-term initiatives, SUNAI focuses on uplifting individuals, protecting
+                  the environment, and strengthening public health systems.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 mt-2">
+                  {[
+                    "Nurturing Lives. Restoring Balance.",
+                    "Care. Create. Sustain.",
+                    "Empowering Generations. Sustaining Futures.",
+                  ].map((tagline) => (
+                    <span
+                      key={tagline}
+                      className="bg-teal-600/10 text-teal-700 text-sm font-semibold px-4 py-2 rounded-full border border-teal-200"
+                    >
+                      &ldquo;{tagline}&rdquo;
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section className="mb-6 md:mb-12">
             <div className="inline-block mb-10 mx-auto w-full text-center">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
