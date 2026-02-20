@@ -4,9 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import educationImg from "@/assets/education.jpg";
 import healthImg from "@/assets/health.jpg";
-import empowermentImg from "@/assets/empowerment.jpg";
 import treeImg from "@/assets/tree.jpg";
-import ruralImg from "@/assets/rural.jpg";
 import charityImg from "@/assets/charity.jpg";
 
 const programs = [
@@ -74,90 +72,106 @@ const MissionOverview = () => {
 	}, [currentIndex]);
 
 	return (
-		<section className="py-20 bg-soft-gradient">
-			<div className="container mx-auto px-4">
-				<div className="text-center mb-16 scroll-reveal">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
+		<section className="py-12 sm:py-16 md:py-20 bg-soft-gradient">
+			<div className="container mx-auto px-4 sm:px-6">
+				<div className="text-center mb-10 sm:mb-12 md:mb-16 scroll-reveal">
+					<h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
 						Our Key Initiatives
 					</h2>
-						<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-							Four focused pillars of impact — mentoring young leaders, restoring
-							environmental balance, saving lives through blood donation, and making
-							healthcare accessible for all.					</p>
+					<p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+						Four focused pillars of impact — mentoring young leaders, restoring
+						environmental balance, saving lives through blood donation, and making
+						healthcare accessible for all.
+					</p>
 				</div>
 				<div className="relative max-w-6xl mx-auto">
 					<button
 						aria-label="Previous"
 						onClick={prev}
-						className="absolute -left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-3 shadow-md hidden md:inline-flex"
+						className="absolute -left-4 sm:-left-6 top-1/2 z-10 bg-white/90 rounded-full p-2 sm:p-3 shadow-md hidden md:inline-flex hover:bg-white transition-colors"
 						style={{
-							transform: "translateY(-50%) translateX(-100%)",
+							transform: "translateY(-50%)",
 						}}
 					>
 						‹
 					</button>
-					<div className="relative -mx-6 md:-mx-12 px-6 md:px-12">
-					<div
-						ref={carouselRef}
-						className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-8 pt-4 pb-5"
-						style={{
-							scrollSnapType: "x mandatory",
-							scrollbarGutter: "stable",
-						}}
-					>
-						{programs.map((program) => (
-							<div
-								key={program.title}
-								className="mission-card snap-start flex-shrink-0 w-full sm:w-1/2 lg:w-[31%]"
-								style={{ minHeight: '520px' }}
-							>
-								<Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full">
-									<CardContent className="p-0 h-full flex flex-col">
-										<Link to={program.link} className="group">
-											<div className="relative h-64 overflow-hidden">
-												<img
-													src={program.image}
-													alt={program.title}
-													className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter brightness-80 opacity-70"
-												/>
-											<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-											<div className="absolute bottom-4 left-6">
-												<h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">{program.title}</h3>
-												<p className="text-sm text-white/80 font-medium mt-0.5">{program.subtitle}</p>
+					<div className="relative -mx-2 sm:-mx-4 md:-mx-8 px-2 sm:px-4 md:px-8">
+						<div
+							ref={carouselRef}
+							className="overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory flex gap-4 sm:gap-6 md:gap-8 pt-4 pb-5"
+							style={{
+								scrollSnapType: "x mandatory",
+								scrollbarGutter: "stable",
+							}}
+						>
+							{programs.map((program) => (
+								<div
+									key={program.title}
+									className="mission-card snap-start flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[calc(50%-1rem)] lg:w-[31%]"
+									style={{ minHeight: "480px" }}
+								>
+									<Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full hover:shadow-xl transition-all duration-300">
+										<CardContent className="p-0 h-full flex flex-col">
+											<Link to={program.link} className="group">
+												<div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+													<img
+														src={program.image}
+														alt={program.title}
+														loading="lazy"
+														className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter brightness-80 opacity-70"
+													/>
+													<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+													<div className="absolute bottom-4 left-4 sm:left-6">
+														<h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">{program.title}</h3>
+														<p className="text-xs sm:text-sm text-white/80 font-medium mt-0.5">{program.subtitle}</p>
+													</div>
+												</div>
+											</Link>
+											<div className="p-5 sm:p-6 md:p-8 flex-1 flex flex-col">
+												<p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6 flex-1">
+													{program.description}
+												</p>
+												<div>
+													<Link
+														to={program.link}
+														className="text-teal-600 hover:text-teal-700 hover:underline font-semibold inline-flex items-center text-sm sm:text-base"
+													>
+														Learn More
+														<ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+													</Link>
+												</div>
 											</div>
-											</div>
-										</Link>
-										<div className="p-8 flex-1 flex flex-col">
-											<p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 flex-1">
-												{program.description}
-											</p>
-											<div>
-												<Link
-													to={program.link}
-													className="text-blue-600 hover:underline font-semibold inline-flex items-center"
-												>
-													Learn More
-													<ArrowRight className="ml-2 w-5 h-5" />
-												</Link>
-											</div>
-										</div>
-									</CardContent>
-								</Card>
-							</div>
-						))}
+										</CardContent>
+									</Card>
+								</div>
+							))}
+						</div>
 					</div>
-					</div>
-				
+
 					<button
 						aria-label="Next"
 						onClick={next}
-						className="absolute -right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 rounded-full p-3 shadow-md hidden md:inline-flex"
+						className="absolute -right-4 sm:-right-6 top-1/2 z-10 bg-white/90 rounded-full p-2 sm:p-3 shadow-md hidden md:inline-flex hover:bg-white transition-colors"
 						style={{
-							transform: "translateY(-50%) translateX(100%)",
+							transform: "translateY(-50%)",
 						}}
 					>
 						›
 					</button>
+
+					{/* Mobile dots */}
+					<div className="flex justify-center mt-4 gap-2 md:hidden">
+						{programs.map((_, idx) => (
+							<button
+								key={idx}
+								onClick={() => scrollTo(idx)}
+								className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex
+										? "bg-teal-600 scale-125"
+										: "bg-gray-300 hover:bg-gray-400"
+									}`}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

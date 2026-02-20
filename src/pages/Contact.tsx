@@ -54,7 +54,7 @@ const quickLinks = [
   { label: "About Us", to: "/about" },
   { label: "Our Programs", to: "/projects" },
   { label: "Volunteer", to: "/volunteer" },
-  { label: "NGO Registration", to: "/ngo-registration" },
+  { label: "NGO Registration", to: "/register/ngo" },
   { label: "Our Team", to: "/team" },
   { label: "Blogs & News", to: "/blogs" },
 ];
