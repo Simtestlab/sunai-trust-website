@@ -26,6 +26,11 @@ const initialState = {
   tax12aUrn: "",
   tax80gUrn: "",
   csrRegNumber: "",
+  contactPersonNumber: "",
+  whatsappNumber: "",
+  contactPersonEmail: "",
+  website: "",
+  socialMediaLink: "",
   bankAccountNo: "",
   bankIFSC: "",
   bankName: "",
@@ -219,7 +224,7 @@ const NGORegistration = () => {
             <Section step={2} icon={FileText} title="Legal & Tax Details">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
-                  <Label htmlFor="tax12aUrn">12A (URN) *</Label>
+                  <Label htmlFor="tax12aUrn">12A URN </Label>
                   <Input
                     id="tax12aUrn"
                     name="tax12aUrn"
@@ -229,7 +234,7 @@ const NGORegistration = () => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <Label htmlFor="tax80gUrn">80G (URN) *</Label>
+                  <Label htmlFor="tax80gUrn">80G URN </Label>
                   <Input
                     id="tax80gUrn"
                     name="tax80gUrn"
@@ -240,7 +245,7 @@ const NGORegistration = () => {
                 </div>
                 <div className="space-y-1.5 sm:col-span-2">
                   <Label htmlFor="csrRegNumber">
-                    CSR Registration Number *
+                    CSR Registration Number 
                   </Label>
                   <Input
                     id="csrRegNumber"
@@ -308,6 +313,61 @@ const NGORegistration = () => {
                   />
                 </div>
               </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="contactPersonNumber">Contact Person Number</Label>
+                  <Input
+                    id="contactPersonNumber"
+                    name="contactPersonNumber"
+                    value={form.contactPersonNumber}
+                    onChange={handleChange}
+                    placeholder="Contact person's phone"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="whatsappNumber">WhatsApp Number</Label>
+                  <Input
+                    id="whatsappNumber"
+                    name="whatsappNumber"
+                    value={form.whatsappNumber}
+                    onChange={handleChange}
+                    placeholder="WhatsApp number"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="contactPersonEmail">Contact Person Email</Label>
+                  <Input
+                    id="contactPersonEmail"
+                    name="contactPersonEmail"
+                    type="email"
+                    value={form.contactPersonEmail}
+                    onChange={handleChange}
+                    placeholder="Contact person's email"
+                  />
+                </div>
+              </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="website">Website</Label>
+                    <Input
+                      id="website"
+                      name="website"
+                      value={form.website}
+                      onChange={handleChange}
+                      placeholder="https://your-website.org"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="socialMediaLink">Social Media Link</Label>
+                    <Input
+                      id="socialMediaLink"
+                      name="socialMediaLink"
+                      value={form.socialMediaLink}
+                      onChange={handleChange}
+                      placeholder="https://facebook.com/yourpage"
+                    />
+                  </div>
+                </div>
             </Section>
 
             {/* 4 — Mission & Scope */}

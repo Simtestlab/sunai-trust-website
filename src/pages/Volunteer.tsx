@@ -20,6 +20,7 @@ const initialState = {
   maritalStatus: "", languages: "", email: "", photo: null as File | null,
   address: "", location: "", country: "", pincode: "", state: "", city: "",
   aadharNumber: "", aadharCopy: null as File | null, dob: "",
+  bloodGroup: "",
   educationType: "", specialization: "", skill: "", certification: "",
   organization: "", title: "", yearsOfExperience: "",
   hasVolunteerExperience: "", volunteerYearsOfExperience: "", areaOfInterest: "",
@@ -28,6 +29,7 @@ const initialState = {
 };
 
 const educationTypes = ["High School", "Diploma", "Bachelor's", "Master's", "PhD", "Other"];
+const bloodGroups = ["A+","A-","B+","B-","AB+","AB-","O+","O-","Unknown"];
 
 /* ─── helpers ─────────────────────────────────────── */
 /** Reusable section wrapper */
@@ -205,7 +207,7 @@ const Volunteer = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-5">
                 <div className="space-y-1.5">
                   <Label htmlFor="email">Email *</Label>
                   <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
@@ -213,6 +215,17 @@ const Volunteer = () => {
                 <div className="space-y-1.5">
                   <Label htmlFor="dob">Date of Birth *</Label>
                   <Input id="dob" name="dob" type="date" value={form.dob} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="bloodGroup">Blood Group</Label>
+                  <Select value={form.bloodGroup} onValueChange={(v) => handleSelectChange("bloodGroup", v)}>
+                    <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
+                    <SelectContent>
+                      {bloodGroups.map((bg) => (
+                        <SelectItem key={bg} value={bg}>{bg}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
