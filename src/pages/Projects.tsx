@@ -48,9 +48,9 @@ type Project = {
 const projects: Project[] = [
   {
     id: "rural-education-enhancement",
-    title: "Rural Education Enhancement Program",
+    title: "Rural Mentorship Programme Enhancement Program",
     description:
-      "Comprehensive education support including infrastructure development, teacher training, and digital learning resources for rural schools.",
+      "Comprehensive mentorship and education support including infrastructure development, teacher training, and digital learning resources for rural schools.",
     category: "Education",
     status: "active",
     location: "Madhya Pradesh & Rajasthan",
@@ -68,7 +68,7 @@ const projects: Project[] = [
     ],
     sdgGoals: [4, 1, 5],
     impact: {
-      primary: "15,000 students gaining better education",
+      primary: "15,000 students gaining better access to learning and mentorship",
       secondary: [
         "Improved literacy rates by 40%",
         "Reduced dropout rates by 30%",

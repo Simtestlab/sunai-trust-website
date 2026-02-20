@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // Inline submenu used instead of popup dropdown
 // (removed Radix popup; rendering inline submenu panels)
 import { ChevronDown } from "lucide-react";
@@ -9,6 +9,21 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
+  const programsRef = useRef<HTMLDivElement>(null);
+  const registerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (programsRef.current && !programsRef.current.contains(e.target as Node)) {
+        setProgramsOpen(false);
+      }
+      if (registerRef.current && !registerRef.current.contains(e.target as Node)) {
+        setRegisterOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [])
 
   return (
     <header className="bg-background/100 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-smooth">
@@ -54,7 +69,7 @@ const Header = () => {
             </NavLink>
 
             {/* Programs - inline submenu (desktop) */}
-            <div className="relative">
+            <div className="relative" ref={programsRef}>
               <button
                 onClick={() => setProgramsOpen((s) => !s)}
                 className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center"
@@ -67,40 +82,46 @@ const Header = () => {
                 <div className="absolute left-0 mt-2 w-56 rounded-md border bg-white p-2 shadow-md z-40 hidden md:block">
                   <NavLink to="/programs/education" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
-                      <span className="font-medium">Education</span>
+                      <span className="font-medium">Mentorship Programme</span>
                       <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
                     </div>
                   </NavLink>
                   <NavLink to="/programs/health" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
-                      <span className="font-medium">Health</span>
+                      <span className="font-medium">Diagnostic & Healthcare Centres</span>
                       <span className="text-sm text-muted-foreground">Essential healthcare services</span>
                     </div>
                   </NavLink>
-                  <NavLink to="/programs/empowerment" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                  {/* <NavLink to="/programs/empowerment" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
                       <span className="font-medium">Empowerment</span>
                       <span className="text-sm text-muted-foreground">Sustainable livelihoods</span>
                     </div>
+                  </NavLink> */}
+                  <NavLink to="/programs/blood-bank" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                    <div className="flex flex-col">
+                      <span className="font-medium">Blood Bank Initiative</span>
+                      <span className="text-sm text-muted-foreground">Life-saving donation network</span>
+                    </div>
                   </NavLink>
                   <NavLink to="/programs/tree-plantation" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
-                      <span className="font-medium">Tree Plantation</span>
+                      <span className="font-medium">Environmental Balance</span>
                       <span className="text-sm text-muted-foreground">Environmental restoration</span>
                     </div>
                   </NavLink>
-                  <NavLink to="/programs/rural-development" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                  {/* <NavLink to="/programs/rural-development" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
                       <span className="font-medium">Rural Development</span>
                       <span className="text-sm text-muted-foreground">Infrastructure & agriculture</span>
                     </div>
-                  </NavLink>
-                  <NavLink to="/programs/charity" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
+                  </NavLink> */}
+                  {/* <NavLink to="/programs/charity" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
                       <span className="font-medium">Charity</span>
                       <span className="text-sm text-muted-foreground">Direct aid & relief</span>
                     </div>
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               )}
             </div>
@@ -113,7 +134,7 @@ const Header = () => {
               Blogs
             </NavLink>
             {/* Register - inline submenu (desktop) */}
-            <div className="relative">
+            <div className="relative" ref={registerRef}>
               <button
                 onClick={() => setRegisterOpen((s) => !s)}
                 className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center"
@@ -176,12 +197,10 @@ const Header = () => {
                   </button>
                   {programsOpen && (
                     <div className="grid grid-cols-1 gap-2 pl-2 mt-2">
-                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Education</NavLink>
-                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Health</NavLink>
-                      <NavLink to="/programs/empowerment" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Empowerment</NavLink>
-                      <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Tree Plantation</NavLink>
-                      <NavLink to="/programs/rural-development" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Rural Development</NavLink>
-                      <NavLink to="/programs/charity" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Charity</NavLink>
+                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Mentorship Programme</NavLink>
+                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Diagnostic & Healthcare Centres</NavLink>
+                      <NavLink to="/programs/blood-bank" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Blood Bank Initiative</NavLink>
+                      <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Environmental Balance</NavLink>
                     </div>
                   )}
                 </div>

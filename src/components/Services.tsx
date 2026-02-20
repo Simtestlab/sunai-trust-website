@@ -82,7 +82,7 @@ const Services = () => {
         "Community Development",
         "Environmental Conservation",
         "Local Employment",
-        "Educational Programs",
+        "Mentorship Programs",
       ],
     },
   ];
