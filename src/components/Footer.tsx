@@ -41,7 +41,7 @@ const Footer = () => {
                   href="/programs/health"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Health
+                  Diagnostic & Healthcare Centres
                 </a>
               </li>
               {/* <li>

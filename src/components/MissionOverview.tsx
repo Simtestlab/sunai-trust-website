@@ -19,7 +19,7 @@ const programs = [
 	},
 	{
 		image: healthImg,
-		title: "Health",
+		title: "Diagnostic & Healthcare Centres",
 		description:
 			"Delivering essential healthcare services, medical training, and health awareness programs to improve the well-being of entire communities.",
 		link: "/programs/health",

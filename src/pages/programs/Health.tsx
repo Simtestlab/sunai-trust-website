@@ -23,7 +23,7 @@ const Health = () => {
       <section className="relative h-96 overflow-hidden">
         <img
           src={healthHero}
-          alt="Health Program"
+          alt="Diagnostic & Healthcare Centres"
           className="w-full h-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
@@ -31,7 +31,7 @@ const Health = () => {
         />
         <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Health Care</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Diagnostic & Healthcare Centres</h1>
             <p className="text-xl md:text-2xl mb-6 text-white/90">Enabling community-driven health initiatives to strengthen well-being and build a healthier future for all.</p>
             {/* Hero CTA commented out per request
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
@@ -97,7 +97,7 @@ const Health = () => {
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
-              Our Health Impact
+              Our Diagnostic & Healthcare Centres Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -152,7 +152,7 @@ const Health = () => {
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Our Healthcare Programs
+              Our Diagnostic & Healthcare Centres Programs
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
@@ -256,7 +256,7 @@ const Health = () => {
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
-              Health Success Stories
+              Diagnostic & Healthcare Centres Success Stories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <Card className="p-8 bg-teal-50 border-teal-200">
@@ -304,7 +304,7 @@ const Health = () => {
         <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Health Cannot Wait - Support Our Mission
+              Diagnostic & Healthcare Centres — Support Our Mission
             </h2>
             <p className="text-xl mb-8 opacity-90">
               Every donation brings life-saving healthcare closer to those who need it most. Join us in building healthier communities across India.

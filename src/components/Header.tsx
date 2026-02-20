@@ -73,7 +73,7 @@ const Header = () => {
                   </NavLink>
                   <NavLink to="/programs/health" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
-                      <span className="font-medium">Health</span>
+                      <span className="font-medium">Diagnostic & Healthcare Centres</span>
                       <span className="text-sm text-muted-foreground">Essential healthcare services</span>
                     </div>
                   </NavLink>
@@ -177,7 +177,7 @@ const Header = () => {
                   {programsOpen && (
                     <div className="grid grid-cols-1 gap-2 pl-2 mt-2">
                       <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Mentorship Programme</NavLink>
-                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Health</NavLink>
+                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Diagnostic & Healthcare Centres</NavLink>
                       {/* <NavLink to="/programs/empowerment" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Empowerment</NavLink>
                       <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Tree Plantation</NavLink>
                       <NavLink to="/programs/rural-development" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Rural Development</NavLink>
