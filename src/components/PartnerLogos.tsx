@@ -70,7 +70,7 @@ const PartnerLogos: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
           <h3 className="text-base md:text-lg tracking-wider font-semibold text-black uppercase">
-            Brands that trust us
+            Our Impact Partners
           </h3>
           <div className="w-16 h-1 bg-emerald-600 mx-auto mt-2"></div>
         </div>
