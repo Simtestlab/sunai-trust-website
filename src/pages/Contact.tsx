@@ -169,21 +169,7 @@ const Contact = () => {
               </div>
 
               {/* Reach out notice */}
-              <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-800 mb-1">Prefer to write to us?</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    For partnerships, CSR proposals, volunteer enquiries, or general questions, drop us an email at{" "}
-                    <a href="mailto:sunai2k3@gmail.com" className="text-emerald-600 font-semibold hover:underline">
-                      sunai2k3@gmail.com
-                    </a>
-                    . Our team typically responds within one business day.
-                  </p>
-                </div>
-              </div>
+
             </div>
 
             {/* ── Sidebar ── */}
@@ -218,25 +204,6 @@ const Contact = () => {
         </section>
 
         {/* ── CTA Banner ── */}
-        <section className="bg-gradient-to-br from-emerald-600 to-green-600 py-16 text-white text-center">
-          <div className="container mx-auto px-6 max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              Together, We Can Create Lasting Impact.
-            </h2>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
-              When individuals, communities, and corporates unite with purpose, transformation becomes unstoppable. Every step forward — big or small — strengthens the movement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/volunteer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-emerald-700 font-bold px-8 py-3 rounded-full hover:bg-white/90 transition-colors"
-              >
-                Partner with SUNAI <ArrowRight className="w-4 h-4" />
-              </Link>
-
-            </div>
-          </div>
-        </section>
 
       </main>
       <Footer />

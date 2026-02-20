@@ -126,9 +126,7 @@ const Footer = () => {
             <div className="text-white/60 text-sm text-center">
               © 2025 Sunai – Support Uplift Nourish Aid Illuminate. All rights reserved.
             </div>
-            <div className="text-white/60 text-sm">
-              CSR Reg: CSR00104523 | PAN: ABHTS4028A
-            </div>
+
           </div>
         </div>
       </div>
