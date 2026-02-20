@@ -1,124 +1,243 @@
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import bg from "@/assets/contact.png";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ArrowRight,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Youtube,
+  ChevronRight,
+} from "lucide-react";
+import { Link } from "react-router-dom";
+
+const officeAddress =
+  "46, Ramar Kovil Street, Ram Nagar, Coimbatore – 641009, Tamil Nadu, India";
+const officeMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
+
+const contactCards = [
+  {
+    icon: Phone,
+    label: "Call Us",
+    value: "+91 96669 84000",
+    href: "tel:+919666984000",
+    sub: "Mon – Sat, 9 AM – 6 PM IST",
+  },
+  {
+    icon: Mail,
+    label: "Email Us",
+    value: "sunai2k3@gmail.com",
+    href: "mailto:sunai2k3@gmail.com",
+    sub: "We respond within 24 hours",
+  },
+  {
+    icon: MapPin,
+    label: "Our Office",
+    value: "Coimbatore, Tamil Nadu",
+    href: officeMapsUrl,
+    sub: "46, Ramar Kovil St, Ram Nagar – 641009",
+    external: true,
+  },
+];
+
+const officeHours = [
+  { day: "Monday – Friday", time: "9:00 AM – 6:00 PM" },
+  { day: "Saturday", time: "9:00 AM – 1:00 PM" },
+  { day: "Sunday", time: "Closed" },
+];
+
+const quickLinks = [
+  { label: "About Us", to: "/about" },
+  { label: "Our Programs", to: "/projects" },
+  { label: "Volunteer", to: "/volunteer" },
+  { label: "NGO Registration", to: "/ngo-registration" },
+  { label: "Our Team", to: "/team" },
+  { label: "Blogs & News", to: "/blogs" },
+];
+
+const socialLinks = [
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/sunaicbe",
+    color: "hover:text-blue-600",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/sunaicbe",
+    color: "hover:text-pink-600",
+  },
+  {
+    icon: Twitter,
+    label: "Twitter / X",
+    href: "https://twitter.com/sunaicbe",
+    color: "hover:text-sky-500",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/sunai-trust",
+    color: "hover:text-blue-700",
+  },
+  {
+    icon: Youtube,
+    label: "YouTube",
+    href: "https://www.youtube.com/@sunaicbe",
+    color: "hover:text-red-600",
+  },
+];
 
 const Contact = () => {
-  const [locLoading, setLocLoading] = useState(false);
-  const [locError, setLocError] = useState<string | null>(null);
-
-  const officeAddress = "46, RAMAR KOVIL STREET RAM NAGAR, COIMBATORE 641009, Tamil Nadu, India";
-  const officeMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    officeAddress,
-  )}`;
-
-  const handleDirectionsFromMyLocation = () => {
-    setLocError(null);
-    if (typeof navigator === "undefined" || !navigator.geolocation) {
-      setLocError("Geolocation is not supported by your browser.");
-      return;
-    }
-
-    setLocLoading(true);
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const lat = pos.coords.latitude;
-        const lng = pos.coords.longitude;
-        const origin = `${lat},${lng}`;
-        const destination = encodeURIComponent(officeAddress);
-        const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}`;
-        window.open(url, "_blank", "noopener");
-        setLocLoading(false);
-      },
-      (err) => {
-        setLocError(err.message || "Unable to determine location");
-        setLocLoading(false);
-      },
-      { timeout: 10000 },
-    );
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
       <Header />
+      <main className="flex-1">
 
-      <main
-        className="flex-1 container mx-auto px-4 py-12"
-        style={{
-          backgroundImage: `url(${bg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Hero Section */}
-        <div className="text-center mb-12">
-
-          <p className="text-lg text-white max-w-3xl mx-auto">
-            Ready to make a difference? Whether you want to volunteer, partner
-            with us, or learn more about our work, we'd love to hear from you.
-          </p>
-        </div>
-
-        <div className="w-full flex justify-center">
-          <div className="max-w-6xl w-full">
-              <CardContent>
-                <div className="flex flex-col md:flex-row items-stretch bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div className="flex-1 flex items-center p-6">
-                    <div className="flex-shrink-0 mr-4">
-                      <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center">
-                        <Phone className="w-6 h-6" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-emerald-700">Mobile</h4>
-                      <a href="tel:+919666984000" className="block mt-1 text-xl font-medium text-slate-900">+91 96669 84000</a>
-                    </div>
-                  </div>
-
-                  <div className="hidden md:block w-px bg-slate-200" />
-
-                  <div className="flex-1 flex items-center p-6">
-                    <div className="flex-shrink-0 mr-4">
-                      <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center">
-                        <Mail className="w-6 h-6" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-emerald-700">Email</h4>
-                      <a href="mailto:sunai2k3@gmail.com" className="block mt-1 text-xl font-medium text-slate-900">sunai2k3@gmail.com</a>
-                    </div>
-                  </div>
-
-                  <div className="hidden md:block w-px bg-slate-200" />
-
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => window.open(officeMapsUrl, "_blank", "noopener")}
-                    onKeyDown={(e) => { if (e.key === "Enter") { window.open(officeMapsUrl, "_blank", "noopener"); } }}
-                    className="flex-1 flex items-center p-6 cursor-pointer"
-                  >
-                    <div className="flex-shrink-0 mr-4">
-                      <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center">
-                        <MapPin className="w-6 h-6" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-emerald-700">Location</h4>
-                      <p className="mt-1 text-base text-slate-900 font-medium">
-                        Address: 46 , RAMAR KOVIL STREET RAM NAGAR ,
-                        <br /> COIMBATORE 641009
-                        <br /> Tamil Nadu, India
-                      </p>
-                      {locError && (<div className="text-sm text-red-600 mt-2">{locError}</div>)}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
+        {/* ── Hero ── */}
+        <section className="relative bg-gradient-to-br from-teal-700 via-teal-600 to-green-600 text-white py-20 md:py-28 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_50%,white_0%,transparent_60%)]" />
+          <div className="container mx-auto px-6 text-center relative z-10">
+            <span className="inline-block bg-white/20 text-white text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
+              Get in Touch
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight">
+              Connect With SUNAI
+            </h1>
+            <p className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed">
+              Whether you want to volunteer, partner, donate, or simply learn more about our work — we would love to hear from you.
+            </p>
           </div>
-        </div>
+        </section>
+
+        {/* ── Contact Cards ── */}
+        <section className="container mx-auto px-6 -mt-10 relative z-10 max-w-5xl">
+          <div className="grid md:grid-cols-3 gap-5">
+            {contactCards.map(({ icon: Icon, label, value, href, sub, external }) => (
+              <a
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                className="bg-white rounded-2xl shadow-md p-6 flex items-start gap-4 hover:shadow-lg transition-shadow group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 group-hover:bg-teal-700 transition-colors">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-0.5">{label}</p>
+                  <p className="text-slate-800 font-bold text-base">{value}</p>
+                  <p className="text-slate-500 text-sm mt-0.5">{sub}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Main Content + Sidebar ── */}
+        <section className="container mx-auto px-6 py-16 max-w-5xl">
+          <div className="grid lg:grid-cols-3 gap-10 items-start">
+
+            {/* ── Map (main content) ── */}
+            <div className="lg:col-span-2 space-y-6">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-800 mb-1">Find Our Office</h2>
+                <p className="text-slate-500 text-sm mb-5">
+                  46, Ramar Kovil Street, Ram Nagar, Coimbatore – 641009, Tamil Nadu, India.{" "}
+                  <a
+                    href={officeMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-teal-600 font-semibold hover:underline"
+                  >
+                    Open in Google Maps →
+                  </a>
+                </p>
+                <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72 md:h-96 bg-slate-100">
+                  <iframe
+                    title="SUNAI Office Location"
+                    src="https://www.google.com/maps?q=46+Ramar+Kovil+Street+Ram+Nagar+Coimbatore+641009&output=embed"
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+
+              {/* Reach out notice */}
+              <div className="bg-teal-50 border border-teal-100 rounded-2xl p-6 flex gap-4 items-start">
+                <div className="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-800 mb-1">Prefer to write to us?</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    For partnerships, CSR proposals, volunteer enquiries, or general questions, drop us an email at{" "}
+                    <a href="mailto:sunai2k3@gmail.com" className="text-teal-600 font-semibold hover:underline">
+                      sunai2k3@gmail.com
+                    </a>
+                    . Our team typically responds within one business day.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Sidebar ── */}
+            <aside className="space-y-6">
+
+
+
+
+
+              {/* Social Media */}
+              <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+                <h3 className="font-bold text-slate-800 text-base mb-4">Follow Us</h3>
+                <div className="space-y-2">
+                  {socialLinks.map(({ icon: Icon, label, href, color }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3 text-sm text-slate-600 ${color} px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors group`}
+                    >
+                      <Icon className="w-4 h-4 shrink-0" />
+                      <span className="font-medium">{label}</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+            </aside>
+          </div>
+        </section>
+
+        {/* ── CTA Banner ── */}
+        <section className="bg-gradient-to-br from-teal-600 to-green-600 py-16 text-white text-center">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+              Together, We Can Create Lasting Impact.
+            </h2>
+            <p className="text-white/80 text-lg mb-8 leading-relaxed">
+              When individuals, communities, and corporates unite with purpose, transformation becomes unstoppable. Every step forward — big or small — strengthens the movement.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/volunteer"
+                className="inline-flex items-center justify-center gap-2 bg-white text-teal-700 font-bold px-8 py-3 rounded-full hover:bg-white/90 transition-colors"
+              >
+                Partner with SUNAI <ArrowRight className="w-4 h-4" />
+              </Link>
+
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>
