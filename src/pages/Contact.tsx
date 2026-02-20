@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import contactHero from "@/assets/connect_with_us.jpg";
 
 const officeAddress =
   "46, Ramar Kovil Street, Ram Nagar, Coimbatore – 641009, Tamil Nadu, India";
@@ -99,8 +100,15 @@ const Contact = () => {
       <main className="flex-1">
 
         {/* ── Hero ── */}
-        <section className="relative bg-gradient-to-br from-emerald-700 via-emerald-600 to-green-600 text-white py-20 md:py-28 overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_50%,white_0%,transparent_60%)]" />
+        <section
+          className="relative text-white py-20 md:py-28 overflow-hidden"
+          style={{
+            backgroundImage: `url(${contactHero})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40" />
           <div className="container mx-auto px-6 text-center relative z-10">
             <span className="inline-block bg-white/20 text-white text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
               Get in Touch
