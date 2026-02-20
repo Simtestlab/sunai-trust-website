@@ -35,7 +35,7 @@ const Hero = () => {
             loaded ? "opacity-100" : "opacity-0"
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 via-60% to-primary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-700/90 via-sky-500/70 to-sky-300/30"></div>
       </div>
 
       {/* Content */}

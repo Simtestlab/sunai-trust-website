@@ -191,25 +191,42 @@ const AboutUs = () => {
             </div>
           </section>
 
-          {/* Founder Section */}
+          {/* Founders Grid */}
           <section className="mb-12 md:mb-16">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Our Founder</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Founders</h2>
               <div className="green-divider mt-3"></div>
             </div>
-            <div className="flex justify-center">
-              <FounderCard {...founder} />
-            </div>
-          </section>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+              <div className="flex items-stretch">
+                <div className="flex-1 flex flex-col items-center text-center bg-gradient-to-br from-white to-emerald-50/30 rounded-3xl border-2 border-emerald-100 shadow-xl p-8 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+                  <div className="mb-6">
+                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-emerald-100 shadow-lg ring-4 ring-emerald-50 mx-auto">
+                      <img src={founder.img} alt={founder.name} loading="lazy" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-bold text-foreground">{founder.name}</h3>
+                    <p className="text-base font-semibold text-emerald-600 uppercase tracking-wide">{founder.title}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed pt-2">{founder.desc}</p>
+                  </div>
+                </div>
+              </div>
 
-          {/* Co-Founder Section */}
-          <section className="mb-12 md:mb-16">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Co-Founder</h2>
-              <div className="green-divider mt-3"></div>
-            </div>
-            <div className="flex justify-center">
-              <FounderCard {...cofounder} />
+              <div className="flex items-stretch">
+                <div className="flex-1 flex flex-col items-center text-center bg-gradient-to-br from-white to-emerald-50/30 rounded-3xl border-2 border-emerald-100 shadow-xl p-8 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+                  <div className="mb-6">
+                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-emerald-100 shadow-lg ring-4 ring-emerald-50 mx-auto">
+                      <img src={cofounder.img} alt={cofounder.name} loading="lazy" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-bold text-foreground">{cofounder.name}</h3>
+                    <p className="text-base font-semibold text-emerald-600 uppercase tracking-wide">{cofounder.title}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed pt-2">{cofounder.desc}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
