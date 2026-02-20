@@ -21,7 +21,7 @@ const TeamCard = ({
 
   return (
     <div className="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-      <div className="w-36 h-36 mx-auto rounded-full overflow-hidden mb-4 relative ring-4 ring-teal-100">
+      <div className="w-36 h-36 mx-auto rounded-full overflow-hidden mb-4 relative ring-4 ring-emerald-100">
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-full"></div>
         )}
@@ -36,7 +36,7 @@ const TeamCard = ({
         />
       </div>
       <h3 className="text-xl font-bold text-gray-800 mb-1">{name}</h3>
-      <p className="text-base font-semibold text-teal-600 mb-3">{title}</p>
+      <p className="text-base font-semibold text-emerald-600 mb-3">{title}</p>
       <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
     </div>
   );

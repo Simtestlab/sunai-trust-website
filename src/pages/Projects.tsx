@@ -286,11 +286,11 @@ const ProjectCard = ({ project }: { project: Project }) => (
         <Badge variant="outline" className="text-xs md:text-sm">
           {project.category}
         </Badge>
-        <span className="text-sm md:text-base font-semibold text-teal-600">
+        <span className="text-sm md:text-base font-semibold text-emerald-600">
           {project.budget}
         </span>
       </div>
-      <CardTitle className="text-xl md:text-2xl group-hover:text-teal-600 transition-colors duration-300 leading-tight">
+      <CardTitle className="text-xl md:text-2xl group-hover:text-emerald-600 transition-colors duration-300 leading-tight">
         {project.title}
       </CardTitle>
     </CardHeader>
@@ -341,7 +341,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
       <Button
         variant="outline"
-        className="w-full group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300"
+        className="w-full group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300"
       >
         Learn More
         <ArrowRight className="w-4 h-4 ml-2" />
@@ -371,7 +371,7 @@ const Projects = () => {
       <main className="flex-1 container mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent leading-tight">
             Our Projects
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto mb-8 leading-relaxed">
@@ -389,7 +389,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
           <Card className="text-center h-full">
             <CardContent className="pt-6 pb-6">
-              <div className="text-3xl font-bold text-teal-600 mb-2">
+              <div className="text-3xl font-bold text-emerald-600 mb-2">
                 {projects.length}
               </div>
               <div className="text-sm text-slate-600">Total Projects</div>

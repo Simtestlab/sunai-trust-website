@@ -12,52 +12,49 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Upload } from "lucide-react";
+import { Upload, User, MapPin, GraduationCap, Briefcase, Heart, Phone, FileText } from "lucide-react";
 
+/* ─── form state ──────────────────────────────────── */
 const initialState = {
-  firstName: "",
-  lastName: "",
-  fullName: "",
-  phoneNumber: "",
-  whatsappNumber: "",
-  maritalStatus: "",
-  languagesKnown: [] as string[],
-  email: "",
-  photo: null,
-  address: "",
-  location: "",
-  country: "",
-  pincode: "",
-  state: "",
-  city: "",
-  aadharNumber: "",
-  aadharCopy: null,
-  dob: "",
-  educationType: "",
-  specialization: "",
-  skill: "",
-  certification: "",
-  organization: "",
-  title: "",
-  yearsOfExperience: "",
-  hasVolunteerExperience: "",
-  volunteerYearsOfExperience: "",
-  areaOfInterest: "",
-  mobile: "",
-  languages: "",
-  availability: "",
-  interests: [] as string[],
-  outstation: "",
-  experience: "",
-  emergencyName: "",
-  emergencyNumber: "",
-  resume: null,
-  pin: "",
+  firstName: "", lastName: "", phoneNumber: "", whatsappNumber: "",
+  maritalStatus: "", languages: "", email: "", photo: null as File | null,
+  address: "", location: "", country: "", pincode: "", state: "", city: "",
+  aadharNumber: "", aadharCopy: null as File | null, dob: "",
+  educationType: "", specialization: "", skill: "", certification: "",
+  organization: "", title: "", yearsOfExperience: "",
+  hasVolunteerExperience: "", volunteerYearsOfExperience: "", areaOfInterest: "",
+  emergencyName: "", emergencyNumber: "",
+  resume: null as File | null,
 };
 
-const languageOptions = ["TAMIL", "MALAYALAM", "HINDI", "TELUGU", "ENGLISH"];
 const educationTypes = ["High School", "Diploma", "Bachelor's", "Master's", "PhD", "Other"];
 
+/* ─── helpers ─────────────────────────────────────── */
+/** Reusable section wrapper */
+const Section = ({
+  step,
+  icon: Icon,
+  title,
+  children,
+}: {
+  step: number;
+  icon: React.ElementType;
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+    <div className="flex items-center gap-3 px-6 py-4 bg-gray-50 border-b border-gray-200">
+      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-600 text-white text-sm font-bold">
+        {step}
+      </span>
+      <Icon className="w-5 h-5 text-emerald-600" />
+      <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
+    </div>
+    <div className="p-6">{children}</div>
+  </div>
+);
+
+/* ─── component ───────────────────────────────────── */
 const Volunteer = () => {
   const [form, setForm] = useState(initialState);
   const [photoName, setPhotoName] = useState("");
@@ -72,644 +69,296 @@ const Volunteer = () => {
   const aadharInputRef = useRef<HTMLInputElement | null>(null);
   const resumeInputRef = useRef<HTMLInputElement | null>(null);
 
+  /* handlers — kept exactly the same as before */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
     if (type === "file") {
       const files = (e.target as HTMLInputElement).files;
       if (files && files[0]) {
         const file = files[0];
-        const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
-        // validation
-        if (name === 'aadharCopy') {
-          const allowed = ['.pdf', '.jpg', '.jpeg', '.png'];
-          const maxBytes = 3 * 1024 * 1024; // 3MB
-          if (!allowed.includes(fileExtension)) {
-            setAadharError('Invalid file type. Allowed: PDF, JPG, JPEG, PNG.');
-            return;
-          }
-          if (file.size > maxBytes) {
-            setAadharError('File too large. Maximum allowed size is 3 MB.');
-            return;
-          }
-          setAadharError('');
-          setForm({ ...form, [name]: file });
-          setAadharCopyName(file.name);
-        } else if (name === 'resume') {
-          const allowed = ['.pdf', '.doc', '.docx'];
-          const maxBytes = 5 * 1024 * 1024; // 5MB
-          if (!allowed.includes(fileExtension)) {
-            setResumeError('Invalid file type. Allowed: PDF, DOC, DOCX.');
-            return;
-          }
-          if (file.size > maxBytes) {
-            setResumeError('File too large. Maximum allowed size is 5 MB.');
-            return;
-          }
-          setResumeError('');
-          setForm({ ...form, [name]: file });
-          setResumeName(file.name);
+        const ext = "." + file.name.split(".").pop()?.toLowerCase();
+        if (name === "aadharCopy") {
+          if (![".pdf", ".jpg", ".jpeg", ".png"].includes(ext)) { setAadharError("Invalid file type."); return; }
+          if (file.size > 3 * 1024 * 1024) { setAadharError("Max 3 MB."); return; }
+          setAadharError(""); setForm({ ...form, [name]: file }); setAadharCopyName(file.name);
+        } else if (name === "resume") {
+          if (![".pdf", ".doc", ".docx"].includes(ext)) { setResumeError("Invalid file type."); return; }
+          if (file.size > 5 * 1024 * 1024) { setResumeError("Max 5 MB."); return; }
+          setResumeError(""); setForm({ ...form, [name]: file }); setResumeName(file.name);
         } else {
-          // generic file (photo)
-          setForm({ ...form, [name]: file });
-          if (name === "photo") setPhotoName(file.name);
+          setForm({ ...form, [name]: file }); if (name === "photo") setPhotoName(file.name);
         }
       }
-    } else if (type === "checkbox") {
-      const checked = (e.target as HTMLInputElement).checked;
-      const currentLanguages = form.languagesKnown;
-      if (checked) {
-        setForm({ ...form, languagesKnown: [...currentLanguages, value] });
-      } else {
-        setForm({ ...form, languagesKnown: currentLanguages.filter(lang => lang !== value) });
-      }
-    } else {
-      setForm({ ...form, [name]: value });
-    }
-  };
-  const handleFileSelect = (file: File, fieldName: string) => {
-    setForm({ ...form, [fieldName]: file });
-    if (fieldName === "photo") setPhotoName(file.name);
-    if (fieldName === "aadharCopy") setAadharCopyName(file.name);
-    if (fieldName === "resume") setResumeName(file.name);
-  };
-  const handleDragOver = (e: React.DragEvent, fieldName: string) => {
-    e.preventDefault();
-    if (fieldName === "photo") setIsDraggingPhoto(true);
-    if (fieldName === "aadharCopy") setIsDraggingAadhar(true);
-    if (fieldName === "resume") setIsDraggingResume(true);
+    } else { setForm({ ...form, [name]: value }); }
   };
 
-  const handleDragLeave = (e: React.DragEvent, fieldName: string) => {
-    e.preventDefault();
-    if (fieldName === "photo") setIsDraggingPhoto(false);
-    if (fieldName === "aadharCopy") setIsDraggingAadhar(false);
-    if (fieldName === "resume") setIsDraggingResume(false);
-  };
-
+  const handleDragOver = (e: React.DragEvent, f: string) => { e.preventDefault(); if (f === "photo") setIsDraggingPhoto(true); if (f === "aadharCopy") setIsDraggingAadhar(true); if (f === "resume") setIsDraggingResume(true); };
+  const handleDragLeave = (e: React.DragEvent, f: string) => { e.preventDefault(); if (f === "photo") setIsDraggingPhoto(false); if (f === "aadharCopy") setIsDraggingAadhar(false); if (f === "resume") setIsDraggingResume(false); };
   const handleDrop = (e: React.DragEvent, fieldName: string) => {
     e.preventDefault();
-    if (fieldName === "photo") setIsDraggingPhoto(false);
-    if (fieldName === "aadharCopy") setIsDraggingAadhar(false);
-    if (fieldName === "resume") setIsDraggingResume(false);
-    
+    setIsDraggingPhoto(false); setIsDraggingAadhar(false); setIsDraggingResume(false);
     const files = e.dataTransfer.files;
     if (files && files[0]) {
-      const file = files[0];
-      const fileExtension = '.' + file.name.split('.').pop()?.toLowerCase();
-      if (fieldName === 'aadharCopy') {
-        const allowed = ['.pdf', '.jpg', '.jpeg', '.png'];
-        const maxBytes = 3 * 1024 * 1024;
-        if (!allowed.includes(fileExtension)) {
-          setAadharError('Invalid file type. Allowed: PDF, JPG, JPEG, PNG.');
-          return;
-        }
-        if (file.size > maxBytes) {
-          setAadharError('File too large. Maximum allowed size is 3 MB.');
-          return;
-        }
-        setAadharError('');
-        setForm({ ...form, [fieldName]: file });
-        setAadharCopyName(file.name);
-      } else if (fieldName === 'resume') {
-        const allowed = ['.pdf', '.doc', '.docx'];
-        const maxBytes = 5 * 1024 * 1024;
-        if (!allowed.includes(fileExtension)) {
-          setResumeError('Invalid file type. Allowed: PDF, DOC, DOCX.');
-          return;
-        }
-        if (file.size > maxBytes) {
-          setResumeError('File too large. Maximum allowed size is 5 MB.');
-          return;
-        }
-        setResumeError('');
-        setForm({ ...form, [fieldName]: file });
-        setResumeName(file.name);
-      } else {
-        // photo or generic
-        setForm({ ...form, [fieldName]: file });
-        if (fieldName === 'photo') setPhotoName(file.name);
-      }
+      const file = files[0]; const ext = "." + file.name.split(".").pop()?.toLowerCase();
+      if (fieldName === "aadharCopy") {
+        if (![".pdf", ".jpg", ".jpeg", ".png"].includes(ext)) { setAadharError("Invalid file type."); return; }
+        if (file.size > 3 * 1024 * 1024) { setAadharError("Max 3 MB."); return; }
+        setAadharError(""); setForm({ ...form, [fieldName]: file }); setAadharCopyName(file.name);
+      } else if (fieldName === "resume") {
+        if (![".pdf", ".doc", ".docx"].includes(ext)) { setResumeError("Invalid file type."); return; }
+        if (file.size > 5 * 1024 * 1024) { setResumeError("Max 5 MB."); return; }
+        setResumeError(""); setForm({ ...form, [fieldName]: file }); setResumeName(file.name);
+      } else { setForm({ ...form, [fieldName]: file }); if (fieldName === "photo") setPhotoName(file.name); }
     }
   };
+  const handleSelectChange = (name: string, value: string) => setForm({ ...form, [name]: value });
+  const handleReset = () => { setForm(initialState); setPhotoName(""); setAadharCopyName(""); setResumeName(""); };
+  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); console.log(form); alert("Volunteer registration submitted!"); };
 
-  const handleSelectChange = (name: string, value: string) => {
-    setForm({ ...form, [name]: value });
-  };
-
-  const handleReset = () => {
-    setForm(initialState);
-    setPhotoName("");
-    setAadharCopyName("");
-    setResumeName("");
-  };
-  
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
-    alert("Volunteer registration submitted!");
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1 relative overflow-auto">
-        {/* Background applied to the form section only (not full page) */}
-        <div className="relative container mx-auto px-4 py-12 flex justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2000')` }}>
-          <div className="max-w-3xl w-full">
-            <form onSubmit={handleSubmit} className="bg-white/95 backdrop-blur-md p-8 rounded-lg shadow-lg space-y-6">
-              <div className="mb-8 text-center">
-                <h1
-                  className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-normal overflow-visible"
-                  style={{ WebkitTextFillColor: 'transparent', lineHeight: 1.15 }}
-                >
-                  Volunteer Registration
-                </h1>
-                <p className="text-lg max-w-2xl mx-auto text-slate-600 drop-shadow-sm">
-                  Join our community of change-makers and help us create a better tomorrow
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Personal information:</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      value={form.firstName}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      value={form.lastName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phoneNumber">Phone Number *</Label>
-                    <Input
-                      id="phoneNumber"
-                      name="phoneNumber"
-                      value={form.phoneNumber}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="whatsappNumber">Whatsapp Number *</Label>
-                    <Input
-                      id="whatsappNumber"
-                      name="whatsappNumber"
-                      value={form.whatsappNumber}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  <div className="space-y-2">
-                    <Label>Marital status</Label>
-                    <div className="flex gap-4">
-                      <label className="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          name="maritalStatus"
-                          value="YES"
-                          checked={form.maritalStatus === "YES"}
-                          onChange={handleChange}
-                          className="w-4 h-4"
-                        />
-                        <span>YES</span>
-                      </label>
-                      <label className="flex items-center gap-2">
-                        <input
-                          type="radio"
-                          name="maritalStatus"
-                          value="NO"
-                          checked={form.maritalStatus === "NO"}
-                          onChange={handleChange}
-                          className="w-4 h-4"
-                        />
-                        <span>NO</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Languages known</Label>
-                    <Textarea
-                      id="languages"
-                      name="languages"
-                      rows={2}
-                      placeholder="Type languages separated by commas"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2 mt-4">
-                  <Label htmlFor="email">EMAIL *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                {/* Photo Upload */}
-                <div className="space-y-2 mt-4">
-                  <Label htmlFor="photo">Photo: [Accepted type: PNG/JPG/JPEG/PDF - Upto 3 MB] *</Label>
-                  <div 
-                    className={`border-2 border-dashed rounded-lg p-8 text-center transition-all ${
-                      isDraggingPhoto 
-                        ? 'border-teal-500 bg-teal-50' 
-                        : 'border-slate-300 hover:border-teal-400'
-                    }`}
-                    onDragOver={(e) => handleDragOver(e, "photo")}
-                    onDragLeave={(e) => handleDragLeave(e, "photo")}
-                    onDrop={(e) => handleDrop(e, "photo")}
-                  >
-                    <Upload className={`w-12 h-12 mx-auto mb-3 ${isDraggingPhoto ? 'text-teal-500' : 'text-slate-400'}`} />
-                    <label htmlFor="photo" className="cursor-pointer block">
-                      <span className={`text-sm block mb-1 ${isDraggingPhoto ? 'text-teal-600 font-medium' : 'text-slate-600'}`}>
-                        {isDraggingPhoto ? 'Drop your file here' : 'Drag & Drop Files Here'}
-                      </span>
-                      <span className="text-xs text-slate-500 block">or</span>
-                      <span className="text-xs text-slate-500 block mt-1">Browse Files</span>
-                      {photoName && (
-                        <span className="text-xs text-slate-500 block mt-2">0 of 10</span>
-                      )}
-                      <input
-                        id="photo"
-                        name="photo"
-                        type="file"
-                        accept=".pdf,.jpg,.jpeg,.png"
-                        onChange={handleChange}
-                        className="hidden"
-                      />
-                    </label>
-                    {photoName && (
-                      <div className="mt-4 p-3 bg-teal-50 rounded-md inline-flex items-center gap-2">
-                        <Upload className="w-4 h-4 text-teal-600" />
-                        <p className="text-sm text-teal-700 font-medium">{photoName}</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Location/Address Section */}
-              <div>
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="address">Address *</Label>
-                    <Textarea
-                      id="address"
-                      name="address"
-                      value={form.address}
-                      onChange={handleChange}
-                      rows={4}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="location">Location *</Label>
-                    <Input
-                      id="location"
-                      name="location"
-                      value={form.location}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="country">Country *</Label>
-                      <Input
-                        id="country"
-                        name="country"
-                        value={form.country}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="pincode">Pincode *</Label>
-                      <Input
-                        id="pincode"
-                        name="pincode"
-                        value={form.pincode}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="state">State *</Label>
-                      <Input
-                        id="state"
-                        name="state"
-                        value={form.state}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="city">City *</Label>
-                      <Input
-                        id="city"
-                        name="city"
-                        value={form.city}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="aadharNumber">Aadhar or Personal ID Number *</Label>
-                      <Input
-                        id="aadharNumber"
-                        name="aadharNumber"
-                        value={form.aadharNumber}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="aadharCopy">Upload Aadhar or Personal ID Copy: [Accepted type: PNG/JPG/JPEG/PDF - Upto 3 MB] **</Label>
-                      <div
-                        className={`border-2 border-dashed rounded-lg p-6 text-center transition-all ${
-                          isDraggingAadhar ? 'border-teal-500 bg-teal-50' : 'border-slate-300 hover:border-teal-400'
-                        }`}
-                        onDragOver={(e) => handleDragOver(e, 'aadharCopy')}
-                        onDragLeave={(e) => handleDragLeave(e, 'aadharCopy')}
-                        onDrop={(e) => handleDrop(e, 'aadharCopy')}
-                      >
-                        <Upload className={`w-10 h-10 mx-auto mb-3 ${isDraggingAadhar ? 'text-teal-500' : 'text-slate-400'}`} />
-                        <label htmlFor="aadharCopy" className="cursor-pointer block">
-                          <span className={`text-sm block mb-1 ${isDraggingAadhar ? 'text-teal-600 font-medium' : 'text-slate-600'}`}>
-                            {isDraggingAadhar ? 'Drop your file here' : 'Drag & Drop Files Here'}
-                          </span>
-                          <span className="text-xs text-slate-500 block">or</span>
-                          <span className="text-xs text-slate-500 block mt-1">Browse Files</span>
-                          <input
-                            ref={aadharInputRef}
-                            id="aadharCopy"
-                            name="aadharCopy"
-                            type="file"
-                            accept=".pdf,.jpg,.jpeg,.png"
-                            onChange={handleChange}
-                            className="hidden"
-                          />
-                        </label>
-                        {aadharCopyName && (
-                          <div className="mt-4 p-3 bg-teal-50 rounded-md inline-flex items-center gap-2">
-                            <Upload className="w-4 h-4 text-teal-600" />
-                            <p className="text-sm text-teal-700 font-medium">{aadharCopyName}</p>
-                          </div>
-                        )}
-                        {aadharError && <p className="text-sm text-red-600 mt-2">{aadharError}</p>}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="dob">Date of Birth *</Label>
-                    <Input
-                      id="dob"
-                      name="dob"
-                      type="date"
-                      value={form.dob}
-                      onChange={handleChange}
-                      placeholder="dd-mm-yyyy"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Education Section */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Education:</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="educationType">Type</Label>
-                    <Select
-                      value={form.educationType}
-                      onValueChange={(value) => handleSelectChange("educationType", value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {educationTypes.map((type) => (
-                          <SelectItem key={type} value={type}>{type}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="specialization">Specialization/Major</Label>
-                    <Input
-                      id="specialization"
-                      name="specialization"
-                      value={form.specialization}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="skill">Skill</Label>
-                    <Input
-                      id="skill"
-                      name="skill"
-                      value={form.skill}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="certification">Certification</Label>
-                    <Input
-                      id="certification"
-                      name="certification"
-                      value={form.certification}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Job/Work Section */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Job/Work:</h2>
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="organization">Organization</Label>
-                    <Input
-                      id="organization"
-                      name="organization"
-                      value={form.organization}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="title">Title/Designation</Label>
-                    <Input
-                      id="title"
-                      name="title"
-                      value={form.title}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="yearsOfExperience">Years of experience</Label>
-                    <Input
-                      id="yearsOfExperience"
-                      name="yearsOfExperience"
-                      value={form.yearsOfExperience}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Volunteering Information Section */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Volunteering information:</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="hasVolunteerExperience">Vol. Experience (YES/NO)</Label>
-                    <Input
-                      id="hasVolunteerExperience"
-                      name="hasVolunteerExperience"
-                      value={form.hasVolunteerExperience}
-                      onChange={handleChange}
-                      placeholder="YES or NO"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="volunteerYearsOfExperience">Years of experience</Label>
-                    <Input
-                      id="volunteerYearsOfExperience"
-                      name="volunteerYearsOfExperience"
-                      value={form.volunteerYearsOfExperience}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2 mt-4">
-                  <Label htmlFor="areaOfInterest">Describe your area of interest *</Label>
-                  <Textarea
-                    id="areaOfInterest"
-                    name="areaOfInterest"
-                    value={form.areaOfInterest}
-                    onChange={handleChange}
-                    rows={4}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              {/* Emergency Contact Section */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Emergency Contact</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="emergencyName">Contact Name</Label>
-                    <Input
-                      id="emergencyName"
-                      name="emergencyName"
-                      value={form.emergencyName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="emergencyNumber">Contact Number</Label>
-                    <Input
-                      id="emergencyNumber"
-                      name="emergencyNumber"
-                      value={form.emergencyNumber}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Resume Upload Section */}
-              <div>
-                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Resume</h2>
-                <div className="space-y-2">
-                  <Label htmlFor="resume">Upload Resume: [Accepted type: PDF/DOC/DOCX - Upto 5 MB]</Label>
-                  <div
-                    className={`border-2 border-dashed rounded-lg p-6 text-center transition-all ${
-                      isDraggingResume ? 'border-teal-500 bg-teal-50' : 'border-slate-300 hover:border-teal-400'
-                    }`}
-                    onDragOver={(e) => handleDragOver(e, 'resume')}
-                    onDragLeave={(e) => handleDragLeave(e, 'resume')}
-                    onDrop={(e) => handleDrop(e, 'resume')}
-                  >
-                    <Upload className={`w-10 h-10 mx-auto mb-3 ${isDraggingResume ? 'text-teal-500' : 'text-slate-400'}`} />
-                    <label htmlFor="resume" className="cursor-pointer block">
-                      <span className={`text-sm block mb-1 ${isDraggingResume ? 'text-teal-600 font-medium' : 'text-slate-600'}`}>
-                        {isDraggingResume ? 'Drop your file here' : 'Drag & Drop Files Here'}
-                      </span>
-                      <span className="text-xs text-slate-500 block">or</span>
-                      <span className="text-xs text-slate-500 block mt-1">Browse Files</span>
-                      <input
-                        ref={resumeInputRef}
-                        id="resume"
-                        name="resume"
-                        type="file"
-                        accept=".pdf,.doc,.docx"
-                        onChange={handleChange}
-                        className="hidden"
-                      />
-                    </label>
-                    {resumeName && (
-                      <div className="mt-4 p-3 bg-teal-50 rounded-md inline-flex items-center gap-2">
-                        <Upload className="w-4 h-4 text-teal-600" />
-                        <p className="text-sm text-teal-700 font-medium">{resumeName}</p>
-                      </div>
-                    )}
-                    {resumeError && <p className="text-sm text-red-600 mt-2">{resumeError}</p>}
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex justify-end gap-4 pt-6 border-t">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={handleReset}
-                  className="min-w-[120px]"
-                >
-                  Reset
-                </Button>
-                <Button
-                  type="submit"
-                  className="min-w-[120px] bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700"
-                >
-                  SUBMIT 
-                </Button>
-              </div>
-            </form>
+  /* ── file drop zone helper ──────────────────────── */
+  const FileDropZone = ({
+    id, name, accept, dragging, fileName, error, label,
+  }: {
+    id: string; name: string; accept: string; dragging: boolean; fileName: string; error: string; label: string;
+  }) => (
+    <div className="space-y-2">
+      <Label htmlFor={id}>{label}</Label>
+      <div
+        className={`border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer ${dragging ? "border-emerald-500 bg-emerald-50" : "border-gray-300 hover:border-emerald-400 bg-gray-50/50"}`}
+        onDragOver={(e) => handleDragOver(e, name)}
+        onDragLeave={(e) => handleDragLeave(e, name)}
+        onDrop={(e) => handleDrop(e, name)}
+      >
+        <label htmlFor={id} className="cursor-pointer block">
+          <Upload className={`w-8 h-8 mx-auto mb-2 ${dragging ? "text-emerald-500" : "text-gray-400"}`} />
+          <span className="text-sm text-gray-600 block">{dragging ? "Drop file here" : "Drag & drop or click to browse"}</span>
+          <input id={id} name={name} type="file" accept={accept} onChange={handleChange} className="hidden" ref={name === "aadharCopy" ? aadharInputRef : name === "resume" ? resumeInputRef : undefined} />
+        </label>
+        {fileName && (
+          <div className="mt-3 px-3 py-2 bg-emerald-50 rounded-lg inline-flex items-center gap-2">
+            <Upload className="w-4 h-4 text-emerald-600" />
+            <span className="text-sm text-emerald-700 font-medium">{fileName}</span>
           </div>
+        )}
+        {error && <p className="text-sm text-red-600 mt-2">{error}</p>}
+      </div>
+    </div>
+  );
+
+  /* ─── render ────────────────────────────────────── */
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      <Header />
+      <main className="flex-1">
+        {/* Hero */}
+        <div className="bg-gradient-to-br from-emerald-800 via-emerald-700 to-green-800 py-14 md:py-20">
+          <div className="container mx-auto px-4 text-center max-w-3xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3">
+              Volunteer Registration
+            </h1>
+            <p className="text-white/80 text-base md:text-lg max-w-xl mx-auto">
+              Join our community of change-makers and help us create a better tomorrow.
+            </p>
+          </div>
+        </div>
+
+        {/* Form */}
+        <div className="container mx-auto px-4 py-10 max-w-3xl -mt-8 relative z-10">
+          <form onSubmit={handleSubmit} className="space-y-6">
+
+            {/* 1 — Personal */}
+            <Section step={1} icon={User} title="Personal Information">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="firstName">First Name *</Label>
+                  <Input id="firstName" name="firstName" value={form.firstName} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="lastName">Last Name</Label>
+                  <Input id="lastName" name="lastName" value={form.lastName} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="phoneNumber">Phone Number *</Label>
+                  <Input id="phoneNumber" name="phoneNumber" value={form.phoneNumber} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="whatsappNumber">WhatsApp Number *</Label>
+                  <Input id="whatsappNumber" name="whatsappNumber" value={form.whatsappNumber} onChange={handleChange} required />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+                <div className="space-y-1.5">
+                  <Label>Marital Status</Label>
+                  <div className="flex gap-5 mt-1">
+                    {["YES", "NO"].map((v) => (
+                      <label key={v} className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="maritalStatus" value={v} checked={form.maritalStatus === v} onChange={handleChange} className="w-4 h-4 accent-emerald-600" />
+                        <span className="text-sm text-gray-700">{v === "YES" ? "Married" : "Unmarried"}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="languages">Languages Known</Label>
+                  <Input id="languages" name="languages" value={form.languages} onChange={handleChange} placeholder="e.g. Tamil, English, Hindi" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="email">Email *</Label>
+                  <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="dob">Date of Birth *</Label>
+                  <Input id="dob" name="dob" type="date" value={form.dob} onChange={handleChange} />
+                </div>
+              </div>
+
+              <div className="mt-5">
+                <FileDropZone id="photo" name="photo" accept=".pdf,.jpg,.jpeg,.png" dragging={isDraggingPhoto} fileName={photoName} error="" label="Photo (PNG / JPG / PDF — max 3 MB) *" />
+              </div>
+            </Section>
+
+            {/* 2 — Address & ID */}
+            <Section step={2} icon={MapPin} title="Address & Identification">
+              <div className="space-y-1.5">
+                <Label htmlFor="address">Address *</Label>
+                <Textarea id="address" name="address" value={form.address} onChange={handleChange} rows={3} required />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="location">Location *</Label>
+                  <Input id="location" name="location" value={form.location} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="country">Country *</Label>
+                  <Input id="country" name="country" value={form.country} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="state">State *</Label>
+                  <Input id="state" name="state" value={form.state} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="city">City *</Label>
+                  <Input id="city" name="city" value={form.city} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="pincode">Pincode *</Label>
+                  <Input id="pincode" name="pincode" value={form.pincode} onChange={handleChange} required />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="aadharNumber">Aadhar / ID Number *</Label>
+                  <Input id="aadharNumber" name="aadharNumber" value={form.aadharNumber} onChange={handleChange} required />
+                </div>
+              </div>
+              <div className="mt-5">
+                <FileDropZone id="aadharCopy" name="aadharCopy" accept=".pdf,.jpg,.jpeg,.png" dragging={isDraggingAadhar} fileName={aadharCopyName} error={aadharError} label="Upload ID Copy (PNG / JPG / PDF — max 3 MB)" />
+              </div>
+            </Section>
+
+            {/* 3 — Education */}
+            <Section step={3} icon={GraduationCap} title="Education">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="educationType">Qualification</Label>
+                  <Select value={form.educationType} onValueChange={(v) => handleSelectChange("educationType", v)}>
+                    <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
+                    <SelectContent>
+                      {educationTypes.map((t) => (
+                        <SelectItem key={t} value={t}>{t}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="specialization">Specialization / Major</Label>
+                  <Input id="specialization" name="specialization" value={form.specialization} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="skill">Key Skill</Label>
+                  <Input id="skill" name="skill" value={form.skill} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="certification">Certification</Label>
+                  <Input id="certification" name="certification" value={form.certification} onChange={handleChange} />
+                </div>
+              </div>
+            </Section>
+
+            {/* 4 — Work Experience */}
+            <Section step={4} icon={Briefcase} title="Work Experience">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5 sm:col-span-2">
+                  <Label htmlFor="organization">Organization</Label>
+                  <Input id="organization" name="organization" value={form.organization} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="title">Title / Designation</Label>
+                  <Input id="title" name="title" value={form.title} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="yearsOfExperience">Years of Experience</Label>
+                  <Input id="yearsOfExperience" name="yearsOfExperience" value={form.yearsOfExperience} onChange={handleChange} />
+                </div>
+              </div>
+            </Section>
+
+            {/* 5 — Volunteering */}
+            <Section step={5} icon={Heart} title="Volunteering Information">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <Label>Prior Volunteer Experience</Label>
+                  <div className="flex gap-5 mt-1">
+                    {["YES", "NO"].map((v) => (
+                      <label key={v} className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="hasVolunteerExperience" value={v} checked={form.hasVolunteerExperience === v} onChange={handleChange} className="w-4 h-4 accent-emerald-600" />
+                        <span className="text-sm text-gray-700">{v}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="volunteerYearsOfExperience">Years of Vol. Experience</Label>
+                  <Input id="volunteerYearsOfExperience" name="volunteerYearsOfExperience" value={form.volunteerYearsOfExperience} onChange={handleChange} />
+                </div>
+              </div>
+              <div className="space-y-1.5 mt-5">
+                <Label htmlFor="areaOfInterest">Area of Interest *</Label>
+                <Textarea id="areaOfInterest" name="areaOfInterest" value={form.areaOfInterest} onChange={handleChange} rows={3} required placeholder="Describe the areas you are most passionate about..." />
+              </div>
+            </Section>
+
+            {/* 6 — Emergency Contact */}
+            <Section step={6} icon={Phone} title="Emergency Contact">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="emergencyName">Contact Name</Label>
+                  <Input id="emergencyName" name="emergencyName" value={form.emergencyName} onChange={handleChange} />
+                </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="emergencyNumber">Contact Number</Label>
+                  <Input id="emergencyNumber" name="emergencyNumber" value={form.emergencyNumber} onChange={handleChange} />
+                </div>
+              </div>
+            </Section>
+
+            {/* 7 — Resume */}
+            <Section step={7} icon={FileText} title="Resume">
+              <FileDropZone id="resume" name="resume" accept=".pdf,.doc,.docx" dragging={isDraggingResume} fileName={resumeName} error={resumeError} label="Upload Resume (PDF / DOC / DOCX — max 5 MB)" />
+            </Section>
+
+            {/* Actions */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col sm:flex-row justify-end gap-3">
+              <Button type="button" variant="outline" onClick={handleReset} className="min-w-[130px] rounded-xl">
+                Reset Form
+              </Button>
+              <Button type="submit" className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg">
+                Submit Application
+              </Button>
+            </div>
+          </form>
         </div>
       </main>
       <Footer />

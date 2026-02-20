@@ -9,6 +9,7 @@ import Blogs from "./pages/Blogs";
 import BlogDetail from "./pages/BlogDetail";
 import Volunteer from "./pages/Volunteer";
 import NGORegistration from "./pages/Ngo-registration";
+import Register from "./pages/Register";
 import Achievements from "./pages/Achievements";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
@@ -58,6 +59,7 @@ const App = () => (
           {/* Other Routes */}
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/register/ngo" element={<NGORegistration />} />
           <Route path="/about-us" element={<AboutUs />} />

@@ -31,12 +31,12 @@ const Education = () => {
         />
         <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Mentorship Programme</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Mentorship Programme</h1>
             <p className="text-xl md:text-2xl mb-6 text-white/90">
               Providing quality learning and mentorship opportunities to underserved communities
             </p>
             {/* 
-            <Button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg">
+            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 text-lg">
               Support Education <Heart className="ml-2 w-5 h-5" />
             </Button>
             */}
@@ -67,10 +67,10 @@ const Education = () => {
                 </p>
                 {/* 
                 <div className="flex flex-wrap gap-4">
-                  <Button className="bg-teal-600 hover:bg-teal-700">
+                  <Button className="bg-emerald-600 hover:bg-emerald-700">
                     Our Approach <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                  <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50">
+                  <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
                     Download Brochure
                   </Button>
                 </div>
@@ -82,7 +82,7 @@ const Education = () => {
                   alt="Mentorship Programme Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">50,000+</div>
                     <div className="text-sm">Children Educated</div>
@@ -130,13 +130,13 @@ const Education = () => {
                   className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-teal-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <stat.icon className="w-8 h-8 text-emerald-600" />
                     </div>
                     <div className="text-3xl font-bold text-slate-800 mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-lg font-semibold text-teal-600 mb-1">
+                    <div className="text-lg font-semibold text-emerald-600 mb-1">
                       {stat.label}
                     </div>
                     <div className="text-sm text-slate-600">{stat.desc}</div>
@@ -223,7 +223,7 @@ const Education = () => {
               ].map((program, idx) => (
                 <Card
                   key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100"
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-emerald-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
                     <h3 className="text-xl font-bold text-slate-800 mb-3">
@@ -238,7 +238,7 @@ const Education = () => {
                           key={featureIdx}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></div>
                           <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
@@ -272,14 +272,14 @@ const Education = () => {
               ].map((story, idx) => (
                 <Card
                   key={idx}
-                  className="flex flex-col justify-between h-full p-8 bg-teal-50 border-teal-200"
+                  className="flex flex-col justify-between h-full p-8 bg-emerald-50 border-emerald-200"
                   style={{ minHeight: 340 }}
                 >
                   <CardContent className="flex flex-col h-full p-0">
                     <div>
                       <div className="flex items-center mb-4">
-                        <MapPin className="w-5 h-5 text-teal-600 mr-2" />
-                        <span className="text-teal-600 font-semibold">
+                        <MapPin className="w-5 h-5 text-emerald-600 mr-2" />
+                        <span className="text-emerald-600 font-semibold">
                           {story.location}
                         </span>
                       </div>
@@ -301,7 +301,7 @@ const Education = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
+        <section className="py-16 bg-gradient-to-r from-emerald-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Join Our Mission to Transform Lives Through Mentorship
@@ -311,7 +311,7 @@ const Education = () => {
             </p>
             {/* 
             <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-white text-teal-600 hover:bg-gray-100 px-8 py-3 font-semibold">
+              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 font-semibold">
                 Donate Now
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">

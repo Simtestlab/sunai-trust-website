@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-// Inline submenu used instead of popup dropdown
-// (removed Radix popup; rendering inline submenu panels)
 import { ChevronDown } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import logo from "@/assets/icon.png";
@@ -8,28 +6,26 @@ import logo from "@/assets/icon.png";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
-  const [registerOpen, setRegisterOpen] = useState(false);
   const programsRef = useRef<HTMLDivElement>(null);
-  const registerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (programsRef.current && !programsRef.current.contains(e.target as Node)) {
         setProgramsOpen(false);
       }
-      if (registerRef.current && !registerRef.current.contains(e.target as Node)) {
-        setRegisterOpen(false);
-      }
     };
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, [])
+  }, []);
+
+  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+    `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} hover:text-emerald-600 transition-colors`;
 
   return (
     <header className="bg-background/100 backdrop-blur-sm border-b border-border sticky top-0 z-50 transition-smooth">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo (clickable) */}
+          {/* Logo */}
           <NavLink to="/" className="flex items-center space-x-3">
             <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg flex items-center justify-center">
               <img
@@ -48,117 +44,52 @@ const Header = () => {
             </div>
           </NavLink>
 
-          {/* Navigation - desktop */}
+          {/* Navigation — desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              Home
-            </NavLink>
+            <NavLink to="/" className={navLinkClass}>Home</NavLink>
+            <NavLink to="/about-us" className={navLinkClass}>About Us</NavLink>
 
-            <NavLink
-              to="/about-us"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              About Us
-            </NavLink>
-
-            {/* Programs - inline submenu (desktop) */}
+            {/* Programs dropdown */}
             <div className="relative" ref={programsRef}>
               <button
                 onClick={() => setProgramsOpen((s) => !s)}
-                className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center"
+                className="text-base lg:text-lg font-medium text-foreground hover:text-emerald-600 transition-colors flex items-center"
                 aria-expanded={programsOpen}
               >
                 Programs
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${programsOpen ? "rotate-180" : ""}`} />
               </button>
               {programsOpen && (
-                <div className="absolute left-0 mt-2 w-56 rounded-md border bg-white p-2 shadow-md z-40 hidden md:block">
-                  <NavLink to="/programs/education" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Mentorship Programme</span>
-                      <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
-                    </div>
+                <div className="absolute left-0 mt-2 w-56 rounded-xl border bg-white p-2 shadow-lg z-40 hidden md:block">
+                  <NavLink to="/programs/education" className="block p-3 rounded-lg hover:bg-emerald-50 transition-colors" onClick={() => setProgramsOpen(false)}>
+                    <span className="font-medium text-foreground">Uplift</span>
+                    <span className="block text-sm text-muted-foreground">Mentorship Programme</span>
                   </NavLink>
-                  <NavLink to="/programs/health" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Diagnostic & Healthcare Centres</span>
-                      <span className="text-sm text-muted-foreground">Essential healthcare services</span>
-                    </div>
+                  <NavLink to="/programs/tree-plantation" className="block p-3 rounded-lg hover:bg-emerald-50 transition-colors" onClick={() => setProgramsOpen(false)}>
+                    <span className="font-medium text-foreground">Vanam</span>
+                    <span className="block text-sm text-muted-foreground">Environmental Balance</span>
                   </NavLink>
-                  {/* <NavLink to="/programs/empowerment" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Empowerment</span>
-                      <span className="text-sm text-muted-foreground">Sustainable livelihoods</span>
-                    </div>
-                  </NavLink> */}
-                  <NavLink to="/programs/blood-bank" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Blood Bank Initiative</span>
-                      <span className="text-sm text-muted-foreground">Life-saving donation network</span>
-                    </div>
+                  <NavLink to="/programs/blood-bank" className="block p-3 rounded-lg hover:bg-emerald-50 transition-colors" onClick={() => setProgramsOpen(false)}>
+                    <span className="font-medium text-foreground">Life</span>
+                    <span className="block text-sm text-muted-foreground">Blood Bank Initiative</span>
                   </NavLink>
-                  <NavLink to="/programs/tree-plantation" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Environmental Balance</span>
-                      <span className="text-sm text-muted-foreground">Environmental restoration</span>
-                    </div>
+                  <NavLink to="/programs/health" className="block p-3 rounded-lg hover:bg-emerald-50 transition-colors" onClick={() => setProgramsOpen(false)}>
+                    <span className="font-medium text-foreground">Health</span>
+                    <span className="block text-sm text-muted-foreground">Diagnostic & Healthcare</span>
                   </NavLink>
-                  {/* <NavLink to="/programs/rural-development" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Rural Development</span>
-                      <span className="text-sm text-muted-foreground">Infrastructure & agriculture</span>
-                    </div>
-                  </NavLink> */}
-                  {/* <NavLink to="/programs/charity" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
-                    <div className="flex flex-col">
-                      <span className="font-medium">Charity</span>
-                      <span className="text-sm text-muted-foreground">Direct aid & relief</span>
-                    </div>
-                  </NavLink> */}
                 </div>
               )}
             </div>
-            <NavLink
-              to="/blogs"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              Blogs
-            </NavLink>
-            {/* Register - inline submenu (desktop) */}
-            <div className="relative" ref={registerRef}>
-              <button
-                onClick={() => setRegisterOpen((s) => !s)}
-                className="text-base lg:text-lg font-medium text-foreground transition-colors flex items-center"
-                aria-expanded={registerOpen}
-              >
-                Register
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {registerOpen && (
-                <div className="absolute left-0 mt-2 w-40 rounded-md border bg-white p-2 space-y-2 shadow-md z-40 hidden md:block">
-                  <NavLink to="/volunteer" className="block p-2 rounded hover:bg-slate-50" onClick={() => setRegisterOpen(false)}>Volunteer</NavLink>
-                  <NavLink to="/register/ngo" className="block p-2 rounded hover:bg-slate-50" onClick={() => setRegisterOpen(false)}>NGO</NavLink>
-                </div>
-              )}
-            </div>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `text-base lg:text-lg font-medium ${isActive ? "text-emerald-600" : "text-foreground"} transition-colors`
-              }
-            >
-              Contact Us
-            </NavLink>
+
+            <NavLink to="/blogs" className={navLinkClass}>Blogs</NavLink>
+
+            {/* Single "Register" link — no dropdown */}
+            <NavLink to="/register" className={navLinkClass}>Register</NavLink>
+
+            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
           </nav>
+
+          {/* Mobile toggle */}
           <div className="md:hidden">
             <button
               aria-label="Toggle menu"
@@ -166,72 +97,59 @@ const Header = () => {
               onClick={() => setOpen((s) => !s)}
               className="text-foreground p-2 rounded-md focus:outline-none"
             >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 6H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              {open ? (
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+              )}
             </button>
           </div>
+
+          {/* Mobile menu */}
           {open && (
-            <div className="fixed inset-x-4 top-20 bg-white rounded-lg shadow-lg p-4 z-50 md:hidden">
+            <div className="fixed inset-x-4 top-20 bg-white rounded-2xl shadow-2xl p-6 z-50 md:hidden border border-border">
               <nav className="flex flex-col space-y-3">
-                <NavLink to="/" onClick={() => setOpen(false)} className="font-medium text-foreground">Home</NavLink>
-                <NavLink to="/about-us" onClick={() => setOpen(false)} className="font-medium text-foreground">About Us</NavLink>
+                <NavLink to="/" onClick={() => setOpen(false)} className="font-medium text-foreground py-2 hover:text-emerald-600 transition-colors">Home</NavLink>
+                <NavLink to="/about-us" onClick={() => setOpen(false)} className="font-medium text-foreground py-2 hover:text-emerald-600 transition-colors">About Us</NavLink>
 
                 <div>
                   <button
                     onClick={() => setProgramsOpen((s) => !s)}
-                    className="flex items-center justify-between w-full"
+                    className="flex items-center justify-between w-full py-2"
                     aria-expanded={programsOpen}
                   >
-                    <span className="font-medium text-foreground text-left">Programs</span>
-                    <svg
-                      className={`w-4 h-4 text-slate-600 transform ${programsOpen ? "rotate-90" : "rotate-0"}`}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M6 5L14 10L6 15V5Z" fill="currentColor" />
-                    </svg>
+                    <span className="font-medium text-foreground">Programs</span>
+                    <ChevronDown className={`w-4 h-4 text-emerald-600 transition-transform ${programsOpen ? "rotate-180" : ""}`} />
                   </button>
                   {programsOpen && (
-                    <div className="grid grid-cols-1 gap-2 pl-2 mt-2">
-                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Mentorship Programme</NavLink>
-                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Diagnostic & Healthcare Centres</NavLink>
-                      <NavLink to="/programs/blood-bank" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Blood Bank Initiative</NavLink>
-                      <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Environmental Balance</NavLink>
+                    <div className="grid grid-cols-1 gap-1 pl-3 mt-1">
+                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-muted-foreground py-2 hover:text-emerald-600">Uplift – Mentorship</NavLink>
+                      <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-muted-foreground py-2 hover:text-emerald-600">Vanam – Environment</NavLink>
+                      <NavLink to="/programs/blood-bank" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-muted-foreground py-2 hover:text-emerald-600">Life – Blood Bank</NavLink>
+                      <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-muted-foreground py-2 hover:text-emerald-600">Health – Healthcare</NavLink>
                     </div>
                   )}
                 </div>
 
-                <NavLink to="/blogs" onClick={() => setOpen(false)} className="font-medium text-foreground">Blogs</NavLink>
+                <NavLink to="/blogs" onClick={() => setOpen(false)} className="font-medium text-foreground py-2 hover:text-emerald-600 transition-colors">Blogs</NavLink>
+                <NavLink to="/contact" onClick={() => setOpen(false)} className="font-medium text-foreground py-2 hover:text-emerald-600 transition-colors">Contact</NavLink>
 
-                <div>
-                  <button
-                    onClick={() => setRegisterOpen((s) => !s)}
-                    className="flex items-center justify-between w-full"
-                    aria-expanded={registerOpen}
+                <div className="pt-3 border-t border-border">
+                  <NavLink
+                    to="/register"
+                    onClick={() => setOpen(false)}
+                    className="block w-full text-center py-3 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold hover:from-emerald-700 hover:to-green-700 transition-all"
                   >
-                    <span className="font-medium text-foreground text-left">Register</span>
-                    <svg
-                      className={`w-4 h-4 text-slate-600 transform ${registerOpen ? "rotate-90" : "rotate-0"}`}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M6 5L14 10L6 15V5Z" fill="currentColor" />
-                    </svg>
-                  </button>
-                  {registerOpen && (
-                    <div className="flex flex-col pl-2 mt-2 space-y-2">
-                      <NavLink to="/volunteer" onClick={() => { setOpen(false); setRegisterOpen(false); }} className="text-sm text-slate-700">Volunteer</NavLink>
-                      <NavLink to="/register/ngo" onClick={() => { setOpen(false); setRegisterOpen(false); }} className="text-sm text-slate-700">NGO</NavLink>
-                    </div>
-                  )}
+                    Register
+                  </NavLink>
                 </div>
-
-                <NavLink to="/contact" onClick={() => setOpen(false)} className="font-medium text-foreground">Contact Us</NavLink>
               </nav>
             </div>
           )}
