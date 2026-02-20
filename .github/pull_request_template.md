@@ -1,16 +1,63 @@
-## What does this PR do?
-## Type of change
-- [ ] 🚀 Feature
-- [ ] 🐛 Bug fix
-- [ ] 🧹 Refactor / Cleanup
-- [ ] 👷 DevOps / Config
+# 🌐 Website Pull Request
 
-## How to test?
-1. Run `npm install`
-2. Run `npm test`
-3. Check the UI at `/dashboard`
+## 📌 Summary
+Briefly describe what this PR does.
 
-## Checklist
-- [ ] Code follows project style
-- [ ] Self-review completed
-- [ ] Documentation updated
+---
+
+## 🔄 Type of Change
+- [ ] 🐞 Bug Fix
+- [ ] ✨ New Feature
+- [ ] 🎨 UI Enhancement
+- [ ] 🔥 Hotfix
+- [ ] ♻️ Refactor
+- [ ] 📱 Responsive Fix
+- [ ] 📄 Content Update
+
+---
+
+## 📄 Pages Affected
+- [ ] Home
+- [ ] About
+- [ ] Contact
+- [ ] Dashboard
+- [ ] Login / Register
+- [ ] Other
+
+---
+
+## 🎨 UI Changes
+Describe UI updates (if any).
+
+### 📸 Screenshots / Screen Recording
+Attach before & after screenshots.
+
+---
+
+## 🧪 Testing Done
+- [ ] Tested locally
+- [ ] Tested on mobile view
+- [ ] Cross-browser tested (Chrome / Edge / Firefox)
+- [ ] No console errors
+- [ ] API integration tested (if applicable)
+
+---
+
+## 🔗 Backend Impact (if applicable)
+- [ ] API endpoint added
+- [ ] API updated
+- [ ] No backend changes
+
+---
+
+## 🚀 Deployment Notes
+Any special steps required before deployment?
+
+---
+
+## ✅ Checklist
+- [ ] Code reviewed
+- [ ] Proper naming conventions followed
+- [ ] Responsive design maintained
+- [ ] No breaking changes
+- [ ] Environment variables updated (if needed)
