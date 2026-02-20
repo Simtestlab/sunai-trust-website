@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-//import l1 from "@/assets/logo1.jpg";
 import l2 from "@/assets/logo2.png";
 import l3 from "@/assets/logo3.png";
 import l4 from "@/assets/logo4.png";
 import l5 from "@/assets/logo5.png";
-import l6 from "@/assets/logo6.png";
 import l7 from "@/assets/logo7.png";
 
 // Ordered partners to display at end of homepage as requested

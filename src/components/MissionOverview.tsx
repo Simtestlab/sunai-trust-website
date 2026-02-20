@@ -77,9 +77,9 @@ const MissionOverview = () => {
 		<section className="py-20 bg-soft-gradient">
 			<div className="container mx-auto px-4">
 				<div className="text-center mb-16 scroll-reveal">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
 						Our Key Initiatives
-					</h1>
+					</h2>
 						<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
 							Four focused pillars of impact — mentoring young leaders, restoring
 							environmental balance, saving lives through blood donation, and making
@@ -113,7 +113,7 @@ const MissionOverview = () => {
 							>
 								<Card className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-full">
 									<CardContent className="p-0 h-full flex flex-col">
-										<Link to={program.link}>
+										<Link to={program.link} className="group">
 											<div className="relative h-64 overflow-hidden">
 												<img
 													src={program.image}
