@@ -33,7 +33,7 @@ const Footer = () => {
                   href="/programs/education"
                   className="text-white/80 hover:text-white transition-smooth"
                 >
-                  Education
+                  Mentorship Programme
                 </a>
               </li>
               <li>

@@ -12,9 +12,9 @@ import charityImg from "@/assets/charity.jpg";
 const programs = [
 	{
 		image: educationImg,
-		title: "Education",
+		title: "Mentorship Programme",
 		description:
-			"Providing quality education and learning opportunities to underserved communities, ensuring every child has access to knowledge and skills for a brighter future.",
+			"Providing quality learning and mentorship opportunities to underserved communities, ensuring every child has access to knowledge, skills, and guidance for a brighter future.",
 		link: "/programs/education",
 	},
 	{

@@ -320,7 +320,7 @@ const NGORegistration = () => {
                       name="areasOfOperation"
                       value={form.areasOfOperation}
                       onChange={handleChange}
-                      placeholder="e.g., Education, Health, Environment"
+                      placeholder="e.g., Mentorship Programme, Health, Environment"
                     />
                   </div>
                   <div className="space-y-2">

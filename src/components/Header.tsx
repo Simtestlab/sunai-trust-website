@@ -67,7 +67,7 @@ const Header = () => {
                 <div className="absolute left-0 mt-2 w-56 rounded-md border bg-white p-2 shadow-md z-40 hidden md:block">
                   <NavLink to="/programs/education" className="block p-2 rounded hover:bg-slate-50" onClick={() => setProgramsOpen(false)}>
                     <div className="flex flex-col">
-                      <span className="font-medium">Education</span>
+                      <span className="font-medium">Mentorship Programme</span>
                       <span className="text-sm text-muted-foreground">Quality learning opportunities</span>
                     </div>
                   </NavLink>
@@ -176,7 +176,7 @@ const Header = () => {
                   </button>
                   {programsOpen && (
                     <div className="grid grid-cols-1 gap-2 pl-2 mt-2">
-                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Education</NavLink>
+                      <NavLink to="/programs/education" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Mentorship Programme</NavLink>
                       <NavLink to="/programs/health" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Health</NavLink>
                       <NavLink to="/programs/empowerment" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Empowerment</NavLink>
                       <NavLink to="/programs/tree-plantation" onClick={() => { setOpen(false); setProgramsOpen(false); }} className="text-sm text-slate-700">Tree Plantation</NavLink>
