@@ -11,6 +11,7 @@ import {
     Heart,
     CheckCircle2,
 } from "lucide-react";
+import joinUsImg from "@/assets/join_us.png";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Register = () => {
@@ -21,7 +22,7 @@ const Register = () => {
             <Header />
             <main className="flex-1">
                 {/* ── Hero ────────────────────────────────────────── */}
-                <section className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-800 to-green-900 py-24 md:py-32">
+                <section className="relative overflow-hidden bg-cover bg-center py-24 md:py-32" style={{ backgroundImage: `url(${joinUsImg})` }}>
                     {/* decorative blurred circles */}
                     <div className="pointer-events-none absolute inset-0">
                         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-emerald-400/10 blur-3xl" />
