@@ -184,7 +184,12 @@ const AboutUs = () => {
             <div className="text-center mb-10">
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-emerald-600 mb-2 block">Governance</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">Board Members</h2>
-              <div className="green-divider mt-3" />
+              <br />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              {boardMembers.map((m, i) => <MemberCard key={i} {...m} />)}
+            </div>
+            <br />
+            <div className="green-divider mt-3" />
             </div>
             <MessagePanel
               signoff="Board of Directors, SUNAI"
@@ -202,9 +207,7 @@ const AboutUs = () => {
               ]}
               closing="Our priority is to create structured platforms where corporate partners can engage meaningfully, with clarity of purpose and measurable results. We invite organizations to collaborate with SUNAI in delivering accountable, high-impact CSR initiatives."
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-              {boardMembers.map((m, i) => <MemberCard key={i} {...m} />)}
-            </div>
+
           </div>
         </section>
 
@@ -214,6 +217,11 @@ const AboutUs = () => {
             <div className="text-center mb-10">
               <span className="text-xs font-bold tracking-[0.2em] uppercase text-emerald-600 mb-2 block">Strategic Guidance</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">Advisory Members</h2>
+               <br />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              {advisoryMembers.map((m, i) => <MemberCard key={i} {...m} />)}
+            </div>
+            <br />
               <div className="green-divider mt-3" />
             </div>
             <MessagePanel
@@ -226,9 +234,6 @@ const AboutUs = () => {
                 "We look forward to enabling partnerships that are result-oriented, compliant, and socially transformative.",
               ]}
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
-              {advisoryMembers.map((m, i) => <MemberCard key={i} {...m} />)}
-            </div>
           </div>
         </section>
 
