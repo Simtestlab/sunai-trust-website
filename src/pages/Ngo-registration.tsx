@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import Header from "@/components/Header";
+import partnerImg from "@/assets/partner.jpg";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -141,12 +142,16 @@ const NGORegistration = () => {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <div className="bg-gradient-to-br from-emerald-800 via-emerald-700 to-green-800 py-14 md:py-20">
-          <div className="container mx-auto px-4 text-center max-w-3xl">
+        <div
+          className="relative bg-cover bg-center py-14 md:py-20"
+          style={{ backgroundImage: `url(${partnerImg})` }}
+        >
+          <div className="absolute inset-0 bg-emerald-900/60" aria-hidden />
+          <div className="container mx-auto px-4 text-center max-w-3xl relative z-10">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3">
               NGO / Partner Registration
             </h1>
-            <p className="text-white/80 text-base md:text-lg max-w-xl mx-auto">
+            <p className="text-white/90 text-base md:text-lg max-w-xl mx-auto">
               Together, we build stronger communities and a brighter future for
               all.
             </p>
