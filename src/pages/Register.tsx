@@ -22,14 +22,16 @@ const Register = () => {
             <Header />
             <main className="flex-1">
                 {/* ── Hero ────────────────────────────────────────── */}
-                <section className="relative overflow-hidden bg-cover bg-center py-24 md:py-32" style={{ backgroundImage: `url(${joinUsImg})` }}>
+                <section className="relative py-24 md:py-32 overflow-hidden">
+                    <div className="hero-bg-layer" style={{ backgroundImage: `url(${joinUsImg})` }} aria-hidden />
                     {/* decorative blurred circles */}
                     <div className="pointer-events-none absolute inset-0">
                         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-emerald-400/10 blur-3xl" />
                         <div className="absolute -bottom-40 right-0 w-[600px] h-[600px] rounded-full bg-amber-400/10 blur-3xl" />
                     </div>
+                    <div className="absolute inset-0 bg-emerald-900/40 z-10" aria-hidden />
 
-                    <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
+                    <div className="relative z-20 container mx-auto px-4 text-center max-w-4xl">
                         <span className="inline-block text-sm font-semibold tracking-widest uppercase text-emerald-300 mb-4">
                             Join SUNAI
                         </span>

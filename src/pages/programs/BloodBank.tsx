@@ -100,13 +100,11 @@ const BloodBank = () => {
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <span className="inline-block bg-white/20 text-white text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
-              Sunai Life
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
               Blood Bank Initiative
             </h1>
-            <p className="text-xl md:text-2xl text-white/90">
+            <p className="text-xl md:text-2xl text-green-300">
               Saving lives by strengthening blood donation awareness and supporting blood bank networks.
             </p>
           </div>

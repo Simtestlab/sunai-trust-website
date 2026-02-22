@@ -22,18 +22,11 @@ const TreePlantation = () => {
       <Header />
 
       <section className="relative h-96 overflow-hidden">
-        <img
-          src={treePlantationHero}
-          alt="Environmental Balance"
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
+        <div className="hero-bg-layer" style={{ backgroundImage: `url(${treePlantationHero})` }} aria-hidden />
+        <div className="absolute inset-0 bg-black/45 z-10 flex items-center justify-center" aria-hidden>
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Environmental Balance</h1>
-            <p className="text-xl md:text-2xl mb-6 text-white/90">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">Environmental Balance</h1>
+            <p className="text-xl md:text-2xl mb-6 text-green-300">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
             {/* 
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
               Plant with Us <TreePine className="ml-2 w-5 h-5" />

@@ -221,6 +221,17 @@
   .green-divider {
     @apply h-1 w-24 bg-gradient-to-r from-emerald-600 to-green-600 mx-auto rounded-full;
   }
+
+  /* Blurred hero background layer used by specific pages */
+  .hero-bg-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    transform: scale(1.04);
+    z-index: 0;
+  }
 }
 
 @keyframes fade-up {

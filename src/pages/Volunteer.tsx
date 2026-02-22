@@ -154,12 +154,10 @@ const Volunteer = () => {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <div
-          className="relative bg-cover bg-center py-14 md:py-20"
-          style={{ backgroundImage: `url(${volunteerImg})` }}
-        >
-          <div className="absolute inset-0 bg-emerald-900/60" aria-hidden />
-          <div className="container mx-auto px-4 text-center max-w-3xl relative z-10">
+        <div className="relative py-14 md:py-20 overflow-hidden">
+          <div className="hero-bg-layer" style={{ backgroundImage: `url(${volunteerImg})` }} aria-hidden />
+          <div className="absolute inset-0 bg-emerald-900/60 z-10" aria-hidden />
+          <div className="container mx-auto px-4 text-center max-w-3xl relative z-20">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3">
               Volunteer Registration
             </h1>
