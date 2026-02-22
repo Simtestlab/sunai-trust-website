@@ -10,6 +10,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
+      if (typeof window !== "undefined" && window.innerWidth < 768) return;
       if (programsRef.current && !programsRef.current.contains(e.target as Node)) {
         setProgramsOpen(false);
       }

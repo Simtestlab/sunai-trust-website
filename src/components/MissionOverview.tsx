@@ -62,7 +62,16 @@ const MissionOverview = () => {
 
 	React.useEffect(() => {
 		const interval = setInterval(() => {
-			if (currentIndex >= programs.length - 2) {
+			const el = carouselRef.current;
+			if (!el) return;
+			const card = el.querySelector<HTMLDivElement>(".mission-card");
+			if (!card) return;
+			const gap = parseInt(getComputedStyle(el).gap || "24") || 24;
+			const cardWidth = Math.round(card.getBoundingClientRect().width) + gap;
+			const visible = Math.max(1, Math.floor(el.getBoundingClientRect().width / cardWidth));
+			const lastIndex = Math.max(0, programs.length - visible);
+
+			if (currentIndex >= lastIndex) {
 				scrollTo(0);
 			} else {
 				next();
