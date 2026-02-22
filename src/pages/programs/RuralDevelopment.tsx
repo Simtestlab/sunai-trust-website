@@ -27,7 +27,6 @@ const RuralDevelopment = () => {
           alt="Rural Development Program"
           className="w-full h-full object-cover object-center"
           loading="eager"
-          fetchPriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
@@ -264,7 +263,7 @@ const RuralDevelopment = () => {
               Rural Transformation Stories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {[ 
+              {[
                 {
                   location: "Madhya Pradesh",
                   title: "Drought-Proofing Initiative",

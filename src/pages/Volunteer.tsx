@@ -13,7 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Upload, User, MapPin, GraduationCap, Briefcase, Heart, Phone, FileText } from "lucide-react";
+import { Upload, User, MapPin, GraduationCap, Briefcase, Heart, Phone, FileText, Loader2 } from "lucide-react";
+import { submitVolunteerForm } from "@/lib/formService";
+import { toast } from "sonner";
 
 /* ─── form state ──────────────────────────────────── */
 const initialState = {
@@ -30,7 +32,7 @@ const initialState = {
 };
 
 const educationTypes = ["High School", "Diploma", "Bachelor's", "Master's", "PhD", "Other"];
-const bloodGroups = ["A+","A-","B+","B-","AB+","AB-","O+","O-","Unknown"];
+const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Unknown"];
 
 /* ─── helpers ─────────────────────────────────────── */
 /** Reusable section wrapper */
@@ -60,6 +62,7 @@ const Section = ({
 /* ─── component ───────────────────────────────────── */
 const Volunteer = () => {
   const [form, setForm] = useState(initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [photoName, setPhotoName] = useState("");
   const [aadharCopyName, setAadharCopyName] = useState("");
   const [resumeName, setResumeName] = useState("");
@@ -116,7 +119,29 @@ const Volunteer = () => {
   };
   const handleSelectChange = (name: string, value: string) => setForm({ ...form, [name]: value });
   const handleReset = () => { setForm(initialState); setPhotoName(""); setAadharCopyName(""); setResumeName(""); };
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); console.log(form); alert("Volunteer registration submitted!"); };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await submitVolunteerForm(
+        form as unknown as Record<string, unknown>,
+        form.photo,
+        form.aadharCopy,
+        form.resume
+      );
+      toast.success("Volunteer registration submitted successfully!", {
+        description: "We will review your application and get back to you soon.",
+      });
+      handleReset();
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast.error("Failed to submit registration", {
+        description: "Please check your internet connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   /* ── file drop zone helper ──────────────────────── */
   const FileDropZone = ({
@@ -370,8 +395,16 @@ const Volunteer = () => {
               <Button type="button" variant="outline" onClick={handleReset} className="min-w-[130px] rounded-xl">
                 Reset Form
               </Button>
-              <Button type="submit" className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg">
-                Submit Application
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Submitting…</>
+                ) : (
+                  "Submit Application"
+                )}
               </Button>
             </div>
           </form>

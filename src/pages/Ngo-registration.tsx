@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Upload, Building2, MapPin, Phone, FileText, Landmark, Target } from "lucide-react";
+import { Upload, Building2, MapPin, Phone, FileText, Landmark, Target, Loader2 } from "lucide-react";
+import { submitNGORegistration } from "@/lib/formService";
+import { toast } from "sonner";
 
 /* ─── initial state ───────────────────────────────── */
 const initialState = {
@@ -64,6 +66,7 @@ const Section = ({
 /* ─── component ───────────────────────────────────── */
 const NGORegistration = () => {
   const [form, setForm] = useState(initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [documentsName, setDocumentsName] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [documentsError, setDocumentsError] = useState("");
@@ -130,10 +133,26 @@ const NGORegistration = () => {
     setForm(initialState);
     setDocumentsName("");
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
-    alert("NGO registration submitted!");
+    setIsSubmitting(true);
+    try {
+      await submitNGORegistration(
+        form as unknown as Record<string, unknown>,
+        form.documents
+      );
+      toast.success("NGO registration submitted successfully!", {
+        description: "Our team will review your application and reach out soon.",
+      });
+      handleReset();
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast.error("Failed to submit registration", {
+        description: "Please check your internet connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   /* ─── render ────────────────────────────────────── */
@@ -248,7 +267,7 @@ const NGORegistration = () => {
                 </div>
                 <div className="space-y-1.5 sm:col-span-2">
                   <Label htmlFor="csrRegNumber">
-                    CSR Registration Number 
+                    CSR Registration Number
                   </Label>
                   <Input
                     id="csrRegNumber"
@@ -349,28 +368,28 @@ const NGORegistration = () => {
                   />
                 </div>
               </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="website">Website</Label>
-                    <Input
-                      id="website"
-                      name="website"
-                      value={form.website}
-                      onChange={handleChange}
-                      placeholder="https://your-website.org"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="socialMediaLink">Social Media Link</Label>
-                    <Input
-                      id="socialMediaLink"
-                      name="socialMediaLink"
-                      value={form.socialMediaLink}
-                      onChange={handleChange}
-                      placeholder="https://facebook.com/yourpage"
-                    />
-                  </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+                <div className="space-y-1.5">
+                  <Label htmlFor="website">Website</Label>
+                  <Input
+                    id="website"
+                    name="website"
+                    value={form.website}
+                    onChange={handleChange}
+                    placeholder="https://your-website.org"
+                  />
                 </div>
+                <div className="space-y-1.5">
+                  <Label htmlFor="socialMediaLink">Social Media Link</Label>
+                  <Input
+                    id="socialMediaLink"
+                    name="socialMediaLink"
+                    value={form.socialMediaLink}
+                    onChange={handleChange}
+                    placeholder="https://facebook.com/yourpage"
+                  />
+                </div>
+              </div>
             </Section>
 
             {/* 4 — Mission & Scope */}
@@ -425,8 +444,8 @@ const NGORegistration = () => {
                 </Label>
                 <div
                   className={`border-2 border-dashed rounded-xl p-6 text-center transition-all cursor-pointer ${isDragging
-                      ? "border-emerald-500 bg-emerald-50"
-                      : "border-gray-300 hover:border-emerald-400 bg-gray-50/50"
+                    ? "border-emerald-500 bg-emerald-50"
+                    : "border-gray-300 hover:border-emerald-400 bg-gray-50/50"
                     }`}
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
@@ -523,9 +542,14 @@ const NGORegistration = () => {
               </Button>
               <Button
                 type="submit"
-                className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg"
+                disabled={isSubmitting}
+                className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg disabled:opacity-60"
               >
-                Submit Application
+                {isSubmitting ? (
+                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Submitting…</>
+                ) : (
+                  "Submit Application"
+                )}
               </Button>
             </div>
           </form>

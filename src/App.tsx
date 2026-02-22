@@ -22,6 +22,7 @@ import TreePlantation from "./pages/programs/TreePlantation";
 import RuralDevelopment from "./pages/programs/RuralDevelopment";
 import Charity from "./pages/programs/Charity";
 import BloodBank from "./pages/programs/BloodBank";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 const ScrollToTop = () => {
@@ -39,7 +40,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
