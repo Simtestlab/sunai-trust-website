@@ -70,9 +70,9 @@ const PartnerLogos: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
           <h3 className="text-base md:text-lg tracking-wider font-semibold text-black uppercase">
-            Brands that trust us
+            Our Impact Partners
           </h3>
-          <div className="w-16 h-1 bg-red-500 mx-auto mt-2"></div>
+          <div className="w-16 h-1 bg-emerald-600 mx-auto mt-2"></div>
         </div>
 
         <div className="relative h-40 flex justify-center items-center">
@@ -100,7 +100,7 @@ const PartnerLogos: React.FC = () => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                ? "bg-red-500 scale-125 shadow-lg"
+                ? "bg-emerald-600 scale-125 shadow-lg"
                 : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
                 }`}
             />

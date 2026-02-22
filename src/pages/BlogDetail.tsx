@@ -468,7 +468,7 @@ const BlogDetail = () => {
           <Link to="/blogs">
             <Button
               variant="ghost"
-              className="text-teal-600 hover:text-teal-700"
+              className="text-emerald-600 hover:text-emerald-700"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Blogs
@@ -518,28 +518,28 @@ const BlogDetail = () => {
           </div>
 
           {/* Impact Highlights */}
-          <div className="bg-teal-50 rounded-lg p-6 mb-8">
-            <h3 className="text-lg font-semibold text-teal-800 mb-4">
+          <div className="bg-emerald-50 rounded-lg p-6 mb-8">
+            <h3 className="text-lg font-semibold text-emerald-800 mb-4">
               Project Impact
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">
+                <div className="text-2xl font-bold text-emerald-600">
                   {blog.impact.beneficiaries}
                 </div>
-                <div className="text-sm text-teal-700">Beneficiaries</div>
+                <div className="text-sm text-emerald-700">Beneficiaries</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">
+                <div className="text-2xl font-bold text-emerald-600">
                   {blog.impact.villages}
                 </div>
-                <div className="text-sm text-teal-700">Coverage</div>
+                <div className="text-sm text-emerald-700">Coverage</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-teal-600">
+                <div className="text-2xl font-bold text-emerald-600">
                   {blog.impact.duration}
                 </div>
-                <div className="text-sm text-teal-700">Duration</div>
+                <div className="text-sm text-emerald-700">Duration</div>
               </div>
             </div>
           </div>
@@ -561,7 +561,7 @@ const BlogDetail = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/volunteer">
-                <Button className="bg-teal-600 hover:bg-teal-700">
+                <Button className="bg-emerald-600 hover:bg-emerald-700">
                   Become a Volunteer
                 </Button>
               </Link>

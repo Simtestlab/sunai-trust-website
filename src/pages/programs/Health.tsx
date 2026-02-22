@@ -31,7 +31,7 @@ const Health = () => {
         />
         <div className="absolute inset-0 bg-black/45 flex items-center justify-center">
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Diagnostic & Healthcare Centres</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Diagnostic & Healthcare Centres</h1>
             <p className="text-xl md:text-2xl mb-6 text-white/90">Enabling community-driven health initiatives to strengthen well-being and build a healthier future for all.</p>
             {/* Hero CTA commented out per request
             <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
@@ -82,7 +82,7 @@ const Health = () => {
                   alt="Health Program Activities"
                   className="rounded-lg shadow-lg w-full filter brightness-110 contrast-115 saturate-120"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold">1M+</div>
                     <div className="text-sm">Lives Impacted</div>
@@ -131,13 +131,13 @@ const Health = () => {
                   className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100"
                 >
                   <CardContent className="p-0">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-teal-100 rounded-full flex items-center justify-center">
-                      <stat.icon className="w-8 h-8 text-teal-600" />
+                    <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <stat.icon className="w-8 h-8 text-emerald-600" />
                     </div>
                     <div className="text-3xl font-bold text-slate-800 mb-2">
                       {stat.number}
                     </div>
-                    <div className="text-lg font-semibold text-teal-600 mb-1">
+                    <div className="text-lg font-semibold text-emerald-600 mb-1">
                       {stat.label}
                     </div>
                     <div className="text-sm text-slate-600">{stat.desc}</div>
@@ -225,7 +225,7 @@ const Health = () => {
               ].map((program, idx) => (
                 <Card
                   key={idx}
-                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-teal-600 bg-white border border-slate-100"
+                  className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-emerald-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
                     <h3 className="text-xl font-bold text-slate-800 mb-3">
@@ -240,7 +240,7 @@ const Health = () => {
                           key={featureIdx}
                           className="flex items-center text-sm"
                         >
-                          <div className="w-2 h-2 bg-teal-600 rounded-full mr-3"></div>
+                          <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></div>
                           <span className="text-slate-700">{feature}</span>
                         </div>
                       ))}
@@ -259,11 +259,11 @@ const Health = () => {
               Diagnostic & Healthcare Centres Success Stories
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <Card className="p-8 bg-teal-50 border-teal-200">
+              <Card className="p-8 bg-emerald-50 border-emerald-200">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
-                    <span className="text-teal-600 font-semibold">Odisha</span>
+                    <MapPin className="w-5 h-5 text-emerald-600 mr-2" />
+                    <span className="text-emerald-600 font-semibold">Odisha</span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 mb-3">
                     Maternal Mortality Reduction
@@ -278,11 +278,11 @@ const Health = () => {
                 </CardContent>
               </Card>
 
-              <Card className="p-8 bg-teal-50 border-teal-200">
+              <Card className="p-8 bg-emerald-50 border-emerald-200">
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
-                    <MapPin className="w-5 h-5 text-teal-600 mr-2" />
-                    <span className="text-teal-600 font-semibold">Jharkhand</span>
+                    <MapPin className="w-5 h-5 text-emerald-600 mr-2" />
+                    <span className="text-emerald-600 font-semibold">Jharkhand</span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-800 mb-3">
                     TB Elimination Success
@@ -301,7 +301,7 @@ const Health = () => {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600">
+        <section className="py-16 bg-gradient-to-r from-emerald-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
             <h2 className="text-3xl font-bold mb-4">
               Diagnostic & Healthcare Centres — Support Our Mission

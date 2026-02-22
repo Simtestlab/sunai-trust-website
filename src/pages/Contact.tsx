@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import contactHero from "@/assets/connect_with_us.jpg";
 
 const officeAddress =
   "46, Ramar Kovil Street, Ram Nagar, Coimbatore – 641009, Tamil Nadu, India";
@@ -99,8 +100,15 @@ const Contact = () => {
       <main className="flex-1">
 
         {/* ── Hero ── */}
-        <section className="relative bg-gradient-to-br from-teal-700 via-teal-600 to-green-600 text-white py-20 md:py-28 overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_50%,white_0%,transparent_60%)]" />
+        <section
+          className="relative text-white py-20 md:py-28 overflow-hidden"
+          style={{
+            backgroundImage: `url(${contactHero})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/40" />
           <div className="container mx-auto px-6 text-center relative z-10">
             <span className="inline-block bg-white/20 text-white text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
               Get in Touch
@@ -125,11 +133,11 @@ const Contact = () => {
                 rel={external ? "noopener noreferrer" : undefined}
                 className="bg-white rounded-2xl shadow-md p-6 flex items-start gap-4 hover:shadow-lg transition-shadow group"
               >
-                <div className="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0 group-hover:bg-teal-700 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 group-hover:bg-emerald-700 transition-colors">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 mb-0.5">{label}</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-600 mb-0.5">{label}</p>
                   <p className="text-slate-800 font-bold text-base">{value}</p>
                   <p className="text-slate-500 text-sm mt-0.5">{sub}</p>
                 </div>
@@ -152,7 +160,7 @@ const Contact = () => {
                     href={officeMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-teal-600 font-semibold hover:underline"
+                    className="text-emerald-600 font-semibold hover:underline"
                   >
                     Open in Google Maps →
                   </a>
@@ -169,21 +177,7 @@ const Contact = () => {
               </div>
 
               {/* Reach out notice */}
-              <div className="bg-teal-50 border border-teal-100 rounded-2xl p-6 flex gap-4 items-start">
-                <div className="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-800 mb-1">Prefer to write to us?</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
-                    For partnerships, CSR proposals, volunteer enquiries, or general questions, drop us an email at{" "}
-                    <a href="mailto:sunai2k3@gmail.com" className="text-teal-600 font-semibold hover:underline">
-                      sunai2k3@gmail.com
-                    </a>
-                    . Our team typically responds within one business day.
-                  </p>
-                </div>
-              </div>
+
             </div>
 
             {/* ── Sidebar ── */}
@@ -218,25 +212,6 @@ const Contact = () => {
         </section>
 
         {/* ── CTA Banner ── */}
-        <section className="bg-gradient-to-br from-teal-600 to-green-600 py-16 text-white text-center">
-          <div className="container mx-auto px-6 max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-              Together, We Can Create Lasting Impact.
-            </h2>
-            <p className="text-white/80 text-lg mb-8 leading-relaxed">
-              When individuals, communities, and corporates unite with purpose, transformation becomes unstoppable. Every step forward — big or small — strengthens the movement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/volunteer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-teal-700 font-bold px-8 py-3 rounded-full hover:bg-white/90 transition-colors"
-              >
-                Partner with SUNAI <ArrowRight className="w-4 h-4" />
-              </Link>
-
-            </div>
-          </div>
-        </section>
 
       </main>
       <Footer />

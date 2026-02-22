@@ -129,13 +129,13 @@ const BlogCard = ({ blog }: { blog: Blog }) => (
         />
         {blog.featured && (
           <div className="absolute top-3 left-3">
-            <Badge className="bg-teal-600 text-white text-xs">Featured</Badge>
+            <Badge className="bg-emerald-600 text-white text-xs">Featured</Badge>
           </div>
         )}
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
         <div className="absolute bottom-3 right-3">
           <div className="h-10 w-10 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-white transition-colors duration-300">
-            <ArrowRight className="w-4 h-4 text-teal-600 group-hover:translate-x-0.5 transition-transform duration-300" />
+            <ArrowRight className="w-4 h-4 text-emerald-600 group-hover:translate-x-0.5 transition-transform duration-300" />
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => (
             {blog.tag}
           </Badge>
         </div>
-        <h3 className="text-lg font-semibold text-slate-800 mb-3 line-clamp-2 group-hover:text-teal-600 transition-colors duration-300">
+        <h3 className="text-lg font-semibold text-slate-800 mb-3 line-clamp-2 group-hover:text-emerald-600 transition-colors duration-300">
           {blog.title}
         </h3>
         <p className="text-sm text-slate-600 mb-4 line-clamp-3">
@@ -164,7 +164,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => (
               <span>{blog.readTime}</span>
             </div>
           </div>
-          <div className="text-teal-600 font-medium group-hover:text-teal-700 transition-colors duration-300">
+          <div className="text-emerald-600 font-medium group-hover:text-emerald-700 transition-colors duration-300">
             Read More
           </div>
         </div>
@@ -182,7 +182,7 @@ const Blogs = () => {
 
       <main className="flex-1 container mx-auto px-4 py-12">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent leading-tight">
             Latest News & Stories
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed">
@@ -226,9 +226,9 @@ const Blogs = () => {
         </section>
         {/* Newsletter Signup */}
         {/*
-        <section className="mt-20 bg-gradient-to-r from-teal-600 to-green-600 rounded-xl p-10 lg:p-12 text-white text-center">
+        <section className="mt-20 bg-gradient-to-r from-emerald-600 to-green-600 rounded-xl p-10 lg:p-12 text-white text-center">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated</h3>
-          <p className="text-lg md:text-xl text-teal-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-emerald-100 mb-8 max-w-3xl mx-auto leading-relaxed">
             Subscribe to our newsletter to receive the latest updates about our
             projects, success stories, and opportunities to make a difference.
           </p>
@@ -240,7 +240,7 @@ const Blogs = () => {
             />
             <Button
               variant="secondary"
-              className="bg-white text-teal-600 hover:bg-white/90 h-12 px-8 text-base font-semibold"
+              className="bg-white text-emerald-600 hover:bg-white/90 h-12 px-8 text-base font-semibold"
             >
               Subscribe
             </Button>

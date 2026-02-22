@@ -1,24 +1,26 @@
 import logo from "@/assets/icon.png";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-white">
+    <footer className="bg-emerald-950 text-white">
       <div className="container mx-auto px-4">
-        <div className="py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* About */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
+            <Link to="/" className="flex items-center space-x-2 mb-6">
               <img
                 src={logo}
                 alt="Sunai Logo"
-                className="w-16 h-16 rounded-lg object-contain"
+                className="w-14 h-14 rounded-lg object-contain"
               />
               <div>
                 <h3 className="text-xl font-bold">Sunai</h3>
-                <p className="text-white/80 text-sm">Support Uplift Nourish Aid Illuminate</p>
+                <p className="text-white/70 text-sm">Support Uplift Nourish Aid Illuminate</p>
               </div>
-            </div>
-            <p className="text-white/80 leading-relaxed mb-6">
+            </Link>
+            <p className="text-white/70 leading-relaxed mb-6 text-sm">
               Where young dreams are guided,
               where nature is restored,
               and where lives are protected —
@@ -27,78 +29,90 @@ const Footer = () => {
             </p>
           </div>
 
+          {/* Programs */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">Our Future Programs</h4>
+            <h4 className="text-lg font-semibold mb-6">Our Programs</h4>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="/programs/education"
-                  className="text-white/80 hover:text-white transition-smooth"
+                <Link
+                  to="/programs/education"
+                  className="text-white/70 hover:text-emerald-400 transition-colors text-sm"
                 >
-                  Mentorship Programme
-                </a>
+                  Uplift – Mentorship
+                </Link>
               </li>
               <li>
-                <a
-                  href="/programs/health"
-                  className="text-white/80 hover:text-white transition-smooth"
+                <Link
+                  to="/programs/tree-plantation"
+                  className="text-white/70 hover:text-emerald-400 transition-colors text-sm"
                 >
-                  Diagnostic & Healthcare Centres
-                </a>
+                  Vanam – Environment
+                </Link>
               </li>
-              {/* <li>
-                <a
-                  href="/programs/empowerment"
-                  className="text-white/80 hover:text-white transition-smooth"
-                >
-                  Empowerment
-                </a>
-              </li> */}
               <li>
-                <a
-                  href="/programs/tree-plantation"
-                  className="text-white/80 hover:text-white transition-smooth"
+                <Link
+                  to="/programs/blood-bank"
+                  className="text-white/70 hover:text-emerald-400 transition-colors text-sm"
                 >
-                  Environmental Balance
-                </a>
+                  Life – Blood Bank
+                </Link>
               </li>
-              {/* <li>
-                <a
-                  href="/programs/rural-development"
-                  className="text-white/80 hover:text-white transition-smooth"
+              <li>
+                <Link
+                  to="/programs/health"
+                  className="text-white/70 hover:text-emerald-400 transition-colors text-sm"
                 >
-                  Rural Development
-                </a>
-              </li> */}
-              {/* <li>
-                <a
-                  href="/programs/charity"
-                  className="text-white/80 hover:text-white transition-smooth"
-                >
-                  Charity
-                </a>
-              </li> */}
+                  Health – Healthcare
+                </Link>
+              </li>
             </ul>
           </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/about-us" className="text-white/70 hover:text-emerald-400 transition-colors text-sm">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/register" className="text-white/70 hover:text-emerald-400 transition-colors text-sm">
+                  Join Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogs" className="text-white/70 hover:text-emerald-400 transition-colors text-sm">
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-white/70 hover:text-emerald-400 transition-colors text-sm">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
           <div>
             <h4 className="text-lg font-semibold mb-6">Stay Connected</h4>
             <div className="space-y-4 mb-6">
               <div className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-white/80">support@sunai.org</p>
-                </div>
+                <Mail className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                <p className="text-white/70 text-sm">sunai2k3@gmail.com</p>
               </div>
               <div className="flex items-start space-x-3">
-                <Phone className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                <p className="text-white/80">+91 96669 84000</p>
+                <Phone className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                <p className="text-white/70 text-sm">+91 96669 84000</p>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                <p className="text-white/80">
-                  Gandhipuram,
+                <MapPin className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                <p className="text-white/70 text-sm">
+                  46, Ramar Kovil Street, Ram Nagar,
                   <br />
-                  Coimbatore, Tamilnadu,
+                  Coimbatore – 641009, Tamil Nadu,
                   <br />
                   India
                 </p>
@@ -106,11 +120,13 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="py-6 border-t border-white/20">
-          <div className="flex justify-center items-center">
-            <div className="text-white/80 text-sm text-center">
-              © 2025 Sunai NGO. All rights reserved.
+
+        <div className="py-6 border-t border-white/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-white/60 text-sm text-center">
+              © 2025 Sunai – Support Uplift Nourish Aid Illuminate. All rights reserved.
             </div>
+
           </div>
         </div>
       </div>

@@ -75,7 +75,7 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
         <div className="flex flex-col h-full">
           {/* Header */}
           <DialogHeader className="relative p-0">
-            <div className="relative h-64 bg-gradient-to-br from-teal-600 to-green-600">
+            <div className="relative h-64 bg-gradient-to-br from-emerald-600 to-green-600">
               <Button
                 variant="ghost"
                 size="sm"
@@ -95,7 +95,7 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
                       alt={member.name}
                       className="w-32 h-32 rounded-full border-4 border-white object-cover"
                     />
-                    <div className="absolute -bottom-2 -right-2 bg-teal-600 rounded-full p-2">
+                    <div className="absolute -bottom-2 -right-2 bg-emerald-600 rounded-full p-2">
                       <Award className="w-5 h-5 text-white" />
                     </div>
                   </div>
@@ -104,7 +104,7 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
                     <DialogTitle className="text-3xl font-bold mb-2">
                       {member.name}
                     </DialogTitle>
-                    <p className="text-xl font-semibold text-teal-100 mb-1">
+                    <p className="text-xl font-semibold text-emerald-100 mb-1">
                       {member.title}
                     </p>
                     <Badge className="bg-white/20 text-white border-white/30 mb-4">
@@ -162,7 +162,7 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`pb-3 px-1 border-b-2 font-medium text-sm transition-colors ${
                       activeTab === tab.id
-                        ? "border-teal-600 text-teal-600"
+                        ? "border-emerald-600 text-emerald-600"
                         : "border-transparent text-slate-500 hover:text-slate-700"
                     }`}
                   >
@@ -177,8 +177,8 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
               {activeTab === "overview" && (
                 <div className="space-y-6">
                   {/* Quote */}
-                  <div className="bg-teal-50 border-l-4 border-teal-400 p-6 rounded-r-lg">
-                    <Quote className="w-8 h-8 text-teal-600 mb-3" />
+                  <div className="bg-emerald-50 border-l-4 border-emerald-400 p-6 rounded-r-lg">
+                    <Quote className="w-8 h-8 text-emerald-600 mb-3" />
                     <p className="text-slate-700 italic text-lg leading-relaxed">
                       "{member.quote}"
                     </p>
@@ -198,8 +198,8 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                          <MapPin className="w-5 h-5 text-teal-600" />
+                        <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                          <MapPin className="w-5 h-5 text-emerald-600" />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-800">
@@ -212,8 +212,8 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
                       </div>
 
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                          <Calendar className="w-5 h-5 text-teal-600" />
+                        <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                          <Calendar className="w-5 h-5 text-emerald-600" />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-800">
@@ -228,8 +228,8 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
 
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                          <Briefcase className="w-5 h-5 text-teal-600" />
+                        <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                          <Briefcase className="w-5 h-5 text-emerald-600" />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-800">
@@ -242,8 +242,8 @@ const TeamMemberModal = ({ member, isOpen, onClose }: TeamMemberModalProps) => {
                       </div>
 
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                          <GraduationCap className="w-5 h-5 text-teal-600" />
+                        <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                          <GraduationCap className="w-5 h-5 text-emerald-600" />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-slate-800">
