@@ -24,8 +24,6 @@ import {
     X,
     Loader2,
     LayoutDashboard,
-    Clock,
-    CheckCircle2,
     AlertCircle,
     LogOut,
 } from "lucide-react";
@@ -65,8 +63,6 @@ const VOLUNTEER_COLUMNS: Record<string, string> = {
     photoUrl: "Photo URL",
     aadharCopyUrl: "Aadhar Copy URL",
     resumeUrl: "Resume URL",
-    status: "Status",
-    createdAt: "Submitted At",
 };
 
 const NGO_COLUMNS: Record<string, string> = {
@@ -96,8 +92,6 @@ const NGO_COLUMNS: Record<string, string> = {
     bankIFSC: "IFSC",
     bankName: "Bank Name",
     documentsUrl: "Documents URL",
-    status: "Status",
-    createdAt: "Submitted At",
 };
 
 
@@ -105,16 +99,7 @@ const NGO_COLUMNS: Record<string, string> = {
 /* ─── Tab type ─────────────────────────────────────────────────────── */
 type TabKey = "volunteers" | "ngo";
 
-/* ─── Status badge colours ─────────────────────────────────────────── */
-const statusColor: Record<string, string> = {
-    pending: "bg-amber-100 text-amber-700 border-amber-200",
-    reviewed: "bg-blue-100 text-blue-700 border-blue-200",
-    approved: "bg-emerald-100 text-emerald-700 border-emerald-200",
-    rejected: "bg-red-100 text-red-700 border-red-200",
-    unread: "bg-amber-100 text-amber-700 border-amber-200",
-    read: "bg-blue-100 text-blue-700 border-blue-200",
-    replied: "bg-emerald-100 text-emerald-700 border-emerald-200",
-};
+
 
 /* ─── Component ────────────────────────────────────────────────────── */
 const ROWS_PER_PAGE = 10;
@@ -196,9 +181,9 @@ const Admin = () => {
     const tableKeys = (): string[] => {
         switch (activeTab) {
             case "volunteers":
-                return ["firstName", "lastName", "email", "phoneNumber", "city", "status"];
+                return ["firstName", "lastName", "email", "phoneNumber", "city"];
             case "ngo":
-                return ["organizationName", "officialEmail", "contactNumber", "city", "status"];
+                return ["organizationName", "officialEmail", "contactNumber", "city"];
         }
     };
 
@@ -419,21 +404,7 @@ const Admin = () => {
                                                     </td>
                                                     {tableKeys().map((key) => (
                                                         <td key={key} className="px-4 py-3 text-gray-700 max-w-[200px] truncate">
-                                                            {key === "status" ? (
-                                                                <span
-                                                                    className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border ${statusColor[String(row[key])] || "bg-gray-100 text-gray-600"
-                                                                        }`}
-                                                                >
-                                                                    {String(row[key]) === "approved" || String(row[key]) === "replied" ? (
-                                                                        <CheckCircle2 className="w-3 h-3" />
-                                                                    ) : (
-                                                                        <Clock className="w-3 h-3" />
-                                                                    )}
-                                                                    {String(row[key])}
-                                                                </span>
-                                                            ) : (
-                                                                String(row[key] ?? "—")
-                                                            )}
+                                                            {String(row[key] ?? "—")}
                                                         </td>
                                                     ))}
                                                     <td className="px-4 py-3 text-gray-400 text-xs whitespace-nowrap">
@@ -552,14 +523,7 @@ const Admin = () => {
                                                 {label}
                                             </dt>
                                             <dd className="text-sm text-gray-800">
-                                                {key === "status" ? (
-                                                    <span
-                                                        className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full border ${statusColor[String(value)] || "bg-gray-100 text-gray-600"
-                                                            }`}
-                                                    >
-                                                        {String(value)}
-                                                    </span>
-                                                ) : isUrl ? (
+                                                {isUrl ? (
                                                     <a
                                                         href={String(value)}
                                                         target="_blank"

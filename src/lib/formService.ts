@@ -9,7 +9,7 @@
  * Firebase Storage under structured paths and their download URLs are saved
  * alongside the text fields in Firestore.
  *
- * Each document also gets `createdAt` (server timestamp) and `status` fields
+ * Each document also gets a `createdAt` (server timestamp) field
  * so the admin dashboard can track and manage submissions.
  */
 
@@ -64,7 +64,6 @@ const VOLUNTEER_COLUMNS: Record<string, string> = {
     photoUrl: "Photo URL",
     aadharCopyUrl: "Aadhar URL",
     resumeUrl: "Resume URL",
-    status: "Status",
 };
 
 const NGO_COLUMNS: Record<string, string> = {
@@ -93,7 +92,6 @@ const NGO_COLUMNS: Record<string, string> = {
     bankIFSC: "Bank IFSC",
     bankName: "Bank Name",
     documentsUrl: "Documents URL",
-    status: "Status",
 };
 
 /* ───────────────────────────── Types ──────────────────────────────── */
@@ -215,7 +213,6 @@ export async function submitVolunteerForm(
         photoUrl,
         aadharCopyUrl,
         resumeUrl,
-        status: "pending",
         createdAt: serverTimestamp(),
     };
 
@@ -244,7 +241,6 @@ export async function submitNGORegistration(
     const doc = {
         ...textFields,
         documentsUrl,
-        status: "pending",
         createdAt: serverTimestamp(),
     };
 
