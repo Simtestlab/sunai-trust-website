@@ -11,12 +11,10 @@ import {
     type NGOSubmission,
 } from "@/lib/formService";
 import { useAuth, signOutUser } from "@/lib/auth";
-import { exportToCSV } from "@/lib/exportUtils";
 import {
     Users,
     Building2,
     Mail,
-    Download,
     RefreshCw,
     Search,
     FileSpreadsheet,
@@ -219,14 +217,6 @@ const Admin = () => {
         currentPage * ROWS_PER_PAGE
     );
 
-    /* ── Export handler ─────────────────────────────────── */
-    const handleExport = () => {
-        const names: Record<TabKey, string> = {
-            volunteers: "volunteers_export",
-            ngo: "ngo_registrations_export",
-        };
-        exportToCSV(filtered as Record<string, unknown>[], names[activeTab], columns());
-    };
 
     /* ── Format Firestore timestamp ─────────────────────── */
     const formatTimestamp = (val: unknown): string => {
@@ -353,15 +343,6 @@ const Admin = () => {
                             >
                                 <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
                                 Refresh
-                            </Button>
-                            <Button
-                                size="sm"
-                                onClick={handleExport}
-                                disabled={filtered.length === 0}
-                                className="rounded-xl gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
-                            >
-                                <Download className="w-4 h-4" />
-                                Export CSV
                             </Button>
                         </div>
                     </div>

@@ -63,14 +63,52 @@ const Section = ({
   </div>
 );
 
-/* ─── component ───────────────────────────────────── */
+/* ─── validation helpers ──────────────────────────── */
+const PHONE_RE = /^[6-9]\d{9}$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PAN_RE = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
+const URL_RE = /^https?:\/\/.+/;
+
+type FormErrors = Partial<Record<keyof typeof initialState, string>>;
+
+/* ─── component ─────────────────────────────── */
 const NGORegistration = () => {
   const [form, setForm] = useState(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [documentsName, setDocumentsName] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const [documentsError, setDocumentsError] = useState("");
   const documentsInputRef = useRef<HTMLInputElement | null>(null);
+
+  /* ─── validate all fields ─────────────────────────── */
+  const validate = (): FormErrors => {
+    const e: FormErrors = {};
+    // Required
+    if (!form.organizationName.trim()) e.organizationName = "Organisation name is required.";
+    if (!form.registeredAddress.trim()) e.registeredAddress = "Address is required.";
+    if (!form.contactNumber.trim()) e.contactNumber = "Contact number is required.";
+    else if (!PHONE_RE.test(form.contactNumber.trim())) e.contactNumber = "Enter a valid 10-digit mobile number.";
+    if (!form.officialEmail.trim()) e.officialEmail = "Email is required.";
+    else if (!EMAIL_RE.test(form.officialEmail.trim())) e.officialEmail = "Enter a valid email address.";
+    // Optional but validated if filled
+    if (form.whatsappNumber.trim() && !PHONE_RE.test(form.whatsappNumber.trim()))
+      e.whatsappNumber = "Enter a valid 10-digit number.";
+    if (form.contactPersonNumber.trim() && !PHONE_RE.test(form.contactPersonNumber.trim()))
+      e.contactPersonNumber = "Enter a valid 10-digit number.";
+    if (form.contactPersonEmail.trim() && !EMAIL_RE.test(form.contactPersonEmail.trim()))
+      e.contactPersonEmail = "Enter a valid email address.";
+    if (form.panTaxId.trim() && !PAN_RE.test(form.panTaxId.trim().toUpperCase()))
+      e.panTaxId = "Enter a valid PAN (e.g. ABCDE1234F).";
+    if (form.yearOfEstablishment.trim()) {
+      const yr = parseInt(form.yearOfEstablishment, 10);
+      if (isNaN(yr) || yr < 1800 || yr > new Date().getFullYear())
+        e.yearOfEstablishment = `Enter a valid year (1800–${new Date().getFullYear()}).`;
+    }
+    if (form.website.trim() && !URL_RE.test(form.website.trim()))
+      e.website = "Enter a valid URL starting with http:// or https://.";
+    return e;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -135,6 +173,12 @@ const NGORegistration = () => {
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const errors = validate();
+    setFormErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      toast.error("Please fix the errors before submitting.");
+      return;
+    }
     setIsSubmitting(true);
     try {
       await submitNGORegistration(
@@ -145,6 +189,7 @@ const NGORegistration = () => {
         description: "Our team will review your application and reach out soon.",
       });
       handleReset();
+      setFormErrors({});
     } catch (err) {
       console.error("Submission error:", err);
       toast.error("Failed to submit registration", {
@@ -189,8 +234,8 @@ const NGORegistration = () => {
                   name="organizationName"
                   value={form.organizationName}
                   onChange={handleChange}
-                  required
                 />
+                {formErrors.organizationName && <p className="text-sm text-red-600">{formErrors.organizationName}</p>}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
                 <div className="space-y-1.5">
@@ -228,6 +273,7 @@ const NGORegistration = () => {
                     onChange={handleChange}
                     placeholder="YYYY"
                   />
+                  {formErrors.yearOfEstablishment && <p className="text-sm text-red-600">{formErrors.yearOfEstablishment}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="panTaxId">PAN</Label>
@@ -238,6 +284,7 @@ const NGORegistration = () => {
                     onChange={handleChange}
                     placeholder="Enter PAN"
                   />
+                  {formErrors.panTaxId && <p className="text-sm text-red-600">{formErrors.panTaxId}</p>}
                 </div>
               </div>
             </Section>
@@ -291,8 +338,8 @@ const NGORegistration = () => {
                   name="registeredAddress"
                   value={form.registeredAddress}
                   onChange={handleChange}
-                  required
                 />
+                {formErrors.registeredAddress && <p className="text-sm text-red-600">{formErrors.registeredAddress}</p>}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
                 <div className="space-y-1.5">
@@ -322,7 +369,9 @@ const NGORegistration = () => {
                     name="contactNumber"
                     value={form.contactNumber}
                     onChange={handleChange}
+                    maxLength={10}
                   />
+                  {formErrors.contactNumber && <p className="text-sm text-red-600">{formErrors.contactNumber}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="officialEmail">Official Email *</Label>
@@ -333,6 +382,7 @@ const NGORegistration = () => {
                     value={form.officialEmail}
                     onChange={handleChange}
                   />
+                  {formErrors.officialEmail && <p className="text-sm text-red-600">{formErrors.officialEmail}</p>}
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-5">
@@ -344,7 +394,9 @@ const NGORegistration = () => {
                     value={form.contactPersonNumber}
                     onChange={handleChange}
                     placeholder="Contact person's phone"
+                    maxLength={10}
                   />
+                  {formErrors.contactPersonNumber && <p className="text-sm text-red-600">{formErrors.contactPersonNumber}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="whatsappNumber">WhatsApp Number</Label>
@@ -354,7 +406,9 @@ const NGORegistration = () => {
                     value={form.whatsappNumber}
                     onChange={handleChange}
                     placeholder="WhatsApp number"
+                    maxLength={10}
                   />
+                  {formErrors.whatsappNumber && <p className="text-sm text-red-600">{formErrors.whatsappNumber}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="contactPersonEmail">Contact Person Email</Label>
@@ -366,6 +420,7 @@ const NGORegistration = () => {
                     onChange={handleChange}
                     placeholder="Contact person's email"
                   />
+                  {formErrors.contactPersonEmail && <p className="text-sm text-red-600">{formErrors.contactPersonEmail}</p>}
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
@@ -378,6 +433,7 @@ const NGORegistration = () => {
                     onChange={handleChange}
                     placeholder="https://your-website.org"
                   />
+                  {formErrors.website && <p className="text-sm text-red-600">{formErrors.website}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="socialMediaLink">Social Media Link</Label>

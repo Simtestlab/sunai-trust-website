@@ -28,6 +28,73 @@ import {
     getDownloadURL,
 } from "firebase/storage";
 import { db, storage } from "./firebase";
+import { syncToGoogleSheets } from "./googleSheets";
+
+/* ─── Google Sheets column mappings ───────────────────────────────── */
+
+const VOLUNTEER_COLUMNS: Record<string, string> = {
+    firstName: "First Name",
+    lastName: "Last Name",
+    phoneNumber: "Phone Number",
+    whatsappNumber: "WhatsApp",
+    email: "Email",
+    dob: "Date of Birth",
+    bloodGroup: "Blood Group",
+    maritalStatus: "Marital Status",
+    languages: "Languages",
+    address: "Address",
+    location: "Location",
+    country: "Country",
+    state: "State",
+    city: "City",
+    pincode: "Pincode",
+    aadharNumber: "Aadhar / ID",
+    educationType: "Education",
+    specialization: "Specialization",
+    skill: "Skills",
+    certification: "Certifications",
+    organization: "Organization",
+    title: "Title",
+    yearsOfExperience: "Years of Exp",
+    hasVolunteerExperience: "Volunteer Exp?",
+    volunteerYearsOfExperience: "Vol. Years",
+    areaOfInterest: "Area of Interest",
+    emergencyName: "Emergency Contact",
+    emergencyNumber: "Emergency Phone",
+    photoUrl: "Photo URL",
+    aadharCopyUrl: "Aadhar URL",
+    resumeUrl: "Resume URL",
+    status: "Status",
+};
+
+const NGO_COLUMNS: Record<string, string> = {
+    organizationName: "Organisation Name",
+    registrationNumber: "Reg. Number",
+    registrationDate: "Reg. Date",
+    yearOfEstablishment: "Year Est.",
+    panTaxId: "PAN",
+    tax12aUrn: "12A URN",
+    tax80gUrn: "80G URN",
+    csrRegNumber: "CSR Reg.",
+    registeredAddress: "Address",
+    state: "State",
+    city: "City",
+    contactNumber: "Contact Number",
+    officialEmail: "Email",
+    contactPersonNumber: "Contact Person Phone",
+    whatsappNumber: "WhatsApp",
+    contactPersonEmail: "Contact Person Email",
+    website: "Website",
+    socialMediaLink: "Social Media",
+    missionVision: "Mission & Vision",
+    areasOfOperation: "Areas of Operation",
+    activeVolunteers: "Active Volunteers",
+    bankAccountNo: "Bank Account",
+    bankIFSC: "Bank IFSC",
+    bankName: "Bank Name",
+    documentsUrl: "Documents URL",
+    status: "Status",
+};
 
 /* ───────────────────────────── Types ──────────────────────────────── */
 
@@ -153,6 +220,11 @@ export async function submitVolunteerForm(
     };
 
     const docRef = await addDoc(collection(db, "volunteers"), doc);
+
+    // Auto-sync to Google Sheets (fire-and-forget — don't block the user)
+    syncToGoogleSheets([doc as Record<string, unknown>], "Volunteers", VOLUNTEER_COLUMNS)
+        .catch((err) => console.warn("Google Sheets sync (volunteer) failed:", err));
+
     return docRef.id;
 }
 
@@ -177,6 +249,11 @@ export async function submitNGORegistration(
     };
 
     const docRef = await addDoc(collection(db, "ngo_registrations"), doc);
+
+    // Auto-sync to Google Sheets (fire-and-forget — don't block the user)
+    syncToGoogleSheets([doc as Record<string, unknown>], "NGO Registrations", NGO_COLUMNS)
+        .catch((err) => console.warn("Google Sheets sync (NGO) failed:", err));
+
     return docRef.id;
 }
 
