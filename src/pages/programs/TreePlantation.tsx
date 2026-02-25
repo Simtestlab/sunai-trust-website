@@ -7,11 +7,10 @@ import {
   Target,
   Award,
   Leaf,
-  ArrowRight,
-  MapPin,
-  Calendar,
   Wind,
   Droplets,
+  BarChart2,
+  Building2,
 } from "lucide-react";
 import treePlantationHero from "@/assets/tree.jpg";
 import treePlantationProgram from "@/assets/tree plantation.jpeg";
@@ -25,13 +24,9 @@ const TreePlantation = () => {
         <div className="hero-bg-layer" style={{ backgroundImage: `url(${treePlantationHero})` }} aria-hidden />
         <div className="absolute inset-0 bg-black/45 z-10 flex items-center justify-center" aria-hidden>
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">Environmental Balance</h1>
-            <p className="text-xl md:text-2xl mb-6 text-green-300">Organizing community-led tree plantation drives to restore local ecosystems and improve air quality</p>
-            {/* 
-            <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
-              Plant with Us <TreePine className="ml-2 w-5 h-5" />
-            </Button>
-            */}
+              {/* <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">ENvironmental Balance</h1> */}
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">VANAM</h1>
+            <p className="text-xl md:text-2xl mb-6 text-green-300">Restoring Balance. Reviving Nature.</p>
           </div>
         </div>
       </section>
@@ -42,32 +37,23 @@ const TreePlantation = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                  Greening Our Future, One Tree at a Time
+                  Restoring Ecological Harmony Through Community Action
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Climate change and deforestation threaten our planet's future.
-                  Our Environmental Balance programs mobilize communities to restore
-                  degraded lands, create green spaces, and build climate
-                  resilience through systematic afforestation and reforestation
-                  efforts.
+                  Vanam is an environmental sustainability initiative dedicated to restoring ecological
+                  harmony and promoting responsible environmental practices within communities.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  We don't just plant trees - we nurture forests. Our
-                  comprehensive approach includes community engagement, species
-                  selection based on local ecology, long-term maintenance, and
-                  education about environmental conservation for sustainable
-                  green cover.
+                  Recognizing the urgent need for climate resilience and environmental stewardship, Vanam
+                  implements structured tree plantation drives, environmental awareness programs, and
+                  sustainable living campaigns designed to create long-term ecological impact. Beyond
+                  planting trees, the program focuses on nurturing environmental responsibility — especially
+                  among youth and local communities — ensuring that restoration efforts are sustainable and
+                  measurable.
                 </p>
-                {/* 
-                <div className="flex flex-wrap gap-4">
-                  <Button className="bg-green-600 hover:bg-green-700">
-                    Our Impact <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                  <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
-                    Join Plantation Drive
-                  </Button>
-                </div>
-                */}
+                <p>
+                  "Vanam provides corporates with a structured platform to contribute meaningfully to environmental sustainability and climate responsibility."
+                </p>
               </div>
               <div className="relative">
                 <img
@@ -77,8 +63,8 @@ const TreePlantation = () => {
                 />
                 <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
-                    <div className="text-3xl font-bold">500K+</div>
-                    <div className="text-sm">Trees Planted</div>
+                    <div className="text-3xl font-bold">CSR</div>
+                    <div className="text-sm">Aligned Initiative</div>
                   </div>
                 </div>
               </div>
@@ -94,26 +80,26 @@ const TreePlantation = () => {
                 {
                   icon: TreePine,
                   number: "500K+",
-                  label: "Trees Planted",
-                  desc: "Across multiple states",
+                  label: "Saplings Planted",
+                  desc: "Across multiple regions",
                 },
                 {
                   icon: Leaf,
-                  number: "2,000+",
-                  label: "Acres Greened",
-                  desc: "Forest restoration",
-                },
-                {
-                  icon: Wind,
                   number: "85%",
                   label: "Survival Rate",
-                  desc: "With proper care",
+                  desc: "Tracked & verified",
                 },
                 {
                   icon: Users,
                   number: "50,000+",
-                  label: "Volunteers Engaged",
-                  desc: "Community participation",
+                  label: "Community Members",
+                  desc: "Engaged in drives",
+                },
+                {
+                  icon: Wind,
+                  number: "1,000+",
+                  label: "Tonnes CO₂ Offset",
+                  desc: "Estimated annually",
                 },
               ].map((stat, idx) => (
                 <Card key={idx} className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100">
@@ -133,80 +119,93 @@ const TreePlantation = () => {
 
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Our Green Programs
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
+              Key Focus Areas
             </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Vanam implements a structured multi-pronged approach to environmental restoration,
+              combining ground-level action with awareness and corporate engagement.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Community Plantation Drives",
+                  icon: TreePine,
+                  title: "Tree Plantation Drives",
                   description:
-                    "Organizing large-scale tree plantation events with community participation and environmental education.",
+                    "Organizing large-scale and community-based tree plantation drives to restore green cover across urban and rural landscapes.",
                   features: [
                     "Mass plantation events",
                     "Community mobilization",
+                    "Native species selection",
+                    "Sapling survival tracking",
+                  ],
+                },
+                {
+                  icon: Leaf,
+                  title: "Environmental Awareness Workshops",
+                  description:
+                    "Conducting structured awareness workshops in schools and colleges to foster a culture of environmental responsibility among youth.",
+                  features: [
+                    "School & college outreach",
+                    "Interactive workshops",
                     "Environmental education",
-                    "Species diversity",
+                    "Youth ambassador programs",
                   ],
                 },
                 {
-                  title: "School Green Programs",
+                  icon: Wind,
+                  title: "Urban & Rural Green Cover",
                   description:
-                    "Engaging schools in environmental conservation through tree planting and green campus initiatives.",
+                    "Enhancing green cover in both urban and rural areas through targeted plantation drives and ecosystem restoration projects.",
                   features: [
-                    "School partnerships",
-                    "Student engagement",
-                    "Green campus development",
-                    "Environmental clubs",
-                  ],
-                },
-                {
-                  title: "Urban Greening",
-                  description:
-                    "Creating green spaces in urban areas through parks, roadside plantations, and vertical gardens.",
-                  features: [
-                    "Urban forest creation",
+                    "Urban greening projects",
+                    "Rural landscape restoration",
                     "Roadside plantation",
-                    "Vertical gardens",
-                    "Air purification",
+                    "Green corridor creation",
                   ],
                 },
                 {
-                  title: "Watershed Restoration",
+                  icon: Droplets,
+                  title: "Sustainable Living Campaigns",
                   description:
-                    "Restoring degraded watersheds through strategic tree plantation and soil conservation measures.",
+                    "Promoting sustainable lifestyle practices and waste management awareness to reduce community-level environmental footprint.",
                   features: [
-                    "Watershed management",
-                    "Soil conservation",
-                    "Water retention",
-                    "Biodiversity restoration",
+                    "Waste segregation drives",
+                    "Plastic-free campaigns",
+                    "Water conservation awareness",
+                    "Sustainable habits promotion",
                   ],
                 },
                 {
-                  title: "Carbon Offset Programs",
+                  icon: Building2,
+                  title: "Corporate Employee Engagement",
                   description:
-                    "Corporate partnerships for carbon offsetting through scientific tree plantation and monitoring.",
+                    "Structured plantation programs for corporate teams, enabling meaningful employee engagement aligned with CSR and sustainability mandates.",
                   features: [
-                    "Carbon calculation",
-                    "Monitoring systems",
-                    "Corporate partnerships",
+                    "Team plantation events",
+                    "Corporate CSR reporting",
+                    "Employee participation tracking",
+                    "Certification & recognition",
+                  ],
+                },
+                {
+                  icon: BarChart2,
+                  title: "Carbon Footprint Tracking",
+                  description:
+                    "Estimating and tracking carbon offset contributions from plantation drives to provide measurable climate impact data for partner organizations.",
+                  features: [
+                    "Carbon offset estimation",
+                    "Plantation geo-tagging",
+                    "Impact reporting dashboard",
                     "Verification protocols",
-                  ],
-                },
-                {
-                  title: "Native Species Conservation",
-                  description:
-                    "Protecting and propagating native tree species to maintain local biodiversity and ecosystem balance.",
-                  features: [
-                    "Native species focus",
-                    "Seed collection",
-                    "Nursery development",
-                    "Biodiversity conservation",
                   ],
                 },
               ].map((program, idx) => (
                 <Card key={idx} className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-emerald-600 bg-white border border-slate-100">
                   <CardContent className="p-0">
+                    <div className="w-12 h-12 mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <program.icon className="w-6 h-6 text-emerald-600" />
+                    </div>
                     <h3 className="text-xl font-bold text-slate-800 mb-3">{program.title}</h3>
                     <p className="text-slate-600 mb-4 leading-relaxed">{program.description}</p>
                     <div className="space-y-2">
@@ -226,75 +225,36 @@ const TreePlantation = () => {
 
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Green Success Stories</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-              {[
-                {
-                  location: "Rajasthan",
-                  locationColor: "text-green-600",
-                  cardBg: "bg-green-50 border-green-200",
-                  title: "Desert Greening Project",
-                  description: `In the Thar Desert, our innovative plantation drive has successfully established 50,000 drought-resistant trees across 500 acres. The project has improved groundwater levels and created green corridors that support local wildlife.`,
-                  duration: "2019-2024",
-                },
-                {
-                  location: "Maharashtra",
-                  locationColor: "text-blue-600",
-                  cardBg: "bg-blue-50 border-blue-200",
-                  title: "Urban Forest Creation",
-                  description: `Our urban forest project in Pune has transformed 100 acres of barren land into a thriving green lung. The forest now hosts 200+ species of plants and has become a model for urban environmental restoration across India.`,
-                  duration: "2020-Ongoing",
-                },
-              ].map((story, idx) => (
-                <Card key={idx} className="flex h-full flex-col border rounded-lg bg-emerald-50 border-emerald-200">
-                  <div className="p-6">
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 mr-2 text-emerald-600" />
-                      <span className="font-semibold text-emerald-600">{story.location}</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-800 mt-3">{story.title}</h3>
-                  </div>
-                  <CardContent className="px-6 pb-2 flex-1">
-                    <p className="text-slate-600 leading-relaxed">{story.description}</p>
-                  </CardContent>
-                  <div className="px-6 pb-6 mt-4 text-sm text-slate-500 flex items-center">
-                    <Calendar className="w-4 h-4 inline mr-1" />
-                    <span>Project Duration: {story.duration}</span>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">Environmental Benefits</h2>
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-4">CSR Impact Focus</h2>
+            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Vanam delivers transparent, measurable environmental outcomes that align with corporate
+              sustainability goals and ESG reporting requirements.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  icon: Wind,
-                  title: "Air Purification",
-                  description:
-                    "Trees filter pollutants and produce oxygen, improving air quality in urban and rural areas.",
-                },
-                {
-                  icon: Droplets,
-                  title: "Water Conservation",
-                  description:
-                    "Tree roots prevent soil erosion and help recharge groundwater through improved infiltration.",
-                },
-                {
-                  icon: Leaf,
-                  title: "Climate Regulation",
-                  description:
-                    "Trees absorb CO2 and provide natural cooling, helping mitigate climate change effects.",
-                },
-                {
                   icon: TreePine,
-                  title: "Biodiversity Support",
+                  title: "Sapling Tracking",
                   description:
-                    "Forests provide habitat for wildlife and support diverse ecosystems and food chains.",
+                    "Number of saplings planted and survival rate tracking with geo-tagged records and periodic field verification.",
+                },
+                {
+                  icon: Users,
+                  title: "Community Participation",
+                  description:
+                    "Metrics capturing community member engagement, volunteer hours, and local ownership of plantation drives.",
+                },
+                {
+                  icon: Wind,
+                  title: "Carbon Offset Estimation",
+                  description:
+                    "Scientific carbon footprint offset estimation based on species, age, and plantation scale for ESG reporting.",
+                },
+                {
+                  icon: BarChart2,
+                  title: "Awareness Outreach",
+                  description:
+                    "Environmental awareness outreach numbers tracking students, community members, and employees reached.",
                 },
               ].map((benefit, idx) => (
                 <Card key={idx} className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100">
@@ -313,21 +273,8 @@ const TreePlantation = () => {
 
         <section className="py-16 bg-gradient-to-r from-emerald-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
-            <h2 className="text-3xl font-bold mb-4">Plant Today, Breathe Tomorrow</h2>
-            <p className="text-xl mb-8 opacity-90">Every tree planted is a step towards a greener, healthier planet. Join our mission to restore forests and fight climate change through community action.</p>
-            {/* 
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 font-semibold">
-                Fund Environmental Balance
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                Join Plantation Drive
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                Corporate Green Partnership
-              </Button>
-            </div>
-            */}
+            <h2 className="text-3xl font-bold mb-4">Restore Balance. Revive Nature.</h2>
+            <p className="text-xl mb-8 opacity-90">Every sapling planted is a step toward climate resilience. Partner with Vanam to create lasting environmental impact for communities and the planet.</p>
           </div>
         </section>
       </main>
