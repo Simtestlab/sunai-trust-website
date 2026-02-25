@@ -2,15 +2,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  BookOpen,
   Users,
   Target,
   Award,
-  Heart,
-  ArrowRight,
-  MapPin,
-  Calendar,
+  BookOpen,
+  Briefcase,
   TrendingUp,
+  GraduationCap,
+  Lightbulb,
+  ClipboardList,
+  Handshake,
 } from "lucide-react";
 import educationHero from "@/assets/education.jpg";
 import educationProgram from "@/assets/education.jpg";
@@ -24,15 +25,8 @@ const Education = () => {
         <div className="hero-bg-layer" style={{ backgroundImage: `url(${educationHero})` }} aria-hidden />
         <div className="absolute inset-0 bg-black/45 z-10 flex items-center justify-center" aria-hidden>
           <div className="text-center text-white max-w-4xl px-6">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">Mentorship Programme</h1>
-            <p className="text-xl md:text-2xl mb-6 text-green-300">
-              Providing quality learning and mentorship opportunities to underserved communities
-            </p>
-            {/* 
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 text-lg">
-              Support Education <Heart className="ml-2 w-5 h-5" />
-            </Button>
-            */}
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">UPLIFT</h1>
+            <p className="text-xl md:text-2xl mb-6 text-green-300">Structured Mentorship for Measurable Educational Impact</p>
           </div>
         </div>
       </section>
@@ -43,42 +37,30 @@ const Education = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                  Transforming Lives Through Mentorship Programme
+                  Bridging Education and Real-World Industry
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Mentorship Programme is the foundation of sustainable development and
-                  social change. Our comprehensive mentorship programs focus on
-                  ensuring every child has access to quality learning
-                  and mentorship opportunities, regardless of their socio-economic background.
+                  Uplift is a structured mentorship and career development initiative designed to enhance
+                  student employability, leadership capacity, and entrepreneurial readiness.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  We work with communities, schools, and local partners to
-                  create learning environments that foster critical thinking,
-                  creativity, and life skills development. Our holistic approach
-                  addresses not just academic learning but also nutritional
-                  support, infrastructure development, and teacher training.
+                  The program bridges the critical gap between academic education and real-world industry
+                  expectations by connecting students with experienced professionals, industry leaders, and
+                  entrepreneurs who provide guided mentorship and practical exposure. Through a structured
+                  framework, Uplift focuses on building career clarity, skill development, and future
+                  readiness among students from diverse academic backgrounds.
                 </p>
-                {/* 
-                <div className="flex flex-wrap gap-4">
-                  <Button className="bg-emerald-600 hover:bg-emerald-700">
-                    Our Approach <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                  <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
-                    Download Brochure
-                  </Button>
-                </div>
-                */}
               </div>
               <div className="relative">
                 <img
                   src={educationProgram}
-                  alt="Mentorship Programme Activities"
+                  alt="UPLIFT Program Activities"
                   className="rounded-lg shadow-lg w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
-                    <div className="text-3xl font-bold">50,000+</div>
-                    <div className="text-sm">Children Educated</div>
+                    <div className="text-3xl font-bold">CSR</div>
+                    <div className="text-sm">Aligned Initiative</div>
                   </div>
                 </div>
               </div>
@@ -86,36 +68,42 @@ const Education = () => {
           </div>
         </section>
 
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <p className="text-xl md:text-2xl font-semibold text-emerald-600 leading-relaxed italic">
+              "UPLIFT creates a transformational ecosystem connecting education, industry, and innovation — empowering students with the guidance, confidence, and skills to shape their future."
+            </p>
+          </div>
+
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
-              Our Impact
+              Program Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   icon: Users,
-                  number: "50,000+",
+                  number: "1,000+",
                   label: "Students Enrolled",
-                  desc: "Across all programs",
+                  desc: "Across diverse backgrounds",
                 },
                 {
-                  icon: BookOpen,
-                  number: "500+",
-                  label: "Schools Supported",
-                  desc: "Rural and urban areas",
+                  icon: Briefcase,
+                  number: "200+",
+                  label: "Industry Mentors",
+                  desc: "Professionals & leaders",
                 },
                 {
                   icon: Award,
-                  number: "98%",
-                  label: "Pass Rate",
-                  desc: "Above national average",
+                  number: "85%",
+                  label: "Career Clarity Rate",
+                  desc: "Post-program outcomes",
                 },
                 {
                   icon: TrendingUp,
-                  number: "85%",
-                  label: "Dropout Reduction",
-                  desc: "In target communities",
+                  number: "50+",
+                  label: "Workshops Delivered",
+                  desc: "Skills & leadership training",
                 },
               ].map((stat, idx) => (
                 <Card
@@ -142,75 +130,85 @@ const Education = () => {
 
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Our Mentorship Programme
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
+              OBJECTIVE
             </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Uplift is aligned with corporate CSR goals in education, youth empowerment, and skill development.
+              The program delivers measurable impact through the following focus areas:
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Primary Mentorship Programme Support",
+                  icon: Target,
+                  title: "Career Awareness & Goal-Setting",
                   description:
-                    "Supporting children aged 6-11 with foundational learning, nutrition, and infrastructure development in government schools.",
+                    "Equipping students with career clarity frameworks to set meaningful professional goals and chart a purposeful path forward.",
                   features: [
-                    "Basic literacy and numeracy",
-                    "Mid-day meal programs",
-                    "Learning material distribution",
-                    "Parent engagement",
+                    "Career mapping sessions",
+                    "Industry exposure visits",
+                    "Goal-setting workshops",
+                    "Personal development plans",
                   ],
                 },
                 {
-                  title: "Secondary Mentorship Programme Enhancement",
+                  icon: Users,
+                  title: "Industry Mentorship",
                   description:
-                    "Comprehensive support for adolescents including academic support, life skills training, and career guidance.",
+                    "Connecting students with experienced professionals and industry leaders for guided one-on-one and group mentorship hours.",
                   features: [
-                    "Subject-wise tutoring",
-                    "Science lab equipment",
-                    "Career counseling",
-                    "Scholarship programs",
+                    "One-on-one mentoring",
+                    "Group mentorship circles",
+                    "Mentor-led webinars",
+                    "Peer learning networks",
                   ],
                 },
                 {
-                  title: "Adult Literacy Programs",
+                  icon: BookOpen,
+                  title: "Skill Development & Leadership",
                   description:
-                    "Empowering adults, especially women, with basic literacy and numeracy skills for better livelihood opportunities.",
+                    "Structured workshops and training programs designed to build both technical and soft skills alongside leadership capacity.",
                   features: [
-                    "Functional literacy",
-                    "Digital literacy",
-                    "Financial literacy",
-                    "Skill development",
+                    "Soft skills training",
+                    "Leadership workshops",
+                    "Communication skills",
+                    "Problem-solving sessions",
                   ],
                 },
                 {
-                  title: "Teacher Training",
+                  icon: GraduationCap,
+                  title: "Higher Education Guidance",
                   description:
-                    "Capacity building programs for teachers to improve teaching methodologies and student engagement.",
+                    "Providing students with global exposure sessions and expert guidance for pursuing higher education opportunities.",
                   features: [
-                    "Pedagogy training",
-                    "Technology integration",
-                    "Classroom management",
-                    "Assessment techniques",
+                    "Global education pathways",
+                    "Scholarship guidance",
+                    "Application support",
+                    "International exposure sessions",
                   ],
                 },
                 {
-                  title: "Digital Learning",
+                  icon: Lightbulb,
+                  title: "Entrepreneurial Incubation",
                   description:
-                    "Leveraging technology to provide quality mentorship content and bridge the digital divide.",
+                    "Supporting aspiring student founders through incubation assistance, mentorship, and access to startup ecosystems.",
                   features: [
-                    "E-learning platforms",
-                    "Digital classrooms",
-                    "Mentorship apps",
-                    "Online assessments",
+                    "Startup ideation support",
+                    "Founder mentorship",
+                    "Ecosystem access",
+                    "Pitch preparation",
                   ],
                 },
                 {
-                  title: "Special Needs Mentorship",
+                  icon: Briefcase,
+                  title: "Employability Enhancement",
                   description:
-                    "Inclusive mentorship programs for children with disabilities and learning difficulties.",
+                    "Career readiness modules designed to improve placement outcomes and prepare students for competitive job markets.",
                   features: [
-                    "Specialized curriculum",
-                    "Trained educators",
-                    "Assistive technology",
-                    "Parent counseling",
+                    "Resume building",
+                    "Interview preparation",
+                    "Placement readiness",
+                    "Industry networking",
                   ],
                 },
               ].map((program, idx) => (
@@ -219,6 +217,9 @@ const Education = () => {
                   className="p-6 hover:shadow-lg transition-shadow border-l-4 border-l-emerald-600 bg-white border border-slate-100"
                 >
                   <CardContent className="p-0">
+                    <div className="w-12 h-12 mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <program.icon className="w-6 h-6 text-emerald-600" />
+                    </div>
                     <h3 className="text-xl font-bold text-slate-800 mb-3">
                       {program.title}
                     </h3>
@@ -246,47 +247,110 @@ const Education = () => {
         <section className="py-16 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
-              Success Stories
+              Impact &amp; Reporting
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {[ 
+            <p className="text-center text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+              To ensure accountability and transparency, Uplift includes comprehensive reporting
+              mechanisms that keep partner organizations informed of real outcomes and measurable progress.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+              {[
                 {
-                  location: "Rajasthan",
-                  title: "Village School Transformation",
-                  description: `"In Khempur village, we transformed a struggling school with just 40 students into a thriving educational center with 200+ students. Through infrastructure development, teacher training, and community engagement, the school now boasts a 100% attendance rate."`,
-                  duration: "2020-2023",
+                  icon: ClipboardList,
+                  title: "Enrollment & Progression Tracking",
+                  description:
+                    "Systematic tracking of student enrollment, program participation, and individual progression milestones throughout the mentorship journey.",
+                  highlights: [
+                    "Student enrollment records",
+                    "Milestone tracking dashboard",
+                    "Dropout prevention interventions",
+                    "Progression benchmarks",
+                  ],
+                  cardBg: "bg-emerald-50 border-emerald-200",
+                  iconBg: "bg-emerald-100",
+                  iconColor: "text-emerald-600",
                 },
                 {
-                  location: "West Bengal",
-                  title: "Digital Literacy Initiative",
-                  description: `"Our digital learning centers in rural West Bengal have enabled 1,500+ students to access quality educational content. Many students have gone on to pursue higher education and secure good employment opportunities."`,
-                  duration: "2021-Ongoing",
+                  icon: TrendingUp,
+                  title: "Mentor Engagement & Impact Metrics",
+                  description:
+                    "Detailed reporting on mentor hours delivered, student skill growth, career clarity improvements, and placement readiness outcomes.",
+                  highlights: [
+                    "Mentor engagement reports",
+                    "Career clarity metrics",
+                    "Skill growth assessments",
+                    "Periodic CSR impact reports",
+                  ],
+                  cardBg: "bg-emerald-50 border-emerald-200",
+                  iconBg: "bg-emerald-100",
+                  iconColor: "text-emerald-600",
                 },
-              ].map((story, idx) => (
-                <Card
-                  key={idx}
-                  className="flex flex-col justify-between h-full p-8 bg-emerald-50 border-emerald-200"
-                  style={{ minHeight: 340 }}
-                >
-                  <CardContent className="flex flex-col h-full p-0">
-                    <div>
-                      <div className="flex items-center mb-4">
-                        <MapPin className="w-5 h-5 text-emerald-600 mr-2" />
-                        <span className="text-emerald-600 font-semibold">
-                          {story.location}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-800 mb-3">
-                        {story.title}
-                      </h3>
-                      <p className="text-slate-600 mb-4 leading-relaxed">
-                        {story.description}
-                      </p>
+              ].map((item, idx) => (
+                <Card key={idx} className={`flex h-full flex-col border rounded-lg ${item.cardBg}`}>
+                  <div className="p-6">
+                    <div className={`w-12 h-12 mb-4 ${item.iconBg} rounded-full flex items-center justify-center`}>
+                      <item.icon className={`w-6 h-6 ${item.iconColor}`} />
                     </div>
-                    <div className="mt-auto text-sm text-slate-500 flex items-center">
-                      <Calendar className="w-4 h-4 inline mr-1" />
-                      Project Duration: {story.duration}
+                    <h3 className="text-xl font-bold text-slate-800 mt-2">{item.title}</h3>
+                  </div>
+                  <CardContent className="px-6 pb-6 flex-1">
+                    <p className="text-slate-600 leading-relaxed mb-4">{item.description}</p>
+                    <div className="space-y-2">
+                      {item.highlights.map((point, pIdx) => (
+                        <div key={pIdx} className="flex items-center text-sm">
+                          <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
+                          <span className="text-slate-700">{point}</span>
+                        </div>
+                      ))}
                     </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-slate-800 mb-4">Partnership Opportunity</h2>
+            <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Uplift offers corporates a structured platform to support youth development through scalable,
+              transparent, and impact-driven initiatives aligned with sustainable development goals and CSR mandates.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  icon: Target,
+                  title: "SDG Aligned",
+                  description:
+                    "Directly aligned with UN Sustainable Development Goals for quality education and decent work.",
+                },
+                {
+                  icon: Award,
+                  title: "CSR Compliant",
+                  description:
+                    "Structured to meet corporate CSR mandates in education, skill development, and youth empowerment.",
+                },
+                {
+                  icon: Handshake,
+                  title: "Scalable Model",
+                  description:
+                    "A replicable and scalable framework that can be customized to match your organizational goals.",
+                },
+                {
+                  icon: ClipboardList,
+                  title: "Transparent Reporting",
+                  description:
+                    "Periodic impact reports with measurable metrics to demonstrate ROI on social investment.",
+                },
+              ].map((benefit, idx) => (
+                <Card key={idx} className="text-center p-6 bg-white hover:shadow-lg transition-shadow border border-slate-100">
+                  <CardContent className="p-0">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <benefit.icon className="w-8 h-8 text-emerald-600" />
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-800 mb-2">{benefit.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{benefit.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -296,25 +360,11 @@ const Education = () => {
 
         <section className="py-16 bg-gradient-to-r from-emerald-600 to-green-600">
           <div className="max-w-4xl mx-auto text-center px-6 text-white">
-            <h2 className="text-3xl font-bold mb-4">
-              Join Our Mission to Transform Lives Through Mentorship
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Transform Students into Purpose-Driven Professionals</h2>
             <p className="text-xl mb-8 opacity-90">
-              Every child deserves quality mentorship and learning. Your support can help us reach more communities and create lasting change through mentoring and education.
+              Together, we can transform students into confident, skilled, and purpose-driven professionals
+              ready to contribute meaningfully to society and the economy.
             </p>
-            {/* 
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 font-semibold">
-                Donate Now
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                Volunteer With Us
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                Partner With Us
-              </Button>
-            </div>
-            */}
           </div>
         </section>
       </main>
