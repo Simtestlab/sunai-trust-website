@@ -51,20 +51,20 @@ const TreePlantation = () => {
                   among youth and local communities — ensuring that restoration efforts are sustainable and
                   measurable.
                 </p>
-                <p>
-                  "Vanam provides corporates with a structured platform to contribute meaningfully to environmental sustainability and climate responsibility."
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Vanam provides corporates with a structured platform to contribute meaningfully to environmental sustainability and climate responsibility.
                 </p>
               </div>
               <div className="relative">
                 <img
                   src={treePlantationProgram}
                   alt="Environmental Balance Activities"
-                  className="rounded-lg shadow-lg w-full"
+                  className="rounded-lg shadow-lg w-full aspect-[4/2] object-cover"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
-                    <div className="text-3xl font-bold">CSR</div>
-                    <div className="text-sm">Aligned Initiative</div>
+                    <div className="text-3xl font-bold">500K+</div>
+                    <div className="text-sm">Trees Planted</div>
                   </div>
                 </div>
               </div>

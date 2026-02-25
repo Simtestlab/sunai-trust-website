@@ -60,8 +60,8 @@ const Education = () => {
                 />
                 <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
-                    <div className="text-3xl font-bold">CSR</div>
-                    <div className="text-sm">Aligned Initiative</div>
+                    <div className="text-3xl font-bold">50,000+</div>
+                    <div className="text-sm">Children Educated</div>
                   </div>
                 </div>
               </div>

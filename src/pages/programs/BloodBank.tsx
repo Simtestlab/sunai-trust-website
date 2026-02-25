@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import bloodHeroImg from "@/assets/charity.jpg";
-import bloodImg from "@/assets/health.jpg";
 
 const stats = [
   { icon: Droplets, value: "1,000+", label: "Donation Drives Organised" },
@@ -159,14 +158,16 @@ const BloodBank = () => {
               </div>
               <div className="relative">
                 <img
-                  src={bloodImg}
+                  src={bloodHeroImg}
                   alt="Blood donation awareness"
                   className="rounded-2xl shadow-lg w-full object-cover h-80"
                   loading="lazy"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-red-500 text-white rounded-2xl p-5 shadow-xl">
-                  <p className="text-3xl font-bold">3 Lives</p>
-                  <p className="text-sm text-white/90">saved by every donor</p>
+                <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-lg shadow-lg">
+                  <div className="text-center">
+                    <p className="text-3xl font-bold">3 Lives</p>
+                    <p className="text-sm">saved by every donor</p>
+                  </div>
                 </div>
               </div>
             </div>
