@@ -25,6 +25,7 @@ const Education = () => {
         <div className="hero-bg-layer" style={{ backgroundImage: `url(${educationHero})` }} aria-hidden />
         <div className="absolute inset-0 bg-black/45 z-10 flex items-center justify-center" aria-hidden>
           <div className="text-center text-white max-w-4xl px-6">
+            {/* <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">Mentorship Programme</h1> */}
             <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">UPLIFT</h1>
             <p className="text-xl md:text-2xl mb-6 text-green-300">Structured Mentorship for Measurable Educational Impact</p>
           </div>
