@@ -22,9 +22,7 @@ pids
 *.seed
 *.pid.lock
 
-# Env files
-.env
-.env.*
+
 
 # OS files
 .DS_Store
