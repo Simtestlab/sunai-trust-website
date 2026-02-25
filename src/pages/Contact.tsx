@@ -31,8 +31,8 @@ const contactCards = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "sunai2k3@gmail.com",
-    href: "mailto:sunai2k3@gmail.com",
+    value: "sunai2k23@gmail.com",
+    href: "mailto:sunai2k23@gmail.com",
     sub: "We respond within 24 hours",
   },
   {
