@@ -13,7 +13,7 @@ const programs = [
 		title: "Uplift",
 		subtitle: "Mentorship Programme",
 		description:
-			"A transformative mentorship initiative designed to guide, educate, and empower students and young individuals. Through leadership training, career guidance, and personal development programs, Sunai Uplift aims to unlock potential and build confident future leaders.",
+			"A transformative mentorship initiative designed to guide, educate, and empower students and young individuals. Through leadership training, career guidance, and personal development programs, Uplift aims to unlock potential and build confident future leaders.",
 		link: "/programs/education",
 	},
 	{
@@ -21,7 +21,7 @@ const programs = [
 		title: "Vanam",
 		subtitle: "Environmental Balance",
 		description:
-			"Dedicated to restoring ecological harmony, Sunai Vanam promotes tree plantation drives, environmental awareness campaigns, and sustainable living practices. Our goal is to contribute towards a greener, healthier planet for generations to come.",
+			"Dedicated to restoring ecological harmony, Vanam promotes tree plantation drives, environmental awareness campaigns, and sustainable living practices. Our goal is to contribute towards a greener, healthier planet for generations to come.",
 		link: "/programs/tree-plantation",
 	},
 	{
@@ -29,7 +29,7 @@ const programs = [
 		title: "Life",
 		subtitle: "Blood Bank Initiative",
 		description:
-			"Sunai Life focuses on saving lives by strengthening blood donation awareness and supporting blood bank networks. Through organized donation drives and partnerships, we strive to ensure timely access to safe blood for those in need.",
+			"Life focuses on saving lives by strengthening blood donation awareness and supporting blood bank networks. Through organized donation drives and partnerships, we strive to ensure timely access to safe blood for those in need.",
 		link: "/programs/blood-bank",
 	},
 	{
@@ -37,7 +37,7 @@ const programs = [
 		title: "Health",
 		subtitle: "Diagnostic & Healthcare Centres",
 		description:
-			"Committed to accessible and affordable healthcare, Sunai Health works towards establishing diagnostic and healthcare centres that provide quality medical support to underserved communities.",
+			"Committed to accessible and affordable healthcare, Health works towards establishing diagnostic and healthcare centres that provide quality medical support to underserved communities.",
 		link: "/programs/health",
 	},
 ];

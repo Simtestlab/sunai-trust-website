@@ -40,7 +40,7 @@ const highlights = [
     icon: Activity,
     title: "Blood Bank Network Support",
     description:
-      "Sunai Life actively strengthens existing blood bank networks by facilitating coordination, logistics, and timely access to safe blood for patients in need.",
+      "Life actively strengthens existing blood bank networks by facilitating coordination, logistics, and timely access to safe blood for patients in need.",
   },
   {
     icon: Heart,
@@ -92,7 +92,7 @@ const BloodBank = () => {
       <section className="relative h-96 overflow-hidden">
         <img
           src={bloodHeroImg}
-          alt="Sunai Life – Blood Bank Initiative"
+          alt="Life – Blood Bank Initiative"
           className="w-full h-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
@@ -130,7 +130,7 @@ const BloodBank = () => {
           </div>
         </section>
 
-        {/* About Sunai Life */}
+        {/* About Life */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -142,7 +142,7 @@ const BloodBank = () => {
                   One Drop Can Change a Destiny
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Sunai Life — our Blood Bank Initiative — is built on a simple yet powerful belief:
+                  Life — our Blood Bank Initiative — is built on a simple yet powerful belief:
                   no one should lose their life due to a shortage of safe blood. Across India, millions
                   of patients — from accident victims to those undergoing surgery, from mothers in
                   childbirth to children battling cancer — urgently require blood transfusions.
@@ -150,7 +150,7 @@ const BloodBank = () => {
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Despite India needing approximately 15 million units of blood annually, there remains
                   a critical gap driven by lack of awareness, myths around donation, and logistical
-                  challenges in blood bank networks. Sunai Life is committed to bridging that gap.
+                  challenges in blood bank networks. Life is committed to bridging that gap.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Through organised donation drives, community education, and network-building with
@@ -179,7 +179,7 @@ const BloodBank = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-                What Sunai Life Does
+                What Life Does
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A multi-pronged approach to building a robust, community-powered blood donation ecosystem.
@@ -210,7 +210,7 @@ const BloodBank = () => {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-slate-800 mb-4">How It Works</h2>
               <p className="text-lg text-muted-foreground">
-                Becoming part of Sunai Life is simple. Every step you take can save a life.
+                Becoming part of Life is simple. Every step you take can save a life.
               </p>
             </div>
             <div className="space-y-8">
@@ -236,7 +236,7 @@ const BloodBank = () => {
             <Heart className="w-14 h-14 mx-auto mb-4 text-white/80" />
             <h2 className="text-4xl font-bold mb-4">Be a Life-Saver</h2>
             <p className="text-lg text-white/85 mb-8 leading-relaxed">
-              Join the Sunai Life donor network. Partner with us to organise a donation camp.
+              Join the Life donor network. Partner with us to organise a donation camp.
               Your one act of generosity can give someone a second chance at life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

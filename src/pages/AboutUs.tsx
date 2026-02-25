@@ -158,7 +158,7 @@ const AboutUs = () => {
                 paragraphs={[
                   "At SUNAI, we believe that true progress is not measured by growth alone, but by the positive impact we leave on society.",
                   "SUNAI was founded with a simple yet powerful vision  to build an ecosystem where education empowers, nature thrives, and healthcare becomes accessible to every individual. We recognized that sustainable change cannot happen in isolation. It requires commitment, collaboration, and compassion.",
-                  <>Through initiatives like <strong className="text-emerald-700">Sunai Uplift, Sunai Vanam, Sunai Life, and Sunai Health</strong>, we are striving to nurture future leaders, restore environmental balance, support life-saving efforts, and strengthen community healthcare systems.</>,
+                  <>Through initiatives like <strong className="text-emerald-700">Uplift, Vanam, Life, and Health</strong>, we are striving to nurture future leaders, restore environmental balance, support life-saving efforts, and strengthen community healthcare systems.</>,
                   "Our journey is not just about launching projects  it is about building a movement where individuals, corporates, volunteers, and communities unite with a shared responsibility towards the next generation.",
                   "I invite you to join us in this mission. Together, let us create a future that is responsible, resilient, and rooted in humanity.",
                 ]}
