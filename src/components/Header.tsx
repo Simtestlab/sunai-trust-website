@@ -86,7 +86,6 @@ const Header = () => {
 
             {/* Single "Register" link — no dropdown */}
             <NavLink to="/register" className={navLinkClass}>Join us</NavLink>
-
             <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
           </nav>
 

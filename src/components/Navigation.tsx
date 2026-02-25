@@ -47,11 +47,10 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive(item.href)
-                      ? "bg-primary/10 text-primary"
-                      : "text-foreground hover:bg-muted hover:text-primary"
-                  }`}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(item.href)
+                    ? "bg-primary/10 text-primary"
+                    : "text-foreground hover:bg-muted hover:text-primary"
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -97,11 +96,10 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  isActive(item.href)
-                    ? "bg-primary/10 text-primary"
-                    : "text-foreground hover:bg-muted hover:text-primary"
-                }`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${isActive(item.href)
+                  ? "bg-primary/10 text-primary"
+                  : "text-foreground hover:bg-muted hover:text-primary"
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}

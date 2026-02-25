@@ -95,7 +95,6 @@ const BloodBank = () => {
           alt="Life – Blood Bank Initiative"
           className="w-full h-full object-cover object-center"
           loading="eager"
-          fetchPriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">

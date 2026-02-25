@@ -156,7 +156,7 @@ const Services = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="lg" asChild>
-                  <Link to="/contact" className="flex items-center">
+                  <Link to="/register" className="flex items-center">
                     Get Free Consultation
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>

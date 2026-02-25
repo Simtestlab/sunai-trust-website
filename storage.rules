@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Allow public write access to volunteer and NGO folders for submissions
+    // Allow read access so download URLs can be generated and files viewed by admin
+    
+    match /volunteers/{allPaths=**} {
+      allow read, write: if true;
+    }
+    
+    match /ngo_registrations/{allPaths=**} {
+      allow read, write: if true;
+    }
+
+    // Default rule: deny everything else
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

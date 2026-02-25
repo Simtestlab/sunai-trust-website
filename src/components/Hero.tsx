@@ -28,12 +28,10 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Community empowerment and positive change"
-          fetchPriority="high"
           loading="eager"
           onLoad={() => setLoaded(true)}
-          className={`w-full h-full object-cover transition-opacity duration-700 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
+          className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? "opacity-100" : "opacity-0"
+            }`}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-sky-700/90 via-sky-500/70 to-sky-300/30"></div>
       </div>

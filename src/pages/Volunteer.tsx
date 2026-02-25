@@ -13,7 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Upload, User, MapPin, GraduationCap, Briefcase, Heart, Phone, FileText } from "lucide-react";
+import { Upload, User, MapPin, GraduationCap, Briefcase, Heart, Phone, FileText, Loader2 } from "lucide-react";
+import { submitVolunteerForm } from "@/lib/formService";
+import { toast } from "sonner";
 
 /* ─── form state ──────────────────────────────────── */
 const initialState = {
@@ -30,7 +32,7 @@ const initialState = {
 };
 
 const educationTypes = ["High School", "Diploma", "Bachelor's", "Master's", "PhD", "Other"];
-const bloodGroups = ["A+","A-","B+","B-","AB+","AB-","O+","O-","Unknown"];
+const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Unknown"];
 
 /* ─── helpers ─────────────────────────────────────── */
 /** Reusable section wrapper */
@@ -58,8 +60,18 @@ const Section = ({
 );
 
 /* ─── component ───────────────────────────────────── */
+/* ─── validation helpers ──────────────────────────── */
+const PHONE_RE = /^[6-9]\d{9}$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const AADHAR_RE = /^\d{12}$/;
+const PINCODE_RE = /^\d{6}$/;
+
+type FormErrors = Partial<Record<keyof typeof initialState, string>>;
+
 const Volunteer = () => {
   const [form, setForm] = useState(initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [photoName, setPhotoName] = useState("");
   const [aadharCopyName, setAadharCopyName] = useState("");
   const [resumeName, setResumeName] = useState("");
@@ -71,6 +83,33 @@ const Volunteer = () => {
 
   const aadharInputRef = useRef<HTMLInputElement | null>(null);
   const resumeInputRef = useRef<HTMLInputElement | null>(null);
+
+  /* ─── validate all fields ─────────────────────────── */
+  const validate = (): FormErrors => {
+    const e: FormErrors = {};
+    // Required text fields
+    if (!form.firstName.trim()) e.firstName = "First name is required.";
+    if (!form.phoneNumber.trim()) e.phoneNumber = "Phone number is required.";
+    else if (!PHONE_RE.test(form.phoneNumber.trim())) e.phoneNumber = "Enter a valid 10-digit mobile number.";
+    if (!form.whatsappNumber.trim()) e.whatsappNumber = "WhatsApp number is required.";
+    else if (!PHONE_RE.test(form.whatsappNumber.trim())) e.whatsappNumber = "Enter a valid 10-digit mobile number.";
+    if (!form.email.trim()) e.email = "Email is required.";
+    else if (!EMAIL_RE.test(form.email.trim())) e.email = "Enter a valid email address.";
+    if (!form.address.trim()) e.address = "Address is required.";
+    if (!form.location.trim()) e.location = "Location is required.";
+    if (!form.country.trim()) e.country = "Country is required.";
+    if (!form.state.trim()) e.state = "State is required.";
+    if (!form.city.trim()) e.city = "City is required.";
+    if (!form.pincode.trim()) e.pincode = "Pincode is required.";
+    else if (!PINCODE_RE.test(form.pincode.trim())) e.pincode = "Enter a valid 6-digit pincode.";
+    if (!form.aadharNumber.trim()) e.aadharNumber = "Aadhar / ID number is required.";
+    else if (!AADHAR_RE.test(form.aadharNumber.trim())) e.aadharNumber = "Enter a valid 12-digit Aadhar number.";
+    if (!form.areaOfInterest.trim()) e.areaOfInterest = "Area of interest is required.";
+    // Optional but validated if filled
+    if (form.emergencyNumber.trim() && !PHONE_RE.test(form.emergencyNumber.trim()))
+      e.emergencyNumber = "Enter a valid 10-digit mobile number.";
+    return e;
+  };
 
   /* handlers — kept exactly the same as before */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -116,7 +155,36 @@ const Volunteer = () => {
   };
   const handleSelectChange = (name: string, value: string) => setForm({ ...form, [name]: value });
   const handleReset = () => { setForm(initialState); setPhotoName(""); setAadharCopyName(""); setResumeName(""); };
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); console.log(form); alert("Volunteer registration submitted!"); };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const errors = validate();
+    setFormErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      toast.error("Please fix the errors before submitting.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      await submitVolunteerForm(
+        form as unknown as Record<string, unknown>,
+        form.photo,
+        form.aadharCopy,
+        form.resume
+      );
+      toast.success("Volunteer registration submitted successfully!", {
+        description: "We will review your application and get back to you soon.",
+      });
+      handleReset();
+      setFormErrors({});
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast.error("Failed to submit registration", {
+        description: "Please check your internet connection and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   /* ── file drop zone helper ──────────────────────── */
   const FileDropZone = ({
@@ -176,7 +244,8 @@ const Volunteer = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
                   <Label htmlFor="firstName">First Name *</Label>
-                  <Input id="firstName" name="firstName" value={form.firstName} onChange={handleChange} required />
+                  <Input id="firstName" name="firstName" value={form.firstName} onChange={handleChange} />
+                  {formErrors.firstName && <p className="text-sm text-red-600">{formErrors.firstName}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="lastName">Last Name</Label>
@@ -184,11 +253,13 @@ const Volunteer = () => {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="phoneNumber">Phone Number *</Label>
-                  <Input id="phoneNumber" name="phoneNumber" value={form.phoneNumber} onChange={handleChange} required />
+                  <Input id="phoneNumber" name="phoneNumber" value={form.phoneNumber} onChange={handleChange} maxLength={10} />
+                  {formErrors.phoneNumber && <p className="text-sm text-red-600">{formErrors.phoneNumber}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="whatsappNumber">WhatsApp Number *</Label>
-                  <Input id="whatsappNumber" name="whatsappNumber" value={form.whatsappNumber} onChange={handleChange} required />
+                  <Input id="whatsappNumber" name="whatsappNumber" value={form.whatsappNumber} onChange={handleChange} maxLength={10} />
+                  {formErrors.whatsappNumber && <p className="text-sm text-red-600">{formErrors.whatsappNumber}</p>}
                 </div>
               </div>
 
@@ -213,7 +284,8 @@ const Volunteer = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-5">
                 <div className="space-y-1.5">
                   <Label htmlFor="email">Email *</Label>
-                  <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} required />
+                  <Input id="email" name="email" type="email" value={form.email} onChange={handleChange} />
+                  {formErrors.email && <p className="text-sm text-red-600">{formErrors.email}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="dob">Date of Birth *</Label>
@@ -241,32 +313,39 @@ const Volunteer = () => {
             <Section step={2} icon={MapPin} title="Address & Identification">
               <div className="space-y-1.5">
                 <Label htmlFor="address">Address *</Label>
-                <Textarea id="address" name="address" value={form.address} onChange={handleChange} rows={3} required />
+                <Textarea id="address" name="address" value={form.address} onChange={handleChange} rows={3} />
+                {formErrors.address && <p className="text-sm text-red-600">{formErrors.address}</p>}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
                 <div className="space-y-1.5">
                   <Label htmlFor="location">Location *</Label>
-                  <Input id="location" name="location" value={form.location} onChange={handleChange} required />
+                  <Input id="location" name="location" value={form.location} onChange={handleChange} />
+                  {formErrors.location && <p className="text-sm text-red-600">{formErrors.location}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="country">Country *</Label>
-                  <Input id="country" name="country" value={form.country} onChange={handleChange} required />
+                  <Input id="country" name="country" value={form.country} onChange={handleChange} />
+                  {formErrors.country && <p className="text-sm text-red-600">{formErrors.country}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="state">State *</Label>
-                  <Input id="state" name="state" value={form.state} onChange={handleChange} required />
+                  <Input id="state" name="state" value={form.state} onChange={handleChange} />
+                  {formErrors.state && <p className="text-sm text-red-600">{formErrors.state}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="city">City *</Label>
-                  <Input id="city" name="city" value={form.city} onChange={handleChange} required />
+                  <Input id="city" name="city" value={form.city} onChange={handleChange} />
+                  {formErrors.city && <p className="text-sm text-red-600">{formErrors.city}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="pincode">Pincode *</Label>
-                  <Input id="pincode" name="pincode" value={form.pincode} onChange={handleChange} required />
+                  <Input id="pincode" name="pincode" value={form.pincode} onChange={handleChange} maxLength={6} />
+                  {formErrors.pincode && <p className="text-sm text-red-600">{formErrors.pincode}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="aadharNumber">Aadhar / ID Number *</Label>
-                  <Input id="aadharNumber" name="aadharNumber" value={form.aadharNumber} onChange={handleChange} required />
+                  <Input id="aadharNumber" name="aadharNumber" value={form.aadharNumber} onChange={handleChange} maxLength={12} />
+                  {formErrors.aadharNumber && <p className="text-sm text-red-600">{formErrors.aadharNumber}</p>}
                 </div>
               </div>
               <div className="mt-5">
@@ -342,7 +421,8 @@ const Volunteer = () => {
               </div>
               <div className="space-y-1.5 mt-5">
                 <Label htmlFor="areaOfInterest">Area of Interest *</Label>
-                <Textarea id="areaOfInterest" name="areaOfInterest" value={form.areaOfInterest} onChange={handleChange} rows={3} required placeholder="Describe the areas you are most passionate about..." />
+                <Textarea id="areaOfInterest" name="areaOfInterest" value={form.areaOfInterest} onChange={handleChange} rows={3} placeholder="Describe the areas you are most passionate about..." />
+                {formErrors.areaOfInterest && <p className="text-sm text-red-600">{formErrors.areaOfInterest}</p>}
               </div>
             </Section>
 
@@ -355,7 +435,8 @@ const Volunteer = () => {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="emergencyNumber">Contact Number</Label>
-                  <Input id="emergencyNumber" name="emergencyNumber" value={form.emergencyNumber} onChange={handleChange} />
+                  <Input id="emergencyNumber" name="emergencyNumber" value={form.emergencyNumber} onChange={handleChange} maxLength={10} />
+                  {formErrors.emergencyNumber && <p className="text-sm text-red-600">{formErrors.emergencyNumber}</p>}
                 </div>
               </div>
             </Section>
@@ -370,8 +451,16 @@ const Volunteer = () => {
               <Button type="button" variant="outline" onClick={handleReset} className="min-w-[130px] rounded-xl">
                 Reset Form
               </Button>
-              <Button type="submit" className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg">
-                Submit Application
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-semibold shadow-md hover:shadow-lg disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Submitting…</>
+                ) : (
+                  "Submit Application"
+                )}
               </Button>
             </div>
           </form>

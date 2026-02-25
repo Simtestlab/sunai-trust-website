@@ -4,16 +4,14 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   ArrowRight,
   Facebook,
   Instagram,
   Linkedin,
   Twitter,
   Youtube,
-  ChevronRight,
+  Send,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import contactHero from "@/assets/connect_with_us.jpg";
 
 const officeAddress =
@@ -43,21 +41,6 @@ const contactCards = [
     sub: "46, Ramar Kovil St, Ram Nagar – 641009",
     external: true,
   },
-];
-
-const officeHours = [
-  { day: "Monday – Friday", time: "9:00 AM – 6:00 PM" },
-  { day: "Saturday", time: "9:00 AM – 1:00 PM" },
-  { day: "Sunday", time: "Closed" },
-];
-
-const quickLinks = [
-  { label: "About Us", to: "/about" },
-  { label: "Our Programs", to: "/projects" },
-  { label: "Volunteer", to: "/volunteer" },
-  { label: "NGO Registration", to: "/ngo-registration" },
-  { label: "Our Team", to: "/team" },
-  { label: "Blogs & News", to: "/blogs" },
 ];
 
 const socialLinks = [
@@ -153,18 +136,7 @@ const Contact = () => {
             {/* ── Map (main content) ── */}
             <div className="lg:col-span-2 space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-slate-800 mb-1">Find Our Office</h2>
-                <p className="text-slate-500 text-sm mb-5">
-                  46, Ramar Kovil Street, Ram Nagar, Coimbatore – 641009, Tamil Nadu, India.{" "}
-                  <a
-                    href={officeMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-600 font-semibold hover:underline"
-                  >
-                    Open in Google Maps →
-                  </a>
-                </p>
+
                 <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72 md:h-96 bg-slate-100">
                   <iframe
                     title="SUNAI Office Location"
@@ -175,21 +147,20 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
-              {/* Reach out notice */}
-
             </div>
 
             {/* ── Sidebar ── */}
             <aside className="space-y-6">
-
-
-
-
-
               {/* Social Media */}
               <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-                <h3 className="font-bold text-slate-800 text-base mb-4">Follow Us</h3>
+                <h3 className="font-bold text-slate-800 text-base mb-4 flex items-center gap-2">
+                  <Send className="w-4 h-4 text-emerald-600" />
+                  
+                  Follow Our Journey
+                </h3>
+                <p className="text-slate-500 text-sm mb-5">
+                  Stay updated with our latest initiatives and impact stories through our social channels.
+                </p>
                 <div className="space-y-2">
                   {socialLinks.map(({ icon: Icon, label, href, color }) => (
                     <a
@@ -207,11 +178,11 @@ const Contact = () => {
                 </div>
               </div>
 
+              {/* Quick Info Card */}
+
             </aside>
           </div>
         </section>
-
-        {/* ── CTA Banner ── */}
 
       </main>
       <Footer />
