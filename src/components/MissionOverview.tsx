@@ -59,14 +59,14 @@ const MissionOverview = () => {
           <div className="green-divider mt-6"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 -mx-6 md:-mx-12 px-6 md:px-12">
             {programs.map((program) => (
               <div key={program.title} className="mission-card">
                 <Card className="rounded-2xl overflow-hidden border border-emerald-100 shadow-lg hover:shadow-xl transition-shadow h-full">
                   <CardContent className="p-0 h-full flex flex-col">
                     <Link to={program.link} className="group">
-                      <div className="relative h-64 overflow-hidden">
+                      <div className="relative h-48 overflow-hidden">
                         <img
                           src={program.image}
                           alt={program.title}
@@ -79,8 +79,8 @@ const MissionOverview = () => {
                         </div>
                       </div>
                     </Link>
-                    <div className="p-8 flex-1 flex flex-col">
-                      <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 flex-1">
+                    <div className="p-4 flex-1 flex flex-col">
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 flex-1">
                         {program.description}
                       </p>
                       <div>
