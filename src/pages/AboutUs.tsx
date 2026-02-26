@@ -93,8 +93,8 @@ const MessagePanel = ({
 const AboutUs = () => {
   useScrollReveal();
 
-  const founder  = { img: person1, name: "Mukesh Singh",    title: "Founder & Program Director" };
-  const cofounder = { img: person2, name: "Dr. Rajesh Kumar", title: "Co-Founder" };
+  const founder  = { img: person1, name: "Mr.Muthukumar",    title: "Founder & Program Director" };
+  const cofounder = { img: person2, name: "Mr.Ramachandran", title: "Co-Founder" };
 
   const boardMembers: MemberProfile[] = [
     {
