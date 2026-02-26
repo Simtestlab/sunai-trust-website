@@ -74,15 +74,15 @@ const Team = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <TeamCard
                 img={person1}
-                name="Mukesh Singh"
+                name="Mr. Muthukumar"
                 title="Program Director"
-                desc="Mukesh has a rich experience of over 25 years marked by remarkable achievements and impactful leadership in the fields of rural development, strategic planning, and community engagement. He has led organizations across multiple states, focusing on sustainable development programs that create lasting change."
+                desc="Mr. Muthukumar has a rich experience of over 25 years marked by remarkable achievements and impactful leadership in the fields of rural development, strategic planning, and community engagement. He has led organizations across multiple states, focusing on sustainable development programs that create lasting change."
               />
               <TeamCard
                 img={person2}
-                name="Dr. Rajesh Kumar"
+                name="Mr. Ramachandran"
                 title="Field Coordinator"
-                desc="Dr. Rajesh comes with 15+ years of working experience at senior positions in large-scale operations, community mobilization, and field implementation. He has expertise in grassroots program delivery and has successfully coordinated programs across remote villages and urban settlements."
+                desc="Mr. Ramachandran comes with 15+ years of working experience at senior positions in large-scale operations, community mobilization, and field implementation. He has expertise in grassroots program delivery and has successfully coordinated programs across remote villages and urban settlements."
               />
               <TeamCard
                 img={person3}
